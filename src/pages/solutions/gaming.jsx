@@ -5,7 +5,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import classNames from "classnames";
 import { useInView } from "react-intersection-observer";
 import dynamic from "next/dynamic";
-import Lottie from "react-lottie";
 
 import Layout from "@/components/solutions/layout";
 import GamingVideoHero from "@/components/solutions/gaming/GamingVideoHero";
@@ -25,9 +24,6 @@ import { AnimatedText, GradientText } from "@/components/shared/Text";
 
 import styles from "./Gaming.module.scss";
 
-import * as blinksLottie from "../../../assets/solutions/gaming/Gaming_Blinks_V1.json";
-import * as mintPonyCoinLottie from "../../../assets/solutions/gaming/Gaming_MintPonyCoin.json";
-import * as nftLottie from "../../../assets/solutions/gaming/Gaming_NFT.json";
 import spotlightImg from "../../../assets/solutions/gaming/Spotlight.jpg";
 
 const Gaming = () => {
@@ -142,16 +138,7 @@ const Gaming = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn>
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: nftLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="below"
               className={styles.CreateWithoutConstraint}
               mediaClassName={styles.MediaComponent}
@@ -177,16 +164,7 @@ const Gaming = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: blinksLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-gaming.engage-anywhere.title")}
               subtitleComponent={
@@ -204,16 +182,7 @@ const Gaming = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: mintPonyCoinLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={t("solutions-gaming.control-customize.title")}
               subtitleComponent={

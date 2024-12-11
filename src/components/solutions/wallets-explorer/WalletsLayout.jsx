@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
-import Lottie from "react-lottie";
 
 import { walletData } from "../../../data/wallets/wallet-data";
 import { walletFiltersData } from "../../../data/wallets/wallet-filters";
@@ -9,8 +8,6 @@ import WalletFilters from "./WalletFilters";
 import { OpacityInText } from "@/components/shared/Text";
 
 import styles from "./WalletsLayout.module.scss";
-
-import * as walletHeroLottie from "../../../../assets/wallets/wallet-finder.json";
 
 const WalletsLayout = () => {
   const { t } = useTranslation();
@@ -43,17 +40,6 @@ const WalletsLayout = () => {
             <OpacityInText element="p" as="paragraph" delayIndex={1}>
               {t("solutions-wallets-explorer.hero.text")}
             </OpacityInText>
-          </div>
-
-          <div className={styles.LottieContainer}>
-            <Lottie
-              options={{
-                animationData: walletHeroLottie,
-                loop: true,
-                autoplay: true,
-              }}
-              isClickToPauseDisabled={true}
-            />
           </div>
         </div>
       </section>

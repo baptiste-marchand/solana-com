@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Lottie from "react-lottie";
 
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
@@ -26,10 +25,6 @@ import EcosystemToggle, {
 import Button from "@/components/solutions/Button";
 
 import styles from "./TE.module.scss";
-
-import * as longformOne from "../../../assets/solutions/token-extensions/Token Extensions_Confidential Transfer_V1.json";
-import * as longformTwo from "../../../assets/solutions/token-extensions/Token Extensions_KYC_V1.json";
-import * as longformThree from "../../../assets/solutions/token-extensions/Token Extensions_Transfer Fees_V1.json";
 
 import paypalLogo from "../../../assets/solutions/token-extensions/paypal-logo.svg";
 import paypalMain from "../../../assets/solutions/token-extensions/paypal-main.png";
@@ -536,16 +531,7 @@ const TokenExtensions = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: longformOne,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={t(
                 "solutions-token-extensions.longform-one.title",
@@ -559,18 +545,7 @@ const TokenExtensions = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <div className={styles.TokenExtensionsMedia}>
-                  <Lottie
-                    options={{
-                      animationData: longformTwo,
-                      loop: true,
-                      autoplay: true,
-                    }}
-                    isClickToPauseDisabled={true}
-                  />
-                </div>
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={t(
                 "solutions-token-extensions.longform-two.title",
@@ -584,16 +559,7 @@ const TokenExtensions = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: longformThree,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={t(
                 "solutions-token-extensions.longform-three.title",

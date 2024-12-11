@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Lottie from "react-lottie";
 import classNames from "classnames";
 
 import Layout from "@/components/solutions/layout";
@@ -28,11 +27,6 @@ import * as mobileHeroWithSolana from "../../../assets/solutions/payments/Mobile
 import * as mobileHeroWithoutSolana from "../../../assets/solutions/payments/MobileHero_WithoutSolana.json";
 import * as desktopHeroWithSolana from "../../../assets/solutions/payments/DesktopHero_WithSolana.json";
 import * as desktopHeroWithoutSolana from "../../../assets/solutions/payments/DesktopHero_WithoutSolana.json";
-
-import * as solanaPayLottie from "../../../assets/solutions/payments/Solana Pay_V1.json";
-import * as kycLottie from "../../../assets/solutions/payments/KYC.json";
-import * as blinksLottie from "../../../assets/solutions/payments/Blinks.json";
-import * as gaslessLottie from "../../../assets/solutions/payments/GaslessRelayer.json";
 
 import caseStudyHelioMobileImg from "../../../assets/solutions/payments/helio-case.png";
 import caseStudyVisaImg from "../../../assets/solutions/payments/visa-case.png";
@@ -255,18 +249,7 @@ export default function Payments() {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <div className={styles.TokenExtensionsMedia}>
-                  <Lottie
-                    options={{
-                      animationData: kycLottie,
-                      loop: true,
-                      autoplay: true,
-                    }}
-                    isClickToPauseDisabled={true}
-                  />
-                </div>
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-payments.token-extensions.title")}
               subtitleComponent={
@@ -288,16 +271,7 @@ export default function Payments() {
 
           <MotionSlideIn>
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: gaslessLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               textContentDesktopDirection="column"
               mediaDesktopPlacement="below"
               titleComponent={t(
@@ -312,16 +286,7 @@ export default function Payments() {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: blinksLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={t("solutions-payments.blinks-actions.title")}
               subtitleComponent={
@@ -340,16 +305,7 @@ export default function Payments() {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: solanaPayLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-payments.solana-pay.title")}
               subtitleComponent={

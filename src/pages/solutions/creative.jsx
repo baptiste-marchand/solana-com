@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useTranslation, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Lottie from "react-lottie";
 import classNames from "classnames";
 
 import HTMLHead from "@/components/HTMLHead";
@@ -25,9 +24,6 @@ import { AnimatedText, GradientText } from "@/components/shared/Text";
 import { MotionSlideIn } from "@/components/shared/Motions";
 
 import styles from "./Creative.module.scss";
-
-import * as blinksLottie from "../../../assets/solutions/creative/Blinks.json";
-import * as nftLottie from "../../../assets/solutions/creative/NFT.json";
 
 const Creative = () => {
   const { t } = useTranslation();
@@ -267,16 +263,7 @@ const Creative = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: blinksLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-creative.meet-users.title")}
               subtitleComponent={
@@ -295,16 +282,7 @@ const Creative = () => {
 
           <MotionSlideIn>
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: nftLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               textContentDesktopDirection="row"
               titleComponent={t("solutions-creative.mint-digital.title")}
               subtitleComponent={

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Lottie from "react-lottie";
 
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
@@ -23,10 +22,6 @@ import { MotionSlideIn } from "@/components/shared/Motions";
 import { GradientText } from "@/components/shared/Text";
 
 import styles from "./IF.module.scss";
-
-import * as longformOne from "../../../assets/solutions/institutional-finance/InstitutionalFinance_PermanentDelegate_V1.json";
-import * as longformTwo from "../../../assets/solutions/institutional-finance/Institutional Finance_SPE_V1.json";
-import * as longformThree from "../../../assets/solutions/institutional-finance/Institutional Finance_RWA_V1.json";
 
 import homebaseLogo from "../../../assets/solutions/institutional-finance/homebase-logo.png";
 import homebaseMain from "../../../assets/solutions/institutional-finance/homebase-main.jpg";
@@ -226,18 +221,7 @@ const InstitutionalFinance = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <div className={styles.TokenExtensionsMedia}>
-                  <Lottie
-                    options={{
-                      animationData: longformOne,
-                      loop: true,
-                      autoplay: true,
-                    }}
-                    isClickToPauseDisabled={true}
-                  />
-                </div>
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={t(
                 "solutions-institutional-finance.longform-two.title",
@@ -256,16 +240,7 @@ const InstitutionalFinance = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: longformThree,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={t(
                 "solutions-institutional-finance.longform-three.title",
@@ -289,16 +264,7 @@ const InstitutionalFinance = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: longformTwo,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={t(
                 "solutions-institutional-finance.longform-one.title",

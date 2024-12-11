@@ -1,7 +1,6 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import Link from "next/link";
-import Lottie from "react-lottie";
 
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
@@ -20,11 +19,6 @@ import DeveloperResources, {
 import FooterCallout from "@/components/solutions/FooterCallout";
 
 import styles from "./Wallets.module.scss";
-
-import * as multiSigLottie from "../../../assets/learn/wallets/Wallets_Multi Sig Add_V1.json";
-import * as custodexLottie from "../../../assets/learn/wallets/Wallets_Custodex_V1.json";
-import * as stealthGuardLottie from "../../../assets/learn/wallets/Wallets_StealthGuard_V1.json";
-import * as walletHeroLottie from "../../../assets/wallets/wallet-finder.json";
 
 const Wallets = () => {
   const { t } = useTranslation();
@@ -126,16 +120,7 @@ const Wallets = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: multiSigLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={t("learn-wallets.longform.multisig.title")}
               subtitleComponent={
@@ -162,16 +147,7 @@ const Wallets = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: custodexLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={
                 <Link
@@ -214,16 +190,7 @@ const Wallets = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: stealthGuardLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={t("learn-wallets.longform.non-custodial.title")}
               subtitleComponent={
@@ -301,16 +268,7 @@ const Wallets = () => {
           title={t("learn-wallets.developer-resources.title")}
           links={developerResourcesLinks}
           id="developer-resources"
-          media={
-            <Lottie
-              options={{
-                animationData: walletHeroLottie,
-                loop: true,
-                autoplay: true,
-              }}
-              isClickToPauseDisabled={true}
-            />
-          }
+          media={<></>}
         />
 
         <FooterCallout

@@ -3,7 +3,6 @@ import Layout from "@/components/solutions/layout";
 import { useTranslation, Trans } from "next-i18next";
 import HTMLHead from "@/components/HTMLHead";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Lottie from "react-lottie";
 import BlinksHero from "@/components/solutions/blinks-and-actions/BlinksHero";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import LongformItem from "@/components/solutions/LongformItem";
@@ -18,12 +17,6 @@ import CardsSlider from "@/components/shared/CardsSlider";
 import styles from "./BlinksAndActions.module.scss";
 
 import { MotionSlideIn } from "@/components/shared/Motions";
-
-import * as blinksLottie from "../../../assets/solutions/blinks-and-actions/Blinks_Blinks_V1.json";
-import * as notificationsLottie from "../../../assets/solutions/blinks-and-actions/Blinks_Notification_V1.json";
-import * as payLottie from "../../../assets/solutions/blinks-and-actions/Blinks_Pay_V1.json";
-import * as socialLottie from "../../../assets/solutions/blinks-and-actions/Blinks_Social.json";
-import * as messagingLottie from "../../../assets/solutions/blinks-and-actions/Blinks_Messaging.json";
 
 const BlinksAndActions = () => {
   const { t } = useTranslation();
@@ -97,27 +90,12 @@ const BlinksAndActions = () => {
     />,
   ];
 
-  const lottieOptions = {
-    loop: true,
-    autoplay: true,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-      className: styles.Lottie,
-    },
-  };
-
   const mediaOptionSelectionOptions = [
     {
       label: "Push Notifications",
       media: (
         <MotionSlideIn>
-          <Lottie
-            options={{
-              animationData: notificationsLottie,
-              ...lottieOptions,
-            }}
-            isClickToPauseDisabled={true}
-          />
+          <></>
         </MotionSlideIn>
       ),
     },
@@ -125,13 +103,7 @@ const BlinksAndActions = () => {
       label: "QR codes",
       media: (
         <MotionSlideIn>
-          <Lottie
-            options={{
-              animationData: payLottie,
-              ...lottieOptions,
-            }}
-            isClickToPauseDisabled={true}
-          />
+          <></>
         </MotionSlideIn>
       ),
     },
@@ -139,13 +111,7 @@ const BlinksAndActions = () => {
       label: "Social Posts",
       media: (
         <MotionSlideIn>
-          <Lottie
-            options={{
-              animationData: socialLottie,
-              ...lottieOptions,
-            }}
-            isClickToPauseDisabled={true}
-          />
+          <></>
         </MotionSlideIn>
       ),
     },
@@ -153,13 +119,7 @@ const BlinksAndActions = () => {
       label: "Messaging Apps",
       media: (
         <MotionSlideIn>
-          <Lottie
-            options={{
-              animationData: messagingLottie,
-              ...lottieOptions,
-            }}
-            isClickToPauseDisabled={true}
-          />
+          <></>
         </MotionSlideIn>
       ),
     },
@@ -193,16 +153,7 @@ const BlinksAndActions = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: blinksLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               className={styles.LongformItem1}
               mediaClassName={styles.LongformItemMedia}

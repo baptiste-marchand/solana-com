@@ -1,10 +1,8 @@
-import { useState } from "react";
 import Link from "next/link";
 import Layout from "@/components/solutions/layout";
 import { useTranslation, Trans } from "next-i18next";
 import HTMLHead from "@/components/HTMLHead";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Lottie from "react-lottie";
 
 import WalletsHero from "@/components/solutions/wallets/WalletsHero";
 import WalletsExploreSolutions from "@/components/solutions/wallets/WalletsExploreSolutions";
@@ -17,21 +15,9 @@ import DeveloperResources, {
 } from "@/components/solutions/DeveloperResources";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import { GradientText, AnimatedText } from "@/components/shared/Text";
-import LottieCarousel, {
-  LottieCarouselItem,
-} from "@/components/shared/LottieCarousel";
 import { MotionSlideIn } from "@/components/shared/Motions";
 
 import styles from "./Wallets.module.scss";
-
-import * as blinksLottie from "../../../assets/solutions/wallets/Blinks.json";
-import * as gaslessLottie from "../../../assets/solutions/wallets/GaslessRelayer.json";
-import * as kycLottie from "../../../assets/solutions/wallets/KYC.json";
-import * as securityLottie from "../../../assets/solutions/wallets/Security.json";
-
-import * as multiSigLottie from "../../../assets/learn/wallets/Wallets_Multi Sig Add_V1.json";
-import * as custodexLottie from "../../../assets/learn/wallets/Wallets_Custodex_V1.json";
-import * as stealthGuardLottie from "../../../assets/learn/wallets/Wallets_StealthGuard_V1.json";
 
 const Wallets = () => {
   const { t } = useTranslation();
@@ -128,70 +114,6 @@ const Wallets = () => {
     />,
   ];
 
-  const [
-    walletTypesLottiePausedStateMobile,
-    setWalletTypesLottiePausedStateMobile,
-  ] = useState([false, true, true]);
-
-  const [
-    walletTypesLottiePausedStateDesktop,
-    setWalletTypesLottiePausedStateDesktop,
-  ] = useState([true, false, true]);
-
-  const walletTypesItemsMobile = [
-    <LottieCarouselItem
-      lottie={custodexLottie}
-      text={
-        <Trans i18nKey="solutions-wallets.wallet-types.items.custodial.text" />
-      }
-      isLottiePaused={walletTypesLottiePausedStateMobile[0]}
-      key="custodial"
-    />,
-    <LottieCarouselItem
-      lottie={stealthGuardLottie}
-      text={
-        <Trans i18nKey="solutions-wallets.wallet-types.items.non-custodial.text" />
-      }
-      isLottiePaused={walletTypesLottiePausedStateMobile[1]}
-      key="non-custodial"
-    />,
-    <LottieCarouselItem
-      lottie={multiSigLottie}
-      text={
-        <Trans i18nKey="solutions-wallets.wallet-types.items.multisig.text" />
-      }
-      isLottiePaused={walletTypesLottiePausedStateMobile[2]}
-      key="multisig"
-    />,
-  ];
-
-  const walletTypesItemsDesktop = [
-    <LottieCarouselItem
-      lottie={multiSigLottie}
-      text={
-        <Trans i18nKey="solutions-wallets.wallet-types.items.multisig.text" />
-      }
-      isLottiePaused={walletTypesLottiePausedStateDesktop[0]}
-      key="multisig"
-    />,
-    <LottieCarouselItem
-      lottie={custodexLottie}
-      text={
-        <Trans i18nKey="solutions-wallets.wallet-types.items.custodial.text" />
-      }
-      isLottiePaused={walletTypesLottiePausedStateDesktop[1]}
-      key="custodial"
-    />,
-    <LottieCarouselItem
-      lottie={stealthGuardLottie}
-      text={
-        <Trans i18nKey="solutions-wallets.wallet-types.items.non-custodial.text" />
-      }
-      isLottiePaused={walletTypesLottiePausedStateDesktop[2]}
-      key="non-custodial"
-    />,
-  ];
-
   return (
     <Layout headerClassName={styles.Header}>
       <HTMLHead
@@ -213,15 +135,6 @@ const Wallets = () => {
               }}
             />
           </AnimatedText>
-
-          <LottieCarousel
-            itemsMobile={walletTypesItemsMobile}
-            itemsDesktop={walletTypesItemsDesktop}
-            itemsStateMobile={walletTypesLottiePausedStateMobile}
-            setItemsStateMobile={setWalletTypesLottiePausedStateMobile}
-            itemsStateDesktop={walletTypesLottiePausedStateDesktop}
-            setItemsStateDesktop={setWalletTypesLottiePausedStateDesktop}
-          />
         </div>
 
         <BasicCallout
@@ -242,16 +155,7 @@ const Wallets = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: kycLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-wallets.compliance-in-a-box.title")}
               subtitleComponent={
@@ -278,16 +182,7 @@ const Wallets = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: blinksLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={
                 <Link
@@ -310,16 +205,7 @@ const Wallets = () => {
           </MotionSlideIn>
 
           <LongformItem
-            mediaComponent={
-              <Lottie
-                options={{
-                  animationData: gaslessLottie,
-                  loop: true,
-                  autoplay: true,
-                }}
-                isClickToPauseDisabled={true}
-              />
-            }
+            mediaComponent={<></>}
             textContentDesktopDirection="row"
             mediaDesktopPlacement="below"
             titleComponent={t("solutions-wallets.feeless-transactions.title")}
@@ -335,16 +221,7 @@ const Wallets = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: securityLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-wallets.unrivaled-security.title")}
               subtitleComponent={

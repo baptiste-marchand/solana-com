@@ -1,4 +1,3 @@
-import Lottie from "react-lottie";
 import { useTranslation, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import classNames from "classnames";
@@ -9,7 +8,6 @@ import Stats from "@/components/solutions/Stats";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import LongformItem from "@/components/solutions/LongformItem";
 import FooterCallout from "@/components/solutions/FooterCallout";
-import LoyaltyHero from "@/components/solutions/loyalty/LoyaltyHero";
 import CardsSlider from "@/components/shared/CardsSlider";
 import { StoryCard } from "@/components/solutions/SuccessStories";
 import DeveloperResources, {
@@ -20,12 +18,6 @@ import { GradientText } from "@/components/shared/Text";
 import SuccessStories from "@/components/solutions/SuccessStories";
 
 import styles from "./Loyalty.module.scss";
-
-import * as heroLottie from "../../../assets/solutions/loyalty/Loyalty_Hero_V1.json";
-import * as LongformOneLottie from "../../../assets/solutions/loyalty/Loyalty_TokenExtensions.json";
-import * as LongformTwoLottie from "../../../assets/solutions/loyalty/Loyalty_State Compression_V1.json";
-import * as LongformThreeLottie from "../../../assets/solutions/loyalty/Loyalty_Solana Pay_V1.json";
-import * as LongformFourLottie from "../../../assets/solutions/loyalty/Loyalty_Secret Menu Item_V1.json";
 
 const Loyalty = () => {
   const { t } = useTranslation();
@@ -156,8 +148,6 @@ const Loyalty = () => {
       />
 
       <div className={styles.LoyaltyPage} id="loyalty-page">
-        <LoyaltyHero heroLottie={heroLottie} />
-
         <Stats
           titleContent={
             <Trans
@@ -195,16 +185,7 @@ const Loyalty = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: LongformOneLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={longformContent[0].title}
               subtitleComponent={longformContent[0].text}
@@ -214,16 +195,7 @@ const Loyalty = () => {
 
           <MotionSlideIn>
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: LongformTwoLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               textContentDesktopDirection="row"
               mediaDesktopPlacement="below"
               titleComponent={longformContent[1].title}
@@ -234,16 +206,7 @@ const Loyalty = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: LongformThreeLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={longformContent[2].title}
               subtitleComponent={longformContent[2].text}
@@ -253,16 +216,7 @@ const Loyalty = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: LongformFourLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={longformContent[3].title}
               subtitleComponent={longformContent[3].text}

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useTranslation, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Lottie from "react-lottie";
 import classNames from "classnames";
 import Image from "next/image";
 
@@ -31,9 +30,6 @@ import * as mobileHeroWithSolana from "../../../assets/solutions/defi/DeFi_Mobil
 import * as mobileHeroWithoutSolana from "../../../assets/solutions/defi/DeFi_MobileHero_WithoutSolana_V1.json";
 import * as desktopHeroWithSolana from "../../../assets/solutions/defi/DeFi_DesktopHero_WithSolana_V1.json";
 import * as desktopHeroWithoutSolana from "../../../assets/solutions/defi/DeFi_DesktopHero_WithoutSolana_V1.json";
-
-import * as longformTwo from "../../../assets/solutions/defi/DeFi_Interest_V1.json";
-import * as longformOne from "../../../assets/solutions/defi/DeFi_Blinks_V1.json";
 
 import credix from "../../../assets/solutions/defi/credix.svg";
 import jupiter from "../../../assets/solutions/defi/jupiter.svg";
@@ -363,16 +359,7 @@ const DeFi = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: longformOne,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="left"
               titleComponent={t("solutions-defi.longform-one.title")}
               subtitleComponent={
@@ -387,18 +374,7 @@ const DeFi = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={
-                <div className={styles.TokenExtensionsMedia}>
-                  <Lottie
-                    options={{
-                      animationData: longformTwo,
-                      loop: true,
-                      autoplay: true,
-                    }}
-                    isClickToPauseDisabled={true}
-                  />
-                </div>
-              }
+              mediaComponent={<></>}
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-defi.longform-two.title")}
               subtitleComponent={
