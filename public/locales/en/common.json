@@ -106,8 +106,8 @@
         "explorer-header": "Validators explorer",
         "explorer-text": "View the current list of validators, their ranking by stake amount, and information about commission below.",
         "explorer-btn": "View Validators",
-        "server-header": "Server Program",
-        "server-text": "The Solana Foundation Server Program is designed to help new validators get started on the Solana network by providing access to servers at discounted prices through our partners.",
+        "education-header": "Validator Education",
+        "education-text": "The Solana Validator Education is a 2 part series on important Solana validator concepts and the steps needed to get a new validator setup.",
         "delegation-header": "Delegation Program",
         "delegation-text": "Foundation Delegation participants are eligible to receive a delegation from the Solana Foundation.",
         "delegation-btn": "Dashboard"
@@ -795,6 +795,10 @@
           "title": "Solana Program Library Documentation",
           "description": "Official docs the Solana Program Library."
         },
+        "cookbook": {
+          "title": "Cookbook",
+          "description": "Snippets and copyable example code for Solana applications."
+        },
         "resources": {
           "title": "Resources",
           "description": "Extensive developer tooling for building on Solana."
@@ -814,7 +818,7 @@
         "hello-world": "Hello World",
         "bootcamp": "Bootcamp",
         "evm-to-svm": "EVM to SVM",
-        "local-setup": "Local Setup"
+        "local-setup": "Installation"
       }
     },
     "solutions": {
