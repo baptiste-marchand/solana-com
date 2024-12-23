@@ -2,11 +2,11 @@ import Link from "next/link";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import classNames from "classnames";
+import dynamic from "next/dynamic";
 
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
 import Button from "@/components/solutions/Button";
-import LottieHeroWithTabs from "@/components/solutions/LottieHeroWithTabs";
 import Stats from "@/components/solutions/Stats";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import EcosystemSlider, { Card } from "@/components/solutions/EcosystemSlider";
@@ -18,7 +18,6 @@ import DeveloperResources, {
 } from "@/components/solutions/DeveloperResources";
 import LongformItem from "@/components/solutions/LongformItem";
 import BasicCallout from "@/components/solutions/BasicCallout";
-import { MotionSlideIn } from "@/components/shared/Motions";
 import { GradientText } from "@/components/shared/Text";
 
 import styles from "./Payments.module.scss";
@@ -31,6 +30,16 @@ import * as desktopHeroWithoutSolana from "../../../assets/solutions/payments/De
 import caseStudyHelioMobileImg from "../../../assets/solutions/payments/helio-case.png";
 import caseStudyVisaImg from "../../../assets/solutions/payments/visa-case.png";
 import caseStudyVisaLogo from "../../../assets/solutions/payments/visa-logo.svg";
+
+const LottieHeroWithTabs = dynamic(
+  () => import("@/components/solutions/LottieHeroWithTabs"),
+  { ssr: false },
+);
+
+const MotionSlideIn = dynamic(
+  () => import("@/components/shared/Motions").then((mod) => mod.MotionSlideIn),
+  { ssr: false },
+);
 
 export default function Payments() {
   const { t } = useTranslation();

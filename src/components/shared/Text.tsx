@@ -6,6 +6,7 @@ import {
   useState,
   useRef,
 } from "react";
+import type { JSX } from "react";
 import classNames from "classnames";
 import { MotionSlideIn } from "@/components/shared/Motions";
 

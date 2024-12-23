@@ -9,15 +9,15 @@ import { MotionSlideIn } from "@/components/shared/Motions";
 
 import styles from "./Companies.module.scss";
 
-import visaSvg from "../../../assets/home/companies/visa.svg";
-import paypalSvg from "../../../assets/home/companies/paypal-usd.svg";
-import stripeSvg from "../../../assets/home/companies/stripe.svg";
-import awsSvg from "../../../assets/home/companies/aws.svg";
-import mastercardSvg from "../../../assets/home/companies/mastercard.svg";
-import shopifySvg from "../../../assets/home/companies/shopify.svg";
-import googleCloudSvg from "../../../assets/home/companies/google-cloud.svg";
-import basicsSvg from "../../../assets/home/companies/basics.svg";
-import moreSvg from "../../../assets/home/companies/100-more.svg";
+const visaSvg = "/src/img/home/companies/visa.svg";
+const paypalSvg = "/src/img/home/companies/paypal-usd.svg";
+const stripeSvg = "/src/img/home/companies/stripe.svg";
+const awsSvg = "/src/img/home/companies/aws.svg";
+const mastercardSvg = "/src/img/home/companies/mastercard.svg";
+const shopifySvg = "/src/img/home/companies/shopify.svg";
+const googleCloudSvg = "/src/img/home/companies/google-cloud.svg";
+const basicsSvg = "/src/img/home/companies/basics.svg";
+const moreSvg = "/src/img/home/companies/more.svg";
 
 const Companies = () => {
   const { t } = useTranslation();
@@ -61,14 +61,19 @@ const Companies = () => {
           <Marquee pauseOnHover={false} play={true} speed={100}>
             {[...mobileLogos, ...mobileLogos].map((logo, index) => (
               <Fragment key={`logo-${index}`}>
-                <Image src={logo.src} alt={logo.alt} loading="eager" />
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={130}
+                  height={87.75}
+                />
               </Fragment>
             ))}
           </Marquee>
 
           <MotionSlideIn>
             <Image
-              src={"/src/img/home/logos/100-more.svg"}
+              src={moreSvg}
               alt={"100s more"}
               width={145}
               height={98}

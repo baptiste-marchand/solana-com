@@ -3,11 +3,11 @@ import { useTranslation, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import classNames from "classnames";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
 import Button from "@/components/solutions/Button";
-import LottieHeroWithTabs from "@/components/solutions/LottieHeroWithTabs";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import EcosystemSlider, {
   Card,
@@ -20,9 +20,7 @@ import DeveloperResources, {
 } from "@/components/solutions/DeveloperResources";
 import LongformItem from "@/components/solutions/LongformItem";
 import BasicCallout from "@/components/solutions/BasicCallout";
-import { MotionSlideIn } from "@/components/shared/Motions";
 import Text, { AnimatedText, GradientText } from "@/components/shared/Text";
-import CardsSlider from "@/components/shared/CardsSlider";
 
 import styles from "./Defi.module.scss";
 
@@ -42,6 +40,20 @@ import pyth from "../../../assets/solutions/defi/pyth.svg";
 import pyusd from "../../../assets/solutions/defi/pyusd.svg";
 import raydium from "../../../assets/solutions/defi/raydium.svg";
 import save from "../../../assets/solutions/defi/save.svg";
+
+const LottieHeroWithTabs = dynamic(
+  () => import("@/components/solutions/LottieHeroWithTabs"),
+  { ssr: false },
+);
+
+const CardsSlider = dynamic(() => import("@/components/shared/CardsSlider"), {
+  ssr: false,
+});
+
+const MotionSlideIn = dynamic(
+  () => import("@/components/shared/Motions").then((mod) => mod.MotionSlideIn),
+  { ssr: false },
+);
 
 const DeFi = () => {
   const { t } = useTranslation();

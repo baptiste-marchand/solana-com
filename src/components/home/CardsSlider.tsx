@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 
 import CaretIcon from "@/components/icons/Caret";
 import { AnimatedText } from "@/components/shared/Text";
-
+import type { JSX } from "react";
 import styles from "./CardsSlider.module.scss";
 
 interface CarouselProps {
