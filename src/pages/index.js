@@ -3,7 +3,7 @@ import { Trans, useTranslation } from "next-i18next";
 import HTMLHead from "@/components/HTMLHead";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import Hero from "@/components/home/Hero";
+import YHero from "@/components/home/YHero";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import Stats from "@/components/home/Stats";
 import JoinCommunity from "@/components/home/JoinCommunity";
@@ -88,7 +88,7 @@ export default function Home() {
         description={t("home.meta.description")}
       />
       <div id="home-page" className={styles.PageWrapper}>
-        <Hero />
+        <YHero />
 
         <div className={styles.Callout2}>
           <AnimatedText element="h2" as="heading">
@@ -102,27 +102,7 @@ export default function Home() {
           </AnimatedText>
         </div>
 
-        <Solutions />
-
         <Companies />
-
-        <BasicCallout
-          titleContent={
-            <Trans
-              i18nKey="home.callout-1.title"
-              components={{
-                gradient: (
-                  <GradientText gradient="linear-gradient(90deg, #64A8F2 0%, #9945FF 49.61%, #EB54BC 100%);" />
-                ),
-                kernout: <span className={styles.KernOut} />,
-              }}
-            />
-          }
-          subtitleKey={t("home.callout-1.subtitle")}
-          className={styles.Callout1}
-        />
-
-        <Stats stats={statsContent} />
 
         <Carousel titleKey="home.new.title" items={cards} />
 
@@ -134,11 +114,6 @@ export default function Home() {
           image="/src/img/home/developer-resources.svg"
           className={styles.DeveloperResources}
           imageClassName={styles.DeveloperResourcesImage}
-        />
-
-        <JoinCommunity
-          title={t("home.join-community.title")}
-          links={joinCommunityLinks}
         />
       </div>
     </Layout>
