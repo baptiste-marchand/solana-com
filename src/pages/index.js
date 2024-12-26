@@ -4,14 +4,10 @@ import HTMLHead from "@/components/HTMLHead";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import YHero from "@/components/home/YHero";
-import BasicCallout from "@/components/solutions/BasicCallout";
-import Stats from "@/components/home/Stats";
-import JoinCommunity from "@/components/home/JoinCommunity";
 import Companies from "@/components/home/Companies";
 import DeveloperResources from "@/components/solutions/DeveloperResources";
 import { AnimatedText, GradientText } from "@/components/shared/Text";
 import { Carousel, Card } from "@/components/home/CardsSlider";
-import Solutions from "@/components/home/Solutions";
 
 import styles from "./HomePage.module.scss";
 
@@ -89,7 +85,6 @@ export default function Home() {
       />
       <div id="home-page" className={styles.PageWrapper}>
         <YHero />
-
         <div className={styles.Callout2}>
           <AnimatedText element="h2" as="heading">
             <GradientText gradient="linear-gradient(85.62deg, #9945ff -2.51%, #14f195 92.16%)">
