@@ -14,28 +14,28 @@ import styles from "./HomePage.module.scss";
 export default function Home() {
   const { t } = useTranslation();
 
-  const statsContent = t("home.stats", {
-    returnObjects: true,
-  });
+  // const statsContent = t("home.stats", {
+  //   returnObjects: true,
+  // });
 
-  const joinCommunityLinks = [
-    {
-      text: t("home.join-community.links.x"),
-      url: "https://x.com/solana",
-    },
-    {
-      text: t("home.join-community.links.youtube"),
-      url: "https://www.youtube.com/channel/UC9AdQPUe4BdVJ8M9X7wxHUA",
-    },
-    {
-      text: t("home.join-community.links.linkedin"),
-      url: "https://www.linkedin.com/company/solana-foundation/",
-    },
-    {
-      text: t("home.join-community.links.community-groups"),
-      url: "/community",
-    },
-  ];
+  // const joinCommunityLinks = [
+  //   {
+  //     text: t("home.join-community.links.x"),
+  //     url: "https://x.com/solana",
+  //   },
+  //   {
+  //     text: t("home.join-community.links.youtube"),
+  //     url: "https://www.youtube.com/channel/UC9AdQPUe4BdVJ8M9X7wxHUA",
+  //   },
+  //   {
+  //     text: t("home.join-community.links.linkedin"),
+  //     url: "https://www.linkedin.com/company/solana-foundation/",
+  //   },
+  //   {
+  //     text: t("home.join-community.links.community-groups"),
+  //     url: "/community",
+  //   },
+  // ];
 
   const cardsData = [
     {
