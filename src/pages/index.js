@@ -4,10 +4,9 @@ import HTMLHead from "@/components/HTMLHead";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import YHero from "@/components/home/YHero";
-import Companies from "@/components/home/Companies";
 import DeveloperResources from "@/components/solutions/DeveloperResources";
 import { AnimatedText, GradientText } from "@/components/shared/Text";
-import { Carousel, Card } from "@/components/home/CardsSlider";
+import { Carousel, Card } from "@/components/home/YCardsSlider";
 
 import styles from "./HomePage.module.scss";
 
@@ -85,8 +84,6 @@ export default function Home() {
       />
       <div id="home-page" className={styles.PageWrapper}>
         <YHero />
-
-        <Companies />
 
         <Carousel titleKey="home.new.title" items={cards} />
 
