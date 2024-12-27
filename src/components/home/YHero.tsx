@@ -4,11 +4,21 @@ import { Zap, ArrowUpRight, Diamond, Leaf, Pin, Newspaper } from "lucide-react";
 import Image from "next/image";
 
 const YHero = () => {
+  const desktopLogos = [
+    { src: "/src/img/home/supporters/circle.png", alt: "Circle" },
+    { src: "/src/img/home/supporters/shopify.png", alt: "Shopify" },
+    { src: "/src/img/home/supporters/meta.png", alt: "Meta" },
+    { src: "/src/img/home/supporters/eden.png", alt: "Magic Eden" },
+    { src: "/src/img/home/supporters/stripe.png", alt: "Stripe" },
+    { src: "/src/img/home/supporters/jump.png", alt: "Jump" },
+    { src: "/src/img/home/supporters/google.png", alt: "Google" },
+    { src: "/src/img/home/supporters/discord.png", alt: "Discord" },
+  ];
+
   return (
     <div className={styles.hero}>
       <div className={styles.hero__container}>
         <div className={styles.hero__inner_container}>
-
           <h1 className={styles.hero__title}>
             Fast
             <span
@@ -67,21 +77,28 @@ const YHero = () => {
                 <Pin size="14" />
               </div>
               <div className={styles.hero__pinned_card}>
-                <Image src="/img/pinned-image.jpg" alt="Pinned image" fill />
+                <Image
+                  src="/src/img/pinned-image.jpg"
+                  alt="Pinned image"
+                  fill
+                />
                 <div className={styles.hero__blurred_info}>
                   <span>Tickets on Sale for Breakpoint 2024</span>
                   <Newspaper size="24" />
                 </div>
               </div>
             </div>
-
           </div>
+        </div>
 
+        <div className={styles.hero__supporters}>
+          {desktopLogos.slice(0, 8).map((logo) => (
+            <Image src={logo.src} alt={logo.alt} width={118} height={30} />
+          ))}
         </div>
       </div>
 
       <div className={styles.hero__random_gradient_bg}></div>
-
     </div>
   );
 };

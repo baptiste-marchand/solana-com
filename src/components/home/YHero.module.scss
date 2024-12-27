@@ -9,6 +9,9 @@
     margin: 0 auto;
     position: relative;
     z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
   }
 
   &__inner_container {
@@ -155,7 +158,7 @@
     aspect-ratio: 16/9;
     border-radius: 24px;
     overflow: hidden;
-    background: #0B0B17;
+    background: #0b0b17;
   }
 
   &__blurred_info {
@@ -164,7 +167,11 @@
     left: 0;
     width: 100%;
     padding: 1.5rem;
-    background: linear-gradient(180deg, rgba(11, 11, 23, 0) 0%, rgba(11, 11, 23, 0.8) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(11, 11, 23, 0) 0%,
+      rgba(11, 11, 23, 0.8) 100%
+    );
     backdrop-filter: blur(8px);
     display: flex;
     justify-content: space-between;
@@ -179,14 +186,30 @@
     }
   }
 
-  &__random_gradient_bg{
+  &__random_gradient_bg {
     width: 100%;
     min-height: 180px;
-    background: linear-gradient(90deg, #4E00EE 0%, #5791FF 50%, #00B790 100%);
-    filter:blur(172px);
+    background: linear-gradient(90deg, #4e00ee 0%, #5791ff 50%, #00b790 100%);
+    filter: blur(172px);
     position: absolute;
     bottom: 0;
     left: 0;
     z-index: 1;
+  }
+
+  &__supporters {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & img {
+      width: auto;
+      min-width: 100px;
+      max-height: 30px;
+      object-fit: contain;
+    }
   }
 }

@@ -85,17 +85,6 @@ export default function Home() {
       />
       <div id="home-page" className={styles.PageWrapper}>
         <YHero />
-        <div className={styles.Callout2}>
-          <AnimatedText element="h2" as="heading">
-            <GradientText gradient="linear-gradient(85.62deg, #9945ff -2.51%, #14f195 92.16%)">
-              {t("home.callout-2.title")}
-            </GradientText>
-          </AnimatedText>
-
-          <AnimatedText element="p" as="paragraph">
-            {t("home.callout-2.subtitle")}
-          </AnimatedText>
-        </div>
 
         <Companies />
 
