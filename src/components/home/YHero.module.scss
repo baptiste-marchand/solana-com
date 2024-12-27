@@ -4,58 +4,14 @@
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-  &__pinned_block {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  &__pinned_label {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--cadet-grey);
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5;
-    text-transform: uppercase;
-  }
-
-  &__pinned_card {
-    position: relative;
-    width: 100%;
-    min-height: 300px;
-    aspect-ratio: 16/9;
-    border-radius: 24px;
-    overflow: hidden;
-    background: #0B0B17;
-  }
-
-  &__blurred_info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem;
-    background: linear-gradient(180deg, rgba(11, 11, 23, 0) 0%, rgba(11, 11, 23, 0.8) 100%);
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10rem;
-
-    & span {
-      font-size: 1.6rem;
-      font-weight: 600;
-      line-height: 1.2;
-      color: #fff;
-    }
-  }
-
   &__container {
     max-width: 1200px;
     margin: 0 auto;
-    z-index: 1;
+    position: relative;
+    z-index: 5;
+  }
+
+  &__inner_container {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 6rem;
@@ -173,5 +129,64 @@
         background: transparent;
       }
     }
+  }
+
+  &__pinned_block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__pinned_label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--cadet-grey);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  &__pinned_card {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    aspect-ratio: 16/9;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #0B0B17;
+  }
+
+  &__blurred_info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(180deg, rgba(11, 11, 23, 0) 0%, rgba(11, 11, 23, 0.8) 100%);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10rem;
+
+    & span {
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #fff;
+    }
+  }
+
+  &__random_gradient_bg{
+    width: 100%;
+    min-height: 180px;
+    background: linear-gradient(90deg, #4E00EE 0%, #5791FF 50%, #00B790 100%);
+    filter:blur(172px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
   }
 }
