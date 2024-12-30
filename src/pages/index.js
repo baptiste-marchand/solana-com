@@ -4,8 +4,8 @@ import HTMLHead from "@/components/HTMLHead";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import YHero from "@/components/home/YHero";
-import DeveloperResources from "@/components/solutions/DeveloperResources";
-import { AnimatedText, GradientText } from "@/components/shared/Text";
+import YDeveloperResources from "@/components/solutions/YDeveloperResources";
+// import { AnimatedText, GradientText } from "@/components/shared/Text";
 import { Carousel, Card } from "@/components/home/YCardsSlider";
 
 import styles from "./HomePage.module.scss";
@@ -87,14 +87,14 @@ export default function Home() {
 
         <Carousel titleKey="home.new.title" items={cards} />
 
-        <DeveloperResources
+        <YDeveloperResources
           title={t("home.developer-resources.title")}
           subtitle={t("home.developer-resources.subtitle")}
-          buttonText={t("home.developer-resources.btn")}
-          buttonUrl="/docs/intro/quick-start"
-          image="/src/img/home/developer-resources.svg"
-          className={styles.DeveloperResources}
-          imageClassName={styles.DeveloperResourcesImage}
+          primaryButtonText={t("home.developer-resources.btn")}
+          primaryButtonUrl="/docs/intro/quick-start"
+          secButtonText="Resources"
+          secButtonUrl="#"
+          image="/src/img/home/dev-resources.png"
         />
       </div>
     </Layout>
