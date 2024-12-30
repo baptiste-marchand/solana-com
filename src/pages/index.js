@@ -7,6 +7,7 @@ import YHero from "@/components/home/YHero";
 import YDeveloperResources from "@/components/solutions/YDeveloperResources";
 // import { AnimatedText, GradientText } from "@/components/shared/Text";
 import { Carousel, Card } from "@/components/home/YCardsSlider";
+import YCTA from "@/components/home/YCTA";
 
 import styles from "./HomePage.module.scss";
 
@@ -96,6 +97,8 @@ export default function Home() {
           secButtonUrl="#"
           image="/src/img/home/dev-resources.png"
         />
+
+        <YCTA />
       </div>
     </Layout>
   );
