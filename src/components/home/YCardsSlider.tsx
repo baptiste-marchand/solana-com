@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-// import Image, { ImageProps } from "next/image";
-// import classNames from "classnames";
+import Image, { ImageProps } from "next/image";
+import classNames from "classnames";
 // import { Trans } from "next-i18next";
 import { useInView } from "react-intersection-observer";
 
@@ -16,13 +16,13 @@ interface CarouselProps {
   initialScroll?: number;
 }
 
-// type CardT = {
-//   src: string;
-//   title: string;
-//   text1: string;
-//   text2: string;
-//   url: string;
-// };
+type CardT = {
+  src: string;
+  title: string;
+  text1: string;
+  text2: string;
+  url: string;
+};
 
 export const Carousel = ({
   // titleKey,
@@ -130,60 +130,66 @@ export const Carousel = ({
   );
 };
 
-// const BlurImage = ({
-//   height,
-//   width,
-//   src,
-//   className,
-//   alt,
-//   ...rest
-// }: ImageProps) => {
-//   const [isLoading, setLoading] = useState(true);
-//   return (
-//     <Image
-//       className={classNames(isLoading ? styles.Loading : "", className)}
-//       onLoad={() => setLoading(false)}
-//       src={src}
-//       width={width}
-//       height={height}
-//       blurDataURL={typeof src === "string" ? src : undefined}
-//       alt={alt}
-//       {...rest}
-//     />
-//   );
-// };
+const BlurImage = ({
+  height,
+  width,
+  src,
+  className,
+  alt,
+  ...rest
+}: ImageProps) => {
+  const [isLoading, setLoading] = useState(true);
+  return (
+    <Image
+      className={classNames(isLoading ? styles.Loading : "", className)}
+      onLoad={() => setLoading(false)}
+      src={src}
+      width={width}
+      height={height}
+      blurDataURL={typeof src === "string" ? src : undefined}
+      alt={alt}
+      {...rest}
+    />
+  );
+};
 
-// const Card = ({ card, layout = false }: { card: CardT; layout?: boolean }) => {
-//   return (
-//     <>
-//       <motion.a
-//         layoutId={layout ? `card-${card.title}` : undefined}
-//         className={styles.Card}
-//         href={card.url}
-//         target="_blank"
-//       >
-//         <div className={styles.CardContent}>
-//           <motion.p
-//             layoutId={layout ? `title-${card.title}` : undefined}
-//             className={styles.CardTitle}
-//           >
-//             {card.title}
-//           </motion.p>
-//           <motion.p className={styles.CardText}>
-//             <span>{card.text1}</span>
-//             <span>{card.text2}</span>
-//           </motion.p>
-//         </div>
-//         <div className={styles.ArrowWrapper}>
-//           <CaretIcon color="black" />
-//         </div>
-//         <BlurImage
-//           src={card.src}
-//           alt={card.title}
-//           fill
-//           className={styles.CardImage}
-//         />
-//       </motion.a>
-//     </>
-//   );
-// };
+export const Card = ({
+  card,
+  layout = false,
+}: {
+  card: CardT;
+  layout?: boolean;
+}) => {
+  return (
+    <>
+      <motion.a
+        layoutId={layout ? `card-${card.title}` : undefined}
+        className={styles.Card}
+        href={card.url}
+        target="_blank"
+      >
+        <div className={styles.CardContent}>
+          <motion.p
+            layoutId={layout ? `title-${card.title}` : undefined}
+            className={styles.CardTitle}
+          >
+            {card.title}
+          </motion.p>
+          <motion.p className={styles.CardText}>
+            <span>{card.text1}</span>
+            <span>{card.text2}</span>
+          </motion.p>
+        </div>
+        <div className={styles.ArrowWrapper}>
+          <CaretIcon color="black" />
+        </div>
+        <BlurImage
+          src={card.src}
+          alt={card.title}
+          fill
+          className={styles.CardImage}
+        />
+      </motion.a>
+    </>
+  );
+};
