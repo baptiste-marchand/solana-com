@@ -1,5 +1,6 @@
 import styles from "@/components/home/YHero.module.scss";
 import Button from "@/components/solutions/Button";
+import FadedBlur from "@/components/common/FadedBlur";
 import { Zap, ArrowUpRight, Diamond, Leaf, Pin, Newspaper } from "lucide-react";
 import Image from "next/image";
 
@@ -22,7 +23,7 @@ const YHero = () => {
           <h1 className={styles.hero__title}>
             Fast
             <span
-              className={`${styles.hero__title_tag} ${styles.hero__title_tag__tps}`}
+              className={`${styles.hero__title_tag} ${styles.hero__title_tag__tps} tw-block`}
             >
               <Zap size="14" />
               4,700 TPS
@@ -82,10 +83,12 @@ const YHero = () => {
                   alt="Pinned image"
                   fill
                 />
-                <div className={styles.hero__blurred_info}>
-                  <span>Tickets on Sale for Breakpoint 2024</span>
-                  <Newspaper size="24" />
-                </div>
+                <FadedBlur>
+                  <div className={styles.hero__blurred_info}>
+                    <span>Tickets on Sale for Breakpoint 2024</span>
+                    <Newspaper size="24" />
+                  </div>
+                </FadedBlur>
               </div>
             </div>
           </div>
@@ -93,7 +96,13 @@ const YHero = () => {
 
         <div className={styles.hero__supporters}>
           {desktopLogos.slice(0, 8).map((logo) => (
-            <Image src={logo.src} alt={logo.alt} width={118} height={30} />
+            <Image
+              key={logo.src}
+              src={logo.src}
+              alt={logo.alt}
+              width={118}
+              height={30}
+            />
           ))}
         </div>
       </div>
