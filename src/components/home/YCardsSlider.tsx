@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import Image, { ImageProps } from "next/image";
-import classNames from "classnames";
-import { Trans } from "next-i18next";
+// import Image, { ImageProps } from "next/image";
+// import classNames from "classnames";
+// import { Trans } from "next-i18next";
 import { useInView } from "react-intersection-observer";
 
 import CaretIcon from "@/components/icons/Caret";
@@ -16,16 +16,16 @@ interface CarouselProps {
   initialScroll?: number;
 }
 
-type Card = {
-  src: string;
-  title: string;
-  text1: string;
-  text2: string;
-  url: string;
-};
+// type CardT = {
+//   src: string;
+//   title: string;
+//   text1: string;
+//   text2: string;
+//   url: string;
+// };
 
 export const Carousel = ({
-  titleKey,
+  // titleKey,
   items,
   initialScroll = 0,
 }: CarouselProps) => {
@@ -67,14 +67,17 @@ export const Carousel = ({
 
   return (
     <div ref={ref} className={styles.card_slider}>
-      
       <div className={styles.title_container}>
         <h3 className={styles.title_badge}>Updates</h3>
-        <AnimatedText element="h2" as="heading" className={styles.title_inner_container}>
-          <span className={styles.title}>What's new</span>
-          <span className={styles.sub_title}>
-            // Findout the latest in the ecosystem
-          </span>
+        <AnimatedText
+          element="h2"
+          as="heading"
+          className={styles.title_inner_container}
+        >
+          <span className={styles.title}>What&apos;s new</span>
+          <span
+            className={styles.sub_title}
+          >{`// Findout the latest in the ecosystem`}</span>
         </AnimatedText>
       </div>
 
@@ -127,66 +130,60 @@ export const Carousel = ({
   );
 };
 
-export const Card = ({
-  card,
-  layout = false,
-}: {
-  card: Card;
-  layout?: boolean;
-}) => {
-  return (
-    <>
-      <motion.a
-        layoutId={layout ? `card-${card.title}` : undefined}
-        className={styles.Card}
-        href={card.url}
-        target="_blank"
-      >
-        <div className={styles.CardContent}>
-          <motion.p
-            layoutId={layout ? `title-${card.title}` : undefined}
-            className={styles.CardTitle}
-          >
-            {card.title}
-          </motion.p>
-          <motion.p className={styles.CardText}>
-            <span>{card.text1}</span>
-            <span>{card.text2}</span>
-          </motion.p>
-        </div>
-        <div className={styles.ArrowWrapper}>
-          <CaretIcon color="black" />
-        </div>
-        <BlurImage
-          src={card.src}
-          alt={card.title}
-          fill
-          className={styles.CardImage}
-        />
-      </motion.a>
-    </>
-  );
-};
+// const BlurImage = ({
+//   height,
+//   width,
+//   src,
+//   className,
+//   alt,
+//   ...rest
+// }: ImageProps) => {
+//   const [isLoading, setLoading] = useState(true);
+//   return (
+//     <Image
+//       className={classNames(isLoading ? styles.Loading : "", className)}
+//       onLoad={() => setLoading(false)}
+//       src={src}
+//       width={width}
+//       height={height}
+//       blurDataURL={typeof src === "string" ? src : undefined}
+//       alt={alt}
+//       {...rest}
+//     />
+//   );
+// };
 
-export const BlurImage = ({
-  height,
-  width,
-  src,
-  className,
-  alt,
-  ...rest
-}: ImageProps) => {
-  const [isLoading, setLoading] = useState(true);
-  return (
-    <Image
-      className={classNames(isLoading ? styles.Loading : "", className)}
-      onLoad={() => setLoading(false)}
-      src={src}
-      width={width}
-      height={height}
-      blurDataURL={typeof src === "string" ? src : undefined}
-      alt={alt}
-      {...rest}
-    />
-  );
-};
+// const Card = ({ card, layout = false }: { card: CardT; layout?: boolean }) => {
+//   return (
+//     <>
+//       <motion.a
+//         layoutId={layout ? `card-${card.title}` : undefined}
+//         className={styles.Card}
+//         href={card.url}
+//         target="_blank"
+//       >
+//         <div className={styles.CardContent}>
+//           <motion.p
+//             layoutId={layout ? `title-${card.title}` : undefined}
+//             className={styles.CardTitle}
+//           >
+//             {card.title}
+//           </motion.p>
+//           <motion.p className={styles.CardText}>
+//             <span>{card.text1}</span>
+//             <span>{card.text2}</span>
+//           </motion.p>
+//         </div>
+//         <div className={styles.ArrowWrapper}>
+//           <CaretIcon color="black" />
+//         </div>
+//         <BlurImage
+//           src={card.src}
+//           alt={card.title}
+//           fill
+//           className={styles.CardImage}
+//         />
+//       </motion.a>
+//     </>
+//   );
+// };
