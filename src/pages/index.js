@@ -10,6 +10,7 @@ import { Carousel, Card } from "@/components/home/YCardsSlider";
 import YCTA from "@/components/home/YCTA";
 
 import styles from "./HomePage.module.scss";
+import JoinCommunitySlider from "../components/home/CommunitySlider";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -97,7 +98,7 @@ export default function Home() {
           secButtonUrl="#"
           image="/src/img/home/dev-resources.png"
         />
-
+        <JoinCommunitySlider />
         <YCTA />
       </div>
     </Layout>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 import { Trans } from "next-i18next";
 import classNames from "classnames";
