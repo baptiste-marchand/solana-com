@@ -11,6 +11,7 @@ import YCTA from "@/components/home/YCTA";
 
 import styles from "./HomePage.module.scss";
 import JoinCommunitySlider from "../components/home/CommunitySlider";
+import SolutionsGrid from "../components/home/SolutionsGrid";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -86,6 +87,8 @@ export default function Home() {
       />
       <div id="home-page" className={styles.PageWrapper}>
         <YHero />
+
+        <SolutionsGrid />
 
         <Carousel titleKey="home.new.title" items={cards} />
 
