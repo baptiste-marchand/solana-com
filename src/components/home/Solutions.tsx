@@ -8,9 +8,9 @@ import classNames from "classnames";
 import styles from "./Solutions.module.scss";
 import CaretIcon from "@/components/icons/Caret";
 
-const Card = ({ title, text, mobileImg, desktopImgSrc, href }) => (
+const Card = ({ title, text, mobileImg, desktopImgSrc, href, isLarge = false }) => (
   <MotionSlideIn>
-    <div className={styles.Card}>
+    <div className={classNames(styles.Card, { [styles.large]: isLarge })}>
       <Link href={href}>
         <div className={styles.TitleWrapper}>
           <Text element="h3" as="heading">
@@ -33,7 +33,7 @@ const Card = ({ title, text, mobileImg, desktopImgSrc, href }) => (
             placeholder="blur"
             blurDataURL={mobileImg.src}
             width={mobileImg.width}
-            height={mobileImg.width}
+            height={mobileImg.height}
           />
           <Image
             src={desktopImgSrc}
@@ -58,11 +58,11 @@ const Solutions = () => {
       title: t("home.solutions.payments.title"),
       text: t("home.solutions.payments.text"),
       mobileImg: {
-        src: "/src/img/home/solutions/payments-mb.svg",
+        src: "/src/img/home/solutions/payments.png",
         width: 290.76,
         height: 248,
       },
-      desktopImgSrc: "/src/img/home/solutions/payments-dt.svg",
+      desktopImgSrc: "/src/img/home/solutions/payments.png",
       href: "/solutions/payments",
     },
     {
@@ -73,40 +73,40 @@ const Solutions = () => {
         width: 290.76,
         height: 248,
       },
-      desktopImgSrc: "/src/img/home/solutions/defi-dt.png",
+      desktopImgSrc: "/src/img/home/solutions/defi.png",
       href: "/solutions/defi",
     },
     {
       title: t("home.solutions.gaming.title"),
       text: t("home.solutions.gaming.text"),
       mobileImg: {
-        src: "/src/img/home/solutions/gaming-mb.png",
+        src: "/src/img/home/solutions/gaming.png",
         width: 294,
         height: 255,
       },
-      desktopImgSrc: "/src/img/home/solutions/gaming-dt.png",
+      desktopImgSrc: "/src/img/home/solutions/gaming.png",
       href: "/solutions/gaming",
     },
     {
       title: t("home.solutions.creative.title"),
       text: t("home.solutions.creative.text"),
       mobileImg: {
-        src: "/src/img/home/solutions/creative-mb.png",
+        src: "/src/img/home/solutions/creative.png",
         width: 294,
         height: 319,
       },
-      desktopImgSrc: "/src/img/home/solutions/creative-dt.png",
+      desktopImgSrc: "/src/img/home/solutions/creative.png",
       href: "/solutions/creative",
     },
     {
       title: t("home.solutions.institutional-finance.title"),
       text: t("home.solutions.institutional-finance.text"),
       mobileImg: {
-        src: "/src/img/home/solutions/institutional-finance-mb.png",
+        src: "/src/img/home/solutions/institutional-finance.png",
         width: 294,
         height: 250.76,
       },
-      desktopImgSrc: "/src/img/home/solutions/institutional-finance-dt.png",
+      desktopImgSrc: "/src/img/home/solutions/institutional-finance.png",
       href: "/solutions/institutional-finance",
     },
     {
@@ -117,18 +117,18 @@ const Solutions = () => {
         width: 294,
         height: 277.69,
       },
-      desktopImgSrc: "/src/img/home/solutions/loyalty-dt.png",
+      desktopImgSrc: "/src/img/home/solutions/loyalty.png",
       href: "/solutions/loyalty",
     },
     {
       title: t("home.solutions.wallets.title"),
       text: t("home.solutions.wallets.text"),
       mobileImg: {
-        src: "/src/img/home/solutions/wallets-mb.png",
+        src: "/src/img/home/solutions/wallets.png",
         width: 294,
         height: 250.76,
       },
-      desktopImgSrc: "/src/img/home/solutions/wallets-dt.png",
+      desktopImgSrc: "/src/img/home/solutions/wallets.png",
       href: "/solutions/wallets",
     },
   ];
