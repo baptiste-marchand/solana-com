@@ -1,0 +1,124 @@
+.CommunitySlider {
+  padding: 4rem 0;
+  background: var(--background);
+  position: relative;
+}
+
+.SliderWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  width: 100%;
+}
+
+.TrackContainer {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.Track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  padding: 0 1rem;
+
+  &.TopTrack {
+    animation: slideLeft 30s linear infinite;
+  }
+
+  &.BottomTrack {
+    animation: slideRight 30s linear infinite;
+  }
+}
+
+.Slide {
+  flex-shrink: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  
+  img {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    
+    @media (max-width: 768px) {
+      width: 300px;
+      height: 225px;
+    }
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(calc(-100% / 3));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .CommunitySlider {
+    padding: 2rem 0;
+  }
+  
+  .SliderWrapper {
+    gap: 1rem;
+  }
+  
+  .Track {
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .TrackContainer {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+  }
+}
+
+// Pause animations when user prefers reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .Track {
+    &.TopTrack,
+    &.BottomTrack {
+      animation: none;
+    }
+  }
+} 

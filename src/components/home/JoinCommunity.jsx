@@ -25,12 +25,14 @@ const JoinCommunity = ({ title, links }) => {
 
   const container = useRef(null);
 
-  const images = [Image1, Image2, Image4, Image6, Image5, Image3];
+  const topRowImages = [Image1, Image2, Image4, Image6, Image5, Image3];
+  const bottomRowImages = [Image6, Image5, Image3, Image1, Image2, Image4];
 
   useGSAP(
     () => {
-      let Imgs = gsap.utils.toArray(".join-community-img"),
-        mm = gsap.matchMedia();
+      let topImgs = gsap.utils.toArray(".join-community-img-top"),
+          bottomImgs = gsap.utils.toArray(".join-community-img-bottom"),
+          mm = gsap.matchMedia();
 
       mm.add("(min-width:768px)", () => {
         const pinTl = gsap.timeline({
@@ -45,11 +47,17 @@ const JoinCommunity = ({ title, links }) => {
           defaults: { ease: "none" },
         });
 
-        pinTl.from(Imgs, {
-          top: "50%",
+        pinTl.from(topImgs, {
+          top: "40%",
           left: "50%",
           transform: "translate(-50%, -50%)",
         });
+
+        pinTl.from(bottomImgs, {
+          top: "60%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }, "<");
 
         pinTl.from(
           ".join-commuity-main-title , .links",
@@ -76,16 +84,30 @@ const JoinCommunity = ({ title, links }) => {
       />
 
       <div className={styles.ImgsWrapper}>
-        {images.map((image, index) => (
-          <Image
-            key={index}
-            src={image}
-            alt={t("home.join-community.hero-alt")}
-            width={390}
-            height={209}
-            className={`${styles.Image} join-community-img`}
-          />
-        ))}
+        <div className={styles.ImgsRow}>
+          {topRowImages.map((image, index) => (
+            <Image
+              key={`top-${index}`}
+              src={image}
+              alt={t("home.join-community.hero-alt")}
+              width={390}
+              height={209}
+              className={`${styles.Image} join-community-img-top`}
+            />
+          ))}
+        </div>
+        <div className={styles.ImgsRow}>
+          {bottomRowImages.map((image, index) => (
+            <Image
+              key={`bottom-${index}`}
+              src={image}
+              alt={t("home.join-community.hero-alt")}
+              width={390}
+              height={209}
+              className={`${styles.Image} join-community-img-bottom`}
+            />
+          ))}
+        </div>
       </div>
 
       <div className={styles.Content}>

@@ -2,6 +2,12 @@
 
 .Solutions {
   padding: 0 0 64px;
+  border: none !important;
+  
+  * {
+    border-left: none !important;
+    border-right: none !important;
+  }
 }
 
 .CardsWrapper {
@@ -9,6 +15,7 @@
   flex-direction: column;
   gap: 35px;
   padding: 0 24px;
+  border: none !important;
 }
 
 .Card {
@@ -16,6 +23,14 @@
   background: var(--grey-500);
   border-radius: 16px;
   overflow: hidden;
+  border: none !important;
+
+  &.large {
+    .ImageWrapper {
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+  }
 
   @include breakpoint(md) {
     height: 100%;
