@@ -28,8 +28,14 @@ $homeSliderAnimationTime: 0.3s;
 
 .title_inner_container {
   display: flex;
-  gap: 2rem;
-  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  @include breakpoint(md) {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
 }
 
 .title {
