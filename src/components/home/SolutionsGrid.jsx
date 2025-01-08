@@ -155,7 +155,7 @@ const BentoCardStyle = styled.a`
     flex-direction: column;
     align-items: flex-start;
     padding: 2rem 2rem 0;
-    
+
     @media (max-width: 768px) {
       grid-column: span 1;
       padding: 1.5rem 1.5rem 0;
@@ -172,7 +172,7 @@ const BentoCardStyle = styled.a`
       justify-content: center;
       padding: 0.75rem 1rem 0;
       margin-top: auto;
-      
+
       &.full-height {
         padding-bottom: 0;
         margin-bottom: -0.25rem;
@@ -188,9 +188,16 @@ const BentoCardStyle = styled.a`
   }
 `;
 
-const BentoCard = ({ title, description, className = "", image, imageStyle = {}, href = "#" }) => {
-  const isLarge = className?.includes('large');
-  
+const BentoCard = ({
+  title,
+  description,
+  className = "",
+  image,
+  imageStyle = {},
+  href = "#",
+}) => {
+  const isLarge = className?.includes("large");
+
   return (
     <BentoCardStyle href={href} className={className}>
       <div className="inner">
@@ -198,12 +205,14 @@ const BentoCard = ({ title, description, className = "", image, imageStyle = {},
         <p>{description}</p>
       </div>
       {image && (
-        <div className={`${isLarge ? 'image-container' : ''} ${imageStyle.fullHeight ? 'full-height' : ''}`}>
+        <div
+          className={`${isLarge ? "image-container" : ""} ${imageStyle.fullHeight ? "full-height" : ""}`}
+        >
           <Image
             style={{
               objectFit: "contain",
-              maxWidth: isLarge ? '100%' : '220px',
-              ...imageStyle
+              maxWidth: isLarge ? "100%" : "220px",
+              ...imageStyle,
             }}
             src={image}
             alt={title}
@@ -278,7 +287,7 @@ const BentoStatGrid = () => {
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 1rem;
-      
+
       > p {
         max-width: 100%;
         text-align: center;
@@ -324,10 +333,10 @@ const SolutionsGrid = () => {
     <StyledSection>
       <SectionContainer
         showXBorder={false}
-        style={{ 
+        style={{
           "--padding-bottom": "1rem",
           borderLeft: "none",
-          borderRight: "none"
+          borderRight: "none",
         }}
       >
         <TitleBlock>
@@ -345,9 +354,9 @@ const SolutionsGrid = () => {
             description="Enjoy lightning-fast payments, with near-zero fees and no intermediaries."
             image={PaymentsImg}
             imageStyle={{
-              maxWidth: '100%',
-              marginTop: 'auto',
-              fullHeight: true
+              maxWidth: "100%",
+              marginTop: "auto",
+              fullHeight: true,
             }}
             href="/solutions/payments"
           />
@@ -357,9 +366,9 @@ const SolutionsGrid = () => {
             description="Enjoy unmatched capital efficiency with infinite composability."
             image={DeFiImg}
             imageStyle={{
-              maxWidth: '100%',
-              marginTop: 'auto',
-              fullHeight: true
+              maxWidth: "100%",
+              marginTop: "auto",
+              fullHeight: true,
             }}
             href="/solutions/defi"
           />
@@ -369,8 +378,8 @@ const SolutionsGrid = () => {
             description="Create next-level gaming experiences with instant, cheap micro transactions."
             image={GamingImg}
             imageStyle={{
-              maxWidth: '70%',
-              marginBottom: '1rem'
+              maxWidth: "70%",
+              marginBottom: "1rem",
             }}
             href="/solutions/gaming"
           />
@@ -379,7 +388,7 @@ const SolutionsGrid = () => {
             description="Create, share, and earn using scalable and low-cost Solana network."
             image={CreativeImg}
             imageStyle={{
-              maxWidth: '180px'
+              maxWidth: "180px",
             }}
             href="/solutions/creative"
           />
@@ -388,7 +397,7 @@ const SolutionsGrid = () => {
             description="Increase market liquidity and access with tokenized assets."
             image={FinanceImg}
             imageStyle={{
-              maxWidth: '180px'
+              maxWidth: "180px",
             }}
             href="/solutions/institutional-finance"
           />
@@ -397,7 +406,7 @@ const SolutionsGrid = () => {
             description="Turn every user interaction into a personalized, long-term connection."
             image={LoyaltyImg}
             imageStyle={{
-              maxWidth: '180px'
+              maxWidth: "180px",
             }}
             href="/solutions/loyalty"
           />
@@ -406,7 +415,7 @@ const SolutionsGrid = () => {
             description="Send, save and access web3 in convenient, customizable ways."
             image={WalletsImg}
             imageStyle={{
-              maxWidth: '180px'
+              maxWidth: "180px",
             }}
             href="/solutions/wallets"
           />

@@ -101,7 +101,9 @@ export default function Home() {
           secButtonUrl="#"
           image="/src/img/home/dev-resources.png"
         />
+
         <JoinCommunitySlider />
+
         <YCTA />
       </div>
     </Layout>

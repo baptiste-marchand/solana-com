@@ -8,7 +8,14 @@ import classNames from "classnames";
 import styles from "./Solutions.module.scss";
 import CaretIcon from "@/components/icons/Caret";
 
-const Card = ({ title, text, mobileImg, desktopImgSrc, href, isLarge = false }) => (
+const Card = ({
+  title,
+  text,
+  mobileImg,
+  desktopImgSrc,
+  href,
+  isLarge = false,
+}) => (
   <MotionSlideIn>
     <div className={classNames(styles.Card, { [styles.large]: isLarge })}>
       <Link href={href}>

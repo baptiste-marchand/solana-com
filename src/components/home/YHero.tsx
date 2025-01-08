@@ -2,7 +2,7 @@ import styles from "@/components/home/YHero.module.scss";
 import Button from "@/components/solutions/Button";
 import { Zap, ArrowUpRight, Diamond, Leaf, Pin, Newspaper } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const YHero = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -21,10 +21,10 @@ const YHero = () => {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
-    
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -131,15 +131,15 @@ const YHero = () => {
 
         <div className={styles.hero__supporters}>
           {desktopLogos.slice(0, visibleLogos).map((logo, index) => (
-            <Image 
+            <Image
               key={index}
-              src={logo.src} 
-              alt={logo.alt} 
-              width={118} 
+              src={logo.src}
+              alt={logo.alt}
+              width={118}
               height={30}
               style={{
-                maxWidth: '100%',
-                height: 'auto'
+                maxWidth: "100%",
+                height: "auto",
               }}
             />
           ))}

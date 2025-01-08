@@ -50,12 +50,12 @@
   flex-shrink: 0;
   border-radius: 1rem;
   overflow: hidden;
-  
+
   img {
     width: 400px;
     height: 300px;
     object-fit: cover;
-    
+
     @media (max-width: 768px) {
       width: 300px;
       height: 225px;
@@ -85,11 +85,11 @@
   .CommunitySlider {
     padding: 2rem 0;
   }
-  
+
   .SliderWrapper {
     gap: 1rem;
   }
-  
+
   .Track {
     gap: 0.5rem;
     padding: 0 0.5rem;
@@ -121,4 +121,4 @@
       animation: none;
     }
   }
-} 
+}

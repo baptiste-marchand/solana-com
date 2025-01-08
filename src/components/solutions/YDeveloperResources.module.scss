@@ -38,7 +38,6 @@
 }
 
 .title_block {
-  max-width: 90%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -70,7 +69,7 @@
     padding-top: 2rem;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 
     .btn_secondary {
       background-image: linear-gradient(
@@ -84,7 +83,7 @@
       border-radius: 8px;
       box-sizing: border-box;
       color: var(--white);
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 700;
       line-height: 1.32;
 
@@ -111,17 +110,19 @@
   }
 }
 
-// @include breakpoint(md) {
-//   .DeveloperResources {
-//     background-image: url("/solutions/loyalty/gradient-tablet.webp");
-//   }
+@include breakpoint(md) {
+  .title_block {
+    max-width: 90%;
+  }
 
-//   .TitleBlock {
-//     h2 {
-//       font-size: 48px;
-//     }
-//   }
-// }
+  .button_wrapper {
+    gap: 1.5rem;
+  }
+
+  .btn_secondary {
+    font-size: 18px;
+  }
+}
 
 @include breakpoint(xl) {
   .developer_resources {

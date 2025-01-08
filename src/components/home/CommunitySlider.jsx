@@ -23,7 +23,7 @@ const JoinCommunitySlider = () => {
     <div className={styles.CommunitySlider} ref={container}>
       <div className={styles.SliderWrapper}>
         <div className={styles.TrackContainer}>
-          <div className={styles.Track + ' ' + styles.TopTrack}>
+          <div className={styles.Track + " " + styles.TopTrack}>
             {topRowImages.map((image, index) => (
               <div key={`top-${index}`} className={styles.Slide}>
                 <Image
@@ -37,9 +37,9 @@ const JoinCommunitySlider = () => {
             ))}
           </div>
         </div>
-        
+
         <div className={styles.TrackContainer}>
-          <div className={styles.Track + ' ' + styles.BottomTrack}>
+          <div className={styles.Track + " " + styles.BottomTrack}>
             {bottomRowImages.map((image, index) => (
               <div key={`bottom-${index}`} className={styles.Slide}>
                 <Image

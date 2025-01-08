@@ -31,8 +31,8 @@ const JoinCommunity = ({ title, links }) => {
   useGSAP(
     () => {
       let topImgs = gsap.utils.toArray(".join-community-img-top"),
-          bottomImgs = gsap.utils.toArray(".join-community-img-bottom"),
-          mm = gsap.matchMedia();
+        bottomImgs = gsap.utils.toArray(".join-community-img-bottom"),
+        mm = gsap.matchMedia();
 
       mm.add("(min-width:768px)", () => {
         const pinTl = gsap.timeline({
@@ -53,11 +53,15 @@ const JoinCommunity = ({ title, links }) => {
           transform: "translate(-50%, -50%)",
         });
 
-        pinTl.from(bottomImgs, {
-          top: "60%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }, "<");
+        pinTl.from(
+          bottomImgs,
+          {
+            top: "60%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          },
+          "<",
+        );
 
         pinTl.from(
           ".join-commuity-main-title , .links",
