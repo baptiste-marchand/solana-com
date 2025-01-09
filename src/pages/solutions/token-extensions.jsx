@@ -8,9 +8,9 @@ import FooterCallout from "@/components/solutions/FooterCallout";
 import SuccessStories, {
   StoryCard,
 } from "@/components/solutions/SuccessStories";
-import DeveloperResources, {
-  DeveloperResourcesLink,
-} from "@/components/solutions/DeveloperResources";
+import YDeveloperResources, {
+  YDeveloperResourcesLink,
+} from "@/components/solutions/YDeveloperResources";
 import LongformItem from "@/components/solutions/LongformItem";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import VideoBgHero from "@/components/solutions/VideoBgHero";
@@ -446,28 +446,28 @@ const TokenExtensions = () => {
   ];
 
   const developerResourcesLinks = [
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-token-extensions.developer-resources.links.link-one.title",
       )}
       link="https://solana.com/docs/intro/quick-start"
       key="quick-start"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-token-extensions.developer-resources.links.link-two.title",
       )}
       link="https://cdn.builder.io/o/assets%2Fce0c7323a97a4d91bd0baa7490ec9139%2F83c26b9268f64400b8eb67442579a31a?alt=media&token=525415b0-d3ea-48d7-83d6-0fb0d9e522c6"
       key="token-extensions"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-token-extensions.developer-resources.links.link-three.title",
       )}
       link="https://solana.com/developers/guides/token-extensions/getting-started"
       key="getting-started"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-token-extensions.developer-resources.links.link-four.title",
       )}
@@ -578,13 +578,14 @@ const TokenExtensions = () => {
           className={styles.SuccessStories}
         />
 
-        <DeveloperResources
+        <YDeveloperResources
+          id="token-extensions developer resources"
           title={t("solutions-token-extensions.developer-resources.title")}
           subtitle={t(
             "solutions-token-extensions.developer-resources.subtitle",
           )}
           links={developerResourcesLinks}
-          id="resources"
+          image="/src/img/home/dev-resources.png"
         />
 
         <section className={styles.FAQ}>

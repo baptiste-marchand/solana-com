@@ -1,19 +1,40 @@
-// import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import { Trans } from "next-i18next";
 import classNames from "classnames";
 
 import Button from "@/components/solutions/Button";
 import { AnimatedText } from "@/components/shared/Text";
+import CaretIcon from "@/components/icons/Caret";
 
 import styles from "./YDeveloperResources.module.scss";
 
 import { ArrowUpRight } from "lucide-react";
 
+interface YDeveloperResourcesLinkProps {
+  title: string;
+  link?: string;
+}
+
+export const YDeveloperResourcesLink = ({
+  title,
+  link,
+}: YDeveloperResourcesLinkProps) => (
+  <li>
+    {link && (
+      <Link href={link} target="_blank">
+        {title}
+        <CaretIcon color="#D0D0DC" />
+      </Link>
+    )}
+  </li>
+);
+
 interface YDeveloperResourcesProps {
+  id: string;
   title: string;
   subtitle?: string;
-  id: string;
+  links: React.ReactNode;
   primaryButtonText?: string;
   primaryButtonUrl?: string;
   secButtonText?: string;
@@ -25,6 +46,7 @@ const YDeveloperResources = ({
   id,
   title,
   subtitle,
+  links,
   primaryButtonText,
   primaryButtonUrl,
   secButtonText,
@@ -50,6 +72,8 @@ const YDeveloperResources = ({
                 <Trans i18nKey={subtitle} />
               </AnimatedText>
             )}
+
+            {links && <ul className={styles.links_wrapper}>{links}</ul>}
 
             <div className={styles.button_wrapper}>
               {primaryButtonText && primaryButtonUrl && (
