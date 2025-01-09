@@ -99,7 +99,6 @@ export default function Home() {
           primaryButtonUrl="/docs/intro/quick-start"
           secButtonText="Resources"
           secButtonUrl="#"
-          image="/src/img/home/dev-resources.png"
         />
 
         <JoinCommunitySlider />

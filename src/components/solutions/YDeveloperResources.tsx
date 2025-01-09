@@ -39,7 +39,6 @@ interface YDeveloperResourcesProps {
   primaryButtonUrl?: string;
   secButtonText?: string;
   secButtonUrl?: string;
-  image?: string;
 }
 
 const YDeveloperResources = ({
@@ -51,7 +50,6 @@ const YDeveloperResources = ({
   primaryButtonUrl,
   secButtonText,
   secButtonUrl,
-  image,
 }: YDeveloperResourcesProps) => {
   return (
     <section className={styles.developer_resources} id={id}>
@@ -99,9 +97,14 @@ const YDeveloperResources = ({
             </div>
           </div>
 
-          {image && title && (
+          {title && (
             <div>
-              <Image src={image} alt={title} width={514} height={485} />
+              <Image
+                src="/src/img/home/dev-resources.png"
+                alt={title}
+                width={514}
+                height={485}
+              />
             </div>
           )}
         </div>

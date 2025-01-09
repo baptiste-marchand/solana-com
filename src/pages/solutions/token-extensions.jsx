@@ -585,7 +585,6 @@ const TokenExtensions = () => {
             "solutions-token-extensions.developer-resources.subtitle",
           )}
           links={developerResourcesLinks}
-          image="/src/img/home/dev-resources.png"
         />
 
         <section className={styles.FAQ}>
