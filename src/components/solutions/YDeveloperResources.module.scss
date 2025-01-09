@@ -116,11 +116,11 @@
     align-items: start;
     gap: 2rem;
     list-style-type: none;
-  
+
     li {
       text-align: left;
     }
-  
+
     a {
       color: var(--grey-100);
       font-size: 18px;
@@ -132,20 +132,20 @@
       justify-content: center;
       gap: 4px;
       cursor: pointer;
-  
+
       svg {
         width: 24px;
         height: 24px;
         transition: 0.2s ease-in;
       }
-  
+
       &:hover {
         svg {
           transform: translateX(4px);
         }
       }
     }
-  
+
     span {
       color: #6c6a81;
       font-size: 13px;
@@ -158,8 +158,6 @@
     }
   }
 }
-
-
 
 @include breakpoint(md) {
   .title_block {
