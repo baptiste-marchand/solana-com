@@ -33,7 +33,7 @@ const Wallets = ({ filteredWalletData }) => {
                   <WalletCard
                     index={key}
                     name={wallet.name}
-                    walletImage={wallet.icon.src}
+                    walletImage={wallet.icon}
                     websiteUrl={wallet.website}
                     newToCrypto={wallet.new_to_crypto}
                     developer={wallet.developer}
