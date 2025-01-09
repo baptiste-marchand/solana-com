@@ -13,9 +13,9 @@ import EcosystemSlider, { Card } from "@/components/solutions/EcosystemSlider";
 import SuccessStories, {
   StoryCard,
 } from "@/components/solutions/SuccessStories";
-import DeveloperResources, {
-  DeveloperResourcesLink,
-} from "@/components/solutions/DeveloperResources";
+import YDeveloperResources, {
+  YDeveloperResourcesLink,
+} from "@/components/solutions/YDeveloperResources";
 import LongformItem from "@/components/solutions/LongformItem";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import { GradientText } from "@/components/shared/Text";
@@ -179,19 +179,19 @@ export default function Payments() {
   ];
 
   const developerResourcesLinks = [
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-payments.developer-resources.links.quick-start.title",
       )}
       link="https://solana.com/docs/intro/quick-start"
       key="quick-start"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t("solutions-payments.developer-resources.links.solana-pay.title")}
       link="https://docs.solanapay.com/"
       key="solana-pay"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t("solutions-payments.developer-resources.links.helio.title")}
       link="https://docs.hel.io/"
       key="helio"
@@ -346,11 +346,11 @@ export default function Payments() {
           className={styles.SuccessStories}
         />
 
-        <DeveloperResources
+        <YDeveloperResources
+          id="payments developer resources"
           title={t("solutions-payments.developer-resources.title")}
           subtitle={t("solutions-payments.developer-resources.subtitle")}
           links={developerResourcesLinks}
-          id="developer-resources"
         />
 
         <FooterCallout

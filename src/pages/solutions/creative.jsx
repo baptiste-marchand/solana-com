@@ -16,9 +16,9 @@ import EcosystemSliderWithTabs, {
 import SuccessStories, {
   StoryCard,
 } from "@/components/solutions/SuccessStories";
-import DeveloperResources, {
-  DeveloperResourcesLink,
-} from "@/components/solutions/DeveloperResources";
+import YDeveloperResources, {
+  YDeveloperResourcesLink,
+} from "@/components/solutions/YDeveloperResources";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import { AnimatedText, GradientText } from "@/components/shared/Text";
 import { MotionSlideIn } from "@/components/shared/Motions";
@@ -174,28 +174,28 @@ const Creative = () => {
   ];
 
   const developerResourcesLinks = [
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       key="guide"
       title={t(
         "solutions-creative.developer-resources.links.quick-start.title",
       )}
       link="/docs/intro/quick-start"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       key="state-compression"
       title={t(
         "solutions-creative.developer-resources.links.actions-blinks.title",
       )}
       link="/solutions/actions"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       key="token-extensions"
       title={t(
         "solutions-creative.developer-resources.links.token-extensions.title",
       )}
       link="/developers/guides/token-extensions/getting-started"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       key="blinks-actions"
       title={t(
         "solutions-creative.developer-resources.links.compression-guide.title",
@@ -348,11 +348,11 @@ const Creative = () => {
           cardsClassName={styles.SuccessStoriesCards}
         />
 
-        <DeveloperResources
+        <YDeveloperResources
+          id="creative developer resources"
           title={t("solutions-creative.developer-resources.title")}
           subtitle={t("solutions-creative.developer-resources.subtitle")}
           links={developerResourcesLinks}
-          id="developer-resources"
         />
 
         <FooterCallout

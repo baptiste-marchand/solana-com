@@ -1926,7 +1926,7 @@
       }
     },
     "developer-resources": {
-      "title": "DEVELOPER<br/>RESOURCES",
+      "title": "Developer Resources",
       "subtitle": "Begin with the Quick Start Guide and level up from there.",
       "links": {
         "quick-start": {
@@ -2030,7 +2030,7 @@
       }
     },
     "developerResources": {
-      "title": "DEVELOPER<br/>RESOURCES",
+      "title": "Developer Resources",
       "text": "Start with the Quick Start Guide—a comprehensive resource for building anything on Solana, from immersive experiences to new payment rails—and move on from there.",
       "link-one": "Quick Start Guide",
       "link-two": "State Compression",
@@ -2123,7 +2123,7 @@
       }
     },
     "developer-resources": {
-      "title": "DEVELOPER<br/>RESOURCES",
+      "title": "Developer Resources",
       "subtitle": "Begin with the Quick Start Guide and level up from there.",
       "links": {
         "quick-start": {
@@ -2227,7 +2227,7 @@
       "btn": "Explore Wallet Solutions"
     },
     "developer-resources": {
-      "title": "DEVELOPER<br/>RESOURCES",
+      "title": "Developer Resources",
       "subtitle": "Begin with the Quick Start Guide and level up from there.",
       "links": {
         "guide": {
@@ -2385,7 +2385,7 @@
       }
     },
     "developer-resources": {
-      "title": "DEVELOPER<br/>RESOURCES",
+      "title": "Developer Resources",
       "subtitle": "Begin with the Quick Start Guide and level up from there.",
       "links": {
         "quick-start": {
@@ -2529,7 +2529,7 @@
       }
     },
     "developer-resources": {
-      "title": "DEVELOPER<br/>RESOURCES",
+      "title": "Developer Resources",
       "subtitle": "Begin with the Quick Start Guide and level up from there.",
       "links": {
         "quick-start": {
@@ -2644,7 +2644,7 @@
       "button": "Learn More About Photo Finish LIVE"
     },
     "developer-resources": {
-      "title": "DEVELOPER<br/>RESOURCES",
+      "title": "Developer Resources",
       "subtitle": "Begin with the Quick Start Guide and level up  from there.",
       "links": {
         "guide": {
@@ -2985,7 +2985,7 @@
       "learn-btn": "Learn More"
     },
     "developer-resources": {
-      "title": "DEVELOPER<br/>RESOURCES",
+      "title": "Developer Resources",
       "subtitle": "Begin with the Quick Start Guide and level up from there.",
       "links": {
         "dialect-sdk": {

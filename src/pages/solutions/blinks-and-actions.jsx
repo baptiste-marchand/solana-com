@@ -6,9 +6,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import BlinksHero from "@/components/solutions/blinks-and-actions/BlinksHero";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import LongformItem from "@/components/solutions/LongformItem";
-import DeveloperResources, {
-  DeveloperResourcesLink,
-} from "@/components/solutions/DeveloperResources";
+import YDeveloperResources, {
+  YDeveloperResourcesLink,
+} from "@/components/solutions/YDeveloperResources";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import MediaOptionSelection from "@/components/solutions/MediaOptionSelection";
 import Text, { GradientText, AnimatedText } from "@/components/shared/Text";
@@ -74,14 +74,14 @@ const BlinksAndActions = () => {
   ];
 
   const developerResourcesLinks = [
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-blinks-and-actions.developer-resources.links.dialect-sdk.title",
       )}
       link="https://github.com/dialectlabs"
       key="dialect-sdk"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-blinks-and-actions.developer-resources.links.dev-doc.title",
       )}
@@ -213,13 +213,13 @@ const BlinksAndActions = () => {
           buttonUrl="/docs/advanced/actions#actions"
         />
 
-        <DeveloperResources
+        <YDeveloperResources
+          id="blinks developer resources"
           title={t("solutions-blinks-and-actions.developer-resources.title")}
           subtitle={t(
             "solutions-blinks-and-actions.developer-resources.subtitle",
           )}
           links={developerResourcesLinks}
-          id="blinks-developer-resources"
         />
 
         <FooterCallout

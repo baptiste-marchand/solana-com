@@ -16,9 +16,9 @@ import SuccessStories, {
   StoryCard,
 } from "@/components/solutions/SuccessStories";
 import FooterCallout from "@/components/solutions/FooterCallout";
-import DeveloperResources, {
-  DeveloperResourcesLink,
-} from "@/components/solutions/DeveloperResources";
+import YDeveloperResources, {
+  YDeveloperResourcesLink,
+} from "@/components/solutions/YDeveloperResources";
 import { MotionSlideIn } from "@/components/shared/Motions";
 import { AnimatedText, GradientText } from "@/components/shared/Text";
 
@@ -50,26 +50,26 @@ const Gaming = () => {
   ];
 
   const developerResourcesLinks = [
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t("solutions-gaming.developer-resources.links.guide.title")}
       link="https://solana.com/docs/intro/wallets"
       key="guide"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-gaming.developer-resources.links.state-compression.title",
       )}
       link="https://solana.com/docs/advanced/state-compression"
       key="state-compression"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-gaming.developer-resources.links.token-extensions.title",
       )}
       link="https://solana.com/developers/guides/token-extensions/getting-started"
       key="token-extensions"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-gaming.developer-resources.links.blinks-actions.title",
       )}
@@ -223,13 +223,11 @@ const Gaming = () => {
           />
         </div>
 
-        <DeveloperResources
+        <YDeveloperResources
+          id="gaming developer resources"
           title={t("solutions-gaming.developer-resources.title")}
           subtitle={t("solutions-gaming.developer-resources.subtitle")}
           links={developerResourcesLinks}
-          image="/solutions/gaming/developer-resources.svg"
-          className={styles.DeveloperResources}
-          id="developer-resources"
         />
 
         <GamesKit />

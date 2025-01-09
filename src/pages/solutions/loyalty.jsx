@@ -10,9 +10,9 @@ import LongformItem from "@/components/solutions/LongformItem";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import CardsSlider from "@/components/shared/CardsSlider";
 import { StoryCard } from "@/components/solutions/SuccessStories";
-import DeveloperResources, {
-  DeveloperResourcesLink,
-} from "@/components/solutions/DeveloperResources";
+import YDeveloperResources, {
+  YDeveloperResourcesLink,
+} from "@/components/solutions/YDeveloperResources";
 import { MotionSlideIn } from "@/components/shared/Motions";
 import { GradientText } from "@/components/shared/Text";
 import SuccessStories from "@/components/solutions/SuccessStories";
@@ -118,22 +118,22 @@ const Loyalty = () => {
   ];
 
   const developerResourcesLinks = [
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t("solutions-loyalty.developerResources.link-one")}
       link="https://solana.com/docs/intro/quick-start"
       key="quick-start"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t("solutions-loyalty.developerResources.link-two")}
       link="https://solana.com/docs/advanced/state-compression"
       key="state-compression"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t("solutions-loyalty.developerResources.link-three")}
       link="https://solana.com/docs/advanced/actions"
       key="actions"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t("solutions-loyalty.developerResources.link-four")}
       link="https://docs.solanapay.com/"
       key="solana-pay"
@@ -240,11 +240,11 @@ const Loyalty = () => {
           />
         </div>
 
-        <DeveloperResources
+        <YDeveloperResources
+          id="loyalty developer resources"
           title={t("solutions-loyalty.developerResources.title")}
           subtitle={t("solutions-loyalty.developerResources.text")}
           links={developerResourcesLinks}
-          id="developer-resources"
         />
 
         <FooterCallout

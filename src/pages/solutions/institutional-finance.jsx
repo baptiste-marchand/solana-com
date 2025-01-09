@@ -13,9 +13,9 @@ import EcosystemSlider, {
 import SuccessStories, {
   StoryCard,
 } from "@/components/solutions/SuccessStories";
-import DeveloperResources, {
-  DeveloperResourcesLink,
-} from "@/components/solutions/DeveloperResources";
+import YDeveloperResources, {
+  YDeveloperResourcesLink,
+} from "@/components/solutions/YDeveloperResources";
 import LongformItem from "@/components/solutions/LongformItem";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import { MotionSlideIn } from "@/components/shared/Motions";
@@ -137,21 +137,21 @@ const InstitutionalFinance = () => {
   ];
 
   const developerResourcesLinks = [
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       key="docs"
       title={t(
         "solutions-institutional-finance.developer-resources.links.quick-start.title",
       )}
       link="https://solana.com/docs/intro/quick-start"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       key="solana-pay"
       title={t(
         "solutions-institutional-finance.developer-resources.links.solana-pay.title",
       )}
       link="https://docs.solanapay.com/"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       key="helio"
       title={t(
         "solutions-institutional-finance.developer-resources.links.helio.title",
@@ -299,13 +299,13 @@ const InstitutionalFinance = () => {
           className={styles.SuccessStories}
         />
 
-        <DeveloperResources
+        <YDeveloperResources
+          id="finance developer resources"
           title={t("solutions-institutional-finance.developer-resources.title")}
           subtitle={t(
             "solutions-institutional-finance.developer-resources.subtitle",
           )}
           links={developerResourcesLinks}
-          id="resources"
         />
 
         <FooterCallout

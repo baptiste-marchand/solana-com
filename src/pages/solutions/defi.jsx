@@ -15,9 +15,9 @@ import EcosystemSlider, {
 import SuccessStories, {
   StoryCard,
 } from "@/components/solutions/SuccessStories";
-import DeveloperResources, {
-  DeveloperResourcesLink,
-} from "@/components/solutions/DeveloperResources";
+import YDeveloperResources, {
+  YDeveloperResourcesLink,
+} from "@/components/solutions/YDeveloperResources";
 import LongformItem from "@/components/solutions/LongformItem";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import Text, { AnimatedText, GradientText } from "@/components/shared/Text";
@@ -210,17 +210,17 @@ const DeFi = () => {
   ];
 
   const developerResourcesLinks = [
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       key="quick-start"
       title={t("solutions-defi.developer-resources.links.quick-start.title")}
       link="https://solana.com/docs/intro/wallets"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       key="solana-pay"
       title={t("solutions-defi.developer-resources.links.solana-pay.title")}
       link="https://solana.com/docs/advanced/actions"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       key="helio"
       title={t("solutions-defi.developer-resources.links.helio.title")}
       link="https://solana.com/developers/guides/token-extensions/getting-started"
@@ -429,11 +429,11 @@ const DeFi = () => {
           className={styles.SuccessStories}
         />
 
-        <DeveloperResources
+        <YDeveloperResources
+          id="defi developer resources"
           title={t("solutions-defi.developer-resources.title")}
           subtitle={t("solutions-defi.developer-resources.subtitle")}
           links={developerResourcesLinks}
-          id="developer-resources"
         />
 
         <FooterCallout

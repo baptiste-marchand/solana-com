@@ -10,9 +10,9 @@ import BasicCallout from "@/components/solutions/BasicCallout";
 import LongformItem, {
   LongformSeeMoreItem,
 } from "@/components/solutions/LongformItem";
-import DeveloperResources, {
-  DeveloperResourcesLink,
-} from "@/components/solutions/DeveloperResources";
+import YDeveloperResources, {
+  YDeveloperResourcesLink,
+} from "@/components/solutions/YDeveloperResources";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import { GradientText, AnimatedText } from "@/components/shared/Text";
 import { MotionSlideIn } from "@/components/shared/Motions";
@@ -81,31 +81,31 @@ const Wallets = () => {
   ];
 
   const developerResourcesLinks = [
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t("solutions-wallets.developer-resources.links.guide.title")}
       link="https://solana.com/docs/intro/wallets"
       key="guide"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-wallets.developer-resources.links.wallet-builder-kit.title",
       )}
       link="https://solanafoundation.notion.site/Wallet-Builder-s-Starter-Kit-615b61c2fe5d4109be71ec74a91e2034"
       key="wallet-builder-kit"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t("solutions-wallets.developer-resources.links.helio.title")}
       link="https://github.com/kilogold/hellowallet"
       key="helio"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-wallets.developer-resources.links.confidential-balances.title",
       )}
       link="https://github.com/kilogold/solana-rust-client/tree/kelvin"
       key="confidential-balances"
     />,
-    <DeveloperResourcesLink
+    <YDeveloperResourcesLink
       title={t(
         "solutions-wallets.developer-resources.links.programmable-wallet.title",
       )}
@@ -238,11 +238,11 @@ const Wallets = () => {
 
         <WalletsExploreSolutions styles={styles} />
 
-        <DeveloperResources
+        <YDeveloperResources
+          id="wallets-developer-resources"
           title={t("solutions-wallets.developer-resources.title")}
           subtitle={t("solutions-wallets.developer-resources.subtitle")}
           links={developerResourcesLinks}
-          id="wallets-developer-resources"
         />
 
         <FooterCallout
