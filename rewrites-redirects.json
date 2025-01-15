@@ -148,6 +148,10 @@
       "destination": "/solutions/institutional-finance"
     },
     {
+      "source": "/solutions/actions",
+      "destination": "/solutions/blinks-and-actions"
+    },
+    {
       "source": "/wallets",
       "destination": "/solutions/wallets"
     },
