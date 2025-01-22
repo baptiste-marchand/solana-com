@@ -1,0 +1,119 @@
+@import "../../scss/solutions/_variables.scss";
+
+.SuccessStoriesGrid {
+  padding: 64px 0;
+  background: var(--grey-500);
+
+  &[data-theme="black"] {
+    background: var(--black);
+  }
+}
+
+.Container {
+  padding: 0 24px;
+}
+
+.Title {
+  color: var(--grey-100);
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1.2px;
+  margin-bottom: 0;
+}
+
+.CardsGridWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 64px;
+}
+
+.CardsGridWrapper:has(> :last-child:nth-child(2n + 1)):has(> :nth-child(3))
+  .story-card:first-child {
+  grid-column: 1 / -1;
+  flex-direction: row;
+
+  .card-image-wrapper {
+    width: 50%;
+    flex-shrink: 0;
+    height: 100%; /* Make wrapper full height */
+  }
+}
+
+.SSCard {
+  background: var(--grey-450);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+
+  strong {
+    color: var(--white);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  a {
+    font-size: 15px;
+    line-height: 1.32;
+  }
+}
+
+@include breakpoint(sm) {
+  .Text {
+    max-width: 100%;
+  }
+}
+
+@include breakpoint(md) {
+  .Container {
+    padding: 0 40px;
+  }
+
+  .Title {
+    font-size: 48px;
+  }
+
+  .Text {
+    font-size: 18px;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    flex: 1;
+  }
+}
+
+@include breakpoint(lg) {
+  .SuccessStoriesGrid {
+    padding: 128px 0 144px;
+  }
+
+  .Container {
+    padding: 0;
+  }
+
+  .CardsWrapper {
+    margin-top: 80px;
+  }
+
+  .StoryCard {
+    padding: 40px;
+  }
+}
+
+@include breakpoint(xl) {
+  .Title {
+    font-size: 64px;
+    line-height: 1.04;
+    letter-spacing: -1.6px;
+    text-transform: capitalize;
+  }
+}

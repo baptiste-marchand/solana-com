@@ -7,7 +7,7 @@ import HTMLHead from "@/components/HTMLHead";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import SuccessStories, {
   StoryCard,
-} from "@/components/solutions/SuccessStories";
+} from "@/components/solutions/SuccessStoriesNew";
 import YDeveloperResources, {
   YDeveloperResourcesLink,
 } from "@/components/solutions/YDeveloperResources";
