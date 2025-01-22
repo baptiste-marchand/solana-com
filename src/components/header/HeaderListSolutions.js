@@ -210,7 +210,7 @@ const HeaderListSolutions = () => {
               </strong>
             </Link>
             <Link
-              to="/developers/ai"
+              to="/ai"
               className="nav-link nav-link--secondary"
               activeClassName="active"
             >
