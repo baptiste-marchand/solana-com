@@ -12,9 +12,7 @@ import GamesKit from "@/components/solutions/gaming/GamesKit";
 import GamingSlider from "@/components/solutions/gaming/GamingSlider";
 import Stats from "@/components/solutions/Stats";
 import LongformItem from "@/components/solutions/LongformItem";
-import SuccessStories, {
-  StoryCard,
-} from "@/components/solutions/SuccessStories";
+import SuccessStories from "@/components/solutions/SuccessStoriesNew";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import YDeveloperResources, {
   YDeveloperResourcesLink,
@@ -24,7 +22,13 @@ import { AnimatedText, GradientText } from "@/components/shared/Text";
 
 import styles from "./Gaming.module.scss";
 
-import spotlightImg from "../../../assets/solutions/gaming/Spotlight.jpg";
+import photoFinishImg from "../../../assets/solutions/gaming/photofinish.png";
+//import lottieAnimationData from "../../../assets/solutions/gaming/lottieAnimation.json";
+import * as ponyLottie from "../../../assets/solutions/gaming/Gaming_MintPonyCoin.json";
+import * as nftLottie from "../../../assets/solutions/gaming/Gaming_NFT.json";
+import * as blinksLottie from "../../../assets/solutions/gaming/Gaming_Blinks_V1.json";
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 const Gaming = () => {
   const { t } = useTranslation();
@@ -34,19 +38,22 @@ const Gaming = () => {
   });
 
   const spotlightCards = [
-    <StoryCard
-      logo="/solutions/gaming/photo-finish-live-logo.svg"
-      logoAlt={t("solutions-gaming.spotlight.logo-alt")}
-      mobileImage={spotlightImg}
-      desktopImage={spotlightImg}
-      imageAlt={t("solutions-gaming.spotlight.image-alt")}
-      text={<Trans i18nKey="solutions-gaming.spotlight.text" />}
-      buttonText={t("solutions-gaming.spotlight.button")}
-      buttonUrl="https://solana.com/news/case-study-photo-finish-live"
-      className={styles.StoryCard}
-      logoClassName={styles.SuccessStoriesLogo}
-      key="photo-finish-live"
-    />,
+    {
+      title: "Photo Finish Live Drives 2x Sales Growth on Solana",
+      description: t("solutions-gaming.spotlight.text").replace(
+        /<\/?strong>/g,
+        "",
+      ),
+      image: photoFinishImg.src,
+      imageAlt: t("solutions-gaming.spotlight.image-alt"),
+      metrics: [
+        { value: "2x", label: "Sales Growth" },
+        { value: "100K+", label: "Players" },
+        { value: "24/7", label: "Gameplay" },
+      ],
+      readMoreUrl: "https://solana.com/news/case-study-photo-finish-live",
+      readMoreText: t("solutions-gaming.spotlight.button"),
+    },
   ];
 
   const developerResourcesLinks = [
@@ -138,7 +145,20 @@ const Gaming = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn>
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: nftLottie,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="below"
               className={styles.CreateWithoutConstraint}
               mediaClassName={styles.MediaComponent}
@@ -164,7 +184,20 @@ const Gaming = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: blinksLottie,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-gaming.engage-anywhere.title")}
               subtitleComponent={
@@ -182,7 +215,20 @@ const Gaming = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: ponyLottie,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="left"
               titleComponent={t("solutions-gaming.control-customize.title")}
               subtitleComponent={

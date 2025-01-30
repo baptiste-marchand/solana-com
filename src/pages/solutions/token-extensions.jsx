@@ -1,19 +1,18 @@
 import Link from "next/link";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import dynamic from "next/dynamic";
 
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
 import FooterCallout from "@/components/solutions/FooterCallout";
-import SuccessStories, {
-  StoryCard,
-} from "@/components/solutions/SuccessStoriesNew";
+import SuccessStories from "@/components/solutions/SuccessStoriesNew";
 import YDeveloperResources, {
   YDeveloperResourcesLink,
 } from "@/components/solutions/YDeveloperResources";
 import LongformItem from "@/components/solutions/LongformItem";
 import BasicCallout from "@/components/solutions/BasicCallout";
-import VideoBgHero from "@/components/solutions/VideoBgHero";
+import TokenHero from "@/components/home/TokenHero";
 import CollapsibleContent from "@/components/shared/CollapsibleContent";
 import { MotionSlideIn } from "@/components/shared/Motions";
 import Text, { AnimatedText, GradientText } from "@/components/shared/Text";
@@ -25,9 +24,14 @@ import EcosystemToggle, {
 import Button from "@/components/solutions/Button";
 
 import styles from "./TE.module.scss";
+import * as longformOne from "../../../assets/solutions/token-extensions/Token Extensions_Confidential Transfer_V1.json";
+import * as longformTwo from "../../../assets/solutions/token-extensions/Token Extensions_KYC_V1.json";
+import * as longformThree from "../../../assets/solutions/token-extensions/Token Extensions_Transfer Fees_V1.json";
 
-import paypalLogo from "../../../assets/solutions/token-extensions/paypal-logo.svg";
 import paypalMain from "../../../assets/solutions/token-extensions/paypal-main.png";
+import etherfuseMain from "../../../assets/solutions/token-extensions/etherfuse-main.png";
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 const TokenExtensions = () => {
   const { t } = useTranslation();
@@ -401,48 +405,40 @@ const TokenExtensions = () => {
   ];
 
   const caseStudyCards = [
-    <StoryCard
-      logo={paypalLogo}
-      logoAlt="paypal logo"
-      mobileImage={paypalMain}
-      desktopImage={paypalMain}
-      imageAlt="paypal Main"
-      text={
-        <Trans
-          i18nKey={
-            "solutions-token-extensions.case-studies.cards.item-one.excerpt"
-          }
-        />
-      }
-      buttonText={t(
+    {
+      title: "PayPal Launches PYUSD on Solana",
+      description: t(
+        "solutions-token-extensions.case-studies.cards.item-one.excerpt",
+      ).replace(/<\/?strong>/g, ""),
+      image: paypalMain.src,
+      imageAlt: "PayPal PYUSD launch",
+      metrics: [
+        { value: "6.9M", label: "TPS" },
+        { value: "$400M", label: "TVL" },
+        { value: "24/7", label: "Availability" },
+      ],
+      readMoreUrl: "https://solana.com/pyusd",
+      readMoreText: t(
         "solutions-token-extensions.case-studies.cards.item-one.button",
-      )}
-      buttonUrl="https://solana.com/pyusd"
-      className={styles.StoryCard}
-      logoClassName={styles.StoryCardLogo}
-      key="paypal"
-    />,
-    <StoryCard
-      logo={"/solutions/defi/etherfuse-logo.svg"}
-      logoAlt="etherfuse logo"
-      mobileImage={"/solutions/defi/etherfuse-main.webp"}
-      desktopImage={"/solutions/defi/etherfuse-main.webp"}
-      imageAlt="etherfuse main image"
-      text={
-        <Trans
-          i18nKey={
-            "solutions-token-extensions.case-studies.cards.item-two.excerpt"
-          }
-        />
-      }
-      buttonText={t(
+      ),
+    },
+    {
+      title: "Etherfuse Revolutionizes Stable Bonds",
+      description: t(
+        "solutions-token-extensions.case-studies.cards.item-two.excerpt",
+      ).replace(/<\/?strong>/g, ""),
+      image: etherfuseMain.src,
+      imageAlt: "Etherfuse platform",
+      metrics: [
+        { value: "$50M", label: "Volume" },
+        { value: "1000+", label: "Users" },
+        { value: "99.9%", label: "Uptime" },
+      ],
+      readMoreUrl: "https://etherfuse.com/stablebonds/",
+      readMoreText: t(
         "solutions-token-extensions.case-studies.cards.item-two.button",
-      )}
-      buttonUrl="https://etherfuse.com/stablebonds/"
-      className={styles.StoryCard}
-      logoClassName={styles.StoryCardLogo}
-      key="etherfuse"
-    />,
+      ),
+    },
   ];
 
   const developerResourcesLinks = [
@@ -484,24 +480,7 @@ const TokenExtensions = () => {
       />
 
       <div className={styles.TokenExtensionsWrapper} id="te-page">
-        <VideoBgHero
-          videoSrc="https://player.vimeo.com/progressive_redirect/playback/1010826502/rendition/720p/file.mp4?loc=external&signature=26635ff9a62dec9b36970d7865700803479257a9c3d9009318726f7762973d37"
-          videoPoster="/solutions/token-extensions/Token-Extension-Hero.jpeg"
-          title={t("solutions-token-extensions.hero.title")}
-          subtitle={t("solutions-token-extensions.hero.text")}
-          eyebrow={t("solutions-token-extensions.hero.eyebrow")}
-          buttons={[
-            {
-              text: t("solutions-token-extensions.hero.buttonOne"),
-              url: "#resources",
-            },
-            {
-              text: t("solutions-token-extensions.hero.buttonTwo"),
-              url: "#real-world-use-cases",
-              theme: "secondary",
-            },
-          ]}
-        />
+        <TokenHero />
 
         <div id="ecosystem" className={styles.EcosystemSection}>
           <EcosystemToggle
@@ -509,6 +488,16 @@ const TokenExtensions = () => {
             textKey="solutions-token-extensions.ecosystem.text"
             toggleLabel="Find Extensions Based on Your Needs"
             items={ecosystemItems}
+            titleContent={
+              <Trans
+                i18nKey="solutions-token-extensions.ecosystem.title"
+                components={{
+                  gradient: (
+                    <GradientText gradient="linear-gradient(270deg, #9945FF 0%, #EB54BC 50.57%, #FF754A 100%)" />
+                  ),
+                }}
+              />
+            }
           />
         </div>
 
@@ -518,7 +507,7 @@ const TokenExtensions = () => {
               i18nKey="solutions-token-extensions.callout-1.title"
               components={{
                 gradient: (
-                  <GradientText gradient="linear-gradient(270deg, #9945FF 0%, #EB54BC 50.57%, #FF754A 100%);" />
+                  <GradientText gradient="linear-gradient(270deg, #9945FF 0%, #EB54BC 50.57%, #FF754A 100%)" />
                 ),
               }}
             />
@@ -531,7 +520,20 @@ const TokenExtensions = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: longformOne,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="left"
               titleComponent={t(
                 "solutions-token-extensions.longform-one.title",
@@ -545,7 +547,20 @@ const TokenExtensions = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: longformTwo,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="right"
               titleComponent={t(
                 "solutions-token-extensions.longform-two.title",
@@ -559,7 +574,20 @@ const TokenExtensions = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: longformThree,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="left"
               titleComponent={t(
                 "solutions-token-extensions.longform-three.title",

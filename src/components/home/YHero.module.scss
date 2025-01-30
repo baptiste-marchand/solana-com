@@ -450,11 +450,23 @@
     }
 
     @media (max-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
+      overflow: visible;
 
       & img {
-        max-height: 24px;
-        min-width: 80px;
+        width: 80%;
+        min-width: unset;
+        max-height: 20px;
+        object-fit: contain;
+      }
+
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
       }
     }
   }

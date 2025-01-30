@@ -10,9 +10,7 @@ import Button from "@/components/solutions/Button";
 import Stats from "@/components/solutions/Stats";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import EcosystemSlider, { Card } from "@/components/solutions/EcosystemSlider";
-import SuccessStories, {
-  StoryCard,
-} from "@/components/solutions/SuccessStories";
+import SuccessStories from "@/components/solutions/SuccessStoriesNew";
 import YDeveloperResources, {
   YDeveloperResourcesLink,
 } from "@/components/solutions/YDeveloperResources";
@@ -27,9 +25,13 @@ import * as mobileHeroWithoutSolana from "../../../assets/solutions/payments/Mob
 import * as desktopHeroWithSolana from "../../../assets/solutions/payments/DesktopHero_WithSolana.json";
 import * as desktopHeroWithoutSolana from "../../../assets/solutions/payments/DesktopHero_WithoutSolana.json";
 
+import * as solanaPayLottie from "../../../assets/solutions/payments/Solana Pay_V1.json";
+import * as kycLottie from "../../../assets/solutions/payments/KYC.json";
+import * as blinksLottie from "../../../assets/solutions/payments/Blinks.json";
+import * as gaslessLottie from "../../../assets/solutions/payments/GaslessRelayer.json";
+
 import caseStudyHelioMobileImg from "../../../assets/solutions/payments/helio-case.png";
 import caseStudyVisaImg from "../../../assets/solutions/payments/visa-case.png";
-import caseStudyVisaLogo from "../../../assets/solutions/payments/visa-logo.svg";
 
 const LottieHeroWithTabs = dynamic(
   () => import("@/components/solutions/LottieHeroWithTabs"),
@@ -40,6 +42,8 @@ const MotionSlideIn = dynamic(
   () => import("@/components/shared/Motions").then((mod) => mod.MotionSlideIn),
   { ssr: false },
 );
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 export default function Payments() {
   const { t } = useTranslation();
@@ -145,37 +149,37 @@ export default function Payments() {
   ];
 
   const caseStudyCards = [
-    <StoryCard
-      logo="/solutions/payments/helio-logo.webp"
-      logoAlt="Helio logo"
-      mobileImage={caseStudyHelioMobileImg}
-      desktopImage={caseStudyHelioMobileImg}
-      imageAlt="Helio"
-      text={
-        <Trans i18nKey="solutions-payments.case-studies.cards.helio.excerpt" />
-      }
-      buttonText={t("solutions-payments.case-studies.cards.helio.button")}
-      buttonUrl="/news/case-study-helio"
-      className={styles.StoryCard}
-      mainImageClassName={styles.StoryCardImage}
-      key="case-study-helio"
-    />,
-    <StoryCard
-      logo={caseStudyVisaLogo}
-      logoAlt="Visa logo"
-      mobileImage={caseStudyVisaImg}
-      desktopImage={caseStudyVisaImg}
-      imageAlt="Visa"
-      text={
-        <Trans i18nKey="solutions-payments.case-studies.cards.visa.excerpt" />
-      }
-      buttonText={t("solutions-payments.case-studies.cards.visa.button")}
-      buttonUrl="https://usa.visa.com/solutions/crypto/deep-dive-on-solana.html"
-      className={styles.StoryCard}
-      logoClassName={classNames(styles.StoryCardLogo, styles.StoryCard2Logo)}
-      mainImageClassName={styles.StoryCardMainImage}
-      key="case-study-visa"
-    />,
+    {
+      title: "Helio Enables Shopify Merchants to Accept Crypto",
+      description: t(
+        "solutions-payments.case-studies.cards.helio.excerpt",
+      ).replace(/<\/?strong>/g, ""),
+      image: caseStudyHelioMobileImg.src,
+      imageAlt: "Helio case study",
+      metrics: [
+        { value: "100K+", label: "Merchants" },
+        { value: "$2M+", label: "Volume" },
+        { value: "24/7", label: "Support" },
+      ],
+      readMoreUrl: "/news/case-study-helio",
+      readMoreText: t("solutions-payments.case-studies.cards.helio.button"),
+    },
+    {
+      title: "Visa Brings Stablecoin Settlement to Solana",
+      description: t(
+        "solutions-payments.case-studies.cards.visa.excerpt",
+      ).replace(/<\/?strong>/g, ""),
+      image: caseStudyVisaImg.src,
+      imageAlt: "Visa case study",
+      metrics: [
+        { value: "24K", label: "TPS" },
+        { value: "$1B+", label: "Settlement" },
+        { value: "Global", label: "Reach" },
+      ],
+      readMoreUrl:
+        "https://usa.visa.com/solutions/crypto/deep-dive-on-solana.html",
+      readMoreText: t("solutions-payments.case-studies.cards.visa.button"),
+    },
   ];
 
   const developerResourcesLinks = [
@@ -258,7 +262,18 @@ export default function Payments() {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.TokenExtensionsMedia}>
+                  <Lottie
+                    options={{
+                      animationData: kycLottie,
+                      loop: true,
+                      autoplay: true,
+                    }}
+                    isClickToPauseDisabled={true}
+                  />
+                </div>
+              }
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-payments.token-extensions.title")}
               subtitleComponent={
@@ -280,7 +295,16 @@ export default function Payments() {
 
           <MotionSlideIn>
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <Lottie
+                  options={{
+                    animationData: gaslessLottie,
+                    loop: true,
+                    autoplay: true,
+                  }}
+                  isClickToPauseDisabled={true}
+                />
+              }
               textContentDesktopDirection="column"
               mediaDesktopPlacement="below"
               titleComponent={t(
@@ -295,7 +319,16 @@ export default function Payments() {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <Lottie
+                  options={{
+                    animationData: blinksLottie,
+                    loop: true,
+                    autoplay: true,
+                  }}
+                  isClickToPauseDisabled={true}
+                />
+              }
               mediaDesktopPlacement="left"
               titleComponent={t("solutions-payments.blinks-actions.title")}
               subtitleComponent={
@@ -314,7 +347,16 @@ export default function Payments() {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <Lottie
+                  options={{
+                    animationData: solanaPayLottie,
+                    loop: true,
+                    autoplay: true,
+                  }}
+                  isClickToPauseDisabled={true}
+                />
+              }
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-payments.solana-pay.title")}
               subtitleComponent={

@@ -5,6 +5,7 @@ import { useTranslation } from "next-i18next";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ArrowUpRight } from "lucide-react";
 
 import Text, { AnimatedText } from "@/components/shared/Text";
 
@@ -20,7 +21,30 @@ import Image6 from "../../../assets/home/join-community-6.png";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const JoinCommunity = ({ title, links }) => {
+const links = [
+  {
+    title: "Discord",
+    url: "https://discord.com/invite/solana",
+    icon: "/images/community/discord.svg",
+  },
+  {
+    title: "GitHub",
+    url: "https://github.com/solana-labs",
+    icon: "/images/community/github.svg",
+  },
+  {
+    title: "Twitter",
+    url: "https://twitter.com/solana",
+    icon: "/images/community/twitter.svg",
+  },
+  {
+    title: "Telegram",
+    url: "https://t.me/solana",
+    icon: "/images/community/telegram.svg",
+  },
+];
+
+const JoinCommunity = ({ title }) => {
   const { t } = useTranslation();
 
   const container = useRef(null);
@@ -138,8 +162,13 @@ const JoinCommunity = ({ title, links }) => {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
+              className={styles.Link}
             >
-              {link.text}
+              <img src={link.icon} alt={link.title} />
+              <span>
+                {link.title}
+                <ArrowUpRight size={14} />
+              </span>
             </Link>
           ))}
         </div>

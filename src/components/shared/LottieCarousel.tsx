@@ -54,8 +54,13 @@ const LottieCarousel = ({
       const slick = document.querySelector(
         `.${styles.LottieCarouselSection} .d-none.d-md-block .slick-list`,
       );
+
+      if (!slick) return;
+
       const currentSlide =
-        sliderDesktopRef.current.innerSlider.state.currentSlide;
+        sliderDesktopRef.current?.innerSlider?.state?.currentSlide;
+      if (typeof currentSlide === "undefined") return;
+
       const stateDesktopCopy = new Array(itemsStateDesktop.length).fill(true);
       stateDesktopCopy[currentSlide === 2 ? 0 : currentSlide + 1] = false;
       setItemsStateDesktop(stateDesktopCopy);
@@ -63,23 +68,27 @@ const LottieCarousel = ({
       const slides = slick.querySelectorAll(".slick-slide");
       const slidesActive = slick.querySelectorAll(".slick-slide.slick-active");
 
-      for (let i = 0; i < slides.length; i++) {
-        const carouselItem = slides[i].querySelector(
+      slides.forEach((slide) => {
+        const carouselItem = slide.querySelector(
           `.${styles.LottieCarouselItem}`,
         );
-        carouselItem.classList.remove(`${styles.ActiveSlide}`);
-      }
-
-      for (let i = 0; i < slidesActive.length; i++) {
-        const carouselItem = slidesActive[i].querySelector(
-          `.${styles.LottieCarouselItem}`,
-        );
-        if (i === slidesActive.length - 1) {
-          carouselItem.classList.add(`${styles.ActiveSlide}`);
-        } else {
+        if (carouselItem) {
           carouselItem.classList.remove(`${styles.ActiveSlide}`);
         }
-      }
+      });
+
+      slidesActive.forEach((slide, i) => {
+        const carouselItem = slide.querySelector(
+          `.${styles.LottieCarouselItem}`,
+        );
+        if (carouselItem) {
+          if (i === slidesActive.length - 1) {
+            carouselItem.classList.add(`${styles.ActiveSlide}`);
+          } else {
+            carouselItem.classList.remove(`${styles.ActiveSlide}`);
+          }
+        }
+      });
     }
   };
 
@@ -123,18 +132,22 @@ const LottieCarousel = ({
         `.${styles.LottieCarouselSection} .d-none.d-md-block .slick-list`,
       );
 
+      if (!slick) return;
+
       const slidesActive = slick.querySelectorAll(".slick-slide.slick-active");
 
-      for (let i = 0; i < slidesActive.length; i++) {
-        const carouselItem = slidesActive[i].querySelector(
+      slidesActive.forEach((slide, i) => {
+        const carouselItem = slide.querySelector(
           `.${styles.LottieCarouselItem}`,
         );
-        if (i === slidesActive.length - 1) {
-          carouselItem.classList.add(`${styles.ActiveSlide}`);
-        } else {
-          carouselItem.classList.remove(`${styles.ActiveSlide}`);
+        if (carouselItem) {
+          if (i === slidesActive.length - 1) {
+            carouselItem.classList.add(`${styles.ActiveSlide}`);
+          } else {
+            carouselItem.classList.remove(`${styles.ActiveSlide}`);
+          }
         }
-      }
+      });
     }
   }, [isMobile]);
 

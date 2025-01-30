@@ -3,6 +3,14 @@ import Button from "@/components/solutions/Button";
 import { Zap, ArrowUpRight, Diamond, Leaf, Pin, Newspaper } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import circleImg from "../../../assets/home/supporters/circle.png";
+import shopifyImg from "../../../assets/home/supporters/shopify.png";
+import metaImg from "../../../assets/home/supporters/meta.png";
+import edenImg from "../../../assets/home/supporters/eden.png";
+import stripeImg from "../../../assets/home/supporters/stripe.png";
+import jumpImg from "../../../assets/home/supporters/jump.png";
+import googleImg from "../../../assets/home/supporters/google.png";
+import discordImg from "../../../assets/home/supporters/discord.png";
 
 const YHero = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -10,14 +18,11 @@ const YHero = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-      if (window.innerWidth <= 768) {
-        setVisibleLogos(4);
-      } else if (window.innerWidth <= 1024) {
-        setVisibleLogos(6);
-      } else {
-        setVisibleLogos(8);
-      }
+      const isMobileView = window.innerWidth <= 768;
+      setIsMobile(isMobileView);
+      const newVisibleCount = isMobileView ? 6 : 8;
+      setVisibleLogos(newVisibleCount);
+      console.log("Visible logos:", newVisibleCount);
     };
 
     handleResize();
@@ -31,14 +36,14 @@ const YHero = () => {
   const iconSize = isMobile ? "10" : "14";
 
   const desktopLogos = [
-    { src: "/src/img/home/supporters/circle.png", alt: "Circle" },
-    { src: "/src/img/home/supporters/shopify.png", alt: "Shopify" },
-    { src: "/src/img/home/supporters/meta.png", alt: "Meta" },
-    { src: "/src/img/home/supporters/eden.png", alt: "Magic Eden" },
-    { src: "/src/img/home/supporters/stripe.png", alt: "Stripe" },
-    { src: "/src/img/home/supporters/jump.png", alt: "Jump" },
-    { src: "/src/img/home/supporters/google.png", alt: "Google" },
-    { src: "/src/img/home/supporters/discord.png", alt: "Discord" },
+    { src: circleImg, alt: "Circle" },
+    { src: shopifyImg, alt: "Shopify" },
+    { src: metaImg, alt: "Meta" },
+    { src: edenImg, alt: "Magic Eden" },
+    { src: stripeImg, alt: "Stripe" },
+    { src: jumpImg, alt: "Jump" },
+    { src: googleImg, alt: "Google" },
+    { src: discordImg, alt: "Discord" },
   ];
 
   return (
@@ -130,18 +135,27 @@ const YHero = () => {
         </div>
 
         <div className={styles.hero__supporters}>
+          {console.log("Total logos:", desktopLogos.length)}
+          {console.log("Visible logos state:", visibleLogos)}
+          {console.log(
+            "Sliced logos:",
+            desktopLogos.slice(0, visibleLogos).length,
+          )}
           {desktopLogos.slice(0, visibleLogos).map((logo, index) => (
-            <Image
-              key={index}
-              src={logo.src}
-              alt={logo.alt}
-              width={118}
-              height={30}
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-            />
+            <div key={index}>
+              {console.log("Rendering logo:", index)}
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={118}
+                height={30}
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
+                priority={true}
+              />
+            </div>
           ))}
         </div>
       </div>

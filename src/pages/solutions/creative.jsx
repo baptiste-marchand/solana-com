@@ -2,28 +2,31 @@ import Link from "next/link";
 import { useTranslation, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import classNames from "classnames";
+import dynamic from "next/dynamic";
 
 import HTMLHead from "@/components/HTMLHead";
 import Layout from "@/components/solutions/layout";
 import Button from "@/components/solutions/Button";
 import Stats from "@/components/solutions/Stats";
 import BasicCallout from "@/components/solutions/BasicCallout";
-import VideoBgHero from "@/components/solutions/VideoBgHero";
 import LongformItem from "@/components/solutions/LongformItem";
 import EcosystemSliderWithTabs, {
   Card,
 } from "@/components/solutions/EcosystemSliderWithTabs";
-import SuccessStories, {
-  StoryCard,
-} from "@/components/solutions/SuccessStories";
+import SuccessStories from "@/components/solutions/SuccessStoriesNew";
 import YDeveloperResources, {
   YDeveloperResourcesLink,
 } from "@/components/solutions/YDeveloperResources";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import { AnimatedText, GradientText } from "@/components/shared/Text";
 import { MotionSlideIn } from "@/components/shared/Motions";
+import CreativeHero from "@/components/home/CreativeHero";
 
 import styles from "./Creative.module.scss";
+import * as blinksLottie from "../../../assets/solutions/creative/Blinks.json";
+import * as nftLottie from "../../../assets/solutions/creative/NFT.json";
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 const Creative = () => {
   const { t } = useTranslation();
@@ -137,40 +140,42 @@ const Creative = () => {
   ];
 
   const caseStudyCards = [
-    <StoryCard
-      key="culture-hacker"
-      logo="/solutions/creative/culture-hacker-logo.svg"
-      logoAlt="Culture Hacker logo"
-      mobileImage="/solutions/creative/culture-hacker.png"
-      desktopImage="/solutions/creative/culture-hacker.png"
-      imageAlt="Culture Hacker"
-      text={
-        <Trans i18nKey="solutions-creative.case-studies.cards.culture-hacker.excerpt" />
-      }
-      buttonText={t(
+    {
+      title: "Culture Hacker Brings Immersive Art to Life",
+      description: t(
+        "solutions-creative.case-studies.cards.culture-hacker.excerpt",
+      ),
+      image: "/solutions/creative/culture-hacker.png",
+      imageAlt: "Culture Hacker",
+      metrics: [
+        { value: "1M+", label: "Impressions" },
+        { value: "100K+", label: "Participants" },
+        { value: "24/7", label: "Access" },
+      ],
+      readMoreUrl:
+        "https://solana.com/news/case-study-culturehacker-where-theres-smoke",
+      readMoreText: t(
         "solutions-creative.case-studies.cards.culture-hacker.button",
-      )}
-      buttonUrl="https://solana.com/news/case-study-culturehacker-where-theres-smoke"
-      className={styles.StoryCard}
-      logoClassName={classNames(styles.StoryCardLogo, styles.StoryCard1Logo)}
-      mainImageClassName={styles.StoryCardMainImage}
-    />,
-    <StoryCard
-      key="eric-church"
-      logo="/solutions/creative/single-logo.png"
-      logoAlt="Single logo"
-      mobileImage="/solutions/creative/single.png"
-      desktopImage="/solutions/creative/single.png"
-      imageAlt="Eric Church"
-      text={
-        <Trans i18nKey="solutions-creative.case-studies.cards.eric-church.excerpt" />
-      }
-      buttonText={t("solutions-creative.case-studies.cards.eric-church.button")}
-      buttonUrl="https://single.xyz/blogs/blog/eric-church-future-proofs-fandom-solana-based-digital-deeds-nashville-bar"
-      className={styles.StoryCard}
-      logoClassName={classNames(styles.StoryCardLogo, styles.StoryCard2Logo)}
-      mainImageClassName={styles.StoryCardMainImage}
-    />,
+      ),
+    },
+    {
+      title: "Eric Church Revolutionizes Fan Engagement",
+      description: t(
+        "solutions-creative.case-studies.cards.eric-church.excerpt",
+      ),
+      image: "/solutions/creative/single.png",
+      imageAlt: "Eric Church",
+      metrics: [
+        { value: "5K+", label: "Members" },
+        { value: "100%", label: "Digital" },
+        { value: "24/7", label: "Access" },
+      ],
+      readMoreUrl:
+        "https://single.xyz/blogs/blog/eric-church-future-proofs-fandom-solana-based-digital-deeds-nashville-bar",
+      readMoreText: t(
+        "solutions-creative.case-studies.cards.eric-church.button",
+      ),
+    },
   ];
 
   const developerResourcesLinks = [
@@ -211,19 +216,7 @@ const Creative = () => {
         description={t("solutions-creative.meta.description")}
       />
       <div className={styles.PageWrapper} id="creative-page">
-        <VideoBgHero
-          videoSrc="https://player.vimeo.com/progressive_redirect/playback/1010828261/rendition/1080p/file.mp4?loc=external&signature=3a87a8313b117d0780126f1f1ab577c85b51e1c93c050731a1379ac47c892d0e"
-          videoSrc720="https://player.vimeo.com/progressive_redirect/playback/1010828261/rendition/720p/file.mp4?loc=external&signature=2ad6909b468fe0fec3e47cb8b1e6a692a47831925020d595b9548a455ffc6d16"
-          videoPoster="/solutions/creative/Hero.webp"
-          title={t("solutions-creative.hero.title")}
-          subtitle={t("solutions-creative.hero.subtitle")}
-          buttons={[
-            {
-              text: t("solutions-creative.hero.start-btn"),
-              url: "#developer-resources",
-            },
-          ]}
-        />
+        <CreativeHero />
 
         <Stats
           titleContent={
@@ -263,7 +256,20 @@ const Creative = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: blinksLottie,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-creative.meet-users.title")}
               subtitleComponent={
@@ -282,7 +288,20 @@ const Creative = () => {
 
           <MotionSlideIn>
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: nftLottie,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               textContentDesktopDirection="row"
               titleComponent={t("solutions-creative.mint-digital.title")}
               subtitleComponent={

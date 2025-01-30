@@ -12,22 +12,21 @@ import FooterCallout from "@/components/solutions/FooterCallout";
 import EcosystemSlider, {
   Card,
 } from "../../components/solutions/EcosystemSlider";
-import SuccessStories, {
-  StoryCard,
-} from "@/components/solutions/SuccessStories";
+import SuccessStories from "@/components/solutions/SuccessStoriesNew";
 import YDeveloperResources, {
   YDeveloperResourcesLink,
 } from "@/components/solutions/YDeveloperResources";
 import LongformItem from "@/components/solutions/LongformItem";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import Text, { AnimatedText, GradientText } from "@/components/shared/Text";
-
 import styles from "./Defi.module.scss";
 
 import * as mobileHeroWithSolana from "../../../assets/solutions/defi/DeFi_MobileHero_WithSolana_V1.json";
 import * as mobileHeroWithoutSolana from "../../../assets/solutions/defi/DeFi_MobileHero_WithoutSolana_V1.json";
 import * as desktopHeroWithSolana from "../../../assets/solutions/defi/DeFi_DesktopHero_WithSolana_V1.json";
 import * as desktopHeroWithoutSolana from "../../../assets/solutions/defi/DeFi_DesktopHero_WithoutSolana_V1.json";
+import * as longformTwo from "../../../assets/solutions/defi/DeFi_Interest_V1.json";
+import * as longformOne from "../../../assets/solutions/defi/DeFi_Blinks_V1.json";
 
 import credix from "../../../assets/solutions/defi/credix.svg";
 import jupiter from "../../../assets/solutions/defi/jupiter.svg";
@@ -40,6 +39,8 @@ import pyth from "../../../assets/solutions/defi/pyth.svg";
 import pyusd from "../../../assets/solutions/defi/pyusd.svg";
 import raydium from "../../../assets/solutions/defi/raydium.svg";
 import save from "../../../assets/solutions/defi/save.svg";
+import pythMain from "../../../assets/solutions/defi/pyth-main.png";
+import etherfuseMain from "../../../assets/solutions/defi/etherfuse-main.png";
 
 const LottieHeroWithTabs = dynamic(
   () => import("@/components/solutions/LottieHeroWithTabs"),
@@ -54,6 +55,8 @@ const MotionSlideIn = dynamic(
   () => import("@/components/shared/Motions").then((mod) => mod.MotionSlideIn),
   { ssr: false },
 );
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 const DeFi = () => {
   const { t } = useTranslation();
@@ -175,38 +178,36 @@ const DeFi = () => {
   ];
 
   const caseStudyCards = [
-    <StoryCard
-      key="case-study-card-1"
-      logo={"/solutions/defi/pyth-logo.webp"}
-      logoAlt="Pyth logo"
-      mobileImage={"/solutions/defi/pyth-main.jpg"}
-      desktopImage={"/solutions/defi/pyth-main.jpg"}
-      imageAlt="Pyth Main"
-      text={
-        <Trans i18nKey="solutions-defi.case-studies.cards.item-one.excerpt" />
-      }
-      buttonText={t("solutions-defi.case-studies.cards.item-one.button")}
-      buttonUrl="https://solana.com/news/case-study-pyth"
-      className={styles.StoryCard}
-      logoClassName={styles.StoryCardLogo}
-      mainImageClassName={styles.StoryCardImage}
-    />,
-    <StoryCard
-      key="case-study-card-2"
-      logo={"/solutions/defi/etherfuse-logo.svg"}
-      logoAlt="Etherfuse logo"
-      mobileImage={"/solutions/defi/etherfuse-main.webp"}
-      desktopImage={"/solutions/defi/etherfuse-main.webp"}
-      imageAlt="Helio"
-      text={
-        <Trans i18nKey="solutions-defi.case-studies.cards.item-two.excerpt" />
-      }
-      buttonText={t("solutions-defi.case-studies.cards.item-two.button")}
-      buttonUrl="https://solana.com/news/case-study-etherfuse"
-      className={styles.StoryCard}
-      logoClassName={styles.StoryCardLogo}
-      mainImageClassName={styles.StoryCardImage}
-    />,
+    {
+      title: "Pyth Brings Real-World Data to DeFi",
+      description: t(
+        "solutions-defi.case-studies.cards.item-one.excerpt",
+      ).replace(/<\/?strong>/g, ""),
+      image: pythMain.src,
+      imageAlt: "Pyth Network",
+      metrics: [
+        { value: "250+", label: "Data Sources" },
+        { value: "$1B+", label: "Secured" },
+        { value: "400ms", label: "Latency" },
+      ],
+      readMoreUrl: "https://solana.com/news/case-study-pyth",
+      readMoreText: t("solutions-defi.case-studies.cards.item-one.button"),
+    },
+    {
+      title: "Etherfuse Revolutionizes DeFi Infrastructure",
+      description: t(
+        "solutions-defi.case-studies.cards.item-two.excerpt",
+      ).replace(/<\/?strong>/g, ""),
+      image: etherfuseMain.src,
+      imageAlt: "Etherfuse platform",
+      metrics: [
+        { value: "$50M", label: "Volume" },
+        { value: "1000+", label: "Users" },
+        { value: "99.9%", label: "Uptime" },
+      ],
+      readMoreUrl: "https://solana.com/news/case-study-etherfuse",
+      readMoreText: t("solutions-defi.case-studies.cards.item-two.button"),
+    },
   ];
 
   const developerResourcesLinks = [
@@ -267,6 +268,70 @@ const DeFi = () => {
       key="detail-card-3"
     />,
   ];
+
+  const LongformSection = () => {
+    return (
+      <div className={styles.LongformSection}>
+        <MotionSlideIn from="right">
+          <LongformItem
+            mediaComponent={
+              <div className={styles.LottieWrapper}>
+                {typeof window !== "undefined" && (
+                  <Lottie
+                    options={{
+                      animationData: longformOne,
+                      loop: true,
+                      autoplay: true,
+                    }}
+                    isClickToPauseDisabled={true}
+                  />
+                )}
+              </div>
+            }
+            mediaDesktopPlacement="left"
+            titleComponent={t("solutions-defi.longform-one.title")}
+            subtitleComponent={
+              <Trans
+                i18nKey="solutions-defi.longform-one.subtitle"
+                components={[<Link href="/solutions/actions" key="0" />]}
+              />
+            }
+            className={styles.LongformItem1}
+          />
+        </MotionSlideIn>
+
+        <MotionSlideIn from="left">
+          <LongformItem
+            mediaComponent={
+              <div className={styles.TokenExtensionsMedia}>
+                {typeof window !== "undefined" && (
+                  <Lottie
+                    options={{
+                      animationData: longformTwo,
+                      loop: true,
+                      autoplay: true,
+                    }}
+                    isClickToPauseDisabled={true}
+                  />
+                )}
+              </div>
+            }
+            mediaDesktopPlacement="right"
+            titleComponent={t("solutions-defi.longform-two.title")}
+            subtitleComponent={
+              <Trans
+                i18nKey="solutions-defi.longform-two.subtitle"
+                components={[
+                  <Link href="/solutions/token-extensions" key="0" />,
+                ]}
+              />
+            }
+            className={styles.LongformItem2}
+          />
+        </MotionSlideIn>
+      </div>
+    );
+  };
 
   return (
     <Layout>
@@ -368,39 +433,7 @@ const DeFi = () => {
           className={styles.BasicCallout}
         />
 
-        <div className={styles.LongformSection}>
-          <MotionSlideIn from="right">
-            <LongformItem
-              mediaComponent={<></>}
-              mediaDesktopPlacement="left"
-              titleComponent={t("solutions-defi.longform-one.title")}
-              subtitleComponent={
-                <Trans
-                  i18nKey="solutions-defi.longform-one.subtitle"
-                  components={[<Link href="/solutions/actions" key="0" />]}
-                />
-              }
-              className={styles.LongformItem1}
-            />
-          </MotionSlideIn>
-
-          <MotionSlideIn from="left">
-            <LongformItem
-              mediaComponent={<></>}
-              mediaDesktopPlacement="right"
-              titleComponent={t("solutions-defi.longform-two.title")}
-              subtitleComponent={
-                <Trans
-                  i18nKey="solutions-defi.longform-two.subtitle"
-                  components={[
-                    <Link href="/solutions/token-extensions" key="0" />,
-                  ]}
-                />
-              }
-              className={styles.LongformItem2}
-            />
-          </MotionSlideIn>
-        </div>
+        <LongformSection />
 
         <div className={classNames("d-md-none", styles.DetailCardsWrapper)}>
           {detailCards}

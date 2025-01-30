@@ -1,99 +1,46 @@
-import { ReactNode } from "react";
-import Image from "next/image";
+import React from "react";
+import styles from "./SuccessStoriesNew.module.scss";
 import classNames from "classnames";
-
 import { AnimatedText } from "@/components/shared/Text";
-import { MotionSlideIn } from "@/components/shared/Motions";
-import Button from "./Button";
-
-import styles from "./SuccessStories.module.scss";
 import styled from "styled-components";
 
-interface StoryCardProps {
-  logo: string;
-  logoAlt: string;
-  mobileImage: string;
-  desktopImage: string;
-  imageAlt: string;
-  text: string;
-  buttonText: string;
-  buttonUrl: string;
-  className?: string;
-  logoClassName?: string;
-  mainImageClassName?: string;
+interface Metric {
+  value: string;
+  label: string;
 }
 
-export const StoryCard = ({
-  logo,
-  logoAlt,
-  mobileImage,
-  desktopImage,
-  imageAlt,
-  text,
-  buttonText,
-  buttonUrl,
-  className,
-  logoClassName,
-  mainImageClassName,
-}: StoryCardProps) => {
-  return (
-    <div className={classNames(styles.StoryCard, className)}>
-      <div className={classNames(styles.LogoWrapper, logoClassName)}>
-        <MotionSlideIn>
-          <Image
-            src={logo}
-            alt={logoAlt}
-            width={100}
-            height={50}
-            className={classNames(styles.LogoImage)}
-          />
-        </MotionSlideIn>
-      </div>
-
-      <div className={classNames(styles.MainImageWrapper, mainImageClassName)}>
-        <MotionSlideIn>
-          {mobileImage && (
-            <Image
-              src={mobileImage}
-              alt={imageAlt}
-              width={465}
-              height={465}
-              className="d-lg-none"
-            />
-          )}
-
-          <Image
-            src={desktopImage}
-            alt={imageAlt}
-            width={465}
-            height={465}
-            className={mobileImage ? "d-none d-lg-block" : styles.MainImage}
-          />
-        </MotionSlideIn>
-      </div>
-
-      <AnimatedText element="p" as="paragraph" className={styles.Text}>
-        {text}
-      </AnimatedText>
-
-      <MotionSlideIn>
-        <Button text={buttonText} url={buttonUrl} target="_blank" />
-      </MotionSlideIn>
-    </div>
-  );
-};
+interface Card {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  metrics: Metric[];
+  readMoreUrl: string;
+  readMoreText: string;
+}
 
 interface SuccessStoriesProps {
   title: string;
-  cards: ReactNode[];
+  cards: Card[];
   backgroundTheme?: "grey" | "black";
   className?: string;
-  cardsClassName?: string;
   id?: string;
 }
 
-export const SuccessStoryCard = ({ ...props }) => {
-  const StoryCard = styled.div`
+export const SuccessStoryCard = ({
+  title = "How PhotoFinish Live Leveraged Solana to Drive Sales by 2x",
+  description = "Photo Finish™ LIVE is a horse racing game that showcases the economic and player appeal of web3 gaming via real-time racing and creative in-game economies.",
+  image = "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?q=80&w=3540&auto=format&fit=crop",
+  imageAlt = "Card image",
+  metrics = [
+    { value: "$25m", label: "Races" },
+    { value: "$25m", label: "Prizes" },
+    { value: "$25m", label: "Revenue" },
+  ],
+  readMoreUrl = "#",
+  readMoreText = "READ MORE",
+}: StoryCardProps) => {
+  const StoryCard = styled.a`
     background: #2c2c36;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -102,6 +49,8 @@ export const SuccessStoryCard = ({ ...props }) => {
     display: flex;
     flex-direction: column;
     padding: 0 !important;
+    text-decoration: none;
+    cursor: pointer;
 
     strong {
       color: var(--white);
@@ -148,6 +97,7 @@ export const SuccessStoryCard = ({ ...props }) => {
       font-weight: 600;
       width: 100%;
       max-width: 400px;
+      color: #fff;
     }
 
     .card-description {
@@ -194,7 +144,7 @@ export const SuccessStoryCard = ({ ...props }) => {
     }
 
     .metric-value {
-      color: var(--whitw);
+      color: #fff;
       font-size: 1.25rem;
       font-weight: 600;
       margin: 0;
@@ -222,57 +172,52 @@ export const SuccessStoryCard = ({ ...props }) => {
       display: inline-flex;
       align-items: center;
       margin-top: auto;
+      pointer-events: none;
     }
 
     .read-more::after {
       content: "→";
       margin-left: 0.5rem;
     }
+
+    &,
+    &:visited,
+    &:hover,
+    &:active {
+      color: inherit;
+    }
   `;
 
   return (
-    <StoryCard {...props} data-slot="success-story-card">
+    <StoryCard
+      href={readMoreUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-slot="success-story-card"
+    >
       <div className="card-image-wrapper">
-        <img
-          src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?q=80&w=3540&auto=format&fit=crop"
-          alt="Card image"
-          className="card-image"
-        />
+        <img src={image} alt={imageAlt} className="card-image" />
       </div>
       <div className="card-content">
-        <h2 className="card-title">
-          How PhotoFinish Live Leveraged Solana to Drive Sales by 2x
-        </h2>
-        <p className="card-description">
-          Photo Finish™ LIVE is a horse racing game that showcases the economic
-          and player appeal of web3 gaming via real-time racing and creative
-          in-game economies.
-        </p>
+        <h2 className="card-title">{title}</h2>
+        <p className="card-description">{description}</p>
         <div className="card-metrics">
-          <div className="metric">
-            <p className="metric-value">$25m</p>
-            <span className="metric-label">Races</span>
-          </div>
-          <div className="metric">
-            <p className="metric-value">$25m</p>
-            <span className="metric-label">Prizes</span>
-          </div>
-          <div className="metric">
-            <p className="metric-value">$25m</p>
-            <span className="metric-label">Revenue</span>
-          </div>
+          {metrics.map((metric, index) => (
+            <div className="metric" key={index}>
+              <p className="metric-value">{metric.value}</p>
+              <span className="metric-label">{metric.label}</span>
+            </div>
+          ))}
         </div>
         <div className="read-more-wrapper">
-          <a href="#" className="read-more">
-            READ MORE
-          </a>
+          <span className="read-more">{readMoreText}</span>
         </div>
       </div>
     </StoryCard>
   );
 };
 
-const SuccessStoriesGrid = ({}) => {
+const SuccessStoriesGrid = ({ cards }: { cards: StoryCardProps[] }) => {
   const StoryCardWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -280,6 +225,7 @@ const SuccessStoriesGrid = ({}) => {
     max-width: 1200px;
     margin: 0 auto;
     margin-top: 64px;
+    margin-bottom: 0;
 
     &:has(> :last-child:nth-child(2n + 1)):has(> :nth-child(3))
       [data-slot="success-story-card"]:first-child {
@@ -323,23 +269,29 @@ const SuccessStoriesGrid = ({}) => {
 
   return (
     <StoryCardWrapper>
-      {SuccessStoryCard({})}
-      {SuccessStoryCard({})}
-      {SuccessStoryCard({})}
+      {cards.map((cardProps, index) => (
+        <SuccessStoryCard key={index} {...cardProps} />
+      ))}
     </StoryCardWrapper>
   );
 };
 
 const SuccessStories = ({
   title,
-  // cards,
+  cards,
   backgroundTheme = "grey",
   className,
-  // cardsClassName,
   id,
 }: SuccessStoriesProps) => {
+  const Section = styled.section`
+    padding: 64px 0 40px;
+    background: ${backgroundTheme === "black"
+      ? "var(--black)"
+      : "var(--grey-500)"};
+  `;
+
   return (
-    <section
+    <Section
       className={classNames(styles.SuccessStoriesGrid, className)}
       data-theme={backgroundTheme}
       id={id || "success-stories"}
@@ -348,10 +300,9 @@ const SuccessStories = ({
         <AnimatedText element="h2" as="heading" className={styles.Title}>
           {title}
         </AnimatedText>
-
-        <SuccessStoriesGrid />
+        <SuccessStoriesGrid cards={cards} />
       </div>
-    </section>
+    </Section>
   );
 };
 

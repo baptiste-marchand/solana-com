@@ -1,23 +1,35 @@
 import { useTranslation, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import classNames from "classnames";
-
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
 import Stats from "@/components/solutions/Stats";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import LongformItem from "@/components/solutions/LongformItem";
 import FooterCallout from "@/components/solutions/FooterCallout";
-import CardsSlider from "@/components/shared/CardsSlider";
-import { StoryCard } from "@/components/solutions/SuccessStories";
+import { GradientText } from "@/components/shared/Text";
 import YDeveloperResources, {
   YDeveloperResourcesLink,
 } from "@/components/solutions/YDeveloperResources";
-import { MotionSlideIn } from "@/components/shared/Motions";
-import { GradientText } from "@/components/shared/Text";
-import SuccessStories from "@/components/solutions/SuccessStories";
+import SuccessStories from "@/components/solutions/SuccessStoriesNew";
 
 import styles from "./Loyalty.module.scss";
+import * as heroLottie from "../../../assets/solutions/loyalty/Loyalty_Hero_V1.json";
+import * as LongformOneLottie from "../../../assets/solutions/loyalty/Loyalty_TokenExtensions.json";
+import * as LongformTwoLottie from "../../../assets/solutions/loyalty/Loyalty_State Compression_V1.json";
+import * as LongformThreeLottie from "../../../assets/solutions/loyalty/Loyalty_Solana Pay_V1.json";
+import * as LongformFourLottie from "../../../assets/solutions/loyalty/Loyalty_Secret Menu Item_V1.json";
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+
+const LoyaltyHero = dynamic(
+  () => import("@/components/solutions/loyalty/LoyaltyHero"),
+  { ssr: false },
+);
+
+const MotionSlideIn = dynamic(
+  () => import("@/components/shared/Motions").then((mod) => mod.MotionSlideIn),
+  { ssr: false },
+);
 
 const Loyalty = () => {
   const { t } = useTranslation();
@@ -31,90 +43,76 @@ const Loyalty = () => {
   });
 
   const caseStudyCards = [
-    <StoryCard
-      logo={"/solutions/loyalty/bobaguys-logo.webp"}
-      logoAlt={t("solutions-loyalty.case-study-cards.cards.boba-guys.logo-alt")}
-      mobileImage={"/solutions/loyalty/bobaguys-main.png"}
-      desktopImage={"/solutions/loyalty/bobaguys-main.webp"}
-      imageAlt={t(
+    {
+      title: "Boba Guys Revolutionizes Loyalty",
+      description: t(
+        "solutions-loyalty.case-study-cards.cards.boba-guys.excerpt",
+      ),
+      image: "/solutions/loyalty/bobaguys-main.png",
+      imageAlt: t(
         "solutions-loyalty.case-study-cards.cards.boba-guys.image-alt",
-      )}
-      text={
-        <Trans
-          i18nKey="solutions-loyalty.case-study-cards.cards.boba-guys.excerpt"
-          components={{ strong: <strong /> }}
-        />
-      }
-      buttonText={t(
+      ),
+      metrics: [
+        { value: "500K+", label: "Members" },
+        { value: "2x", label: "Engagement" },
+        { value: "24/7", label: "Access" },
+      ],
+      readMoreUrl: "https://solana.com/news/case-study-boba-guys",
+      readMoreText: t(
         "solutions-loyalty.case-study-cards.cards.boba-guys.button-text",
-      )}
-      buttonUrl="https://solana.com/news/case-study-boba-guys"
-      className={styles.StoryCard}
-      logoClassName={styles.StoryCardLogo}
-      key="boba-guys"
-    />,
-    <StoryCard
-      logo={"/solutions/loyalty/asics-logo.svg"}
-      logoAlt={t("solutions-loyalty.case-study-cards.cards.asics.logo-alt")}
-      mobileImage={"/solutions/loyalty/asics-main.webp"}
-      desktopImage={"/solutions/loyalty/asics-main.webp"}
-      imageAlt={t("solutions-loyalty.case-study-cards.cards.asics.image-alt")}
-      text={
-        <Trans
-          i18nKey="solutions-loyalty.case-study-cards.cards.asics.excerpt"
-          components={{ strong: <strong /> }}
-        />
-      }
-      buttonText={t(
+      ),
+    },
+    {
+      title: "ASICS Redefines Digital Rewards",
+      description: t("solutions-loyalty.case-study-cards.cards.asics.excerpt"),
+      image: "/solutions/loyalty/asics-main.webp",
+      imageAlt: t("solutions-loyalty.case-study-cards.cards.asics.image-alt"),
+      metrics: [
+        { value: "100K+", label: "Members" },
+        { value: "3x", label: "Engagement" },
+        { value: "Global", label: "Reach" },
+      ],
+      readMoreUrl: "https://ui.asics.com/",
+      readMoreText: t(
         "solutions-loyalty.case-study-cards.cards.asics.buttonText",
-      )}
-      buttonUrl="https://ui.asics.com/"
-      className={styles.StoryCard}
-      logoClassName={styles.StoryCardLogo}
-      key="asics"
-    />,
-    <StoryCard
-      logo={"/solutions/loyalty/drip-logo.svg"}
-      logoAlt={t("solutions-loyalty.case-study-cards.cards.drip.logo-alt")}
-      mobileImage={"/solutions/loyalty/drip-main.jpg"}
-      desktopImage={"/solutions/loyalty/drip-main.jpg"}
-      imageAlt={t("solutions-loyalty.case-study-cards.cards.drip.image-alt")}
-      text={
-        <Trans
-          i18nKey="solutions-loyalty.case-study-cards.cards.drip.excerpt"
-          components={{ strong: <strong /> }}
-        />
-      }
-      buttonText={t("solutions-loyalty.case-study-cards.cards.drip.buttonText")}
-      buttonUrl="https://blockworks.co/news/drip-haus-mass-adoption-strategy"
-      className={styles.StoryCard}
-      logoClassName={styles.StoryCardLogo}
-      key="drip"
-    />,
-    <StoryCard
-      logo={"/solutions/loyalty/single-logo.png"}
-      logoAlt={t(
-        "solutions-loyalty.case-study-cards.cards.eric-church.logo-alt",
-      )}
-      mobileImage={"/solutions/loyalty/single-main.jpg"}
-      desktopImage={"/solutions/loyalty/single-main.jpg"}
-      imageAlt={t(
+      ),
+    },
+    {
+      title: "Drip Haus Transforms Fan Experience",
+      description: t("solutions-loyalty.case-study-cards.cards.drip.excerpt"),
+      image: "/solutions/loyalty/drip-main.jpg",
+      imageAlt: t("solutions-loyalty.case-study-cards.cards.drip.image-alt"),
+      metrics: [
+        { value: "50K+", label: "Members" },
+        { value: "4x", label: "Growth" },
+        { value: "24/7", label: "Access" },
+      ],
+      readMoreUrl:
+        "https://blockworks.co/news/drip-haus-mass-adoption-strategy",
+      readMoreText: t(
+        "solutions-loyalty.case-study-cards.cards.drip.buttonText",
+      ),
+    },
+    {
+      title: "Eric Church Pioneers Digital Membership",
+      description: t(
+        "solutions-loyalty.case-study-cards.cards.eric-church.excerpt",
+      ),
+      image: "/solutions/loyalty/single-main.jpg",
+      imageAlt: t(
         "solutions-loyalty.case-study-cards.cards.eric-church.image-alt",
-      )}
-      text={
-        <Trans
-          i18nKey="solutions-loyalty.case-study-cards.cards.eric-church.excerpt"
-          components={{ strong: <strong /> }}
-        />
-      }
-      buttonText={t(
+      ),
+      metrics: [
+        { value: "5K+", label: "Members" },
+        { value: "100%", label: "Digital" },
+        { value: "24/7", label: "Access" },
+      ],
+      readMoreUrl:
+        "https://single.xyz/blogs/blog/eric-church-future-proofs-fandom-solana-based-digital-deeds-nashville-bar",
+      readMoreText: t(
         "solutions-loyalty.case-study-cards.cards.eric-church.buttonText",
-      )}
-      buttonUrl="https://single.xyz/blogs/blog/eric-church-future-proofs-fandom-solana-based-digital-deeds-nashville-bar"
-      className={styles.StoryCard}
-      logoClassName={styles.StoryCardLogo}
-      key="eric-church"
-    />,
+      ),
+    },
   ];
 
   const developerResourcesLinks = [
@@ -148,6 +146,8 @@ const Loyalty = () => {
       />
 
       <div className={styles.LoyaltyPage} id="loyalty-page">
+        <LoyaltyHero heroLottie={heroLottie} />
+
         <Stats
           titleContent={
             <Trans
@@ -173,7 +173,7 @@ const Loyalty = () => {
               i18nKey="solutions-loyalty.callout-1.title"
               components={{
                 gradient: (
-                  <GradientText gradient="linear-gradient(270deg, #9945FF 0%, #EB54BC 50.57%, #FF754A 100%);" />
+                  <GradientText gradient="linear-gradient(270deg, #9945FF 0%, #EB54BC 50.57%, #FF754A 100%)" />
                 ),
               }}
             />
@@ -185,7 +185,20 @@ const Loyalty = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: LongformOneLottie,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="right"
               titleComponent={longformContent[0].title}
               subtitleComponent={longformContent[0].text}
@@ -195,7 +208,20 @@ const Loyalty = () => {
 
           <MotionSlideIn>
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: LongformTwoLottie,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               textContentDesktopDirection="row"
               mediaDesktopPlacement="below"
               titleComponent={longformContent[1].title}
@@ -206,7 +232,20 @@ const Loyalty = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: LongformThreeLottie,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="left"
               titleComponent={longformContent[2].title}
               subtitleComponent={longformContent[2].text}
@@ -216,7 +255,20 @@ const Loyalty = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: LongformFourLottie,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="right"
               titleComponent={longformContent[3].title}
               subtitleComponent={longformContent[3].text}
@@ -229,14 +281,7 @@ const Loyalty = () => {
           <SuccessStories
             title={t("solutions-loyalty.case-study-cards.title")}
             cards={caseStudyCards}
-            className={classNames(styles.SuccessStories, "d-md-none")}
-            id="success-stories-mobile"
-          />
-
-          <CardsSlider
-            items={caseStudyCards}
-            titleKey="solutions-loyalty.case-study-cards.title"
-            className={classNames(styles.SuccessStories, "d-none d-md-block")}
+            className={styles.SuccessStories}
           />
         </div>
 

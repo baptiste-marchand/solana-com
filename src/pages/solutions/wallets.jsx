@@ -1,8 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Layout from "@/components/solutions/layout";
 import { useTranslation, Trans } from "next-i18next";
 import HTMLHead from "@/components/HTMLHead";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import dynamic from "next/dynamic";
 
 import WalletsHero from "@/components/solutions/wallets/WalletsHero";
 import WalletsExploreSolutions from "@/components/solutions/wallets/WalletsExploreSolutions";
@@ -10,14 +14,36 @@ import BasicCallout from "@/components/solutions/BasicCallout";
 import LongformItem, {
   LongformSeeMoreItem,
 } from "@/components/solutions/LongformItem";
-import YDeveloperResources, {
-  YDeveloperResourcesLink,
-} from "@/components/solutions/YDeveloperResources";
+import DeveloperResources, {
+  DeveloperResourcesLink,
+} from "@/components/solutions/DeveloperResources";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import { GradientText, AnimatedText } from "@/components/shared/Text";
 import { MotionSlideIn } from "@/components/shared/Motions";
 
 import styles from "./Wallets.module.scss";
+
+import * as blinksLottie from "../../../assets/solutions/wallets/Blinks.json";
+import * as gaslessLottie from "../../../assets/solutions/wallets/GaslessRelayer.json";
+import * as kycLottie from "../../../assets/solutions/wallets/KYC.json";
+import * as securityLottie from "../../../assets/solutions/wallets/Security.json";
+
+import * as multiSigLottie from "../../../assets/learn/wallets/Wallets_Multi Sig Add_V1.json";
+import * as custodexLottie from "../../../assets/learn/wallets/Wallets_Custodex_V1.json";
+import * as stealthGuardLottie from "../../../assets/learn/wallets/Wallets_StealthGuard_V1.json";
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+const DynamicLottieCarousel = dynamic(
+  () => import("@/components/shared/LottieCarousel.tsx"),
+  { ssr: false },
+);
+const DynamicLottieCarouselItem = dynamic(
+  () =>
+    import("@/components/shared/LottieCarousel.tsx").then(
+      (mod) => mod.LottieCarouselItem,
+    ),
+  { ssr: false },
+);
 
 const Wallets = () => {
   const { t } = useTranslation();
@@ -81,36 +107,100 @@ const Wallets = () => {
   ];
 
   const developerResourcesLinks = [
-    <YDeveloperResourcesLink
+    <DeveloperResourcesLink
       title={t("solutions-wallets.developer-resources.links.guide.title")}
       link="https://solana.com/docs/intro/wallets"
       key="guide"
     />,
-    <YDeveloperResourcesLink
+    <DeveloperResourcesLink
       title={t(
         "solutions-wallets.developer-resources.links.wallet-builder-kit.title",
       )}
       link="https://solanafoundation.notion.site/Wallet-Builder-s-Starter-Kit-615b61c2fe5d4109be71ec74a91e2034"
       key="wallet-builder-kit"
     />,
-    <YDeveloperResourcesLink
+    <DeveloperResourcesLink
       title={t("solutions-wallets.developer-resources.links.helio.title")}
       link="https://github.com/kilogold/hellowallet"
       key="helio"
     />,
-    <YDeveloperResourcesLink
+    <DeveloperResourcesLink
       title={t(
         "solutions-wallets.developer-resources.links.confidential-balances.title",
       )}
       link="https://github.com/kilogold/solana-rust-client/tree/kelvin"
       key="confidential-balances"
     />,
-    <YDeveloperResourcesLink
+    <DeveloperResourcesLink
       title={t(
         "solutions-wallets.developer-resources.links.programmable-wallet.title",
       )}
       link="https://github.com/ZYJLiu/axum-solana-transfer"
       key="programmable-wallet"
+    />,
+  ];
+
+  const [
+    walletTypesLottiePausedStateMobile,
+    setWalletTypesLottiePausedStateMobile,
+  ] = useState([false, true, true]);
+
+  const [
+    walletTypesLottiePausedStateDesktop,
+    setWalletTypesLottiePausedStateDesktop,
+  ] = useState([true, false, true]);
+
+  const walletTypesItemsMobile = [
+    <DynamicLottieCarouselItem
+      lottie={multiSigLottie}
+      text={
+        <Trans i18nKey="solutions-wallets.wallet-types.items.multisig.text" />
+      }
+      isLottiePaused={walletTypesLottiePausedStateMobile[0]}
+      key="custodial"
+    />,
+    <DynamicLottieCarouselItem
+      lottie={custodexLottie}
+      text={
+        <Trans i18nKey="solutions-wallets.wallet-types.items.custodial.text" />
+      }
+      isLottiePaused={walletTypesLottiePausedStateMobile[1]}
+      key="non-custodial"
+    />,
+    <DynamicLottieCarouselItem
+      lottie={stealthGuardLottie}
+      text={
+        <Trans i18nKey="solutions-wallets.wallet-types.items.non-custodial.text" />
+      }
+      isLottiePaused={walletTypesLottiePausedStateMobile[2]}
+      key="multisig"
+    />,
+  ];
+
+  const walletTypesItemsDesktop = [
+    <DynamicLottieCarouselItem
+      lottie={multiSigLottie}
+      text={
+        <Trans i18nKey="solutions-wallets.wallet-types.items.multisig.text" />
+      }
+      isLottiePaused={walletTypesLottiePausedStateDesktop[0]}
+      key="multisig"
+    />,
+    <DynamicLottieCarouselItem
+      lottie={custodexLottie}
+      text={
+        <Trans i18nKey="solutions-wallets.wallet-types.items.custodial.text" />
+      }
+      isLottiePaused={walletTypesLottiePausedStateDesktop[1]}
+      key="custodial"
+    />,
+    <DynamicLottieCarouselItem
+      lottie={stealthGuardLottie}
+      text={
+        <Trans i18nKey="solutions-wallets.wallet-types.items.non-custodial.text" />
+      }
+      isLottiePaused={walletTypesLottiePausedStateDesktop[2]}
+      key="non-custodial"
     />,
   ];
 
@@ -135,6 +225,15 @@ const Wallets = () => {
               }}
             />
           </AnimatedText>
+
+          <DynamicLottieCarousel
+            itemsMobile={walletTypesItemsMobile}
+            itemsDesktop={walletTypesItemsDesktop}
+            itemsStateMobile={walletTypesLottiePausedStateMobile}
+            setItemsStateMobile={setWalletTypesLottiePausedStateMobile}
+            itemsStateDesktop={walletTypesLottiePausedStateDesktop}
+            setItemsStateDesktop={setWalletTypesLottiePausedStateDesktop}
+          />
         </div>
 
         <BasicCallout
@@ -155,7 +254,18 @@ const Wallets = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  <Lottie
+                    options={{
+                      animationData: kycLottie,
+                      loop: true,
+                      autoplay: true,
+                    }}
+                    isClickToPauseDisabled={true}
+                  />
+                </div>
+              }
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-wallets.compliance-in-a-box.title")}
               subtitleComponent={
@@ -182,7 +292,18 @@ const Wallets = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  <Lottie
+                    options={{
+                      animationData: blinksLottie,
+                      loop: true,
+                      autoplay: true,
+                    }}
+                    isClickToPauseDisabled={true}
+                  />
+                </div>
+              }
               mediaDesktopPlacement="left"
               titleComponent={
                 <Link
@@ -205,7 +326,18 @@ const Wallets = () => {
           </MotionSlideIn>
 
           <LongformItem
-            mediaComponent={<></>}
+            mediaComponent={
+              <div className={styles.LottieWrapper}>
+                <Lottie
+                  options={{
+                    animationData: gaslessLottie,
+                    loop: true,
+                    autoplay: true,
+                  }}
+                  isClickToPauseDisabled={true}
+                />
+              </div>
+            }
             textContentDesktopDirection="row"
             mediaDesktopPlacement="below"
             titleComponent={t("solutions-wallets.feeless-transactions.title")}
@@ -221,7 +353,18 @@ const Wallets = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  <Lottie
+                    options={{
+                      animationData: securityLottie,
+                      loop: true,
+                      autoplay: true,
+                    }}
+                    isClickToPauseDisabled={true}
+                  />
+                </div>
+              }
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-wallets.unrivaled-security.title")}
               subtitleComponent={
@@ -238,11 +381,11 @@ const Wallets = () => {
 
         <WalletsExploreSolutions styles={styles} />
 
-        <YDeveloperResources
-          id="wallets-developer-resources"
+        <DeveloperResources
           title={t("solutions-wallets.developer-resources.title")}
           subtitle={t("solutions-wallets.developer-resources.subtitle")}
           links={developerResourcesLinks}
+          id="wallets-developer-resources"
         />
 
         <FooterCallout

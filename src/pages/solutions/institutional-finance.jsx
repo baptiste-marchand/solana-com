@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { OpacityInText } from "@/components/shared/Text";
+import dynamic from "next/dynamic";
 
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
@@ -11,9 +12,7 @@ import FooterCallout from "@/components/solutions/FooterCallout";
 import EcosystemSlider, {
   Card,
 } from "../../components/solutions/EcosystemSlider";
-import SuccessStories, {
-  StoryCard,
-} from "@/components/solutions/SuccessStories";
+import SuccessStories from "@/components/solutions/SuccessStoriesNew";
 import YDeveloperResources, {
   YDeveloperResourcesLink,
 } from "@/components/solutions/YDeveloperResources";
@@ -21,10 +20,11 @@ import LongformItem from "@/components/solutions/LongformItem";
 import BasicCallout from "@/components/solutions/BasicCallout";
 import { MotionSlideIn } from "@/components/shared/Motions";
 import { GradientText } from "@/components/shared/Text";
-
 import styles from "./IF.module.scss";
+import * as longformOne from "../../../assets/solutions/institutional-finance/InstitutionalFinance_PermanentDelegate_V1.json";
+import * as longformTwo from "../../../assets/solutions/institutional-finance/Institutional Finance_SPE_V1.json";
+import * as longformThree from "../../../assets/solutions/institutional-finance/Institutional Finance_RWA_V1.json";
 
-import homebaseLogo from "../../../assets/solutions/institutional-finance/homebase-logo.png";
 import homebaseMain from "../../../assets/solutions/institutional-finance/homebase-main.jpg";
 
 import medici from "../../../assets/solutions/institutional-finance/medici.svg";
@@ -41,6 +41,8 @@ import heroTo from "../../../assets/solutions/institutional-finance/to.png";
 
 import Image from "next/image";
 
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+
 const InstitutionalFinance = () => {
   const { t } = useTranslation();
 
@@ -51,14 +53,32 @@ const InstitutionalFinance = () => {
   const Hero = () => {
     const HeroSection = styled.div`
       position: relative;
-      background: #000000;
+      width: 100%;
+      min-height: 100vh; // Full viewport height
+      height: 100vh; // Exact viewport height
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      overflow: hidden;
+
+      @media (max-width: 768px) {
+        padding: 24px;
+        min-height: 100vh;
+        height: auto;
+      }
     `;
 
     const Container = styled.div`
       position: relative;
       width: 100%;
-      max-width: 1144px;
+      max-width: 1200px;
       margin: 0 auto;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     `;
 
     const HeroStyled = styled.div`
@@ -73,11 +93,19 @@ const InstitutionalFinance = () => {
       h1 {
         text-align: center;
         font-size: 3.5rem;
-        line-height: 1.2;
+        line-height: 1;
         max-width: 500px;
+        margin-bottom: 1.5rem;
 
         span {
           font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+          font-size: 2.5rem; // Reduced from 3.5rem
+          line-height: 0.9; // Slightly tighter line height for mobile
+          max-width: 100%; // Allow full width on mobile
+          padding: 0 1rem; // Add some padding on the sides
         }
       }
 
@@ -87,6 +115,12 @@ const InstitutionalFinance = () => {
         line-height: 1.4;
         max-width: 600px;
         color: var(--grey-250);
+
+        @media (max-width: 768px) {
+          font-size: 1rem; // Slightly smaller text on mobile
+          line-height: 1.3; // Tighter line height for mobile
+          padding: 0 1rem;
+        }
       }
     `;
 
@@ -110,6 +144,13 @@ const InstitutionalFinance = () => {
       height: 600px;
       z-index: 10;
       pointer-events: none;
+
+      @media (max-width: 768px) {
+        top: -100px; // Changed from -200px to -100px to bring it down
+        right: -20%;
+        width: 500px;
+        height: 500px;
+      }
     `;
 
     const ImagesGrid = styled.div`
@@ -119,6 +160,8 @@ const InstitutionalFinance = () => {
       grid-template-columns: 1fr 1fr;
       grid-gap: 1rem;
       margin-top: 2rem;
+      max-width: 1100px;
+
       @media (max-width: 768px) {
         grid-template-columns: 1fr;
       }
@@ -142,6 +185,7 @@ const InstitutionalFinance = () => {
 
           img {
             max-width: 100%;
+            width: 700px;
           }
         }
 
@@ -149,7 +193,7 @@ const InstitutionalFinance = () => {
           width: 100%;
           height: 100%;
           object-fit: contain;
-          max-width: 400px;
+          max-width: 700px;
         }
       }
 
@@ -274,52 +318,44 @@ const InstitutionalFinance = () => {
   ];
 
   const caseStudyCards = [
-    <StoryCard
-      key="case-study-pyth"
-      logo={"/solutions/institutional-finance/pyth-logo.svg"}
-      logoAlt={t(
-        "solutions-institutional-finance.case-studies.cards.item-one.logo-alt",
-      )}
-      mobileImage={"/solutions/defi/pyth-main.jpg"}
-      desktopImage={"/solutions/defi/pyth-main.jpg"}
-      imageAlt={t(
+    {
+      title: "Pyth Network Brings Real-World Data On-Chain",
+      description: t(
+        "solutions-institutional-finance.case-studies.cards.item-one.excerpt",
+      ),
+      image: "/solutions/defi/pyth-main.jpg",
+      imageAlt: t(
         "solutions-institutional-finance.case-studies.cards.item-one.image-alt",
-      )}
-      text={
-        <Trans
-          i18nKey="solutions-institutional-finance.case-studies.cards.item-one.excerpt"
-          components={{ strong: <strong /> }}
-        />
-      }
-      buttonText={t(
+      ),
+      metrics: [
+        { value: "$3B+", label: "TVL" },
+        { value: "200+", label: "Publishers" },
+        { value: "24/7", label: "Data Feed" },
+      ],
+      readMoreUrl: "https://solana.com/news/case-study-pyth",
+      readMoreText: t(
         "solutions-institutional-finance.case-studies.cards.item-one.button",
-      )}
-      buttonUrl="https://solana.com/news/case-study-pyth"
-      className={styles.StoryCard}
-    />,
-    <StoryCard
-      key="case-study-homebase"
-      logo={homebaseLogo}
-      logoAlt={t(
-        "solutions-institutional-finance.case-studies.cards.item-two.logo-alt",
-      )}
-      mobileImage={homebaseMain}
-      desktopImage={homebaseMain}
-      imageAlt={t(
+      ),
+    },
+    {
+      title: "Homebase Transforms Real Estate Investment",
+      description: t(
+        "solutions-institutional-finance.case-studies.cards.item-two.excerpt",
+      ),
+      image: homebaseMain.src,
+      imageAlt: t(
         "solutions-institutional-finance.case-studies.cards.item-two.image-alt",
-      )}
-      text={
-        <Trans
-          i18nKey="solutions-institutional-finance.case-studies.cards.item-two.excerpt"
-          components={{ strong: <strong /> }}
-        />
-      }
-      buttonText={t(
+      ),
+      metrics: [
+        { value: "$10M+", label: "Properties" },
+        { value: "1000+", label: "Investors" },
+        { value: "100%", label: "Digital" },
+      ],
+      readMoreUrl: "https://solana.com/news/case-study-homebase",
+      readMoreText: t(
         "solutions-institutional-finance.case-studies.cards.item-two.button",
-      )}
-      buttonUrl="https://solana.com/news/case-study-homebase"
-      className={styles.StoryCard}
-    />,
+      ),
+    },
   ];
 
   const developerResourcesLinks = [
@@ -375,20 +411,19 @@ const InstitutionalFinance = () => {
           titleContent={
             <Trans
               i18nKey="solutions-institutional-finance.stats.title"
-              defaults="<gradient>Global and Cost-Effective,</gradient> Onchain Activity"
               components={{
                 gradient: (
-                  <GradientText gradient="linear-gradient(90deg, #64A8F2 0%, #9945FF 49.61%, #EB54BC 100%);" />
+                  <GradientText gradient="linear-gradient(90deg, #64A8F2 0%, #9945FF 49.61%, #EB54BC 100%)" />
                 ),
               }}
             />
           }
-          titleKey={statsContent.title}
           subtitleKey={statsContent.subtitle}
+          kickerKey={statsContent.finePrint}
+          kickerUrl="https://solana.com/news/case-study-boba-guys"
           stats={statsContent.stats}
-          className={styles.StatsSection}
+          className={styles.Stats}
           statsClassName={styles.StatsContent}
-          buttonsClassName={styles.StatsButtons}
         />
 
         <BasicCallout
@@ -397,18 +432,32 @@ const InstitutionalFinance = () => {
               i18nKey="solutions-institutional-finance.callout-1.title"
               components={{
                 gradient: (
-                  <GradientText gradient="linear-gradient(270deg, #9945FF 0%, #EB54BC 50.57%, #FF754A 100%);" />
+                  <GradientText gradient="linear-gradient(90deg, #64A8F2 0%, #9945FF 49.61%, #EB54BC 100%)" />
                 ),
               }}
             />
           }
+          subtitleKey="solutions-institutional-finance.callout-1.subtitle"
           className={styles.BasicCallout}
         />
 
         <div className={styles.LongformSection}>
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.TokenExtensionsMedia}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: longformOne,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="left"
               titleComponent={t(
                 "solutions-institutional-finance.longform-two.title",
@@ -427,7 +476,20 @@ const InstitutionalFinance = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: longformThree,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="right"
               titleComponent={t(
                 "solutions-institutional-finance.longform-three.title",
@@ -451,7 +513,20 @@ const InstitutionalFinance = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  {typeof window !== "undefined" && (
+                    <Lottie
+                      options={{
+                        animationData: longformTwo,
+                        loop: true,
+                        autoplay: true,
+                      }}
+                      isClickToPauseDisabled={true}
+                    />
+                  )}
+                </div>
+              }
               mediaDesktopPlacement="left"
               titleComponent={t(
                 "solutions-institutional-finance.longform-one.title",

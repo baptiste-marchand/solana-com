@@ -7,6 +7,10 @@
   &[data-theme="black"] {
     background: var(--black);
   }
+
+  @include breakpoint(lg) {
+    padding: 128px 0 64px;
+  }
 }
 
 .Container {

@@ -116,6 +116,14 @@ const BentoCardStyle = styled.a`
     padding: 1.5rem 1.5rem 0;
     flex-direction: column;
     align-items: flex-start;
+
+    .image-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: auto;
+    }
   }
 
   .inner {
@@ -147,6 +155,14 @@ const BentoCardStyle = styled.a`
       font-size: 0.9rem;
       margin-top: 0.25rem;
     }
+  }
+
+  .image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
   }
 
   &.large {
@@ -206,18 +222,18 @@ const BentoCard = ({
       </div>
       {image && (
         <div
-          className={`${isLarge ? "image-container" : ""} ${imageStyle.fullHeight ? "full-height" : ""}`}
+          className={`image-container ${isLarge ? "large-image" : ""} ${imageStyle.fullHeight ? "full-height" : ""}`}
         >
           <Image
             style={{
               objectFit: "contain",
-              maxWidth: isLarge ? "100%" : "220px",
+              maxWidth: isLarge ? "100%" : "180px",
               ...imageStyle,
             }}
             src={image}
             alt={title}
-            width={isLarge ? 520 : 220}
-            height={isLarge ? 260 : 220}
+            width={isLarge ? 520 : 180}
+            height={isLarge ? 260 : 180}
           />
         </div>
       )}
@@ -277,35 +293,56 @@ const BentoStat = ({ title, value, color }) => {
   );
 };
 
-const BentoStatGrid = () => {
-  const BentoStatGridStyle = styled.div`
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    margin-top: 2rem;
+const BentoStatGridStyle = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: 2rem;
 
-    @media (max-width: 768px) {
-      flex-direction: column;
-      gap: 1rem;
+  > p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--cadet-grey);
+    max-width: 250px;
+  }
 
-      > p {
-        max-width: 100%;
-        text-align: center;
-        margin-bottom: 0.5rem;
-      }
-    }
+  // Hide mobile stats container on desktop
+  .stats-container {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
 
     > p {
-      font-size: 0.9rem;
-      font-weight: 300;
-      line-height: 1.4;
-      color: var(--cadet-grey);
-      max-width: 250px;
+      text-align: center;
+      margin-bottom: 2rem;
     }
-  `;
+
+    // Hide desktop stats on mobile
+    > :not(p):not(.stats-container) {
+      display: none;
+    }
+
+    // Show and style mobile stats
+    .stats-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      width: 100%;
+      padding: 0 1rem;
+    }
+  }
+`;
+
+const BentoStatGrid = () => {
   return (
     <BentoStatGridStyle>
       <p>Business choose Solana for the high speed low-cost transactions</p>
+      {/* Desktop stats */}
       <BentoStat
         color="#9945FF"
         title="Near Zero Transaction Costs"
@@ -314,6 +351,18 @@ const BentoStatGrid = () => {
       <BentoStat color="#19FB9B" title="Avg Transaction Time" value="435ms" />
       <BentoStat color="#43B4CA" title="Avg TPS" value="2,659" />
       <BentoStat color="#5791FF" title="Users" value="87M" />
+
+      {/* Mobile stats in 2 columns */}
+      <div className="stats-container">
+        <BentoStat
+          color="#9945FF"
+          title="Near Zero Transaction Costs"
+          value="$0.001"
+        />
+        <BentoStat color="#19FB9B" title="Avg Transaction Time" value="435ms" />
+        <BentoStat color="#43B4CA" title="Avg TPS" value="2,659" />
+        <BentoStat color="#5791FF" title="Users" value="87M" />
+      </div>
     </BentoStatGridStyle>
   );
 };
