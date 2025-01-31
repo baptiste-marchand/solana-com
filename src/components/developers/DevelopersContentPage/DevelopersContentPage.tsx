@@ -139,18 +139,20 @@ export default memo(function DevelopersContentPage({
           <section
             className={classNames(
               styles["developers-content-page__sidebarGroup"],
-              !showSidebar &&
-                styles["developers-content-page__sidebar__hidden"],
+              {
+                [styles["developers-content-page__sidebar__hidden"]]:
+                  !showSidebar,
+              },
             )}
           >
             <TableOfContents
               title={t("shared.general.toc")}
               currentPath={router.asPath}
               content={record?.body || ""}
-              className={
-                !!showSidebar &&
-                styles["developers-content-page__sidebar__active"]
-              }
+              className={classNames({
+                [styles["developers-content-page__sidebar__active"]]:
+                  showSidebar,
+              })}
               githubPath={record._raw.sourceFilePath}
             />
           </section>

@@ -135,28 +135,33 @@ const YHero = () => {
         </div>
 
         <div className={styles.hero__supporters}>
-          {console.log("Total logos:", desktopLogos.length)}
-          {console.log("Visible logos state:", visibleLogos)}
-          {console.log(
-            "Sliced logos:",
-            desktopLogos.slice(0, visibleLogos).length,
-          )}
-          {desktopLogos.slice(0, visibleLogos).map((logo, index) => (
-            <div key={index}>
-              {console.log("Rendering logo:", index)}
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={118}
-                height={30}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                }}
-                priority={true}
-              />
-            </div>
-          ))}
+          {(() => {
+            console.log("Total logos:", desktopLogos.length);
+            console.log("Visible logos state:", visibleLogos);
+            console.log(
+              "Sliced logos:",
+              desktopLogos.slice(0, visibleLogos).length,
+            );
+            return null;
+          })()}
+          {desktopLogos.slice(0, visibleLogos).map((logo, index) => {
+            console.log("Rendering logo:", index);
+            return (
+              <div key={index}>
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={118}
+                  height={30}
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                  }}
+                  priority={true}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
 

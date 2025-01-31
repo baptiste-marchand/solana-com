@@ -3,7 +3,20 @@ import styles from "./DevelopersContentPage.module.scss";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
-export const PageNav = ({ nav }) => {
+interface NavItem {
+  href?: string;
+  label?: string;
+  title?: string;
+}
+
+interface PageNavProps {
+  nav: {
+    prev?: NavItem | null;
+    next?: NavItem | null;
+  };
+}
+
+export const PageNav = ({ nav }: PageNavProps) => {
   const { t } = useTranslation();
 
   return (
@@ -13,19 +26,19 @@ export const PageNav = ({ nav }) => {
         "d-flex flex-column flex-md-row justify-content-between mt-10 small",
       )}
     >
-      {nav.prev ? (
+      {nav.prev?.href ? (
         <Link href={nav.prev.href}>
           <span>{t("developers.nav.prev")}</span>
-          <div>« {nav.prev.label}</div>
+          <div>« {nav.prev.label || nav.prev.title}</div>
         </Link>
       ) : (
         <div>{/* flex display placeholder when index is first item */}</div>
       )}
 
-      {nav.next ? (
+      {nav.next?.href ? (
         <Link href={nav.next.href}>
           <span>{t("developers.nav.next")}</span>
-          <div>{nav.next.label} »</div>
+          <div>{nav.next.label || nav.next.title} »</div>
         </Link>
       ) : (
         <div>{/* flex display placeholder when index is last item*/}</div>

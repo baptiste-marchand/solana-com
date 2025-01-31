@@ -3,23 +3,12 @@ import { useState } from "react";
 import Image from "next/image";
 import classNames from "classnames";
 import * as Tabs from "@radix-ui/react-tabs";
-import dynamic from "next/dynamic";
 
 import { OpacityInText } from "@/components/shared/Text";
 import { MotionSlideIn } from "@/components/shared/Motions";
+import DotLottiePlayer from "@/components/shared/DotLottiePlayer";
 
 import styles from "@/components/solutions/LottieHeroWithTabs.module.scss";
-
-// Remove Lottie import and add DotLottiePlayer
-const DotLottiePlayer = dynamic(
-  () =>
-    import("@dotlottie/player-component").then(() => {
-      return function DotLottiePlayer() {
-        return null;
-      };
-    }),
-  { ssr: false },
-);
 
 interface LottieHeroWithTabsProps {
   tabs: {
@@ -27,8 +16,8 @@ interface LottieHeroWithTabsProps {
     content: {
       title: string;
       subtitle: string;
-      lottieMobile: string; // Updated type to string for .lottie file path
-      lottieDesktop: string; // Updated type to string for .lottie file path
+      lottieMobile: string;
+      lottieDesktop: string;
     };
   }[];
   tabListAriaLabel: string;
@@ -143,8 +132,7 @@ const LottieHeroWithTabs = ({
         >
           <MotionSlideIn>
             <div className={classNames(styles.LottieWrapper, "d-lg-none")}>
-              <DotLottiePlayer />
-              <dotlottie-player
+              <DotLottiePlayer
                 src={tabs[0].content.lottieMobile}
                 autoplay
                 loop
@@ -153,8 +141,7 @@ const LottieHeroWithTabs = ({
             <div
               className={classNames(styles.LottieWrapper, "d-none d-lg-block")}
             >
-              <DotLottiePlayer />
-              <dotlottie-player
+              <DotLottiePlayer
                 src={tabs[0].content.lottieDesktop}
                 autoplay
                 loop
@@ -169,8 +156,7 @@ const LottieHeroWithTabs = ({
         >
           <MotionSlideIn>
             <div className={classNames(styles.LottieWrapper, "d-lg-none")}>
-              <DotLottiePlayer />
-              <dotlottie-player
+              <DotLottiePlayer
                 src={tabs[1].content.lottieMobile}
                 autoplay
                 loop
@@ -179,8 +165,7 @@ const LottieHeroWithTabs = ({
             <div
               className={classNames(styles.LottieWrapper, "d-none d-lg-block")}
             >
-              <DotLottiePlayer />
-              <dotlottie-player
+              <DotLottiePlayer
                 src={tabs[1].content.lottieDesktop}
                 autoplay
                 loop
