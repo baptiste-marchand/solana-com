@@ -1,5 +1,5 @@
-import Lottie from "react-lottie";
 import { useTranslation } from "next-i18next";
+import { useEffect } from "react";
 
 import Text from "@/components/shared/Text";
 import Button from "@/components/solutions/Button";
@@ -9,6 +9,14 @@ import styles from "./LoyaltyHero.module.scss";
 
 const LoyaltyHero = ({ heroLottie }) => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    import("@dotlottie/player-component").then((mod) => {
+      if (!customElements.get("dotlottie-player")) {
+        customElements.define("dotlottie-player", mod.DotLottiePlayer);
+      }
+    });
+  }, []);
 
   return (
     <section className={styles.Hero}>
@@ -37,14 +45,9 @@ const LoyaltyHero = ({ heroLottie }) => {
       </div>
 
       <MotionSlideIn from="right">
-        <Lottie
-          options={{
-            animationData: heroLottie,
-            loop: true,
-            autoplay: true,
-          }}
-          isClickToPauseDisabled={true}
-        />
+        <div className={styles.LottieWrapper}>
+          <dotlottie-player src={heroLottie} autoplay loop />
+        </div>
       </MotionSlideIn>
     </section>
   );

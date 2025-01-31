@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import dynamic from "next/dynamic";
+import { useEffect } from "react";
 
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
@@ -24,17 +24,23 @@ import EcosystemToggle, {
 import Button from "@/components/solutions/Button";
 
 import styles from "./TE.module.scss";
-import * as longformOne from "../../../assets/solutions/token-extensions/Token Extensions_Confidential Transfer_V1.json";
-import * as longformTwo from "../../../assets/solutions/token-extensions/Token Extensions_KYC_V1.json";
-import * as longformThree from "../../../assets/solutions/token-extensions/Token Extensions_Transfer Fees_V1.json";
+import longformOne from "../../../assets/solutions/token-extensions/Token Extensions_Confidential Transfer_V1.lottie";
+import longformTwo from "../../../assets/solutions/token-extensions/Token Extensions_KYC_V1.lottie";
+import longformThree from "../../../assets/solutions/token-extensions/Token Extensions_Transfer Fees_V1.lottie";
 
 import paypalMain from "../../../assets/solutions/token-extensions/paypal-main.png";
 import etherfuseMain from "../../../assets/solutions/token-extensions/etherfuse-main.png";
 
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
-
 const TokenExtensions = () => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    import("@dotlottie/player-component").then((mod) => {
+      if (!customElements.get("dotlottie-player")) {
+        customElements.define("dotlottie-player", mod.DotLottiePlayer);
+      }
+    });
+  }, []);
 
   // Some do not have collapsible content
   // Content children may include: Title, Text, Button
@@ -522,16 +528,7 @@ const TokenExtensions = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: longformOne,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <dotlottie-player src={longformOne} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="left"
@@ -549,16 +546,7 @@ const TokenExtensions = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: longformTwo,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <dotlottie-player src={longformTwo} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="right"
@@ -576,16 +564,7 @@ const TokenExtensions = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: longformThree,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <dotlottie-player src={longformThree} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="left"

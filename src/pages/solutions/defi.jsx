@@ -4,6 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import classNames from "classnames";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
 
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
@@ -21,13 +22,6 @@ import BasicCallout from "@/components/solutions/BasicCallout";
 import Text, { AnimatedText, GradientText } from "@/components/shared/Text";
 import styles from "./Defi.module.scss";
 
-import * as mobileHeroWithSolana from "../../../assets/solutions/defi/DeFi_MobileHero_WithSolana_V1.json";
-import * as mobileHeroWithoutSolana from "../../../assets/solutions/defi/DeFi_MobileHero_WithoutSolana_V1.json";
-import * as desktopHeroWithSolana from "../../../assets/solutions/defi/DeFi_DesktopHero_WithSolana_V1.json";
-import * as desktopHeroWithoutSolana from "../../../assets/solutions/defi/DeFi_DesktopHero_WithoutSolana_V1.json";
-import * as longformTwo from "../../../assets/solutions/defi/DeFi_Interest_V1.json";
-import * as longformOne from "../../../assets/solutions/defi/DeFi_Blinks_V1.json";
-
 import credix from "../../../assets/solutions/defi/credix.svg";
 import jupiter from "../../../assets/solutions/defi/jupiter.svg";
 import kamino from "../../../assets/solutions/defi/kamino.svg";
@@ -42,6 +36,13 @@ import save from "../../../assets/solutions/defi/save.svg";
 import pythMain from "../../../assets/solutions/defi/pyth-main.png";
 import etherfuseMain from "../../../assets/solutions/defi/etherfuse-main.png";
 
+import mobileHeroWithSolana from "../../../assets/solutions/defi/DeFi_MobileHero_WithSolana_V1.lottie";
+import mobileHeroWithoutSolana from "../../../assets/solutions/defi/DeFi_MobileHero_WithoutSolana_V1.lottie";
+import desktopHeroWithSolana from "../../../assets/solutions/defi/DeFi_DesktopHero_WithSolana_V1.lottie";
+import desktopHeroWithoutSolana from "../../../assets/solutions/defi/DeFi_DesktopHero_WithoutSolana_V1.lottie";
+import longformTwo from "../../../assets/solutions/defi/DeFi_Interest_V1.lottie";
+import longformOne from "../../../assets/solutions/defi/DeFi_Blinks_V1.lottie";
+
 const LottieHeroWithTabs = dynamic(
   () => import("@/components/solutions/LottieHeroWithTabs"),
   { ssr: false },
@@ -55,8 +56,6 @@ const MotionSlideIn = dynamic(
   () => import("@/components/shared/Motions").then((mod) => mod.MotionSlideIn),
   { ssr: false },
 );
-
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 const DeFi = () => {
   const { t } = useTranslation();
@@ -276,16 +275,9 @@ const DeFi = () => {
           <LongformItem
             mediaComponent={
               <div className={styles.LottieWrapper}>
-                {typeof window !== "undefined" && (
-                  <Lottie
-                    options={{
-                      animationData: longformOne,
-                      loop: true,
-                      autoplay: true,
-                    }}
-                    isClickToPauseDisabled={true}
-                  />
-                )}
+                <div className={styles.LottieWrapper}>
+                  <dotlottie-player src={longformOne} autoplay loop />
+                </div>
               </div>
             }
             mediaDesktopPlacement="left"
@@ -304,16 +296,9 @@ const DeFi = () => {
           <LongformItem
             mediaComponent={
               <div className={styles.TokenExtensionsMedia}>
-                {typeof window !== "undefined" && (
-                  <Lottie
-                    options={{
-                      animationData: longformTwo,
-                      loop: true,
-                      autoplay: true,
-                    }}
-                    isClickToPauseDisabled={true}
-                  />
-                )}
+                <div className={styles.TokenExtensionsMedia}>
+                  <dotlottie-player src={longformTwo} autoplay loop />
+                </div>
               </div>
             }
             mediaDesktopPlacement="right"
@@ -332,6 +317,14 @@ const DeFi = () => {
       </div>
     );
   };
+
+  useEffect(() => {
+    import("@dotlottie/player-component").then((mod) => {
+      if (!customElements.get("dotlottie-player")) {
+        customElements.define("dotlottie-player", mod.DotLottiePlayer);
+      }
+    });
+  }, []);
 
   return (
     <Layout>

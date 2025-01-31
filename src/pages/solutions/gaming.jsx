@@ -23,12 +23,21 @@ import { AnimatedText, GradientText } from "@/components/shared/Text";
 import styles from "./Gaming.module.scss";
 
 import photoFinishImg from "../../../assets/solutions/gaming/photofinish.png";
+import nftLottie from "../../../assets/solutions/gaming/Gaming_NFT.lottie";
+import blinksLottie from "../../../assets/solutions/gaming/Gaming_Blinks_V1.lottie";
+import ponyLottie from "../../../assets/solutions/gaming/Gaming_MintPonyCoin.lottie";
 //import lottieAnimationData from "../../../assets/solutions/gaming/lottieAnimation.json";
-import * as ponyLottie from "../../../assets/solutions/gaming/Gaming_MintPonyCoin.json";
-import * as nftLottie from "../../../assets/solutions/gaming/Gaming_NFT.json";
-import * as blinksLottie from "../../../assets/solutions/gaming/Gaming_Blinks_V1.json";
 
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+const DotLottiePlayer = dynamic(
+  () =>
+    import("@dotlottie/player-component").then(() => {
+      // Return a placeholder component since we're only loading the web component
+      return function DotLottiePlayer() {
+        return null;
+      };
+    }),
+  { ssr: false },
+);
 
 const Gaming = () => {
   const { t } = useTranslation();
@@ -147,16 +156,8 @@ const Gaming = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: nftLottie,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <DotLottiePlayer />
+                  <dotlottie-player src={nftLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="below"
@@ -186,16 +187,8 @@ const Gaming = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: blinksLottie,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <DotLottiePlayer />
+                  <dotlottie-player src={blinksLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="right"
@@ -217,16 +210,8 @@ const Gaming = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: ponyLottie,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <DotLottiePlayer />
+                  <dotlottie-player src={ponyLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="left"

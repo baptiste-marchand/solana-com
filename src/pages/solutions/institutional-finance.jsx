@@ -21,9 +21,9 @@ import BasicCallout from "@/components/solutions/BasicCallout";
 import { MotionSlideIn } from "@/components/shared/Motions";
 import { GradientText } from "@/components/shared/Text";
 import styles from "./IF.module.scss";
-import * as longformOne from "../../../assets/solutions/institutional-finance/InstitutionalFinance_PermanentDelegate_V1.json";
-import * as longformTwo from "../../../assets/solutions/institutional-finance/Institutional Finance_SPE_V1.json";
-import * as longformThree from "../../../assets/solutions/institutional-finance/Institutional Finance_RWA_V1.json";
+import longformOne from "../../../assets/solutions/institutional-finance/InstitutionalFinance_PermanentDelegate_V1.lottie";
+import longformTwo from "../../../assets/solutions/institutional-finance/Institutional Finance_SPE_V1.lottie";
+import longformThree from "../../../assets/solutions/institutional-finance/Institutional Finance_RWA_V1.lottie";
 
 import homebaseMain from "../../../assets/solutions/institutional-finance/homebase-main.jpg";
 
@@ -41,7 +41,15 @@ import heroTo from "../../../assets/solutions/institutional-finance/to.png";
 
 import Image from "next/image";
 
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+const DotLottiePlayer = dynamic(
+  () =>
+    import("@dotlottie/player-component").then(() => {
+      return function DotLottiePlayer() {
+        return null;
+      };
+    }),
+  { ssr: false },
+);
 
 const InstitutionalFinance = () => {
   const { t } = useTranslation();
@@ -446,16 +454,8 @@ const InstitutionalFinance = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.TokenExtensionsMedia}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: longformOne,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <DotLottiePlayer />
+                  <dotlottie-player src={longformOne} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="left"
@@ -478,16 +478,8 @@ const InstitutionalFinance = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: longformThree,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <DotLottiePlayer />
+                  <dotlottie-player src={longformThree} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="right"
@@ -515,16 +507,8 @@ const InstitutionalFinance = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: longformTwo,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <DotLottiePlayer />
+                  <dotlottie-player src={longformTwo} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="left"

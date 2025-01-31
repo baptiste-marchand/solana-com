@@ -1,5 +1,7 @@
 import { useTranslation, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import dynamic from "next/dynamic";
+import { useEffect } from "react";
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
 import Stats from "@/components/solutions/Stats";
@@ -13,13 +15,11 @@ import YDeveloperResources, {
 import SuccessStories from "@/components/solutions/SuccessStoriesNew";
 
 import styles from "./Loyalty.module.scss";
-import * as heroLottie from "../../../assets/solutions/loyalty/Loyalty_Hero_V1.json";
-import * as LongformOneLottie from "../../../assets/solutions/loyalty/Loyalty_TokenExtensions.json";
-import * as LongformTwoLottie from "../../../assets/solutions/loyalty/Loyalty_State Compression_V1.json";
-import * as LongformThreeLottie from "../../../assets/solutions/loyalty/Loyalty_Solana Pay_V1.json";
-import * as LongformFourLottie from "../../../assets/solutions/loyalty/Loyalty_Secret Menu Item_V1.json";
-
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+import heroLottie from "../../../assets/solutions/loyalty/Loyalty_Hero_V1.lottie";
+import LongformOneLottie from "../../../assets/solutions/loyalty/Loyalty_TokenExtensions.lottie";
+import LongformTwoLottie from "../../../assets/solutions/loyalty/Loyalty_StateCompression_V1.lottie";
+import LongformThreeLottie from "../../../assets/solutions/loyalty/Loyalty_SolanaPay_V1.lottie";
+import LongformFourLottie from "../../../assets/solutions/loyalty/Loyalty_SecretMenuItem_V1.lottie";
 
 const LoyaltyHero = dynamic(
   () => import("@/components/solutions/loyalty/LoyaltyHero"),
@@ -34,13 +34,59 @@ const MotionSlideIn = dynamic(
 const Loyalty = () => {
   const { t } = useTranslation();
 
+  useEffect(() => {
+    // No need to import DotLottiePlayer dynamically
+  }, []);
+
+  // Define default stats content
+  const defaultStats = {
+    subtitle: "",
+    finePrint: "",
+    stats: [], // or some default stats if needed
+  };
+
   const statsContent = t("solutions-loyalty.stats", {
     returnObjects: true,
+    defaultValue: defaultStats,
   });
 
-  const longformContent = t("solutions-loyalty.longform", {
-    returnObjects: true,
-  });
+  // Define default content with actual titles and text
+  const defaultLongform = [
+    {
+      title: t("solutions-loyalty.longform.0.title", "Token Extensions"),
+      text: t(
+        "solutions-loyalty.longform.0.text",
+        "Customize your loyalty program with programmable tokens",
+      ),
+    },
+    {
+      title: t("solutions-loyalty.longform.1.title", "State Compression"),
+      text: t(
+        "solutions-loyalty.longform.1.text",
+        "Scale your program to millions of users",
+      ),
+    },
+    {
+      title: t("solutions-loyalty.longform.2.title", "Solana Pay"),
+      text: t(
+        "solutions-loyalty.longform.2.text",
+        "Enable seamless payments and rewards",
+      ),
+    },
+    {
+      title: t("solutions-loyalty.longform.3.title", "Secret Menu"),
+      text: t(
+        "solutions-loyalty.longform.3.text",
+        "Create exclusive experiences",
+      ),
+    },
+  ];
+
+  // Get content with fallback to default values
+  const longformContent = defaultLongform.map((item, index) => ({
+    title: t(`solutions-loyalty.longform.${index}.title`, item.title),
+    text: t(`solutions-loyalty.longform.${index}.text`, item.text),
+  }));
 
   const caseStudyCards = [
     {
@@ -187,21 +233,12 @@ const Loyalty = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: LongformOneLottie,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <dotlottie-player src={LongformOneLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="right"
-              titleComponent={longformContent[0].title}
-              subtitleComponent={longformContent[0].text}
+              titleComponent={longformContent[0]?.title}
+              subtitleComponent={longformContent[0]?.text}
               className={styles.LongformItem1}
             />
           </MotionSlideIn>
@@ -210,22 +247,13 @@ const Loyalty = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: LongformTwoLottie,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <dotlottie-player src={LongformTwoLottie} autoplay loop />
                 </div>
               }
               textContentDesktopDirection="row"
               mediaDesktopPlacement="below"
-              titleComponent={longformContent[1].title}
-              subtitleComponent={longformContent[1].text}
+              titleComponent={longformContent[1]?.title}
+              subtitleComponent={longformContent[1]?.text}
               className={styles.LongformItem2}
             />
           </MotionSlideIn>
@@ -234,21 +262,12 @@ const Loyalty = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: LongformThreeLottie,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <dotlottie-player src={LongformThreeLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="left"
-              titleComponent={longformContent[2].title}
-              subtitleComponent={longformContent[2].text}
+              titleComponent={longformContent[2]?.title}
+              subtitleComponent={longformContent[2]?.text}
               className={styles.LongformItem3}
             />
           </MotionSlideIn>
@@ -257,21 +276,12 @@ const Loyalty = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: LongformFourLottie,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <dotlottie-player src={LongformFourLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="right"
-              titleComponent={longformContent[3].title}
-              subtitleComponent={longformContent[3].text}
+              titleComponent={longformContent[3]?.title}
+              subtitleComponent={longformContent[3]?.text}
               className={styles.LongformItem4}
             />
           </MotionSlideIn>

@@ -23,16 +23,15 @@ import { MotionSlideIn } from "@/components/shared/Motions";
 
 import styles from "./Wallets.module.scss";
 
-import * as blinksLottie from "../../../assets/solutions/wallets/Blinks.json";
-import * as gaslessLottie from "../../../assets/solutions/wallets/GaslessRelayer.json";
-import * as kycLottie from "../../../assets/solutions/wallets/KYC.json";
-import * as securityLottie from "../../../assets/solutions/wallets/Security.json";
+import blinksLottie from "../../../assets/solutions/wallets/Blinks.lottie";
+import gaslessLottie from "../../../assets/solutions/wallets/GaslessRelayer.lottie";
+import kycLottie from "../../../assets/solutions/wallets/KYC.lottie";
+import securityLottie from "../../../assets/solutions/wallets/Security.lottie";
 
-import * as multiSigLottie from "../../../assets/learn/wallets/Wallets_Multi Sig Add_V1.json";
-import * as custodexLottie from "../../../assets/learn/wallets/Wallets_Custodex_V1.json";
-import * as stealthGuardLottie from "../../../assets/learn/wallets/Wallets_StealthGuard_V1.json";
+import multiSigLottie from "../../../assets/learn/wallets/Wallets_Multi Sig Add_V1.lottie";
+import custodexLottie from "../../../assets/learn/wallets/Wallets_Custodex_V1.lottie";
+import stealthGuardLottie from "../../../assets/learn/wallets/Wallets_StealthGuard_V1.lottie";
 
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 const DynamicLottieCarousel = dynamic(
   () => import("@/components/shared/LottieCarousel.tsx"),
   { ssr: false },
@@ -256,14 +255,7 @@ const Wallets = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  <Lottie
-                    options={{
-                      animationData: kycLottie,
-                      loop: true,
-                      autoplay: true,
-                    }}
-                    isClickToPauseDisabled={true}
-                  />
+                  <dotlottie-player src={kycLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="right"
@@ -294,14 +286,7 @@ const Wallets = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  <Lottie
-                    options={{
-                      animationData: blinksLottie,
-                      loop: true,
-                      autoplay: true,
-                    }}
-                    isClickToPauseDisabled={true}
-                  />
+                  <dotlottie-player src={blinksLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="left"
@@ -328,14 +313,7 @@ const Wallets = () => {
           <LongformItem
             mediaComponent={
               <div className={styles.LottieWrapper}>
-                <Lottie
-                  options={{
-                    animationData: gaslessLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
+                <dotlottie-player src={gaslessLottie} autoplay loop />
               </div>
             }
             textContentDesktopDirection="row"
@@ -355,14 +333,7 @@ const Wallets = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  <Lottie
-                    options={{
-                      animationData: securityLottie,
-                      loop: true,
-                      autoplay: true,
-                    }}
-                    isClickToPauseDisabled={true}
-                  />
+                  <dotlottie-player src={securityLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="right"

@@ -23,10 +23,19 @@ import { MotionSlideIn } from "@/components/shared/Motions";
 import CreativeHero from "@/components/home/CreativeHero";
 
 import styles from "./Creative.module.scss";
-import * as blinksLottie from "../../../assets/solutions/creative/Blinks.json";
-import * as nftLottie from "../../../assets/solutions/creative/NFT.json";
+import blinksLottie from "../../../assets/solutions/creative/Blinks.lottie";
+import nftLottie from "../../../assets/solutions/creative/NFT.lottie";
 
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+const DotLottiePlayer = dynamic(
+  () =>
+    import("@dotlottie/player-component").then(() => {
+      // Return a placeholder component since we're only loading the web component
+      return function DotLottiePlayer() {
+        return null;
+      };
+    }),
+  { ssr: false },
+);
 
 const Creative = () => {
   const { t } = useTranslation();
@@ -258,16 +267,8 @@ const Creative = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: blinksLottie,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <DotLottiePlayer />
+                  <dotlottie-player src={blinksLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="right"
@@ -290,16 +291,8 @@ const Creative = () => {
             <LongformItem
               mediaComponent={
                 <div className={styles.LottieWrapper}>
-                  {typeof window !== "undefined" && (
-                    <Lottie
-                      options={{
-                        animationData: nftLottie,
-                        loop: true,
-                        autoplay: true,
-                      }}
-                      isClickToPauseDisabled={true}
-                    />
-                  )}
+                  <DotLottiePlayer />
+                  <dotlottie-player src={nftLottie} autoplay loop />
                 </div>
               }
               textContentDesktopDirection="row"

@@ -20,18 +20,17 @@ import { GradientText } from "@/components/shared/Text";
 
 import styles from "./Payments.module.scss";
 
-import * as mobileHeroWithSolana from "../../../assets/solutions/payments/MobileHero_WithSolana.json";
-import * as mobileHeroWithoutSolana from "../../../assets/solutions/payments/MobileHero_WithoutSolana.json";
-import * as desktopHeroWithSolana from "../../../assets/solutions/payments/DesktopHero_WithSolana.json";
-import * as desktopHeroWithoutSolana from "../../../assets/solutions/payments/DesktopHero_WithoutSolana.json";
-
-import * as solanaPayLottie from "../../../assets/solutions/payments/Solana Pay_V1.json";
-import * as kycLottie from "../../../assets/solutions/payments/KYC.json";
-import * as blinksLottie from "../../../assets/solutions/payments/Blinks.json";
-import * as gaslessLottie from "../../../assets/solutions/payments/GaslessRelayer.json";
-
 import caseStudyHelioMobileImg from "../../../assets/solutions/payments/helio-case.png";
 import caseStudyVisaImg from "../../../assets/solutions/payments/visa-case.png";
+
+import mobileHeroWithSolana from "../../../assets/solutions/payments/MobileHero_WithSolana.lottie";
+import mobileHeroWithoutSolana from "../../../assets/solutions/payments/MobileHero_WithoutSolana.lottie";
+import desktopHeroWithSolana from "../../../assets/solutions/payments/DesktopHero_WithSolana.lottie";
+import desktopHeroWithoutSolana from "../../../assets/solutions/payments/DesktopHero_WithoutSolana.lottie";
+import solanaPayLottie from "../../../assets/solutions/payments/Solana Pay_V1.lottie";
+import kycLottie from "../../../assets/solutions/payments/KYC.lottie";
+import blinksLottie from "../../../assets/solutions/payments/Blinks.lottie";
+import gaslessLottie from "../../../assets/solutions/payments/GaslessRelayer.lottie";
 
 const LottieHeroWithTabs = dynamic(
   () => import("@/components/solutions/LottieHeroWithTabs"),
@@ -43,7 +42,15 @@ const MotionSlideIn = dynamic(
   { ssr: false },
 );
 
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+const DotLottiePlayer = dynamic(
+  () =>
+    import("@dotlottie/player-component").then(() => {
+      return function DotLottiePlayer() {
+        return null;
+      };
+    }),
+  { ssr: false },
+);
 
 export default function Payments() {
   const { t } = useTranslation();
@@ -264,14 +271,8 @@ export default function Payments() {
             <LongformItem
               mediaComponent={
                 <div className={styles.TokenExtensionsMedia}>
-                  <Lottie
-                    options={{
-                      animationData: kycLottie,
-                      loop: true,
-                      autoplay: true,
-                    }}
-                    isClickToPauseDisabled={true}
-                  />
+                  <DotLottiePlayer />
+                  <dotlottie-player src={kycLottie} autoplay loop />
                 </div>
               }
               mediaDesktopPlacement="right"
@@ -296,14 +297,10 @@ export default function Payments() {
           <MotionSlideIn>
             <LongformItem
               mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: gaslessLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
+                <div className={styles.LottieWrapper}>
+                  <DotLottiePlayer />
+                  <dotlottie-player src={gaslessLottie} autoplay loop />
+                </div>
               }
               textContentDesktopDirection="column"
               mediaDesktopPlacement="below"
@@ -320,14 +317,10 @@ export default function Payments() {
           <MotionSlideIn from="right">
             <LongformItem
               mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: blinksLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
+                <div className={styles.LottieWrapper}>
+                  <DotLottiePlayer />
+                  <dotlottie-player src={blinksLottie} autoplay loop />
+                </div>
               }
               mediaDesktopPlacement="left"
               titleComponent={t("solutions-payments.blinks-actions.title")}
@@ -348,14 +341,10 @@ export default function Payments() {
           <MotionSlideIn from="left">
             <LongformItem
               mediaComponent={
-                <Lottie
-                  options={{
-                    animationData: solanaPayLottie,
-                    loop: true,
-                    autoplay: true,
-                  }}
-                  isClickToPauseDisabled={true}
-                />
+                <div className={styles.LottieWrapper}>
+                  <DotLottiePlayer />
+                  <dotlottie-player src={solanaPayLottie} autoplay loop />
+                </div>
               }
               mediaDesktopPlacement="right"
               titleComponent={t("solutions-payments.solana-pay.title")}

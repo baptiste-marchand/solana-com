@@ -1,13 +1,25 @@
-import { useState, ReactNode } from "react";
+import React from "react";
+import { useState } from "react";
 import Image from "next/image";
 import classNames from "classnames";
 import * as Tabs from "@radix-ui/react-tabs";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
 
 import { OpacityInText } from "@/components/shared/Text";
 import { MotionSlideIn } from "@/components/shared/Motions";
 
 import styles from "@/components/solutions/LottieHeroWithTabs.module.scss";
+
+// Remove Lottie import and add DotLottiePlayer
+const DotLottiePlayer = dynamic(
+  () =>
+    import("@dotlottie/player-component").then(() => {
+      return function DotLottiePlayer() {
+        return null;
+      };
+    }),
+  { ssr: false },
+);
 
 interface LottieHeroWithTabsProps {
   tabs: {
@@ -15,10 +27,10 @@ interface LottieHeroWithTabsProps {
     content: {
       title: string;
       subtitle: string;
-      lottieMobile: ReactNode;
-      lottieDesktop: ReactNode;
+      lottieMobile: string; // Updated type to string for .lottie file path
+      lottieDesktop: string; // Updated type to string for .lottie file path
     };
-  };
+  }[];
   tabListAriaLabel: string;
   className?: string;
 }
@@ -131,25 +143,21 @@ const LottieHeroWithTabs = ({
         >
           <MotionSlideIn>
             <div className={classNames(styles.LottieWrapper, "d-lg-none")}>
-              <Lottie
-                options={{
-                  animationData: tabs[0].content.lottieMobile,
-                  loop: true,
-                  autoplay: true,
-                }}
-                isClickToPauseDisabled={true}
+              <DotLottiePlayer />
+              <dotlottie-player
+                src={tabs[0].content.lottieMobile}
+                autoplay
+                loop
               />
             </div>
             <div
               className={classNames(styles.LottieWrapper, "d-none d-lg-block")}
             >
-              <Lottie
-                options={{
-                  animationData: tabs[0].content.lottieDesktop,
-                  loop: true,
-                  autoplay: true,
-                }}
-                isClickToPauseDisabled={true}
+              <DotLottiePlayer />
+              <dotlottie-player
+                src={tabs[0].content.lottieDesktop}
+                autoplay
+                loop
               />
             </div>
           </MotionSlideIn>
@@ -161,24 +169,21 @@ const LottieHeroWithTabs = ({
         >
           <MotionSlideIn>
             <div className={classNames(styles.LottieWrapper, "d-lg-none")}>
-              <Lottie
-                options={{
-                  animationData: tabs[1].content.lottieMobile,
-                  autoplay: true,
-                }}
-                isClickToPauseDisabled={true}
+              <DotLottiePlayer />
+              <dotlottie-player
+                src={tabs[1].content.lottieMobile}
+                autoplay
+                loop
               />
             </div>
             <div
               className={classNames(styles.LottieWrapper, "d-none d-lg-block")}
             >
-              <Lottie
-                options={{
-                  animationData: tabs[1].content.lottieDesktop,
-                  loop: true,
-                  autoplay: true,
-                }}
-                isClickToPauseDisabled={true}
+              <DotLottiePlayer />
+              <dotlottie-player
+                src={tabs[1].content.lottieDesktop}
+                autoplay
+                loop
               />
             </div>
           </MotionSlideIn>

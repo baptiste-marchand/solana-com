@@ -10,6 +10,7 @@
   "dependencies": {
     "@builder.io/react": "^7.0.1",
     "@docsearch/react": "^3.6.2",
+    "@dotlottie/player-component": "^2.7.12",
     "@gsap/react": "^2.1.1",
     "@mdx-js/react": "^3.1.0",
     "@radix-ui/react-accordion": "^1.2.1",

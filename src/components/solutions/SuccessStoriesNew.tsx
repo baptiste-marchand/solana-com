@@ -9,6 +9,16 @@ interface Metric {
   label: string;
 }
 
+interface StoryCardProps {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  metrics: Metric[];
+  readMoreUrl: string;
+  readMoreText: string;
+}
+
 interface Card {
   title: string;
   description: string;
