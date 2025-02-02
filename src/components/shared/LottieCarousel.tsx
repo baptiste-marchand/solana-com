@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, ReactNode, useEffect, useState } from "react";
-import Lottie from "react-lottie";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,10 +9,11 @@ import Text from "@/components/shared/Text";
 import CaretIcon from "@/components/icons/Caret";
 
 import styles from "./LottieCarousel.module.scss";
+import DotLottiePlayer from "./DotLottiePlayer";
 
 interface LottieCarouselProps {
   itemsMobile: ReactNode[];
-  itemsDesktop?: ReactNode[];
+  itemsDesktop: ReactNode[];
   itemsStateMobile?: any[];
   itemsStateDesktop?: any[];
   setItemsStateMobile?: (_state: any) => void;
@@ -195,15 +195,7 @@ export const LottieCarouselItem = ({
   return (
     <div className={styles.LottieCarouselItem}>
       <div className={styles.LottieWrapper}>
-        <Lottie
-          options={{
-            animationData: lottie,
-            loop: true,
-            rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
-          }}
-          isClickToPauseDisabled={true}
-          isPaused={isLottiePaused}
-        />
+        <DotLottiePlayer src={lottie} autoplay={!isLottiePaused} loop />
       </div>
       <Text element="p" as="paragraph">
         {text}

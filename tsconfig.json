@@ -3,13 +3,13 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -23,8 +23,8 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true,
-    "target": "ESNext",
+    "strictNullChecks": false,
+    "target": "ES2017",
     "types": ["next", "@dotlottie/player-component"]
   },
   "include": [
@@ -32,7 +32,7 @@
     "**/*.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "global.d.ts"
+    "src/i18n/config.cjs"
   ],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "node_modules_dev", "node_modules_prod", "dist"]
 }

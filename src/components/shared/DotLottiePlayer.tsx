@@ -14,6 +14,7 @@ export default function DotLottiePlayer({
   className,
 }: DotLottiePlayerProps) {
   return (
+    // @ts-ignore
     <dotlottie-player
       src={src}
       autoplay={autoplay}

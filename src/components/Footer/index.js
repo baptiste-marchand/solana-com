@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslation } from "next-i18next";
 import classNames from "classnames";
 import styles from "./Footer.module.scss";
@@ -24,7 +26,7 @@ const CopyrightRow = () => {
   );
 };
 
-const Footer = ({ className }) => {
+const Footer = ({ className = "" }) => {
   const { t } = useTranslation();
 
   return (

@@ -28,6 +28,7 @@ import trustWalletCoreIcon from "../../../public/src/img/solana-wallets/Trust.sv
 import turnkeyIcon from "../../../public/src/img/solana-wallets/TurnKey.svg";
 import web3authIcon from "../../../public/src/img/solana-wallets/Web3Auth.svg";
 import enkryptIcon from "../../../public/src/img/solana-wallets/enkrypt.png";
+import nowwalletIcon from "../../../public/src/img/solana-wallets/nowwallet.png";
 
 export const walletData = [
   {
@@ -804,6 +805,30 @@ export const walletData = [
     staking: false,
     spending_limits: false,
     open_source: true,
+    hardware: false,
+    private_key_infrastructure: false,
+  },
+  {
+    name: "NOW Wallet",
+    body: "Built for ease, powered by security. Swap and store crypto across 70+ networks.",
+    website: "https://walletnow.app/",
+    additionalInfo:
+      "Non-Custodial/Self Custodial • Buy Crypto • Sell Crypto • Hold NFTs  • Staking",
+    icon: nowwalletIcon,
+    custodial: false,
+    non_custodial: true,
+    te: false,
+    blinks_and_actions: false,
+    solana_pay: false,
+    buy_crypto: true,
+    sell_crypto: true,
+    hold_nfts: true,
+    mpc: false,
+    gas_abstraction: false,
+    social_recovery: false,
+    staking: true,
+    spending_limits: false,
+    open_source: false,
     hardware: false,
     private_key_infrastructure: false,
   },
