@@ -23,7 +23,6 @@ import Image8 from "../../../assets/home/join-community-8.jpeg";
 import Image9 from "../../../assets/home/join-community-9.jpeg";
 import Image10 from "../../../assets/home/join-community-10.jpeg";
 
-
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const links = [

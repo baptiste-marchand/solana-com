@@ -14,12 +14,21 @@ import Slide8 from "../../../assets/home/community-slider/join-community-8.png";
 import Slide9 from "../../../assets/home/community-slider/join-community-9.png";
 import Slide10 from "../../../assets/home/community-slider/join-community-10.png";
 
-
 const JoinCommunitySlider = () => {
   const { t } = useTranslation();
   const container = useRef(null);
 
-  const slides = [Slide1, Slide2, Slide3,Slide5, Slide6, Slide7, Slide8, Slide9, Slide10];
+  const slides = [
+    Slide1,
+    Slide2,
+    Slide3,
+    Slide5,
+    Slide6,
+    Slide7,
+    Slide8,
+    Slide9,
+    Slide10,
+  ];
   // Triple the slides for seamless looping
   const topRowImages = [...slides, ...slides, ...slides];
   const bottomRowImages = [...slides.reverse(), ...slides, ...slides];
