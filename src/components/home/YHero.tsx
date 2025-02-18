@@ -3,14 +3,14 @@ import Button from "@/components/solutions/Button";
 import { Zap, ArrowUpRight, Diamond, Leaf, Pin, Newspaper } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import circleImg from "../../../assets/home/supporters/circle.png";
-import shopifyImg from "../../../assets/home/supporters/shopify.png";
-import metaImg from "../../../assets/home/supporters/meta.png";
-import edenImg from "../../../assets/home/supporters/eden.png";
-import stripeImg from "../../../assets/home/supporters/stripe.png";
-import jumpImg from "../../../assets/home/supporters/jump.png";
-import googleImg from "../../../assets/home/supporters/google.png";
-import discordImg from "../../../assets/home/supporters/discord.png";
+import circleImg from "../../../assets/home/supporters/circle.svg";
+import shopifyImg from "../../../assets/home/supporters/shopify.svg";
+import metaImg from "../../../assets/home/supporters/meta.svg";
+import edenImg from "../../../assets/home/supporters/eden.svg";
+import stripeImg from "../../../assets/home/supporters/stripe.svg";
+import jumpImg from "../../../assets/home/supporters/jump.svg";
+import googleImg from "../../../assets/home/supporters/google.svg";
+import discordImg from "../../../assets/home/supporters/discord.svg";
 
 const YHero = () => {
   const [isMobile, setIsMobile] = useState(false);

@@ -4,17 +4,22 @@ import { useTranslation } from "next-i18next";
 
 import styles from "./CommunitySlider.module.scss";
 
-import Slide1 from "../../../assets/home/community-slider/join-community-slider1.png";
-import Slide2 from "../../../assets/home/community-slider/join-community-slider2.png";
-import Slide3 from "../../../assets/home/community-slider/join-community-slider3.png";
-import Slide4 from "../../../assets/home/community-slider/join-community-slider4.png";
-import Slide5 from "../../../assets/home/community-slider/join-community-slider5.png";
+import Slide1 from "../../../assets/home/community-slider/join-community-1.png";
+import Slide2 from "../../../assets/home/community-slider/join-community-2.png";
+import Slide3 from "../../../assets/home/community-slider/join-community-3.png";
+import Slide5 from "../../../assets/home/community-slider/join-community-5.png";
+import Slide6 from "../../../assets/home/community-slider/join-community-6.png";
+import Slide7 from "../../../assets/home/community-slider/join-community-7.png";
+import Slide8 from "../../../assets/home/community-slider/join-community-8.png";
+import Slide9 from "../../../assets/home/community-slider/join-community-9.png";
+import Slide10 from "../../../assets/home/community-slider/join-community-10.png";
+
 
 const JoinCommunitySlider = () => {
   const { t } = useTranslation();
   const container = useRef(null);
 
-  const slides = [Slide1, Slide2, Slide3, Slide4, Slide5];
+  const slides = [Slide1, Slide2, Slide3,Slide5, Slide6, Slide7, Slide8, Slide9, Slide10];
   // Triple the slides for seamless looping
   const topRowImages = [...slides, ...slides, ...slides];
   const bottomRowImages = [...slides.reverse(), ...slides, ...slides];

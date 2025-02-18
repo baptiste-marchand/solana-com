@@ -12,12 +12,17 @@ import Text, { AnimatedText } from "@/components/shared/Text";
 import styles from "./JoinCommunity.module.scss";
 
 import MobileHeroImage from "../../../assets/home/join-community.png";
-import Image1 from "../../../assets/home/join-community-1.png";
-import Image2 from "../../../assets/home/join-community-2.png";
-import Image3 from "../../../assets/home/join-community-3.png";
-import Image4 from "../../../assets/home/join-community-4.png";
-import Image5 from "../../../assets/home/join-community-5.png";
-import Image6 from "../../../assets/home/join-community-6.png";
+import Image1 from "../../../assets/home/join-community-1.jpeg";
+import Image2 from "../../../assets/home/join-community-2.jpeg";
+import Image3 from "../../../assets/home/join-community-3.jpeg";
+import Image4 from "../../../assets/home/join-community-4.jpeg";
+import Image5 from "../../../assets/home/join-community-5.jpeg";
+import Image6 from "../../../assets/home/join-community-6.jpeg";
+import Image7 from "../../../assets/home/join-community-7.jpeg";
+import Image8 from "../../../assets/home/join-community-8.jpeg";
+import Image9 from "../../../assets/home/join-community-9.jpeg";
+import Image10 from "../../../assets/home/join-community-10.jpeg";
+
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -49,8 +54,8 @@ const JoinCommunity = ({ title }) => {
 
   const container = useRef(null);
 
-  const topRowImages = [Image1, Image2, Image4, Image6, Image5, Image3];
-  const bottomRowImages = [Image6, Image5, Image3, Image1, Image2, Image4];
+  const topRowImages = [Image1, Image2, Image3, Image4, Image5, Image6];
+  const bottomRowImages = [Image7, Image8, Image9, Image10, Image2, Image4];
 
   useGSAP(
     () => {

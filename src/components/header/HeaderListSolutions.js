@@ -89,30 +89,12 @@ const HeaderListSolutions = () => {
               </strong>
             </Link>
             <Link
-              to="/solutions/financial-infrastructure"
-              className="nav-link nav-link--secondary"
-              activeClassName="active"
-            >
-              <strong className="d-block text-white">
-                {solutionsToolsItems[4].title}
-              </strong>
-            </Link>
-            <Link
               to="/solutions/digital-assets"
               className="nav-link nav-link--secondary"
               activeClassName="active"
             >
               <strong className="d-block text-white">
                 {solutionsToolsItems[5].title}
-              </strong>
-            </Link>
-            <Link
-              to="/solutions/real-world-assets"
-              className="nav-link nav-link--secondary"
-              activeClassName="active"
-            >
-              <strong className="d-block text-white">
-                {solutionsToolsItems[8].title}
               </strong>
             </Link>
             <Link
@@ -136,15 +118,6 @@ const HeaderListSolutions = () => {
             {t("nav.solutions.cases.title")}
           </div>
           <div>
-            <Link
-              to="/solutions/enterprise"
-              className="nav-link nav-link--secondary"
-              activeClassName="active"
-            >
-              <strong className="d-block text-white">
-                {solutionsCasesItems[1].title}
-              </strong>
-            </Link>
             <Link
               to="/solutions/gaming-and-entertainment"
               className="nav-link nav-link--secondary"

@@ -100,7 +100,7 @@ const YDeveloperResources = ({
           {title && (
             <div>
               <Image
-                src="/src/img/home/dev-resources.png"
+                src="/src/img/home/dev-resources.svg"
                 alt={title}
                 width={514}
                 height={485}
