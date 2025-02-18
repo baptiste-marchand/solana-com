@@ -29,6 +29,8 @@ import turnkeyIcon from "../../../public/src/img/solana-wallets/TurnKey.svg";
 import web3authIcon from "../../../public/src/img/solana-wallets/Web3Auth.svg";
 import enkryptIcon from "../../../public/src/img/solana-wallets/enkrypt.png";
 import nowwalletIcon from "../../../public/src/img/solana-wallets/nowwallet.png";
+import coinwalletIcon from "../../../public/src/img/solana-wallets/coinwallet.png";
+import guardaIcon from "../../../public/src/img/solana-wallets/guarda.png";
 
 export const walletData = [
   {
@@ -218,7 +220,7 @@ export const walletData = [
     body: "Your portal to Web3. Access 100+ decentralized networks with many more on the way.",
     website: "https://www.okx.com/web3",
     additionalInfo:
-      "Custodial • Token Extensions • Acttions & Blinks • Buy Crypto • Sell Crypto • Nold NFTs • Social recovery • Staking",
+      "Custodial • Token Extensions • Actions & Blinks • Buy Crypto • Sell Crypto • Hold NFTs • Social recovery • Staking",
     icon: okxIcon,
     new_to_crypto: true,
     developer: false,
@@ -322,7 +324,7 @@ export const walletData = [
     body: "Circle: Built for Developers — Create the next revolutionary app powered by Circle digital currency and Web3 wallets.",
     website: "https://www.circle.com/programmable-wallets",
     additionalInfo:
-      "Non-Custodial/Self Custodial • Token Extentions • Hold NFTs • Gas abstraction",
+      "Non-Custodial/Self Custodial • Token Extensions • Hold NFTs • Gas abstraction",
     icon: circleIcon,
     new_to_crypto: true,
     developer: true,
@@ -830,5 +832,53 @@ export const walletData = [
     open_source: false,
     hardware: false,
     private_key_infrastructure: false,
+  },
+  {
+    name: "Coin Wallet",
+    body: "A self-custodial multicurrency wallet for multiple platforms. Available since 2015.",
+    website: "https://coin.space/",
+    additionalInfo:
+      "Non-Custodial/Self Custodial • Buy Crypto • Sell Crypto • Open Source",
+    icon: coinwalletIcon,
+    custodial: false,
+    non_custodial: true,
+    te: false,
+    blinks_and_actions: false,
+    solana_pay: false,
+    buy_crypto: true,
+    sell_crypto: true,
+    hold_nfts: false,
+    mpc: false,
+    gas_abstraction: false,
+    social_recovery: false,
+    staking: false,
+    spending_limits: false,
+    open_source: true,
+    hardware: false,
+    private_key_infrastructure: false,
+  },
+  {
+    name: "Guarda Wallet",
+    body: "One secure multi crypto wallet, all assets in. Swap and store crypto across 70+ networks.",
+    website: "https://guarda.com/",
+    additionalInfo:
+      "Non-Custodial/Self Custodial • Buy Crypto • Sell Crypto • Exchange Crypto • Staking",
+    icon: guardaIcon,
+    custodial: false,
+    non_custodial: true,
+    te: false,
+    blinks_and_actions: false,
+    solana_pay: false,
+    buy_crypto: true,
+    sell_crypto: true,
+    hold_nfts: true,
+    mpc: false,
+    gas_abstraction: false,
+    social_recovery: false,
+    staking: true,
+    spending_limits: false,
+    open_source: false,
+    hardware: false,
+    private_key_infrastructure: true,
   },
 ];
