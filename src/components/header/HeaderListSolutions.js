@@ -119,15 +119,6 @@ const HeaderListSolutions = () => {
           </div>
           <div>
             <Link
-              to="/solutions/gaming-and-entertainment"
-              className="nav-link nav-link--secondary"
-              activeClassName="active"
-            >
-              <strong className="d-block text-white">
-                {solutionsCasesItems[0].title}
-              </strong>
-            </Link>
-            <Link
               to="/solutions/creative"
               className="nav-link nav-link--secondary"
               activeClassName="active"

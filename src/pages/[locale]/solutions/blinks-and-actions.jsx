@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Layout from "@/components/solutions/layout";
 import { useTranslation, Trans } from "next-i18next";
@@ -19,8 +21,26 @@ import styles from "./BlinksAndActions.module.scss";
 
 import { MotionSlideIn } from "@/components/shared/Motions";
 
+// Update imports to use relative path style
+import blinksLottie from "../../../../assets/solutions/blinks/Blinks_Blinks_V1.lottie";
+import notificationsLottie from "../../../../assets/solutions/blinks/Blinks_Notification_V1.lottie";
+import payLottie from "../../../../assets/solutions/blinks/Blinks_Pay_V1.lottie";
+import socialLottie from "../../../../assets/solutions/blinks/Blinks_Social.lottie";
+import messagingLottie from "../../../../assets/solutions/blinks/Blinks_Messaging.lottie";
+
 const BlinksAndActions = () => {
   const { t } = useTranslation();
+
+  // Add state for managing animation pauses
+  const [activeLottieIndex, setActiveLottieIndex] = useState(0);
+
+  useEffect(() => {
+    import("@dotlottie/player-component").then((mod) => {
+      if (!customElements.get("dotlottie-player")) {
+        customElements.define("dotlottie-player", mod.DotLottiePlayer);
+      }
+    });
+  }, []);
 
   const longform1Content = t("solutions-blinks-and-actions.longform-1.items", {
     returnObjects: true,
@@ -95,33 +115,57 @@ const BlinksAndActions = () => {
     {
       label: "Push Notifications",
       media: (
-        <MotionSlideIn>
-          <></>
-        </MotionSlideIn>
+        <div className={styles.LottieWrapper}>
+          <dotlottie-player
+            src={notificationsLottie}
+            autoplay={true}
+            loop={true}
+            key="notifications"
+            pause={activeLottieIndex !== 0}
+          />
+        </div>
       ),
     },
     {
       label: "QR codes",
       media: (
-        <MotionSlideIn>
-          <></>
-        </MotionSlideIn>
+        <div className={styles.LottieWrapper}>
+          <dotlottie-player
+            src={payLottie}
+            autoplay={true}
+            loop={true}
+            key="pay"
+            pause={activeLottieIndex !== 1}
+          />
+        </div>
       ),
     },
     {
       label: "Social Posts",
       media: (
-        <MotionSlideIn>
-          <></>
-        </MotionSlideIn>
+        <div className={styles.LottieWrapper}>
+          <dotlottie-player
+            src={socialLottie}
+            autoplay={true}
+            loop={true}
+            key="social"
+            pause={activeLottieIndex !== 2}
+          />
+        </div>
       ),
     },
     {
       label: "Messaging Apps",
       media: (
-        <MotionSlideIn>
-          <></>
-        </MotionSlideIn>
+        <div className={styles.LottieWrapper}>
+          <dotlottie-player
+            src={messagingLottie}
+            autoplay={true}
+            loop={true}
+            key="messaging"
+            pause={activeLottieIndex !== 3}
+          />
+        </div>
       ),
     },
   ];
@@ -154,7 +198,15 @@ const BlinksAndActions = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <div className={styles.LottieWrapper}>
+                  <dotlottie-player
+                    src={blinksLottie}
+                    autoplay={true}
+                    loop={true}
+                  />
+                </div>
+              }
               mediaDesktopPlacement="left"
               className={styles.LongformItem1}
               mediaClassName={styles.LongformItemMedia}
@@ -212,6 +264,8 @@ const BlinksAndActions = () => {
           title={t("solutions-blinks-and-actions.with-actions.title")}
           buttonText={t("solutions-blinks-and-actions.with-actions.learn-btn")}
           buttonUrl="/docs/advanced/actions#actions"
+          onTabChange={setActiveLottieIndex}
+          activeIndex={activeLottieIndex}
         />
 
         <YDeveloperResources
