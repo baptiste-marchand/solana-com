@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
-
-import { walletData } from "../../../data/wallets/wallet-data";
 import { walletFiltersData } from "../../../data/wallets/wallet-filters";
 
 import WalletFilters from "./WalletFilters";
@@ -9,7 +7,7 @@ import { OpacityInText } from "@/components/shared/Text";
 
 import styles from "./WalletsLayout.module.scss";
 
-const WalletsLayout = () => {
+const WalletsLayout = ({ walletData }) => {
   const { t } = useTranslation();
 
   const [filters, setFilters] = useState({});

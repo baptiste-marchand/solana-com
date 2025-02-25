@@ -6,10 +6,11 @@ import Layout from "@/components/solutions/layout";
 import WalletsLayout from "@/components/solutions/wallets-explorer/WalletsLayout";
 import FooterCallout from "@/components/solutions/FooterCallout";
 import { withLocales } from "@/i18n/routing";
+import { walletData } from "@/data/wallets/wallet-data";
 
 import styles from "./WalletsExplorer.module.scss";
 
-export default function WalletsExplorer() {
+export default function WalletsExplorer({ walletData }) {
   const { t } = useTranslation();
   return (
     <Layout>
@@ -18,7 +19,7 @@ export default function WalletsExplorer() {
         description={t("solutions-wallets-explorer.meta.description")}
       />
 
-      <WalletsLayout />
+      <WalletsLayout walletData={walletData} />
 
       <FooterCallout
         title={t("solutions-wallets-explorer.footer-callout.title")}
@@ -37,11 +38,15 @@ export default function WalletsExplorer() {
 
 export async function getStaticProps({ params }) {
   const { locale = "en" } = params;
+  const randomizedWallets = [...walletData].sort(() => Math.random() - 0.5);
+
   return {
     props: {
       locale,
+      walletData: randomizedWallets,
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    revalidate: 60,
   };
 }
 
