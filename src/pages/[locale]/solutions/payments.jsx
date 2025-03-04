@@ -153,6 +153,34 @@ export default function Payments() {
       text={t("solutions-payments.ecosystem.card-loop-crypto.text")}
       key="loop-crypto"
     />,
+    <Card
+      img="/src/img/icons/bridge.svg"
+      url="https://bridge.xyz/"
+      title={t("solutions-payments.ecosystem.card-bridge.title")}
+      text={t("solutions-payments.ecosystem.card-bridge.text")}
+      key="bridge"
+    />,
+    <Card
+      img="/src/img/icons/reap.svg"
+      url="https://reap.global/"
+      title={t("solutions-payments.ecosystem.card-reap.title")}
+      text={t("solutions-payments.ecosystem.card-reap.text")}
+      key="reap"
+    />,
+    <Card
+      img="/src/img/icons/rain.svg"
+      url="https://rain.xyz/"
+      title={t("solutions-payments.ecosystem.card-rain.title")}
+      text={t("solutions-payments.ecosystem.card-rain.text")}
+      key="rain"
+    />,
+    <Card
+      img="/src/img/icons/nuvei.svg"
+      url="https://nuvei.com/"
+      title={t("solutions-payments.ecosystem.card-nuvei.title")}
+      text={t("solutions-payments.ecosystem.card-nuvei.text")}
+      key="nuvei"
+    />,
   ];
 
   const caseStudyCards = [

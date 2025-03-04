@@ -77,7 +77,7 @@ export const Carousel = ({
           <span className={styles.title}>What&apos;s new</span>
           <span
             className={styles.sub_title}
-          >{`// Findout the latest in the ecosystem`}</span>
+          >{`// Read the latest from the Solana ecosystem.`}</span>
         </AnimatedText>
       </div>
 

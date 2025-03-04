@@ -1175,7 +1175,7 @@
   },
   "home": {
     "meta": {
-      "title": "Web3 Infrastructure for Everyone | Solana",
+      "title": "Web3 Infrastructure for Everyone",
       "description": "Fast. Decentralized. Scalable. Energy efficient. Solana can power thousands of transactions per second."
     },
     "hero": {
@@ -1276,7 +1276,7 @@
       }
     },
     "developer-resources": {
-      "title": "Build The Future with Solana",
+      "title": "Build the Future with Solana",
       "subtitle": "The Solana Quick Start Guide has everything needed to launch your blockchain journey.",
       "btn": "Start Building Now"
     },
@@ -1851,8 +1851,8 @@
       "start-btn": "Start Building",
       "explore-btn": "Explore Ecosystem",
       "stats": [
-        { "value": "166B", "label": "P2P volume since Jan 2023" },
-        { "value": "$3.8B", "label": "Total onchain transfers" },
+        { "value": "$335B", "label": "P2P volume since Jan 2023" },
+        { "value": "$4.9B", "label": "Total onchain transfers" },
         { "value": "3.1M", "label": "SPL Stablecoin holders" },
         { "value": "$0.001", "label": "Avg transaction cost" }
       ]
@@ -1901,16 +1901,16 @@
       }
     },
     "callout-1": {
-      "title": "Payments <gradient>Tooling</gradient>",
-      "subtitle": "Easily enable frictionless — and permissionless — payment rails"
+      "title": "Tools for Building Better <gradient> Payments</gradient>",
+      "subtitle": "A suite of tools and primitives on Solana make it easy to enable frictionless, permissionless payments."
     },
     "solana-pay": {
-      "title": "Point of Sale Crypto Payments",
-      "subtitle": "With <nextLink>Solana Pay</nextLink>, merchants can accept crypto directly from users, without third party intermediaries."
+      "title": "Point of Sale Stablecoin Payments",
+      "subtitle": "With <nextLink>Solana Pay</nextLink>, merchants can accept stablecoins and other tokens directly from users, without third party intermediaries."
     },
     "token-extensions": {
       "title": "Compliance-in-a-Box",
-      "subtitle": "<nextLink>Token extensions</nextLink> on Solana can enable  KYC checks, audit trails, confidential balances, and more."
+      "subtitle": "<nextLink>Token extensions</nextLink> on Solana can enable  KYC checks, audit trails, privacy, and more."
     },
     "blinks-actions": {
       "title": "One-Click-Commerce",
@@ -1918,7 +1918,7 @@
     },
     "feeless-transactions": {
       "title": "Feeless Transactions",
-      "subtitle": "Solana’s fee-payer lets builders assign a sponsor for transaction fees, enabling easy onramps and frictionless user experiences."
+      "subtitle": "The native fee-payer on Solana lets builders assign a sponsor for transaction fees, enabling easy onramps and frictionless user experiences."
     },
     "case-studies": {
       "title": "Solana Success Stories",

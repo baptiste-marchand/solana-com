@@ -121,14 +121,17 @@ const YHero = () => {
           <div className={styles.hero__content}>
             <div className={styles.hero__info_group}>
               <p className={styles.hero__description}>
-                Solana is a high-performance blockchain platform designed to
-                support decentralised applications and cryptocurrencies. It aims
-                to provide scalability without sacrificing decentralisation or
-                security.
+                Solana is a high-performance blockchain designed for real-world,
+                real-time use cases. It is built to work at a massive scale and
+                low cost without sacrificing decentralization or security.
               </p>
 
               <div className={styles.hero__cta_group}>
-                <Button text="Start Building" url="/" />
+                <Button
+                  text="Start Building"
+                  url="https://solana.com/ar/docs/intro/quick-start"
+                  target="_blank"
+                />
 
                 <a href="#" className={styles.hero__cta_btn_secondary}>
                   <span>

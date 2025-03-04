@@ -352,20 +352,20 @@ const BentoStatGrid = () => {
 
   return (
     <BentoStatGridStyle>
-      <p>Business choose Solana for the high speed low-cost transactions</p>
+      <p>Businesses choose Solana for high-speed, low-cost transactions.</p>
       {/* Desktop stats */}
       <BentoStat
         color="#9945FF"
         title="Near Zero Transaction Costs"
         value="$0.001"
       />
-      <BentoStat color="#19FB9B" title="Avg Transaction Time" value="435ms" />
+      <BentoStat color="#19FB9B" title="Avg Transaction Time" value="400ms" />
       <BentoStat
         color="#43B4CA"
         title="Avg TPS"
         value={availableStats ? avgTps.toLocaleString() : "..."}
       />
-      <BentoStat color="#5791FF" title="Users" value="87M" />
+      <BentoStat color="#5791FF" title="Users" value="778M" />
 
       {/* Mobile stats in 2 columns */}
       <div className="stats-container">
@@ -374,13 +374,13 @@ const BentoStatGrid = () => {
           title="Near Zero Transaction Costs"
           value="$0.001"
         />
-        <BentoStat color="#19FB9B" title="Avg Transaction Time" value="435ms" />
+        <BentoStat color="#19FB9B" title="Avg Transaction Time" value="400ms" />
         <BentoStat
           color="#43B4CA"
           title="Avg TPS"
           value={availableStats ? avgTps.toLocaleString() : "..."}
         />
-        <BentoStat color="#5791FF" title="Users" value="87M" />
+        <BentoStat color="#5791FF" title="Users" value="778M" />
       </div>
     </BentoStatGridStyle>
   );
@@ -411,8 +411,8 @@ const SolutionsGrid = () => {
           <SectionSubtitle>Solutions</SectionSubtitle>
           <SectionTitle>Ready for Business</SectionTitle>
           <SectionDescription>
-            Power global finance, enable instant borderless payments, trade
-            real-world assets and more
+            Power global finance, trade real-world assets, enable instant
+            borderless payments, and more.
           </SectionDescription>
         </TitleBlock>
         <BentoGrid>

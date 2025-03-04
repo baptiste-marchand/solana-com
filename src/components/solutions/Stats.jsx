@@ -104,14 +104,16 @@ const Stats = ({
             </AnimatedText>
           )}
 
-          {stats.map((stat, index) => (
-            <div className={styles.Stat} key={`stat-${index}`}>
-              <h3 className={`${styles.StatValue} stats-title`}>
-                {stat.value}
-              </h3>
-              <p className={styles.StatLabel}>{stat.label}</p>
-            </div>
-          ))}
+          <div className={styles.StatsWrapper}>
+            {stats?.map((stat, index) => (
+              <div className={styles.Stat} key={`stat-${index}`}>
+                <h3 className={`${styles.StatValue} stats-title`}>
+                  {stat.value}
+                </h3>
+                <p className={styles.StatLabel}>{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
