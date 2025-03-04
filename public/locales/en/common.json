@@ -1898,6 +1898,22 @@
       "card-loop-crypto": {
         "title": "Loop Crypto",
         "text": "Loop's crypto autopay supports a broad range of use cases from recurring crypto payments to one-time crypto payments."
+      },
+      "card-bridge": {
+        "title": "Bridge",
+        "text": "Simplify global payments with stablecoins using Bridge’s API-driven financial infrastructure."
+      },
+      "card-rain": {
+        "title": "Rain",
+        "text": "A digital asset custodian enabling secure blockchain payment solutions and crypto transactions."
+      },
+      "card-reap": {
+        "title": "Reap",
+        "text": "A fintech platform providing financial tools and corporate card solutions for businesses to scale."
+      },
+      "card-nuvei": {
+        "title": "Nuvei",
+        "text": "A global payment technology company offering fast, scalable, and multi-currency transactions."
       }
     },
     "callout-1": {

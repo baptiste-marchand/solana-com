@@ -192,9 +192,9 @@ export default function Payments() {
       image: caseStudyHelioMobileImg.src,
       imageAlt: "Helio case study",
       metrics: [
-        { value: "100K+", label: "Merchants" },
-        { value: "$2M+", label: "Volume" },
-        { value: "24/7", label: "Support" },
+        { value: "$1M+", label: "Fees Saved" },
+        { value: "$35M", label: "in Sales" },
+        { value: "200+", label: "Stores" },
       ],
       readMoreUrl: "/news/case-study-helio",
       readMoreText: t("solutions-payments.case-studies.cards.helio.button"),
@@ -207,9 +207,9 @@ export default function Payments() {
       image: caseStudyVisaImg.src,
       imageAlt: "Visa case study",
       metrics: [
-        { value: "24K", label: "TPS" },
-        { value: "$1B+", label: "Settlement" },
-        { value: "Global", label: "Reach" },
+        { value: "64K", label: "Theoretical TPS" },
+        { value: "1", label: "Block Until Confirmation" },
+        { value: "400ms", label: "Confirmation Time" },
       ],
       readMoreUrl:
         "https://usa.visa.com/solutions/crypto/deep-dive-on-solana.html",
