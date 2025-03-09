@@ -100,9 +100,9 @@ const Loyalty = () => {
         "solutions-loyalty.case-study-cards.cards.boba-guys.image-alt",
       ),
       metrics: [
-        { value: "500K+", label: "Members" },
-        { value: "2x", label: "Engagement" },
-        { value: "24/7", label: "Access" },
+        { value: "50K+", label: "Users" },
+        { value: "800%", label: "ROI" },
+        { value: "65%", label: "Increase in Spend" },
       ],
       readMoreUrl: "https://solana.com/news/case-study-boba-guys",
       readMoreText: t(
@@ -115,9 +115,9 @@ const Loyalty = () => {
       image: "/solutions/loyalty/asics-main.webp",
       imageAlt: t("solutions-loyalty.case-study-cards.cards.asics.image-alt"),
       metrics: [
-        { value: "100K+", label: "Members" },
-        { value: "3x", label: "Engagement" },
-        { value: "Global", label: "Reach" },
+        { value: "$500K+", label: "Sales" },
+        { value: "5000", label: "NFT Members" },
+        { value: "62", label: "Countries" },
       ],
       readMoreUrl: "https://ui.asics.com/",
       readMoreText: t(

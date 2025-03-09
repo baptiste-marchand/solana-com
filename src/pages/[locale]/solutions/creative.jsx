@@ -158,9 +158,9 @@ const Creative = () => {
       image: "/solutions/creative/culture-hacker.png",
       imageAlt: "Culture Hacker",
       metrics: [
-        { value: "1M+", label: "Impressions" },
-        { value: "100K+", label: "Participants" },
-        { value: "24/7", label: "Access" },
+        { value: "$0.001", label: "Fees Per NFT" },
+        { value: "400ms", label: "Confirmation Time" },
+        { value: "0%", label: "Net Environmental Impact" },
       ],
       readMoreUrl:
         "https://solana.com/news/case-study-culturehacker-where-theres-smoke",
@@ -176,9 +176,9 @@ const Creative = () => {
       image: "/solutions/creative/single.png",
       imageAlt: "Eric Church",
       metrics: [
-        { value: "5K+", label: "Members" },
-        { value: "100%", label: "Digital" },
-        { value: "24/7", label: "Access" },
+        { value: "100K", label: "Digital Bricks Minted" },
+        { value: "2000x", label: "Cheaper to Mint with Compression" },
+        { value: "0", label: "Intermediaries Between Artist and Fan" },
       ],
       readMoreUrl:
         "https://single.xyz/blogs/blog/eric-church-future-proofs-fandom-solana-based-digital-deeds-nashville-bar",

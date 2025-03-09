@@ -26,12 +26,13 @@ import longformThree from "../../../../assets/solutions/institutional-finance/In
 
 import homebaseMain from "../../../../assets/solutions/institutional-finance/homebase-main.jpg";
 
-import medici from "../../../../assets/solutions/institutional-finance/medici.svg";
+import apollo from "../../../../assets/solutions/institutional-finance/apollo.svg";
 import hamilton from "../../../../assets/solutions/institutional-finance/hamilton.svg";
 import paypal from "../../../../assets/solutions/institutional-finance/paypal.svg";
 import visa from "../../../../assets/solutions/institutional-finance/visa.svg";
 import pyth from "../../../../assets/solutions/institutional-finance/pyth.svg";
-import etherfuse from "../../../../assets/solutions/institutional-finance/etherfuse.svg";
+import franklin from "../../../../assets/solutions/institutional-finance/franklin.svg";
+import societe from "../../../../assets/solutions/institutional-finance/societe.svg";
 import styled from "styled-components";
 import bgPattern from "../../../../assets/solutions/institutional-finance/bg-grid.svg";
 import gradientPattern from "../../../../assets/solutions/institutional-finance/gradient.png";
@@ -249,11 +250,11 @@ const InstitutionalFinance = () => {
           </GradientPattern>
           <HeroStyled>
             <OpacityInText element="h1" as="heading" className={styles.Title}>
-              The Private & High Performing Chain <span>for</span> Institutions
+              The High-Performance Blockchain <span>for</span> High-Performance Institutions
             </OpacityInText>
             <OpacityInText element="p" as="paragraph">
-              Stop wasting hours on reconciliation, switch to the instantly
-              settled, tamper proof & private blockchain
+              Solana's high-performance blockchain delivers instant settlement,
+              tamper-proof security, and privacy for institutional needs
             </OpacityInText>
 
             <ImagesGrid>
@@ -279,11 +280,11 @@ const InstitutionalFinance = () => {
 
   const ecosystemCards = [
     <Card
-      key="medici"
-      img={medici}
-      url="https://medici-docs.bridgesplit.com/"
-      title={t("solutions-institutional-finance.ecosystem.card-medici.title")}
-      text={t("solutions-institutional-finance.ecosystem.card-medici.text")}
+      key="apollo"
+      img={apollo}
+      url="https://www.apollo.com/"
+      title={t("solutions-institutional-finance.ecosystem.card-apollo.title")}
+      text={t("solutions-institutional-finance.ecosystem.card-apollo.text")}
     />,
     <Card
       key="hamilton"
@@ -314,13 +315,20 @@ const InstitutionalFinance = () => {
       text={t("solutions-institutional-finance.ecosystem.card-pyth.text")}
     />,
     <Card
-      key="etherfuse"
-      img={etherfuse}
+      key="franklin"
+      img={franklin}
       url="https://www.etherfuse.com/"
       title={t(
-        "solutions-institutional-finance.ecosystem.card-etherfuse.title",
+        "solutions-institutional-finance.ecosystem.card-franklin.title",
       )}
-      text={t("solutions-institutional-finance.ecosystem.card-etherfuse.text")}
+      text={t("solutions-institutional-finance.ecosystem.card-franklin.text")}
+    />,
+    <Card
+      key="societe"
+      img={societe}
+      url="https://www.societe.com/"
+      title={t("solutions-institutional-finance.ecosystem.card-societe.title")}
+      text={t("solutions-institutional-finance.ecosystem.card-societe.text")}
     />,
   ];
 

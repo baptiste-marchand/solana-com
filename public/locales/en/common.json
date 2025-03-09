@@ -1985,8 +1985,8 @@
     },
     "stats": {
       "title": "Maximize Customer Loyalty, <gradient>Minimize Costs</gradient>",
-      "subtitle": "Connect directly with users at scale without third-party involvement, for more genuine interactions and insights. ",
-      "finePrint": "*stats from a Solana-powered loyalty program",
+      "subtitle": "Connect directly with users at scale, without third-party involvement, for more genuine interactions and insights. ",
+      "finePrint": "*stats from a Solana-powered loyalty program pilot",
       "stats": [
         {
           "value": "800%",
@@ -2009,19 +2009,19 @@
     "longform": [
       {
         "title": "Customizable Controls for a Superior Loyalty Experience",
-        "text": "Deploy custom loyalty features including non-transferable memberships, evolving collectibles, and more."
+        "text": "Deploy unique features to build a top-notch membership program, such as non-transferrable memberships, evolving collectibles, gated access, and more."
       },
       {
         "title": "Deploy Rewards At Scale — With Extremely Low Fees",
-        "text": "Launch global campaigns with thousands of assets near-instantly and cost-effectively, thanks to Solana's advanced compression."
+        "text": "Launch global campaigns with thousands of assets near-instantly and without breaking the bank, thanks to state compression on Solana."
       },
       {
         "title": "Escape Apps and Bring Loyalty Everywhere",
         "text": "Turn onchain actions into one-click links, sharable anywhere online. Users can engage through any website, social media, and messaging app."
       },
       {
-        "title": "Recognize and Reward Your Members, Anywhere",
-        "text": "Seamlessly recognize your members. Use Solana Pay to enable special perks through token-gated commerce, across multiple interaction points and partners."
+        "title": "Recognize and Reward Your Most Loyal Members",
+        "text": "Use Solana Pay to enable special perks like secret menus, discounts, and even token-gated access to IRL events. You can even do it across multiple interaction points and partners."
       }
     ],
     "case-study-cards": {
@@ -2030,25 +2030,25 @@
         "boba-guys": {
           "logo-alt": "Boba Guys logo",
           "image-alt": "Boba Guys loyalty program mobile interface",
-          "excerpt": "<strong>Boba Guys</strong> launched an onchain “Passport” loyalty program using Solana, complete with gamified activities, exclusive rewards and collectibles, and more.",
+          "excerpt": "Boba Guys launched an onchain “Passport” loyalty program using Solana, complete with gamified activities, exclusive rewards and collectibles, and more.",
           "button-text": "Learn More About Boba Guys"
         },
         "asics": {
           "logo-alt": "ASICS logo",
           "image-alt": "Shoes with ASICS, Solana and StepN logos indicating partnership",
-          "excerpt": "<strong>ASICS</strong> partnered with move-to-earn game StepN to combine physical product sales with NFT-based loyalty badges, enabled by Solana Pay. ",
+          "excerpt": "ASICS partnered with move-to-earn game StepN to combine physical product sales with NFT-based loyalty badges, enabled by Solana Pay. ",
           "buttonText": "Learn More About ASICS"
         },
         "drip": {
           "logo-alt": "DRiP logo",
           "image-alt": "Hand on a laptop screen showing DRiP app interface",
-          "excerpt": "<strong>DRiP</strong> is an app for earning free collectibles like music, art, videos, and more from your favorite creators. DRiP sends millions of NFTs for free to collectors all over the world — something only possible on Solana — and it has grown into one of the most popular apps in all of web3.",
+          "excerpt": "DRiP is an app for earning free collectibles like music, art, videos, and more from your favorite creators. DRiP sends millions of NFTs for free to collectors all over the world — something only possible on Solana — and it has grown into one of the most popular apps in all of web3.",
           "buttonText": "Learn More About DRiP"
         },
         "eric-church": {
           "logo-alt": "Single logo",
           "image-alt": "Eric Church looking away from the camera",
-          "excerpt": "<strong>Country music star Eric Church</strong> is redefining fan engagement with Solana-based digital deeds. At his new Nashville bar, “Chief’s,” Church offers fans exclusive NFTs that serve as “Founder’s Bricks”. ",
+          "excerpt": "Country music star Eric Church is redefining fan engagement with Solana-based digital deeds. At his new Nashville bar, “Chief’s,” Church offers fans exclusive NFTs that serve as “Founder’s Bricks”. ",
           "buttonText": "Read Full Case Study"
         }
       }
@@ -2065,7 +2065,7 @@
       "title": "Ready to build on Solana?",
       "text": "<strong>Apply for a Grant</strong> Turn your vision into reality with support from the Solana Foundation.",
       "btn": "Apply for a Grant",
-      "btnLarge": "<strong>Still have questions?</strong> Reach out to Solana's Loyalty team"
+      "btnLarge": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Loyalty team"
     }
   },
   "solutions-institutional-finance": {
@@ -2080,18 +2080,18 @@
       "button": "Start Building"
     },
     "stats": {
-      "title": "<gradient>Global and Cost-Effective,</gradient> Onchain Activity",
-      "subtitle": "Discover new opportunities for value creation using flexible, affordable solutions.",
+      "title": "<gradient>Global, Cost-Effective, Onchain Activity</gradient>",
+      "subtitle": "Discover new markets. Tokenize assets. Enable frictionless payments. Solana is emerging as the capital market of the internet.",
       "stats": [
-        { "value": "$4.36M", "label": "In real-world asset TVL on Solana" },
-        { "value": "$3.6M", "label": "Stablecoin TVL on Solana" }
+        { "value": "$135.85M", "label": "In real-world asset TVL on Solana" },
+        { "value": "$11.5B", "label": "Stablecoin TVL on Solana" }
       ]
     },
     "ecosystem": {
       "title": "<gradient>Trusted by Institutions Worldwide</gradient>",
-      "card-medici": {
-        "title": "Medici",
-        "text": "A tokenized RWA platform with deep liquidity, catering to institutional investors."
+      "card-apollo": {
+        "title": "Apollo",
+        "text": "A global asset manager that recently tokenized a $1.3B fund on Solana."
       },
       "card-hamilton": {
         "title": "Hamilton Lane",
@@ -2109,25 +2109,30 @@
         "title": "Pyth Network",
         "text": "A decentralized oracle built on a custom Solana Permissioned Environment."
       },
-      "card-etherfuse": {
-        "title": "Etherfuse Stablebonds",
-        "text": "A RWA platform offering tokenized bonds backed by government securities."
+      "card-franklin": {
+        "title": "Franklin Templeton",
+        "text": "A global investment firm that launched its OnChain U.S. Government Money Fund directly on Solana."
+      },
+      "card-societe": {
+        "title": "Societe Generale",
+        "text": "A leading European bank exploring blockchain technology for institutional finance and digital assets."
       }
     },
     "callout-1": {
-      "title": "Flexible Offerings for <gradient>Every Enterprise Need</gradient>"
+      "title": "Flexible Offerings for <gradient>Every Enterprise Need</gradient>",
+      "subtitle": "Solana is the most innovative ecosystem in crypto — and it's home to a suite of tools and primitives that are built for buisness."
     },
     "longform-one": {
       "title": "Private Deployments",
-      "subtitle": "Enjoy granular control over your network participants, data access, and transaction validation. With <0>permissioned environments</0>, institutions can create customizable private networks tailored to specific operational and regulatory requirements."
+      "subtitle": "Enjoy granular control over network participants, data access, and transaction validation. With <0>permissioned environments</0>, institutions can create customizable private networks tailored to specific operational and regulatory requirements."
     },
     "longform-two": {
       "title": "Compliance-in-a-Box Solutions",
-      "subtitle": "Choose from over a dozen <0>token extensions</0> on Solana to meet regulatory requirements. Use extensions like permanent delegate, confidential transfers, and metadata pointer for everything from real-time KYC to the ability to freeze assets."
+      "subtitle": "Choose from over a dozen <0>token extensions</0> on Solana to meet regulatory requirements. Use extensions like Interest-bearing tokens, confidential balances, and permanent delegate for everything from real-time KYC to the ability to freeze assets."
     },
     "longform-three": {
       "title": "A Thriving Tokenized Market",
-      "subtitle": "Unleash market liquidity, fractional ownership, and global accessibility to assets previously restricted to traditional finance markets. <0>Real-world assets</0> bring traditional assets like real estate, bonds, and commodities onto the blockchain."
+      "subtitle": "Unleash market liquidity, fractional ownership, and global accessibility to assets previously restricted to traditional finance markets. Tokenization brings traditional assets like real estate, bonds, and commodities to the 24-7 blockchain market."
     },
     "case-studies": {
       "title": "Solana Success Stories",
@@ -2285,7 +2290,7 @@
     },
     "hero": {
       "title": "Where Creativity Meets Scalability",
-      "subtitle": "Unparalleled speed and low-costs make launching global brand campaigns to high-volume asset production all possible.",
+      "subtitle": "Use Solana's unparalleled speed and low costs to launch global brands, community-driven IP, high-volume asset campaigns, and more.",
       "start-btn": "Start Creating"
     },
     "stats": {
@@ -2293,11 +2298,11 @@
       "subtitle": "Release creative content with global reach, near-zero fees, and automated royalties.",
       "stats": [
         {
-          "value": "$134.6M",
+          "value": "$148M",
           "label": "Total creator earnings since Jan 2023"
         },
-        { "value": "500K", "label": "Creators" },
-        { "value": "549M", "label": "Total NFTs minted" },
+        { "value": "532K", "label": "Creators" },
+        { "value": "842M", "label": "Total NFTs minted" },
         {
           "value": "2000x",
           "label": "Cheaper to mint assets with compression on Solana"
@@ -2306,7 +2311,7 @@
     },
     "callout-1": {
       "title": "<gradient>Creator-Friendly Tooling,</gradient> for Any Collection or Campaign",
-      "subtitle": "Modular, configurable tools in the Solana ecosystem."
+      "subtitle": "Modular, configurable tools in the Solana ecosystem make creating better."
     },
     "meet-users": {
       "title": "Meet Users Where They Are",
@@ -2314,7 +2319,7 @@
     },
     "mint-digital": {
       "title": "Mint Digital Assets at Scale",
-      "subtitle": "Store NFT metadata cheaply and securely with state <nextLink>compression</nextLink>."
+      "subtitle": "Bring down the cost of creating assets by storing metadata cheaply and securely with state <nextLink>compression</nextLink>."
     },
     "explore-cards": {
       "cards": {
@@ -2331,7 +2336,7 @@
       }
     },
     "ecosystem": {
-      "title": "Creative <gradient>Ecosystem</gradient>",
+      "title": "A Creative <gradient>Ecosystem</gradient>",
       "platforms": {
         "title": "Creator Platforms",
         "magic-eden": {
@@ -2396,14 +2401,14 @@
       }
     },
     "case-studies": {
-      "title": "Solana Success Stories",
+      "title": "Success on Solana",
       "cards": {
         "culture-hacker": {
-          "excerpt": "<strong>Culture Hacker</strong> used Solana to launch ”Where There’s Smoke,” an immersive experience that merges theatrical elements with blockchain technology.",
+          "excerpt": "Culture Hacker used Solana to launch ”Where There’s Smoke,” an immersive experience that merges theatrical elements with blockchain technology.",
           "button": "Learn More About ‘Where Threre’s Smoke’"
         },
         "eric-church": {
-          "excerpt": "<strong>Country music star Eric Church</strong> is redefining fan engagement with Solana-based digital deeds. At his new Nashville bar, “Chief’s,” Church offers fans exclusive NFTs that serve as “Founder’s Bricks”. ",
+          "excerpt": "Country music star Eric Church is redefining fan engagement with Solana-based digital deeds. At his new Nashville bar, “Chief’s,” Church offers fans exclusive NFTs that serve as “Founder’s Bricks”. ",
           "button": "Learn more about Single"
         }
       }
@@ -2428,9 +2433,9 @@
     },
     "footer-callout": {
       "title": "Ready to build on Solana?",
-      "text": "<strong>Apply for a Grant</strong> Turn your vision into reality with support from the Solana Foundation.",
-      "btn": "Apply for a Grant",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's Creative team"
+      "text": "Check out fundraising, hackathon, and grant opportunities within the Solana ecosystem.",
+      "btn": "Funding Opportunities",
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation Creator Team"
     }
   },
   "solutions-defi": {
@@ -2444,7 +2449,8 @@
         {
           "trigger-title": "With Solana",
           "title": "Unlock Capital Efficiency",
-          "subtitle": "Decentralized Finance on Solana is open, lightning-fast, and capital efficient."
+          "subtitle": "Decentralized Finance on Solana is open, lightning-fast, and composable across a thriving internet capital market."
+
         },
         {
           "trigger-title": "Without Solana",
@@ -2454,12 +2460,12 @@
       ]
     },
     "stats": {
-      "title": "<gradient>Lightning-Fast, Low-Cost DeFi Infrastructure at Scale</gradient> — Powered by Solana’s Global State Machine.",
+      "title": "<gradient>Lightning-Fast, Low-Cost DeFi Infrastructure at Scale</gradient> — Powered by the Solana Global State Machine",
       "start-btn": "Build a DeFi Solution",
       "explore-btn": "Find a Wallet",
       "stats": [
-        { "value": "422.9B", "label": "Total DEX volume since Jan 2024" },
-        { "value": "435ms", "label": "Avg transaction speed" },
+        { "value": "$1.5T", "label": "Total DEX volume since Jan 2024" },
+        { "value": "14.8%", "label": "of all crypto liquidity is on Solana" },
         { "value": "$0.001", "label": "Median transaction fee" }
       ]
     },
@@ -2473,7 +2479,7 @@
       },
       "high-speed-state-machine": {
         "title": "High-Speed Global State Machine",
-        "text": "Solana's state machine ensures every node and app relies on a singles source of truth, updated in real-time. This ensures a highly scalable, low-latency environment that is critical for DeFi apps."
+        "text": "Ensures every node and app relies on a singles source of truth, updated in real-time. This ensures a highly scalable, low-latency environment that is critical for DeFi apps."
       },
       "limitless-composability": {
         "title": "Limitless Composability",
@@ -2483,9 +2489,9 @@
     "ecosystem": {
       "title": "Solana DeFi <gradient>Ecosystem</gradient>",
       "text": "The Solana DeFi ecosystem offers endless ways to trade, earn, and leverage a vast and growing universe of digital assets.",
-      "card-jupiter": {
-        "title": "Jupiter",
-        "text": "One of the world’s leading decentralized trading platforms, where millions of users swap tokens, trade perpetuals, bridge funds, and more."
+      "card-perena": {
+        "title": "Perena",
+        "text": "One of DeFi’s top infrastructures, optimizing stablecoin liquidity and rewards for protocols and users."
       },
       "card-orca": {
         "title": "Orca",
@@ -2523,13 +2529,13 @@
         "title": "PYUSD",
         "text": "A PayPal-issued USD stablecoin that uses token extensions to ensure regulatory compliance for onchain financial services and applications."
       },
-      "card-credix": {
-        "title": "Credix",
-        "text": "A decentralized credit marketplace connecting institutional investors with fintech companies in emerging markets using Solana’s fast, low-cost infrastructure."
+      "card-usdg": {
+      "title": "USDG",
+      "text": "Global Dollar Network accelerates stablecoin adoption with USDG, a secure, MAS-compliant US dollar-backed stablecoin issued by Paxos."
       }
     },
     "callout-1": {
-      "title": "Welcome to the <gradient>Future of Finance</gradient>"
+      "title": "Next-Generation Finance is <gradient> Happening on Solana</gradient>"
     },
     "longform-one": {
       "title": "Cutting Edge DeFi Tooling",
@@ -2543,8 +2549,8 @@
       "title": "Solana Success Stories",
       "cards": {
         "item-one": {
-          "excerpt": "<strong>Pyth Network</strong> was the first Solana Permissioned Environment (SPE) on the Solana stack. It uses the Solana Virtual Machine to connect to external data sources, serving as a crucial aggregator for real-world smart contract execution.",
-          "button": "Learn More About Pyth Network"
+          "excerpt": "When payments giant PayPal was looking to expand their flagship stablecoin, they turned to Solana and the innovative token extensions to bring traditional fintech features to stablecoins.",
+          "button": "Learn More About PayPal USD"
         },
         "item-two": {
           "excerpt": "<strong>Etherfuse</strong> is leveraging Solana to bring secure, compliant investments to a global audience through Stablebonds. These interest-bearing tokens are backed by real-world Mexican government bonds, providing a stable investment vehicle with onchain transparency. ",
@@ -2580,18 +2586,18 @@
       "description": "True digital ownership is changing the dynamics of video games. Players can play and own by building their own digital assets and features. Solana’s scalability makes the massive, player-powered digital economies of future games possible, today."
     },
     "hero": {
-      "kicker": "Gaming",
-      "title": "Gaming Without Limits",
-      "subtitle": "Unlock next-level gaming experiences with Solana's speed, scalability, and cost-efficiency.",
+      "kicker": "Games",
+      "title": "Play and Build Without Limits",
+      "subtitle": "Unlock next-level game experiences with Solana's speed, scalability, and cost-efficiency.",
       "start-btn": "Start Building Now",
       "play-btn": "Play on Solana"
     },
     "stats": {
       "title": "<gradient> Solana is changing</gradient> what games can be",
-      "subtitle": "Whether integrating blockchain into existing games or creating something new, Solana enables game development (and enjoyment) at any scale.",
+      "subtitle": "Whether integrating blockchain into existing games or creating something new, using Solana enables game development (and fun) at any scale.",
       "stats": [
-        { "value": "87M", "label": "Users" },
-        { "value": "2,659", "label": "Average TPS" },
+        { "value": "779M", "label": "Users" },
+        { "value": "4,120", "label": "Average TPS" },
         {
           "value": "2000x",
           "label": "Cheaper to mint assets with compression on Solana"
@@ -2663,7 +2669,7 @@
     "spotlight": {
       "logo-alt": "Photo Finish Live logo",
       "image-alt": "Snapshot of Photo Finish™ LIVE horse racing game",
-      "title": "Solana Success Stories",
+      "title": "Solana Ecosystem Wins",
       "text": "<strong>Photo Finish™ LIVE</strong> is a horse racing game that showcases the economic and player appeal of web3 gaming via real-time racing and creative in-game economies–in partnership with the Kentucky Derby!",
       "button": "Learn More About Photo Finish LIVE"
     },
@@ -2709,10 +2715,10 @@
       }
     },
     "footer-callout": {
-      "title": "Ready to build on Solana?",
-      "text": "<strong>Apply for a Grant</strong> Turn your vision into reality with support from the Solana Foundation.",
-      "btn": "Apply for a Grant",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's Gaming team"
+      "title": "​Bring Your Idea Into Reality",
+      "text": "Check out fundraising, hackathon, and grant opportunities within the Solana ecosystem.",
+      "btn": "Funding Opportunities",
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's Games team"
     }
   },
   "solutions-token-extensions": {

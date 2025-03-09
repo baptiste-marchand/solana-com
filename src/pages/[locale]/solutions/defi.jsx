@@ -20,8 +20,8 @@ import BasicCallout from "@/components/solutions/BasicCallout";
 import Text, { AnimatedText, GradientText } from "@/components/shared/Text";
 import styles from "./Defi.module.scss";
 
-import credix from "../../../../assets/solutions/defi/credix.svg";
-import jupiter from "../../../../assets/solutions/defi/jupiter.svg";
+import usdg from "../../../../assets/solutions/defi/usdg.svg";
+import perena from "../../../../assets/solutions/defi/perena.svg";
 import kamino from "../../../../assets/solutions/defi/kamino.svg";
 import marginfi from "../../../../assets/solutions/defi/marginfi.svg";
 import openbook from "../../../../assets/solutions/defi/openbook.svg";
@@ -31,7 +31,7 @@ import pyth from "../../../../assets/solutions/defi/pyth.svg";
 import pyusd from "../../../../assets/solutions/defi/pyusd.svg";
 import raydium from "../../../../assets/solutions/defi/raydium.svg";
 import save from "../../../../assets/solutions/defi/save.svg";
-import pythMain from "../../../../assets/solutions/defi/pyth-main.png";
+import pythMain from "../../../../assets/solutions/defi/paypal-main.png";
 import etherfuseMain from "../../../../assets/solutions/defi/etherfuse-main.png";
 
 import mobileHeroWithSolana from "../../../../assets/solutions/defi/DeFi_MobileHero_WithSolana_V1.lottie";
@@ -85,12 +85,12 @@ const DeFi = () => {
 
   const ecosystemCards = [
     <Card
-      key="card-1"
-      img={jupiter}
-      url="https://jup.ag/"
-      title={t("solutions-defi.ecosystem.card-jupiter.title")}
-      text={t("solutions-defi.ecosystem.card-jupiter.text")}
-      className={styles.EcosystemCard}
+     key="card-1"
+     img={perena}
+     url="https://jup.ag/"
+     title={t("solutions-defi.ecosystem.card-perena.title")}
+     text={t("solutions-defi.ecosystem.card-perena.text")}
+     className={styles.EcosystemCard}
     />,
     <Card
       key="card-2"
@@ -166,28 +166,28 @@ const DeFi = () => {
     />,
     <Card
       key="card-11"
-      img={credix}
+      img={usdg}
       url="https://www.fireblocks.com/customers/worldpay/"
-      title={t("solutions-defi.ecosystem.card-credix.title")}
-      text={t("solutions-defi.ecosystem.card-credix.text")}
+      title={t("solutions-defi.ecosystem.card-usdg.title")}
+      text={t("solutions-defi.ecosystem.card-usdg.text")}
       className={styles.EcosystemCard}
     />,
   ];
 
   const caseStudyCards = [
     {
-      title: "Pyth Brings Real-World Data to DeFi",
+      title: "​PayPal USD Uses Token Extensions To Build Stablecoins",
       description: t(
         "solutions-defi.case-studies.cards.item-one.excerpt",
       ).replace(/<\/?strong>/g, ""),
       image: pythMain.src,
       imageAlt: "Pyth Network",
       metrics: [
-        { value: "250+", label: "Data Sources" },
-        { value: "$1B+", label: "Secured" },
-        { value: "400ms", label: "Latency" },
+        { value: "100M+", label: "Users in PayPal and Venmo" },
+        { value: "6", label: "Token Extensions Enabled" },
+        { value: "24/7", label: "Access" },
       ],
-      readMoreUrl: "https://solana.com/news/case-study-pyth",
+      readMoreUrl: "https://pyusd.mirror.xyz/TpEwPNybrwzPSSQenLtO4kggy98KH4oQRc06ggVnA0k",
       readMoreText: t("solutions-defi.case-studies.cards.item-one.button"),
     },
     {
@@ -198,9 +198,9 @@ const DeFi = () => {
       image: etherfuseMain.src,
       imageAlt: "Etherfuse platform",
       metrics: [
-        { value: "$50M", label: "Volume" },
-        { value: "1000+", label: "Users" },
-        { value: "99.9%", label: "Uptime" },
+        { value: "50%", label: "Unbanked Population in Mexico" },
+        { value: "1", label: "Peso Lowest Offering" },
+        { value: "24/7", label: "Access" },
       ],
       readMoreUrl: "https://solana.com/news/case-study-etherfuse",
       readMoreText: t("solutions-defi.case-studies.cards.item-two.button"),

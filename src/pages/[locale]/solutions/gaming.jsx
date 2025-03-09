@@ -56,9 +56,9 @@ const Gaming = () => {
       image: photoFinishImg.src,
       imageAlt: t("solutions-gaming.spotlight.image-alt"),
       metrics: [
-        { value: "2x", label: "Sales Growth" },
-        { value: "100K+", label: "Players" },
-        { value: "24/7", label: "Gameplay" },
+        { value: "$20M", label: "In-Game Horse Sales" },
+        { value: "$12M", label: "Race Fees" },
+        { value: "24/7", label: "Access" },
       ],
       readMoreUrl: "https://solana.com/news/case-study-photo-finish-live",
       readMoreText: t("solutions-gaming.spotlight.button"),
@@ -68,7 +68,7 @@ const Gaming = () => {
   const developerResourcesLinks = [
     <YDeveloperResourcesLink
       title={t("solutions-gaming.developer-resources.links.guide.title")}
-      link="https://solana.com/docs/intro/wallets"
+      link="https://solana.com/ar/docs/intro/quick-start"
       key="guide"
     />,
     <YDeveloperResourcesLink
@@ -254,14 +254,14 @@ const Gaming = () => {
           />
         </div>
 
+        <GamesKit />
+
         <YDeveloperResources
           id="gaming developer resources"
           title={t("solutions-gaming.developer-resources.title")}
           subtitle={t("solutions-gaming.developer-resources.subtitle")}
           links={developerResourcesLinks}
         />
-
-        <GamesKit />
 
         <FooterCallout
           title={t("solutions-gaming.footer-callout.title")}
