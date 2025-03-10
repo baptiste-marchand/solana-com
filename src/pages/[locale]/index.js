@@ -1,5 +1,5 @@
 import Layout from "@/components/solutions/layout";
-import { Trans, useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next";
 import HTMLHead from "@/components/HTMLHead";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withLocales } from "@/i18n/routing";
@@ -42,30 +42,39 @@ export default function Home() {
 
   const cardsData = [
     {
+      title: t("home.new.cards.stablecoins.title"),
+      text1: t("home.new.cards.stablecoins.text-1"),
+      text2: t("home.new.cards.stablecoins.text-2"),
+      src: "/src/img/home/usdg.png",
+      url: "https://jumpcrypto.com/firedancer/",
+    },
+    {
+      title: t("home.new.cards.apex.title"),
+      text1: t("home.new.cards.apex.text-1"),
+      text2: t("home.new.cards.apex.text-2"),
+      src: "/src/img/home/apex.png",
+      url: "https://lu.ma/apex-cape-town",
+    },
+    {
+      title: t("home.new.cards.developers.title"),
+      text1: t("home.new.cards.developers.text-1"),
+      text2: t("home.new.cards.developers.text-2"),
+      src: "/src/img/home/devreport.png",
+      url: "https://www.developerreport.com/developer-report",
+    },
+    {
+      title: t("home.new.cards.tokenized-assets.title"),
+      text1: t("home.new.cards.tokenized-assets.text-1"),
+      text2: t("home.new.cards.tokenized-assets.text-2"),
+      src: "/src/img/home/franklin.png",
+      url: "https://www.theblock.co/post/340432/franklin-templeton-extends-fobxx-fund-to-solana",
+    },
+    {
       title: t("home.new.cards.firedancer.title"),
       text1: t("home.new.cards.firedancer.text-1"),
       text2: t("home.new.cards.firedancer.text-2"),
       src: "/src/img/home/new-firedancer.svg",
       url: "https://jumpcrypto.com/firedancer/",
-    },
-    {
-      title: t("home.new.cards.recap.title"),
-      text1: t("home.new.cards.recap.text-1"),
-      text2: t("home.new.cards.recap.text-2"),
-      src: "/src/img/home/new-recap.svg",
-      url: "https://solana.com/news/state-of-solana-breakpoint-2024",
-    },
-    {
-      title: t("home.new.cards.ticket-sale.title"),
-      text1: t("home.new.cards.ticket-sale.text-1"),
-      src: "/src/img/home/new-ticket-sale.png",
-      url: "/breakpoint/tickets",
-    },
-    {
-      title: <Trans i18nKey="home.new.cards.hacker-house.title" />,
-      text1: t("home.new.cards.hacker-house.text-1"),
-      src: "/src/img/home/new-hacker-house.svg",
-      url: "https://lu.ma/hong-kong-hh-2024",
     },
     {
       title: t("home.new.cards.blinks.title"),

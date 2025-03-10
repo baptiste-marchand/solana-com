@@ -22,6 +22,8 @@ import styles from "./Payments.module.scss";
 
 import caseStudyHelioMobileImg from "../../../../assets/solutions/payments/helio-case.png";
 import caseStudyVisaImg from "../../../../assets/solutions/payments/visa-case.png";
+import caseStudyPaypalImg from "../../../../assets/solutions/payments/paypal-case.png";
+import caseStudyStripeImg from "../../../../assets/solutions/payments/stripe-case.png";
 
 import mobileHeroWithSolana from "../../../../assets/solutions/payments/MobileHero_WithSolana.lottie";
 import mobileHeroWithoutSolana from "../../../../assets/solutions/payments/MobileHero_WithoutSolana.lottie";
@@ -214,6 +216,36 @@ export default function Payments() {
       readMoreUrl:
         "https://usa.visa.com/solutions/crypto/deep-dive-on-solana.html",
       readMoreText: t("solutions-payments.case-studies.cards.visa.button"),
+    },
+    {
+      title: "PayPal USD Uses Token Extensions To Build Stablecoins",
+      description: t(
+        "solutions-payments.case-studies.cards.paypal.excerpt",
+      ).replace(/<\/?strong>/g, ""),
+      image: caseStudyPaypalImg.src,
+      imageAlt: "PayPal case study",
+      metrics: [
+        { value: "100M+", label: "Users in PayPal and Venmo" },
+        { value: "6", label: "Token Extensions Enabled" },
+        { value: "24/7", label: "Access" },
+      ],
+      readMoreUrl: "/news/case-study-paypal",
+      readMoreText: t("solutions-payments.case-studies.cards.paypal.button"),
+    },
+    {
+      title: "Stripe enables low-cost stablecoin payments via Solana",
+      description: t(
+        "solutions-payments.case-studies.cards.stripe.excerpt",
+      ).replace(/<\/?strong>/g, ""),
+      image: caseStudyStripeImg.src,
+      imageAlt: "Stripe case study",
+      metrics: [
+        { value: "50+", label: "Countries" },
+        { value: "1M+", label: "Businesses" },
+        { value: "Instant", label: "Settlement" },
+      ],
+      readMoreUrl: "/news/case-study-stripe",
+      readMoreText: t("solutions-payments.case-studies.cards.stripe.button"),
     },
   ];
 

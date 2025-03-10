@@ -431,7 +431,7 @@ const SolutionsGrid = () => {
           <BentoCard
             className="large"
             title="DeFi"
-            description="Enjoy unmatched capital efficiency with infinite composability."
+            description="Unmatched capital efficiency with infinite composability."
             image={DeFiImg}
             imageStyle={{
               maxWidth: "100%",

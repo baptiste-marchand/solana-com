@@ -147,7 +147,11 @@ const YHero = () => {
                 Pinned
                 <Pin size="14" />
               </div>
-              <a href="#" className={styles.hero__pinned_card}>
+              <a
+                href="https://lu.ma/shipordie"
+                target="_blank"
+                className={styles.hero__pinned_card}
+              >
                 <Image
                   src="/src/img/pinned-image.jpg"
                   alt="Pinned image"
@@ -156,7 +160,7 @@ const YHero = () => {
                 <div className={styles.hero__blurred_info}>
                   <div className={styles["hero__blurred_info-content"]}>
                     <div className={styles["hero__blurred_info-content-row"]}>
-                      <span>Tickets on Sale for Breakpoint 2024</span>
+                      <span>Get Tickets for Accelerate in New York City</span>
                       <Newspaper size="24" />
                     </div>
                   </div>

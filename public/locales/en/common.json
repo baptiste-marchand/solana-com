@@ -833,7 +833,7 @@
             "title": "Games Tooling"
           },
           {
-            "title": "Payments Tooling"
+            "title": "Payments"
           },
           {
             "title": "Commerce Tooling"
@@ -1186,28 +1186,35 @@
     "new": {
       "title": "What's New with Solana",
       "cards": {
+        "stablecoins": {
+          "title": "Stablecoins",
+          "text-1": "USDG is Live on",
+          "text-2": "Solana"
+        },
+        "apex": {
+          "title": "APEX",
+          "text-1": "Regional Mega-Event",
+          "text-2": "Comes to Cape Town"
+        },
+        "developers": {
+          "title": "Developers",
+          "text-1": "Electric Capital: More New Devs Are",
+          "text-2": "Choosing Solana Than Anywhere Else"
+        },
+        "tokenized-assets": {
+          "title": "Tokenized Assets",
+          "text-1": "Franklin Templeton",
+          "text-2": "Expands to Solana"
+        },
         "firedancer": {
           "title": "Firedancer",
-          "text-1": "The Second Solana",
-          "text-2": "Validator"
-        },
-        "recap": {
-          "title": "Recap",
-          "text-1": "Solana Breakpoint 2024",
-          "text-2": "Singapore"
-        },
-        "ticket-sale": {
-          "title": "Flash Ticket Sale",
-          "text-1": "Solana Breakpoint 2025"
-        },
-        "hacker-house": {
-          "title": "Solana Hacker House:<br/> Hong Kong",
-          "text-1": "October 24th"
+          "text-1": "A high-performance",
+          "text-2": "Solana validator"
         },
         "blinks": {
           "title": "Blinks",
-          "text-1": "Bring Solana to the",
-          "text-2": "Entire Internet"
+          "text-1": "Bringing Solana to",
+          "text-2": "the Entire Internet"
         }
       }
     },
@@ -1827,7 +1834,7 @@
   },
   "solutions-payments": {
     "meta": {
-      "title": "Payments tooling",
+      "title": "Payments",
       "description": "Accept stablecoin payments and build new payment rails. Tooling in the Solana ecosystem makes it easy to enable frictionless, near-zero payments tied to web3 native experiences."
     },
     "hero": {
@@ -1937,15 +1944,23 @@
       "subtitle": "The native fee-payer on Solana lets builders assign a sponsor for transaction fees, enabling easy onramps and frictionless user experiences."
     },
     "case-studies": {
-      "title": "Solana Success Stories",
+      "title": "Solana Success Stories", 
       "cards": {
         "helio": {
-          "excerpt": "Solana Mobile turned to <strong>Helio’s</strong> Solana Pay x Shopify plugin to unlock new payment methods and save $1M in fees.",
+          "excerpt": "Solana Mobile turned to <strong>Helio's</strong> Solana Pay x Shopify plugin to unlock new payment methods and save $1M in fees.",
           "button": "Learn More About Helio"
         },
         "visa": {
-          "excerpt": "<strong>Visa’s</strong> stablecoin settlement leverages Solana's high transaction throughput and scalability at low cost.",
+          "excerpt": "<strong>Visa's</strong> stablecoin settlement leverages Solana's high transaction throughput and scalability at low cost.",
           "button": "Learn More About Visa"
+        },
+        "paypal": {
+          "excerpt": "<strong>PayPal's</strong> integration with Solana enables fast, low-cost digital payments at global scale.",
+          "button": "Learn More About PayPal"
+        },
+        "stripe": {
+          "excerpt": "<strong>Stripe's</strong> Solana integration provides merchants with seamless crypto payment acceptance.",
+          "button": "Learn More About Stripe"
         }
       }
     },
@@ -1968,7 +1983,7 @@
       "title": "Ready to build on Solana?",
       "text": "<strong>Apply for a Grant</strong> Turn your vision into reality with support from the Solana Foundation.",
       "btn": "Apply for a Grant",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's Payments team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Payments team"
     }
   },
   "solutions-loyalty": {

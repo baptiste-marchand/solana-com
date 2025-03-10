@@ -4,10 +4,11 @@ import { useEffect } from "react";
 import Text from "@/components/shared/Text";
 import Button from "@/components/solutions/Button";
 import { MotionSlideIn } from "@/components/shared/Motions";
+import Image from "next/image";
 
 import styles from "./LoyaltyHero.module.scss";
 
-const LoyaltyHero = ({ heroLottie }) => {
+const LoyaltyHero = ({ _heroLottie }) => {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -46,7 +47,13 @@ const LoyaltyHero = ({ heroLottie }) => {
 
       <MotionSlideIn from="right">
         <div className={styles.LottieWrapper}>
-          <dotlottie-player src={heroLottie} autoplay loop />
+          <Image
+            src="/src/img/home/solutions/loyalty-hero.svg"
+            alt="Loyalty Hero"
+            width={1050}
+            height={1050}
+            priority
+          />
         </div>
       </MotionSlideIn>
     </section>
