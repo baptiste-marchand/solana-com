@@ -31,7 +31,9 @@ export const fetchSuperminority = async () => {
   try {
     const voteAccounts = await makeRPCCall({
       method: "getVoteAccounts",
+      params: [],
       rpcNodeURL,
+      abortSignal: undefined,
     });
 
     // Sort validators by stake in ascending order
@@ -125,6 +127,7 @@ export const useTransactionStats = ({
               const voteAccounts = await makeRPCCall({
                 abortSignal,
                 method: "getVoteAccounts",
+                params: [],
                 rpcNodeURL,
               });
               setValidators(voteAccounts.result.current.length);
@@ -137,6 +140,7 @@ export const useTransactionStats = ({
               const transactionCount = await makeRPCCall({
                 abortSignal,
                 method: "getTransactionCount",
+                params: [],
                 rpcNodeURL,
               });
               setTotalTransactionCount(transactionCount.result);

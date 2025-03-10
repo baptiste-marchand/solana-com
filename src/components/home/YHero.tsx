@@ -3,6 +3,13 @@ import Button from "@/components/solutions/Button";
 import { Zap, ArrowUpRight, Diamond, Leaf, Pin, Newspaper } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import {
+  PERF_UPDATE_SEC,
+  SAMPLE_HISTORY_HOURS,
+  useTransactionStats,
+} from "@/hooks/useTransactionStats";
+import { FormattedNumber } from "../SolFormattedMessage";
+import Loader from "../../../public/src/img/icons/Loader.inline.svg";
 import circleImg from "../../../assets/home/supporters/circle.svg";
 import shopifyImg from "../../../assets/home/supporters/shopify.svg";
 import metaImg from "../../../assets/home/supporters/meta.svg";
@@ -15,6 +22,13 @@ import discordImg from "../../../assets/home/supporters/discord.svg";
 const YHero = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [visibleLogos, setVisibleLogos] = useState(8);
+
+  const { avgTps, totalTransactionCount, validators, availableStats } =
+    useTransactionStats({
+      visible: true,
+      performanceUpdateSeconds: PERF_UPDATE_SEC,
+      sampleHistoryHours: SAMPLE_HISTORY_HOURS,
+    });
 
   useEffect(() => {
     const handleResize = () => {
@@ -57,7 +71,12 @@ const YHero = () => {
                 className={`${styles.hero__title_tag} ${styles.hero__title_tag__tps}`}
               >
                 <Zap size={iconSize} />
-                4,700 TPS
+                {availableStats ? (
+                  <FormattedNumber value={avgTps} />
+                ) : (
+                  <Loader />
+                )}{" "}
+                TPS
               </span>
             </span>
             <span>
@@ -66,7 +85,12 @@ const YHero = () => {
                 className={`${styles.hero__title_tag} ${styles.hero__title_tag__txns}`}
               >
                 <ArrowUpRight size={iconSize} />
-                349,077,760,944 TOTAL TXNS
+                {availableStats ? (
+                  <FormattedNumber value={totalTransactionCount} />
+                ) : (
+                  <Loader />
+                )}{" "}
+                TOTAL TXNS
               </span>
             </span>
             <span>
@@ -75,7 +99,12 @@ const YHero = () => {
                 className={`${styles.hero__title_tag} ${styles.hero__title_tag__nodes}`}
               >
                 <Diamond size={iconSize} />
-                1,490 VALIDATOR NODES
+                {availableStats ? (
+                  <FormattedNumber value={validators} />
+                ) : (
+                  <Loader />
+                )}{" "}
+                VALIDATOR NODES
               </span>
             </span>
             <span>

@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import SectionContainer from "./SectionContainer";
+import {
+  useTransactionStats,
+  PERF_UPDATE_SEC,
+  SAMPLE_HISTORY_HOURS,
+} from "@/hooks/useTransactionStats";
 
 import WalletsImg from "../../../public/src/img/home/solutions/wallets.png";
 import CreativeImg from "../../../public/src/img/home/solutions/creative.png";
@@ -339,6 +344,12 @@ const BentoStatGridStyle = styled.div`
 `;
 
 const BentoStatGrid = () => {
+  const { avgTps, availableStats } = useTransactionStats({
+    visible: true,
+    performanceUpdateSeconds: PERF_UPDATE_SEC,
+    sampleHistoryHours: SAMPLE_HISTORY_HOURS,
+  });
+
   return (
     <BentoStatGridStyle>
       <p>Business choose Solana for the high speed low-cost transactions</p>
@@ -349,7 +360,11 @@ const BentoStatGrid = () => {
         value="$0.001"
       />
       <BentoStat color="#19FB9B" title="Avg Transaction Time" value="435ms" />
-      <BentoStat color="#43B4CA" title="Avg TPS" value="2,659" />
+      <BentoStat
+        color="#43B4CA"
+        title="Avg TPS"
+        value={availableStats ? avgTps.toLocaleString() : "..."}
+      />
       <BentoStat color="#5791FF" title="Users" value="87M" />
 
       {/* Mobile stats in 2 columns */}
@@ -360,7 +375,11 @@ const BentoStatGrid = () => {
           value="$0.001"
         />
         <BentoStat color="#19FB9B" title="Avg Transaction Time" value="435ms" />
-        <BentoStat color="#43B4CA" title="Avg TPS" value="2,659" />
+        <BentoStat
+          color="#43B4CA"
+          title="Avg TPS"
+          value={availableStats ? avgTps.toLocaleString() : "..."}
+        />
         <BentoStat color="#5791FF" title="Users" value="87M" />
       </div>
     </BentoStatGridStyle>
