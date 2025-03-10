@@ -19,16 +19,16 @@ export const PageBreadcrumbs = memo(
         )}
       >
         <p>
-          <Link href="/">Home</Link>
+          <Link href={`/`}>Home</Link>
           {breadcrumbs?.map((item, key) => {
+            const ComponentToUse = item.href ? Link : "span";
+
             return (
               <Fragment key={key}>
                 <span>&gt;</span>
-                {item.href ? (
-                  <Link href={item.href}>{item?.label || item?.title}</Link>
-                ) : (
-                  <span>{item?.label || item?.title}</span>
-                )}
+                <ComponentToUse href={item.href}>
+                  {item?.label || item?.title}
+                </ComponentToUse>
               </Fragment>
             );
           })}
@@ -37,5 +37,3 @@ export const PageBreadcrumbs = memo(
     );
   },
 );
-
-PageBreadcrumbs.displayName = "PageBreadcrumbs";
