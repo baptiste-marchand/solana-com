@@ -9,60 +9,87 @@ description:
 
 ## Getting Started
 
-- [Quick Start](/docs/intro/quick-start) - Build your first Solana program
-  directly in the browser
-- [Setup Local Environment](/docs/intro/installation) - Install dependencies for
-  Solana development
+<Cards>
+  <Card title="Quickstart" href="/docs/intro/quick-start" icon={<Rocket />}>
+    Build your first Solana program directly in the browser
+  </Card>
+  <Card
+    title="Setup Local Environment"
+    href="/docs/intro/installation"
+    icon={<Download />}
+  >
+    Install dependencies for Solana development
+  </Card>
+</Cards>
 
-## Play 2048 on Solana
+## Try Solana: Play 2048
 
-Experience the speed of Solana playing the 2048 game, where every move is a
-processed transaction. Just click "Play" to get started with a wallet funded
-with devnet SOL. Control the tiles using your arrow keys and watch your moves
-get recorded on-chain in real-time!
+Play 2048 on Solana where every move sends a transaction. Click "Play" to start
+with a funded devnet wallet and use the arrow keys to play. If on mobile, swipe
+to control the tiles.
 
-Built by [Jonas](https://x.com/SolPlay_jonas), from the Solana Foundation DevRel
-team.
+<Accordions>
+<Accordion title="Play Solana 2048">
 
 <iframe
   src="https://solplay.de/solana-2048/"
   width="100%"
-  height="700"
+  height="500"
   style={{
     borderRadius: "12px",
     border: "2px solid rgba(0, 0, 0, 0.2)",
+    maxWidth: "100%",
+    minHeight: "300px",
+    aspectRatio: "1",
   }}
   scrolling="no"
 />
+
+</Accordion>
+</Accordions>
+
+Built by [Jonas](https://x.com/SolPlay_jonas), from the Solana Foundation DevRel
+team.
 
 ## Start Learning
 
 Learn the key concepts specific to Solana development.
 
-- [Accounts](/docs/core/accounts) - How data is stored on Solana
-- [Fees on Solana](/docs/core/fees) - Various costs associated with using the
-  network
-- [Transactions](/docs/core/transactions) - How to interact with the network
-- [Programs](/docs/core/programs) - Smart contracts on Solana
-- [Programs Derived Address](/docs/core/pda) - How to generate deterministic
-  addresses
-- [Cross Program Invocation](/docs/core/cpi) - How to call one program from
-  another
+<Cards>
+  <Card title="Accounts" href="/docs/core/accounts">
+    How Solana stores data
+  </Card>
+  <Card title="Fees on Solana" href="/docs/core/fees">
+    Costs to send transactions on Solana
+  </Card>
+  <Card title="Transactions" href="/docs/core/transactions">
+    How to interact with the Solana network
+  </Card>
+  <Card title="Programs" href="/docs/core/programs">
+    Smart contracts on Solana
+  </Card>
+  <Card title="Programs Derived Address" href="/docs/core/pda">
+    How to generate deterministic addresses
+  </Card>
+  <Card title="Cross Program Invocation" href="/docs/core/cpi">
+    How to call one program from another
+  </Card>
+</Cards>
 
 ### Client Side Development
 
-If you're developing on the client-side, Solana has community-contributed SDKs
-to help developers interact with the Solana network in most popular languages :
+If you develop on the client side, the following community-contributed SDKs help
+you interact with the network in popular languages:
 
 | Language   | SDK                                                                                                                                       |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| RUST       | [solana_sdk](https://docs.rs/solana-sdk/latest/solana_sdk/)                                                                               |
+| Rust       | [solana_sdk](https://docs.rs/solana-sdk/latest/solana_sdk/)                                                                               |
 | Typescript | [@solana/web3.js](https://github.com/anza-xyz/solana-web3.js)                                                                             |
 | Python     | [solders](https://github.com/kevinheavey/solders)                                                                                         |
-| Java       | [solanaj](https://github.com/skynetcap/solanaj) or [solana4j](https://github.com/LMAX-Exchange/solana4j) or [sava](https://sava.software) |
+| Java       | [sava](https://sava.software) or [solanaj](https://github.com/skynetcap/solanaj) or [solana4j](https://github.com/LMAX-Exchange/solana4j) |
 | C++        | [solcpp](https://github.com/mschneider/solcpp)                                                                                            |
 | Go         | [solana-go](https://github.com/gagliardetto/solana-go)                                                                                    |
-| Kotlin     | [solanaKT](https://github.com/metaplex-foundation/SolanaKT) or [sol4k](https://github.com/sol4k/sol4k)                                    |
+| Kotlin     | [sol4k](https://github.com/sol4k/sol4k) or [solanaKT](https://github.com/metaplex-foundation/SolanaKT)                                    |
 | Dart       | [solana](https://github.com/espresso-cash/espresso-cash-public/tree/master/packages/solana)                                               |
 | C#         | [solnet](https://github.com/bmresearch/Solnet)                                                                                            |
 | GdScript   | [godot](https://github.com/Virus-Axel/godot-solana-sdk/)                                                                                  |
@@ -71,13 +98,23 @@ to help developers interact with the Solana network in most popular languages :
 
 Explore what it takes to operate a Solana validator and help secure the network.
 
-- [Validators](https://docs.anza.xyz/validator/anatomy) - Individual nodes
-  securing the Solana network
-- [System Requirements](https://docs.anza.xyz/operations/requirements) -
-  Recommended hardware requirements and expected SOL needed to operate a
-  validator
-- [Validator Setup](https://docs.anza.xyz/operations/setup-a-validator) - Setup
-  a validator and get connected to a cluster for the first time
+<Cards>
+  <Card title="Validators" href="https://docs.anza.xyz/validator/anatomy">
+    Individual nodes securing the Solana network
+  </Card>
+  <Card
+    title="System Requirements"
+    href="https://docs.anza.xyz/operations/requirements"
+  >
+    Recommended hardware requirements and SOL required to operate a validator
+  </Card>
+  <Card
+    title="Validator Setup"
+    href="https://docs.anza.xyz/operations/setup-a-validator"
+  >
+    Setup a validator and get connected to a cluster for the first time
+  </Card>
+</Cards>
 
 ## Getting Support
 

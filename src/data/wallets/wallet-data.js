@@ -31,6 +31,8 @@ import enkryptIcon from "../../../public/src/img/solana-wallets/enkrypt.png";
 import nowwalletIcon from "../../../public/src/img/solana-wallets/nowwallet.png";
 import coinwalletIcon from "../../../public/src/img/solana-wallets/coinwallet.png";
 import guardaIcon from "../../../public/src/img/solana-wallets/guarda.png";
+import cakewalletIcon from "../../../public/src/img/solana-wallets/cakewallet.png";
+import tokenPocketIcon from "../../../public/src/img/solana-wallets/tokenpocket.png";
 
 export const walletData = [
   {
@@ -880,5 +882,53 @@ export const walletData = [
     open_source: false,
     hardware: false,
     private_key_infrastructure: true,
+  },
+  {
+    name: "Cake Wallet",
+    body: "Your keys, your coins. Securely store, send and exchange your crypto with ease.",
+    website: "https://cakewallet.com/",
+    additionalInfo:
+      "Non-Custodial/Self Custodial • Buy Crypto • Sell Crypto • Exchange Crypto • Open Source",
+    icon: cakewalletIcon,
+    custodial: false,
+    non_custodial: true,
+    te: false,
+    blinks_and_actions: false,
+    solana_pay: false,
+    buy_crypto: true,
+    sell_crypto: true,
+    hold_nfts: false,
+    mpc: false,
+    gas_abstraction: false,
+    social_recovery: false,
+    staking: false,
+    spending_limits: false,
+    open_source: true,
+    hardware: false,
+    private_key_infrastructure: false,
+  },
+  {
+    name: "TokenPocket",
+    body: "TokenPocket is a multi-chain self-custodial wallet with over 30 million users worldwide, offering a product lineup that includes a Mobile Wallet, Chrome Extension Wallet, and KeyPal Hardware Wallet.",
+    website: "https://tokenpocket.pro/",
+    additionalInfo:
+      "Hardware • Non-Custodial/Self Custodial • Buy Crypto • Sell Crypto • Exchange Crypto • Hold NFTs • Staking",
+    icon: tokenPocketIcon,
+    custodial: false,
+    non_custodial: true,
+    te: false,
+    blinks_and_actions: false,
+    solana_pay: false,
+    buy_crypto: true,
+    sell_crypto: true,
+    hold_nfts: true,
+    mpc: false,
+    gas_abstraction: false,
+    social_recovery: false,
+    staking: true,
+    spending_limits: false,
+    open_source: false,
+    hardware: true,
+    private_key_infrastructure: false,
   },
 ];

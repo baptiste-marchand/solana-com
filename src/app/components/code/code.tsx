@@ -9,14 +9,12 @@ import { fold } from "./fold";
 import { mention } from "./mentions";
 import { callout } from "./callout";
 import { CodeGroup } from "./code-group";
-import { flagsToOptions } from "./code-group";
+import { flagsToOptions, theme } from "./code-group";
 import { diff } from "./diff";
 import { wordWrap } from "./word-wrap";
 import { MultiCode } from "./code.client";
 import { tooltip } from "./tooltip";
 import { tokenTransitions } from "./token-transitions";
-
-const theme = "github-from-css";
 
 export async function Code(props: {
   codeblocks: RawCode[];
@@ -138,8 +136,9 @@ function getHandlers(options: CodeGroup["options"]) {
 function extractFlags(codeblock: RawCode) {
   const flags =
     codeblock.meta.split(" ").filter((flag) => flag.startsWith("-"))[0] ?? "";
-  const metaWithoutFlags =
-    codeblock.meta === flags
+  const metaWithoutFlags = !flags
+    ? codeblock.meta
+    : codeblock.meta === flags
       ? ""
       : codeblock.meta.replace(" " + flags, "").trim();
   const title = getTitle(metaWithoutFlags);
