@@ -1,6 +1,7 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 
 import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
@@ -19,6 +20,18 @@ import DeveloperResources, {
 import FooterCallout from "@/components/solutions/FooterCallout";
 import { withLocales } from "@/i18n/routing";
 import styles from "./Wallets.module.scss";
+
+import multiSigLottie from "../../../../assets/learn/wallets/Wallets_Multi Sig Add_V1.lottie";
+import custodexLottie from "../../../../assets/learn/wallets/Wallets_Custodex_V1.lottie";
+import stealthGuardLottie from "../../../../assets/learn/wallets/Wallets_StealthGuard_V1.lottie";
+
+const LottieCarouselItem = dynamic(
+  () =>
+    import("@/components/shared/LottieCarousel.tsx").then(
+      (mod) => mod.LottieCarouselItem,
+    ),
+  { ssr: false },
+);
 
 const Wallets = () => {
   const { t } = useTranslation();
@@ -120,7 +133,7 @@ const Wallets = () => {
         <div className={styles.LongformSection}>
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={<LottieCarouselItem lottie={multiSigLottie} />}
               mediaDesktopPlacement="left"
               titleComponent={t("learn-wallets.longform.multisig.title")}
               subtitleComponent={
@@ -147,7 +160,7 @@ const Wallets = () => {
 
           <MotionSlideIn from="left">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={<LottieCarouselItem lottie={custodexLottie} />}
               mediaDesktopPlacement="right"
               titleComponent={
                 <Link
@@ -190,7 +203,9 @@ const Wallets = () => {
 
           <MotionSlideIn from="right">
             <LongformItem
-              mediaComponent={<></>}
+              mediaComponent={
+                <LottieCarouselItem lottie={stealthGuardLottie} />
+              }
               mediaDesktopPlacement="left"
               titleComponent={t("learn-wallets.longform.non-custodial.title")}
               subtitleComponent={

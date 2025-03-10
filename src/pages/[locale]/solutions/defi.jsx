@@ -85,12 +85,12 @@ const DeFi = () => {
 
   const ecosystemCards = [
     <Card
-     key="card-1"
-     img={perena}
-     url="https://jup.ag/"
-     title={t("solutions-defi.ecosystem.card-perena.title")}
-     text={t("solutions-defi.ecosystem.card-perena.text")}
-     className={styles.EcosystemCard}
+      key="card-1"
+      img={perena}
+      url="https://jup.ag/"
+      title={t("solutions-defi.ecosystem.card-perena.title")}
+      text={t("solutions-defi.ecosystem.card-perena.text")}
+      className={styles.EcosystemCard}
     />,
     <Card
       key="card-2"
@@ -187,7 +187,8 @@ const DeFi = () => {
         { value: "6", label: "Token Extensions Enabled" },
         { value: "24/7", label: "Access" },
       ],
-      readMoreUrl: "https://pyusd.mirror.xyz/TpEwPNybrwzPSSQenLtO4kggy98KH4oQRc06ggVnA0k",
+      readMoreUrl:
+        "https://pyusd.mirror.xyz/TpEwPNybrwzPSSQenLtO4kggy98KH4oQRc06ggVnA0k",
       readMoreText: t("solutions-defi.case-studies.cards.item-one.button"),
     },
     {

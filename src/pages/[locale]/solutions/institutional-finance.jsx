@@ -250,11 +250,13 @@ const InstitutionalFinance = () => {
           </GradientPattern>
           <HeroStyled>
             <OpacityInText element="h1" as="heading" className={styles.Title}>
-              The High-Performance Blockchain <span>for</span> High-Performance Institutions
+              The High-Performance Blockchain <span>for</span> High-Performance
+              Institutions
             </OpacityInText>
             <OpacityInText element="p" as="paragraph">
-              Solana's high-performance blockchain delivers instant settlement,
-              tamper-proof security, and privacy for institutional needs
+              Solana&apos;s high-performance blockchain delivers instant
+              settlement, tamper-proof security, and privacy for institutional
+              needs
             </OpacityInText>
 
             <ImagesGrid>
@@ -318,9 +320,7 @@ const InstitutionalFinance = () => {
       key="franklin"
       img={franklin}
       url="https://www.etherfuse.com/"
-      title={t(
-        "solutions-institutional-finance.ecosystem.card-franklin.title",
-      )}
+      title={t("solutions-institutional-finance.ecosystem.card-franklin.title")}
       text={t("solutions-institutional-finance.ecosystem.card-franklin.text")}
     />,
     <Card

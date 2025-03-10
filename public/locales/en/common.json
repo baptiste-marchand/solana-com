@@ -1026,7 +1026,7 @@
         "subtitle-2": "<strong>Perfect for</strong> collectively managed organizations (DAOs, pooled funds) and escrow services requiring shared control",
         "see-more": {
           "title": "See more",
-          "text": "Multisig wallets use multiple keys to share control, ensuring no single party can access funds. They’re perfect for DAOs, corporate boards, or any group needing collective decision-making."
+          "text": "Multisig wallets use multiple keys to share control, ensuring no single party can access funds. They're perfect for DAOs, treasuries, or any group needing collective decision-making."
         }
       },
       "custodial": {
@@ -1144,7 +1144,7 @@
       }
     },
     "footer-callout": {
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's Wallets team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Wallets team"
     }
   },
   "breakpoint": {
@@ -2170,7 +2170,7 @@
       "title": "Ready to build on Solana?",
       "text": "<strong>Apply for a Grant</strong> Turn your vision into reality with support from the Solana Foundation.",
       "btn": "Apply for a Grant",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's IF team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's IF team"
     }
   },
   "solutions-wallets": {
@@ -2181,13 +2181,13 @@
     "hero": {
       "kicker": "WALLETS",
       "title": "Limitless Customization, Connections, & Control",
-      "subtitle": "Amplify your offerings by creating your own custom wallet, or use an existing Solana implementation.",
+      "subtitle": "Wallets are your portal to Solana. Amplify your offers by creating your own custom wallet or using an existing implementation.",
       "start-btn": "Wallet Basics",
       "explore-btn-mobile": "Explore Wallet Solutions",
       "explore-btn-desktop": "Explore Wallets and Solutions"
     },
     "wallet-types": {
-      "title": "<gradient>Wallet Types</gradient>",
+      "title": "Find The <gradient>Wallet</gradient> That Works For You",
       "items": {
         "custodial": {
           "text": "<strong>Custodial wallets</strong> let a third party manage private keys, offering the ease of traditional banking and recourse for lost funds without the need to manage keys yourself."
@@ -2196,17 +2196,17 @@
           "text": "<strong>Non-custodial wallets</strong> give users full control of their keys and funds, ensuring privacy and security. However, if keys are lost, there's no recourse."
         },
         "multisig": {
-          "text": "<strong>Multisig wallets</strong> use multiple keys to share control, ensuring no single party can access funds. They’re perfect for DAOs, corporate boards, or any group needing collective decision-making."
+          "text": "<strong>Multisig wallets</strong> use multiple keys to share control, ensuring no single party can access funds. They’re perfect for DAOs, treasuries, or any group needing collective decision-making."
         }
       }
     },
     "callout-2": {
-      "title": "Unlock <br/><gradient>Programmable Money</gradient>",
-      "subtitle": "Don’t just safeguard your users’ assets — unleash full wallet programmability with regulatory compliance controls and seamless integrations that bridge web2 and web3."
+      "title": "Make Money <gradient>Do More</gradient>",
+       "subtitle": "Don’t just safeguard your users’ assets — unleash full wallet programmability with regulatory compliance controls and seamless integrations that bridge web2 and web3."
     },
     "compliance-in-a-box": {
       "title": "Compliance- in-a-Box",
-      "subtitle": "<nextLink>Token extensions</nextLink> on Solana ensure full regulatory compliance.",
+      "subtitle": "<nextLink>Token extensions</nextLink> on Solana help teams build solutions for regulatory compliance.",
       "see-more": {
         "title": "See more",
         "transfer-hooks": "<strong>Transfer Hooks</strong> let you enforce custom rules whenever a token moves between wallets.",
@@ -2216,7 +2216,7 @@
     },
     "one-click-commerce": {
       "title": "One-Click Commerce",
-      "subtitle": "Enable transactions via QR codes or URLs using Solana Actions.",
+      "subtitle": "Accept crypto payments anywhere with QR codes, URLs, and one-click blinks using Solana Actions.",
       "see-more": {
         "title": "See more",
         "blockchain-links": "<nextLink>Blockchain Links on Solana</nextLink> turn any Solana transaction into a one-click CTA, shareable anywhere online.",
@@ -2236,8 +2236,9 @@
       "subtitle": "Complement seed phrases, email, verifications, and passwords with familiar and seamless verification methods.",
       "see-more": {
         "title": "See more",
-        "exodus": "<nextLink>Exodus Passkeys</nextLink> let you access and transact across multiple web3 platforms via passwordless authentication.",
-        "dynamic": "<nextLink>Dynamic</nextLink> offers a suite of tools for effortless wallet creation, login, and user  management. Non-custodial, passwordless, with one-click fiat-to-crypto onramps."
+        "passkeys": "Passkey tooling, such as <nextLink>Exodus</nextLink>, lets you access and transact across multiple web3 platforms with passwordless authentication.",
+        "hardware": "Hardware wallet integrations with top-tier teams like <nextLink>Ledger</nextLink> allow for IRL authentication methods.",
+        "multisig": "Multisig wallet tools make it easy for treasuries to be securely managed onchain with multiple signers"
       }
     },
     "explore": {
@@ -2246,7 +2247,7 @@
       "cards": {
         "new": {
           "title": "Build a New Wallet",
-          "subtitle": "Solana makes it easy, with everything from developer starter guides to open-source toolkits."
+          "subtitle": "Building on Solana is easy, with everything from developer starter guides to open-source toolkits."
         },
         "embed": {
           "title": "Embed an Existing Wallet",
@@ -2263,10 +2264,10 @@
           "title": "Wallet Guide"
         },
         "wallet-builder-kit": {
-          "title": "Wallet Builder Started Kit"
+          "title": "Wallet Builder Starter Kit"
         },
         "helio": {
-          "title": "Helio World Wallet Guide"
+          "title": "Hello World Wallet Guide"
         },
         "confidential-balances": {
           "title": "Confidential Balances Guide"
@@ -2280,7 +2281,7 @@
       "title": "Ready to build on Solana?",
       "text": "<strong>Apply for a Grant</strong> Turn your vision into reality with support from the Solana Foundation.",
       "btn": "Apply for a Grant",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's Wallets team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Wallets team"
     }
   },
   "solutions-creative": {
@@ -2577,7 +2578,7 @@
       "title": "Ready to build on Solana?",
       "text": "<strong>Apply for a Grant</strong> Turn your vision into reality with support from the Solana Foundation.",
       "btn": "Apply for a Grant",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's DeFi team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's DeFi team"
     }
   },
   "solutions-gaming": {
@@ -2718,7 +2719,7 @@
       "title": "​Bring Your Idea Into Reality",
       "text": "Check out fundraising, hackathon, and grant opportunities within the Solana ecosystem.",
       "btn": "Funding Opportunities",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's Games team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Games team"
     }
   },
   "solutions-token-extensions": {
@@ -2940,7 +2941,7 @@
     "hero": {
       "kicker": "BLOCKCHAIN LINKS",
       "title": "Meet Users Where They Are",
-      "subtitle": "Solana makes any onchain action possible in a single click, wherever users live online.",
+      "subtitle": "Use Solana to make any onchain action possible in a single click, wherever users live online.",
       "build-btn": "Build Your Own Blink",
       "see-btn": "See Blinks in Action"
     },
@@ -2961,8 +2962,8 @@
       ]
     },
     "callout-2": {
-      "title": "<gradient>Solana Actions:</gradient><br/> The Engine Under the Hood",
-      "subtitle": "Blockchain links are an interface. Solana Actions are APIs that deliver transactions on many surfaces. Together, Actions and blinks massively simplify how users transact on Solana."
+      "title": "<gradient>Solana Actions:</gradient><br/> Bringing Onchain Transactions Everywhere",
+      "subtitle": "Go further than blockchain links with Solana Actions, APIs that deliver transactions on many surfaces. Together, Actions and blinks massively simplify how users transact on Solana."
     },
     "ecosystem": {
       "title": "<gradient>Ecosystem Spotlight</gradient>",
@@ -2997,7 +2998,7 @@
       }
     },
     "with-actions": {
-      "title": "With Solana Actions, you can transact via:",
+      "title": "With Solana Actions, you can build onchain transactions via:",
       "items": {
         "push-notifications": {
           "title": "Push Notifications"
@@ -3033,7 +3034,7 @@
       "title": "Ready to build on Solana?",
       "text": "<strong>Apply for a Grant</strong> Turn your vision into reality with support from the Solana Foundation.",
       "btn": "Apply for a Grant",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's Blinks team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Wallets team"
     }
   },
   "contribute": {

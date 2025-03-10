@@ -58,22 +58,21 @@ const WalletsHero = () => {
 
         <MotionSlideIn className={styles.Buttons} delayIndex={0}>
           <Button
-            text={t("solutions-wallets.hero.start-btn")}
-            url="/learn/wallets"
-          />
-          <Button
             text={t("solutions-wallets.hero.explore-btn-mobile")}
             url="/solutions/wallets-explorer"
-            theme="secondary"
-            classes="d-md-none"
             target="_blank"
+            classes="d-md-none"
           />
           <Button
             text={t("solutions-wallets.hero.explore-btn-desktop")}
             url="/solutions/wallets-explorer"
-            theme="secondary"
-            classes="d-none d-md-block"
             target="_blank"
+            classes="d-none d-md-block"
+          />
+          <Button
+            text={t("solutions-wallets.hero.start-btn")}
+            url="/learn/wallets"
+            theme="secondary"
           />
         </MotionSlideIn>
       </div>

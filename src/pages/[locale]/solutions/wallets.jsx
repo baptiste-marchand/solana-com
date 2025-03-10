@@ -94,9 +94,9 @@ const Wallets = () => {
   ];
 
   const unrivaledSecuritySeeMore = [
-    <LongformSeeMoreItem key="exodus">
+    <LongformSeeMoreItem key="passkeys">
       <Trans
-        i18nKey="solutions-wallets.unrivaled-security.see-more.exodus"
+        i18nKey="solutions-wallets.unrivaled-security.see-more.passkeys"
         components={{
           nextLink: (
             <Link href="https://passkeys.foundation/" target="_blank" />
@@ -104,13 +104,16 @@ const Wallets = () => {
         }}
       />
     </LongformSeeMoreItem>,
-    <LongformSeeMoreItem key="dynamic">
+    <LongformSeeMoreItem key="hardware">
       <Trans
-        i18nKey="solutions-wallets.unrivaled-security.see-more.dynamic"
+        i18nKey="solutions-wallets.unrivaled-security.see-more.hardware"
         components={{
-          nextLink: <Link href="https://www.dynamic.xyz/" target="_blank" />,
+          nextLink: <Link href="https://www.ledger.com/" target="_blank" />,
         }}
       />
+    </LongformSeeMoreItem>,
+    <LongformSeeMoreItem key="multisig">
+      <Trans i18nKey="solutions-wallets.unrivaled-security.see-more.multisig" />
     </LongformSeeMoreItem>,
   ];
 
