@@ -74,7 +74,7 @@ const YHero = () => {
                 {availableStats ? (
                   <FormattedNumber value={avgTps} />
                 ) : (
-                  <Loader />
+                  <Loader height={16} />
                 )}{" "}
                 TPS
               </span>
@@ -88,7 +88,7 @@ const YHero = () => {
                 {availableStats ? (
                   <FormattedNumber value={totalTransactionCount} />
                 ) : (
-                  <Loader />
+                  <Loader height={16} />
                 )}{" "}
                 TOTAL TXNS
               </span>
@@ -102,7 +102,7 @@ const YHero = () => {
                 {availableStats ? (
                   <FormattedNumber value={validators} />
                 ) : (
-                  <Loader />
+                  <Loader height={16} />
                 )}{" "}
                 VALIDATOR NODES
               </span>
