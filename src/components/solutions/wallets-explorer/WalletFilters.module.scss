@@ -3,7 +3,7 @@
 .WalletFilters {
   padding: 0 24px 64px;
   max-width: 1068px;
-  margin: 0 auto;
+  margin: 15px auto 0 auto;
 
   @include breakpoint(lg) {
     display: grid;

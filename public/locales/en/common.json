@@ -1829,7 +1829,7 @@
       "title": "Ready to build on Solana?",
       "text": "<strong>Apply for a Grant</strong> Turn your vision into reality with support from the Solana Foundation.",
       "btn": "Apply for a Grant",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana's Wallets team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Wallets team"
     }
   },
   "solutions-payments": {
@@ -1944,7 +1944,7 @@
       "subtitle": "The native fee-payer on Solana lets builders assign a sponsor for transaction fees, enabling easy onramps and frictionless user experiences."
     },
     "case-studies": {
-      "title": "Solana Success Stories", 
+      "title": "Solana Success Stories",
       "cards": {
         "helio": {
           "excerpt": "Solana Mobile turned to <strong>Helio's</strong> Solana Pay x Shopify plugin to unlock new payment methods and save $1M in fees.",
