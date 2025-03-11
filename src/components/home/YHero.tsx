@@ -11,13 +11,18 @@ import {
 import { FormattedNumber } from "../SolFormattedMessage";
 import Loader from "../../../public/src/img/icons/Loader.inline.svg";
 import circleImg from "../../../assets/home/supporters/circle.svg";
-import shopifyImg from "../../../assets/home/supporters/shopify.svg";
-import metaImg from "../../../assets/home/supporters/meta.svg";
-import edenImg from "../../../assets/home/supporters/eden.svg";
+//import shopifyImg from "../../../assets/home/supporters/shopify.svg";
+//import metaImg from "../../../assets/home/supporters/meta.svg";
+//import edenImg from "../../../assets/home/supporters/eden.svg";
 import stripeImg from "../../../assets/home/supporters/stripe.svg";
 import jumpImg from "../../../assets/home/supporters/jump.svg";
-import googleImg from "../../../assets/home/supporters/google.svg";
-import discordImg from "../../../assets/home/supporters/discord.svg";
+//import googleImg from "../../../assets/home/supporters/google.svg";
+//import discordImg from "../../../assets/home/supporters/discord.svg";
+import heliumImg from "../../../assets/home/supporters/helium.svg";
+import unrealImg from "../../../assets/home/supporters/unreal.svg";
+import worldpayImg from "../../../assets/home/supporters/worldpay.svg";
+import pyusdImg from "../../../assets/home/supporters/pyusd.svg";
+import franklinImg from "../../../assets/home/supporters/franklin.svg";
 
 const YHero = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -51,13 +56,13 @@ const YHero = () => {
 
   const desktopLogos = [
     { src: circleImg, alt: "Circle" },
-    { src: shopifyImg, alt: "Shopify" },
-    { src: metaImg, alt: "Meta" },
-    { src: edenImg, alt: "Magic Eden" },
+    { src: pyusdImg, alt: "PyUSD" },
     { src: stripeImg, alt: "Stripe" },
     { src: jumpImg, alt: "Jump" },
-    { src: googleImg, alt: "Google" },
-    { src: discordImg, alt: "Discord" },
+    { src: unrealImg, alt: "Unreal" },
+    { src: heliumImg, alt: "Helium" },
+    { src: worldpayImg, alt: "Worldpay" },
+    { src: franklinImg, alt: "Franklin" },
   ];
 
   return (
