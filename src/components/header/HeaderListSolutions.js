@@ -40,7 +40,7 @@ const HeaderListSolutions = () => {
               activeClassName="active"
             >
               <strong className="d-block text-white">
-                {solutionsToolsItems[9].title}
+                {solutionsToolsItems[1].title}
               </strong>
             </Link>
             <Link
@@ -49,38 +49,11 @@ const HeaderListSolutions = () => {
               activeClassName="active"
             >
               <strong className="d-block text-white">
-                {solutionsToolsItems[10].title}
-              </strong>
-            </Link>
-            <Link
-              to="/solutions/solana-permissioned-environments"
-              className="nav-link nav-link--secondary"
-              activeClassName="active"
-            >
-              <strong className="d-block text-white">
-                {solutionsToolsItems[7].title}
-              </strong>
-            </Link>
-            <Link
-              to="/solutions/gaming"
-              className="nav-link nav-link--secondary"
-              activeClassName="active"
-            >
-              <strong className="d-block text-white">
-                {solutionsToolsItems[1].title}
-              </strong>
-            </Link>
-            <Link
-              to="/solutions/payments"
-              className="nav-link nav-link--secondary"
-              activeClassName="active"
-            >
-              <strong className="d-block text-white">
                 {solutionsToolsItems[2].title}
               </strong>
             </Link>
             <Link
-              to="/solutions/commerce-tooling"
+              to="/solutions/solana-permissioned-environments"
               className="nav-link nav-link--secondary"
               activeClassName="active"
             >
@@ -94,7 +67,7 @@ const HeaderListSolutions = () => {
               activeClassName="active"
             >
               <strong className="d-block text-white">
-                {solutionsToolsItems[5].title}
+                {solutionsToolsItems[4].title}
               </strong>
             </Link>
             <Link
@@ -104,7 +77,7 @@ const HeaderListSolutions = () => {
               activeClassName="active"
             >
               <strong className="d-block text-white">
-                {solutionsToolsItems[6].title}
+                {solutionsToolsItems[5].title}
               </strong>
             </Link>
           </div>
@@ -119,30 +92,12 @@ const HeaderListSolutions = () => {
           </div>
           <div>
             <Link
-              to="/solutions/creative"
+              to="/solutions/payments"
               className="nav-link nav-link--secondary"
               activeClassName="active"
             >
               <strong className="d-block text-white">
-                {solutionsCasesItems[2].title}
-              </strong>
-            </Link>
-            <Link
-              to="/solutions/institutional-finance"
-              className="nav-link nav-link--secondary"
-              activeClassName="active"
-            >
-              <strong className="d-block text-white">
-                {solutionsCasesItems[3].title}
-              </strong>
-            </Link>
-            <Link
-              to="/solutions/loyalty"
-              className="nav-link nav-link--secondary"
-              activeClassName="active"
-            >
-              <strong className="d-block text-white">
-                {solutionsCasesItems[4].title}
+                {solutionsCasesItems[0].title}
               </strong>
             </Link>
             <Link
@@ -151,7 +106,52 @@ const HeaderListSolutions = () => {
               activeClassName="active"
             >
               <strong className="d-block text-white">
+                {solutionsCasesItems[1].title}
+              </strong>
+            </Link>
+            <Link
+              to="/solutions/games"
+              className="nav-link nav-link--secondary"
+              activeClassName="active"
+            >
+              <strong className="d-block text-white">
+                {solutionsCasesItems[2].title}
+              </strong>
+            </Link>
+            <Link
+              to="/solutions/creative"
+              className="nav-link nav-link--secondary"
+              activeClassName="active"
+            >
+              <strong className="d-block text-white">
+                {solutionsCasesItems[3].title}
+              </strong>
+            </Link>
+            <Link
+              to="/solutions/institutional-finance"
+              className="nav-link nav-link--secondary"
+              activeClassName="active"
+            >
+              <strong className="d-block text-white">
+                {solutionsCasesItems[4].title}
+              </strong>
+            </Link>
+            <Link
+              to="/solutions/loyalty"
+              className="nav-link nav-link--secondary"
+              activeClassName="active"
+            >
+              <strong className="d-block text-white">
                 {solutionsCasesItems[5].title}
+              </strong>
+            </Link>
+            <Link
+              to="/solutions/depin"
+              className="nav-link nav-link--secondary"
+              activeClassName="active"
+            >
+              <strong className="d-block text-white">
+                {solutionsCasesItems[6].title}
               </strong>
             </Link>
           </div>

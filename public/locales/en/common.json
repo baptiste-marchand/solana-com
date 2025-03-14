@@ -830,34 +830,19 @@
             "title": "Token Extensions"
           },
           {
-            "title": "Games Tooling"
+            "title": "Actions and Blockchain Links"
           },
           {
-            "title": "Payments"
+            "title": "Wallets"
           },
           {
-            "title": "Loyalty"
-          },
-          {
-            "title": "Financial Infrastructure"
+            "title": "Permissioned Environments"
           },
           {
             "title": "Digital Assets"
           },
           {
             "title": "Mobile"
-          },
-          {
-            "title": "Permissioned Environments"
-          },
-          {
-            "title": "Real World Assets"
-          },
-          {
-            "title": "Actions and Blockchain Links"
-          },
-          {
-            "title": "Wallets"
           }
         ]
       },
@@ -865,22 +850,25 @@
         "title": "Use cases",
         "items": [
           {
-            "title": "Gaming and Entertainment"
+            "title": "Payments"
           },
           {
-            "title": "Enterprise"
+            "title": "DeFi"
           },
           {
-            "title": "Artists and Creators"
+            "title": "Games"
           },
           {
-            "title": "Financial Institutions"
+            "title": "Creators"
+          },
+          {
+            "title": "Capital Markets"
           },
           {
             "title": "Loyalty"
           },
           {
-            "title": "Defi"
+            "title": "DePIN"
           }
         ]
       },
@@ -1144,7 +1132,7 @@
       }
     },
     "footer-callout": {
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Wallets team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation Wallets team"
     }
   },
   "breakpoint": {
@@ -1829,7 +1817,7 @@
       "title": "Ready to build on Solana?",
       "text": "Check out funding, hackathon, and grant opportunities within the Solana ecosystem.",
       "btn": "Funding Opportunities",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Wallets team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation Wallets team"
     }
   },
   "solutions-payments": {
@@ -1847,8 +1835,8 @@
         },
         {
           "trigger-title": "Without Solana",
-          "title": "Cross-Border Payments are Broken ",
-          "subtitle": "Traditional payment rails are costly, slow, and hard to track."
+          "title": "Cross-Border Payments are Inefficient",
+          "subtitle": "Legacy payment rails are costly, slow, and takes multiple hops between banks."
         }
       ]
     },
@@ -1944,7 +1932,7 @@
       "subtitle": "Sponsor transaction fees for your users with the native fee-payer on Solana."
     },
     "case-studies": {
-      "title": "Solana Success Stories",
+      "title": "Wins",
       "cards": {
         "helio": {
           "excerpt": "Solana Mobile turned to <strong>Helio's</strong> Solana Pay x Shopify plugin to unlock new payment methods and save $1M in fees.",
@@ -1983,7 +1971,7 @@
       "title": "Ready to build on Solana?",
       "text": "Check out fundraising, hackathon, and grant opportunities within the Solana ecosystem.",
       "btn": "Funding Opportunities",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Payments team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation Payments team"
     }
   },
   "solutions-loyalty": {
@@ -1993,7 +1981,7 @@
     },
     "hero": {
       "eyebrow": "Loyalty",
-      "title": "Turn Loyalty into Community",
+      "title": "Turn Customers into Community",
       "subtitle": "With Solana, every transaction is an opportunity for long-term connection.",
       "buttonOne": "Start Building",
       "buttonTwo": "Explore Success Stories"
@@ -2024,7 +2012,7 @@
     "longform": [
       {
         "title": "Customizable Controls",
-        "text": "Customize your loyalty programs from the point of transaction with token extensions, enabling features like non-transferrable memberships, evolving collectibles, gated access, and more."
+        "text": "Customize your loyalty programs from the point of transaction with token extensions."
       },
       {
         "title": "Deploy Rewards at Scale",
@@ -2032,7 +2020,7 @@
       },
       {
         "title": "Simple for Users",
-        "text": "Turn onchain actions into one-click links or QR codes.Use Solana Actions to create smooth customer experiences."
+        "text": "Turn onchain actions into one-click links or QR codes. Use Solana Actions to create smooth customer experiences."
       },
       {
         "title": "Reward Your Loyal Fans",
@@ -2040,7 +2028,7 @@
       }
     ],
     "case-study-cards": {
-      "title": "Solana Success Stories",
+      "title": "Wins",
       "cards": {
         "boba-guys": {
           "logo-alt": "Boba Guys logo",
@@ -2080,7 +2068,7 @@
       "title": "Ready to build on Solana?",
       "text": "Check out funding, hackathon, and grant opportunities within the Solana ecosystem.",
       "btn": "Funding Opportunities",
-      "btnLarge": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Loyalty team"
+      "btnLarge": "<strong>Still have questions?</strong> Reach out to Solana Foundation Loyalty team"
     }
   },
   "solutions-institutional-finance": {
@@ -2134,7 +2122,7 @@
       }
     },
     "callout-1": {
-      "title": "Flexible Offerings for <gradient>Every Enterprise Need</gradient>",
+      "title": "<gradient>Enterprise</gradient> Tools",
       "subtitle": "Solana is the most innovative ecosystem in crypto — and it's home to a suite of tools and primitives that are built for buisness."
     },
     "longform-one": {
@@ -2142,15 +2130,15 @@
       "subtitle": "Enjoy granular control with <0>permissioned environments</0>."
     },
     "longform-two": {
-      "title": "Compliance-in-a-Box Solutions",
-      "subtitle": "Choose from over a dozen <0>token extensions</0> on Solana to meet regulatory requirements. Use extensions like Interest-bearing tokens, confidential balances, and permanent delegate for everything from real-time KYC to the ability to freeze assets."
+      "title": "Compliance-in-a-Box",
+      "subtitle": "Choose from over a dozen <0>token extensions</0> on Solana to build regulatory requirements like real-time KYC and the ability to freeze assets."
     },
     "longform-three": {
       "title": "Bring Assets Onchain",
       "subtitle": "Tokenize real-world assets to unleash fractional ownership, global accessibility, and access to market liquidity."
     },
     "case-studies": {
-      "title": "Solana Success Stories",
+      "title": "Wins",
       "cards": {
         "item-one": {
           "logo-alt": "Pyth logo",
@@ -2185,7 +2173,7 @@
       "title": "Ready to build on Solana?",
       "text": "Check out funding, hackathon, and grant opportunities within the Solana ecosystem.",
       "btn": "Funding Opportunities",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's IF team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation IF team"
     }
   },
   "solutions-wallets": {
@@ -2296,7 +2284,7 @@
       "title": "Ready to build on Solana?",
       "text": "Check out funding, hackathon, and grant opportunities within the Solana ecosystem.",
       "btn": "Funding Opportunities",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Wallets team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation Wallets team"
     }
   },
   "solutions-creative": {
@@ -2326,7 +2314,7 @@
       ]
     },
     "callout-1": {
-      "title": "<gradient>Creator-Friendly,</gradient>Tooling",
+      "title": "<gradient>Creator-Friendly</gradient> Tooling",
       "subtitle": "Modular, configurable tools in the Solana ecosystem make creating better."
     },
     "meet-users": {
@@ -2470,8 +2458,8 @@
         },
         {
           "trigger-title": "Without Solana",
-          "title": "Traditional Finance is Time-Consuming, Costly, and Inefficient.",
-          "subtitle": "Stop relying on legacy solutions with multiple hurdles, undercapitalized resources, and high costs"
+          "title": "Not Everyone Gets Banked",
+          "subtitle": "Forms. Credit Scores. Delays. Country of Residence. Approvals. It all adds up."
         }
       ]
     },
@@ -2562,7 +2550,7 @@
       "subtitle": "Customize your programs with <0>token extensions</0>. Create interest bearing tokens, apply KYC checks, perform confidential transactions, and more."
     },
     "case-studies": {
-      "title": "Solana Success Stories",
+      "title": "Wins",
       "cards": {
         "item-one": {
           "excerpt": "When payments giant PayPal was looking to expand their flagship stablecoin, they turned to Solana and the innovative token extensions to bring traditional fintech features to stablecoins.",
@@ -2593,7 +2581,7 @@
       "title": "Ready to build on Solana?",
       "text": "Check out funding, hackathon, and grant opportunities within the Solana ecosystem.",
       "btn": "Funding Opportunities",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's DeFi team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation DeFi team"
     }
   },
   "solutions-gaming": {
@@ -2609,8 +2597,8 @@
       "play-btn": "Play on Solana"
     },
     "stats": {
-      "title": "<gradient> Solana is changing</gradient> what games can be",
-      "subtitle": "Whether integrating blockchain into existing games or creating something new, using Solana enables game development (and fun) at any scale.",
+      "title": "<gradient>Turn Games Into</gradient> Economies",
+      "subtitle": "Give players true digital ownership by integrating Solana into new or existing games.",
       "stats": [
         { "value": "779M", "label": "Users" },
         { "value": "4,120", "label": "Average TPS" },
@@ -2734,7 +2722,7 @@
       "title": "​Bring Your Idea Into Reality",
       "text": "Check out fundraising, hackathon, and grant opportunities within the Solana ecosystem.",
       "btn": "Funding Opportunities",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Games team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation Games team"
     }
   },
   "solutions-token-extensions": {
@@ -2751,14 +2739,14 @@
     },
     "ecosystem": {
       "title": "Advanced <gradient>Token Functionality</gradient>",
-      "text": "Mix and match token extensions at creation to build custom, enterprise-grade tools that meet your exact needs.",
+      "text": "Token extensions can be mixed and matched to create custom, enterprise-grade tools at the moment of token creation.",
       "reference-implementation-btn": "Reference Implementation",
       "use-cases": {
         "freeze-assets": "Freeze Assets",
         "seize-assets": "Seize Assets",
         "credentials": "Credentials and User Identification",
-        "allow-list": "Allow list",
-        "block-list": "Block list",
+        "allow-list": "Allowlist",
+        "block-list": "Blocklist",
         "authority-over-tokens": "Authority Over Tokens Issued",
         "hide-amounts": "Hide Transfer Amounts",
         "issue-stablecoin": "Issue a Stablecoin",
@@ -2849,10 +2837,10 @@
     },
     "longform-three": {
       "title": "DeFi",
-      "subtitle": "Use transfer fees to implement fee-based tokenomics and revenue sharing across DeFi. Even combine interest-bearing tokens, metadata, and transfer hooks to create new real world asset-backed offerings."
+      "subtitle": "Use transfer fees to implement fee-based tokenomics and revenue sharing across DeFi. Combine interest-bearing tokens, metadata, and transfer hooks to create new real world asset-backed offerings."
     },
     "case-studies": {
-      "title": "Solana Success Stories",
+      "title": "Wins",
       "cards": {
         "item-one": {
           "excerpt": "<strong>PayPal’s PYUSD</strong> on Solana offers instant, low-cost global payments, integrates with Solana Pay and Shopify, and ensures regulatory compliance and fraud prevention leveraging token extensions.",
@@ -2956,7 +2944,7 @@
     "hero": {
       "kicker": "BLOCKCHAIN LINKS",
       "title": "Meet Users Where They Are",
-      "subtitle": "Use Solana to make any onchain action possible in a single click, wherever users live online.",
+      "subtitle": "Blinks and Solana Actions make any onchain action as simple as a click.",
       "build-btn": "Build Your Own Blink",
       "see-btn": "See Blinks in Action"
     },
@@ -2968,20 +2956,20 @@
       "items": [
         {
           "title": "Transact easily, anywhere",
-          "text": "Make any Solana transaction into a shareable, metadata-rich link that is universally clickable anywhere online."
+          "text": "Make any Solana transaction into a shareable, metadata-rich link that can be used anywhere online."
         },
         {
           "title": "Massively improve user experience",
-          "text": "With blinks, users can vote, bet, buy, sell, swap and more–no separate dApp required."
+          "text": "Blinks let users vote, bet, buy, sell, and swap, without a separate dApp."
         }
       ]
     },
     "callout-2": {
-      "title": "<gradient>Solana Actions:</gradient><br/> Bringing Onchain Transactions Everywhere",
+      "title": "Go Beyond Blinks<br/> <gradient>with Solana Actions</gradient>",
       "subtitle": "Go further than blockchain links with Solana Actions, APIs that deliver transactions on many surfaces. Together, Actions and blinks massively simplify how users transact on Solana."
     },
     "ecosystem": {
-      "title": "<gradient>Ecosystem Spotlight</gradient>",
+      "title": "See <gradient>Blinks</gradient> in Action",
       "items": {
         "realms": {
           "imgAlt": "Realms"
@@ -3013,7 +3001,7 @@
       }
     },
     "with-actions": {
-      "title": "With Solana Actions, you can build onchain transactions via:",
+      "title": "With Solana Actions, prompt onchain transactions via:",
       "items": {
         "push-notifications": {
           "title": "Push Notifications"
@@ -3049,7 +3037,7 @@
       "title": "Ready to build on Solana?",
       "text": "Check out funding, hackathon, and grant opportunities within the Solana ecosystem.",
       "btn": "Funding Opportunities",
-      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation's Wallets team"
+      "btn-large": "<strong>Still have questions?</strong> Reach out to Solana Foundation Wallets team"
     }
   },
   "contribute": {

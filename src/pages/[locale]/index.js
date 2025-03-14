@@ -108,7 +108,7 @@ export default function Home() {
           primaryButtonText={t("home.developer-resources.btn")}
           primaryButtonUrl="/docs/intro/quick-start"
           secButtonText="Learn"
-          secButtonUrl="#"
+          secButtonUrl="https://solana.com/developers,,"
         />
 
         <JoinCommunitySlider />

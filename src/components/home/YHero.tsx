@@ -137,7 +137,11 @@ const YHero = () => {
                   target="_blank"
                 />
 
-                <a href="#" className={styles.hero__cta_btn_secondary}>
+                <a
+                  href="https://solana.com/developers"
+                  target="_blank"
+                  className={styles.hero__cta_btn_secondary}
+                >
                   <span>
                     Resources
                     <ArrowUpRight size="14" />

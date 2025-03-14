@@ -191,7 +191,7 @@ const BlinksAndActions = () => {
               }}
             />
           }
-          subtitleKey="solutions-blinks-and-actions.callout-1.subtitle"
+          // subtitleKey="solutions-blinks-and-actions.callout-1.subtitle"
           className={styles.BasicCallout}
         />
 
