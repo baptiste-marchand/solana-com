@@ -17,7 +17,7 @@ import Slide11 from "../../../assets/home/community-slider/join-community-11.jpg
 import Slide12 from "../../../assets/home/community-slider/join-community-12.jpg";
 import Slide13 from "../../../assets/home/community-slider/join-community-13.jpeg";
 import Slide14 from "../../../assets/home/community-slider/join-community-14.jpeg";
-import Slide15 from "../../../assets/home/community-slider/join-community-15.jpg";
+import Slide15 from "../../../assets/home/community-slider/join-community-15.jpeg";
 import Slide16 from "../../../assets/home/community-slider/join-community-16.jpg";
 
 const JoinCommunitySlider = () => {
