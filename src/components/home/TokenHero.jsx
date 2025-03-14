@@ -36,14 +36,15 @@ const TokenHero = () => {
 
       <div className={styles.container}>
         <div className={styles.content}>
+          <p className={styles.eyebrow}>TOKEN EXTENSIONS</p>
           <h1 className={styles.title}>
             Compliance-
             <br />
             In-A-Box
           </h1>
           <p className={styles.subtitle}>
-            Regulatory compliance and enterprise customization with no security
-            trade-offs.
+            Token extensions enable customized, compliance-ready solutions
+            without security trade-offs.
           </p>
           <div className={styles.cta_group}>
             <Button text="Get Started" url="/get-started" />

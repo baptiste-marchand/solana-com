@@ -13,25 +13,37 @@ import Slide7 from "../../../assets/home/community-slider/join-community-7.png";
 import Slide8 from "../../../assets/home/community-slider/join-community-8.png";
 import Slide9 from "../../../assets/home/community-slider/join-community-9.png";
 import Slide10 from "../../../assets/home/community-slider/join-community-10.png";
+import Slide11 from "../../../assets/home/community-slider/join-community-11.jpg";
+import Slide12 from "../../../assets/home/community-slider/join-community-12.jpg";
+import Slide13 from "../../../assets/home/community-slider/join-community-13.jpeg";
+import Slide14 from "../../../assets/home/community-slider/join-community-14.jpeg";
+import Slide15 from "../../../assets/home/community-slider/join-community-15.jpg";
+import Slide16 from "../../../assets/home/community-slider/join-community-16.jpg";
 
 const JoinCommunitySlider = () => {
   const { t } = useTranslation();
   const container = useRef(null);
 
-  const slides = [
-    Slide1,
-    Slide2,
-    Slide3,
-    Slide5,
-    Slide6,
-    Slide7,
-    Slide8,
-    Slide9,
-    Slide10,
-  ];
   // Triple the slides for seamless looping
-  const topRowImages = [...slides, ...slides, ...slides];
-  const bottomRowImages = [...slides.reverse(), ...slides, ...slides];
+  const topRowImages = [
+    Slide1,
+    Slide8,
+    Slide3,
+    Slide11,
+    Slide6,
+    Slide13,
+    Slide9,
+    Slide14,
+  ];
+  const bottomRowImages = [
+    Slide12,
+    Slide5,
+    Slide15,
+    Slide2,
+    Slide10,
+    Slide7,
+    Slide16,
+  ];
 
   return (
     <div className={styles.CommunitySlider} ref={container}>

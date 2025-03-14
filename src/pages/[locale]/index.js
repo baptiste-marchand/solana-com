@@ -8,7 +8,7 @@ import YHero from "@/components/home/YHero";
 import YDeveloperResources from "@/components/solutions/YDeveloperResources";
 // import { AnimatedText, GradientText } from "@/components/shared/Text";
 import { Carousel, Card } from "@/components/home/YCardsSlider";
-import YCTA from "@/components/home/YCTA";
+//yaimport YCTA from "@/components/home/YCTA";
 
 import styles from "./HomePage.module.scss";
 import JoinCommunitySlider from "@/components/home/CommunitySlider";
@@ -107,13 +107,13 @@ export default function Home() {
           subtitle={t("home.developer-resources.subtitle")}
           primaryButtonText={t("home.developer-resources.btn")}
           primaryButtonUrl="/docs/intro/quick-start"
-          secButtonText="Resources"
+          secButtonText="Learn"
           secButtonUrl="#"
         />
 
         <JoinCommunitySlider />
 
-        <YCTA />
+        {/* <YCTA /> */}
       </div>
     </Layout>
   );

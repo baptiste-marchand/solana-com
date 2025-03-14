@@ -160,7 +160,7 @@ const Creative = () => {
       metrics: [
         { value: "$0.001", label: "Fees Per NFT" },
         { value: "400ms", label: "Confirmation Time" },
-        { value: "0%", label: "Net Environmental Impact" },
+        { value: "0%", label: "Environmental Impact" },
       ],
       readMoreUrl:
         "https://solana.com/news/case-study-culturehacker-where-theres-smoke",
@@ -176,9 +176,9 @@ const Creative = () => {
       image: "/solutions/creative/single.png",
       imageAlt: "Eric Church",
       metrics: [
-        { value: "100K", label: "Digital Bricks Minted" },
-        { value: "2000x", label: "Cheaper to Mint with Compression" },
-        { value: "0", label: "Intermediaries Between Artist and Fan" },
+        { value: "100K", label: "Bricks Minted" },
+        { value: "2000x", label: "Cheaper to Mint" },
+        { value: "0", label: "Intermediaries" },
       ],
       readMoreUrl:
         "https://single.xyz/blogs/blog/eric-church-future-proofs-fandom-solana-based-digital-deeds-nashville-bar",
@@ -259,7 +259,7 @@ const Creative = () => {
               }}
             />
           }
-          subtitleKey="solutions-creative.callout-1.subtitle"
+          // subtitleKey="solutions-creative.callout-1.subtitle"
           className={styles.BasicCallout}
         />
 

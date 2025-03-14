@@ -225,7 +225,7 @@ const Loyalty = () => {
               }}
             />
           }
-          subtitleKey="solutions-loyalty.callout-1.subtitle"
+          //subtitleKey="solutions-loyalty.callout-1.subtitle"
           className={styles.BasicCallout}
         />
 

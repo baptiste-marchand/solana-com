@@ -41,18 +41,18 @@ const CreativeHero = () => {
           <div className={styles.hero__text}>
             <h1 className={styles.hero__title}>
               {isMobile ? (
-                "Where Creativity Meets Scalability"
+                "​Creators Make Communities"
               ) : (
                 <>
-                  Where Creativity
+                  Creators
                   <br />
-                  Meets Scalability
+                  Make Communities
                 </>
               )}
             </h1>
             <p className={styles.hero__description}>
-              Unparalleled speed and low-costs make launching global brand
-              campaigns to high-volume asset production all possible.
+              Find patrons for your art. Launch a global brand. Build a
+              community.
             </p>
             <div className={styles.hero__cta_group}>
               <Button text="Start Building" url="/" />

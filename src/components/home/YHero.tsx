@@ -1,6 +1,6 @@
 import styles from "@/components/home/YHero.module.scss";
 import Button from "@/components/solutions/Button";
-import { Zap, ArrowUpRight, Diamond, Leaf, Pin, Newspaper } from "lucide-react";
+import { Zap, ArrowUpRight, Diamond, User, Pin, Newspaper } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import {
@@ -117,8 +117,8 @@ const YHero = () => {
               <span
                 className={`${styles.hero__title_tag} ${styles.hero__title_tag__carbon}`}
               >
-                <Leaf size={iconSize} />
-                0% NET CARBON IMPACT
+                <User size={iconSize} />
+                778,432,109 USERS
               </span>
             </span>
           </h1>
@@ -126,9 +126,8 @@ const YHero = () => {
           <div className={styles.hero__content}>
             <div className={styles.hero__info_group}>
               <p className={styles.hero__description}>
-                Solana is a high-performance blockchain designed for real-world,
-                real-time use cases. It is built to work at a massive scale and
-                low cost without sacrificing decentralization or security.
+                Solana is a high-performance blockchain that powers the
+                financial internet.
               </p>
 
               <div className={styles.hero__cta_group}>

@@ -22,6 +22,12 @@ import Image7 from "../../../assets/home/join-community-7.jpeg";
 import Image8 from "../../../assets/home/join-community-8.jpeg";
 import Image9 from "../../../assets/home/join-community-9.jpeg";
 import Image10 from "../../../assets/home/join-community-10.jpeg";
+import Image11 from "../../../assets/home/join-community-11.jpg";
+import Image12 from "../../../assets/home/join-community-12.jpg";
+import Image13 from "../../../assets/home/join-community-13.jpg";
+import Image14 from "../../../assets/home/join-community-14.jpg";
+import Image15 from "../../../assets/home/join-community-15.jpg";
+import Image16 from "../../../assets/home/join-community-16.jpg";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -54,7 +60,18 @@ const JoinCommunity = ({ title }) => {
   const container = useRef(null);
 
   const topRowImages = [Image1, Image2, Image3, Image4, Image5, Image6];
-  const bottomRowImages = [Image7, Image8, Image9, Image10, Image2, Image4];
+  const bottomRowImages = [
+    Image7,
+    Image8,
+    Image9,
+    Image10,
+    Image11,
+    Image12,
+    Image13,
+    Image14,
+    Image15,
+    Image16,
+  ];
 
   useGSAP(
     () => {

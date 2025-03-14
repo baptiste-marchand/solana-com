@@ -24,7 +24,7 @@ import longformOne from "../../../../assets/solutions/institutional-finance/Inst
 import longformTwo from "../../../../assets/solutions/institutional-finance/Institutional Finance_SPE_V1.lottie";
 import longformThree from "../../../../assets/solutions/institutional-finance/Institutional Finance_RWA_V1.lottie";
 
-import homebaseMain from "../../../../assets/solutions/institutional-finance/homebase-main.jpg";
+import franklinMain from "../../../../assets/solutions/institutional-finance/franklin-main.png";
 
 import apollo from "../../../../assets/solutions/institutional-finance/apollo.svg";
 import hamilton from "../../../../assets/solutions/institutional-finance/hamilton.svg";
@@ -100,7 +100,7 @@ const InstitutionalFinance = () => {
 
       h1 {
         text-align: center;
-        font-size: 3.5rem;
+        font-size: 4.5rem;
         line-height: 1;
         max-width: 500px;
         margin-bottom: 1.5rem;
@@ -250,13 +250,11 @@ const InstitutionalFinance = () => {
           </GradientPattern>
           <HeroStyled>
             <OpacityInText element="h1" as="heading" className={styles.Title}>
-              The High-Performance Blockchain <span>for</span> High-Performance
-              Institutions
+              Tokenize Everything
             </OpacityInText>
             <OpacityInText element="p" as="paragraph">
-              Solana&apos;s high-performance blockchain delivers instant
-              settlement, tamper-proof security, and privacy for institutional
-              needs
+              Instant settlement, tamper-proof security, and privacy for
+              institutional needs
             </OpacityInText>
 
             <ImagesGrid>
@@ -353,20 +351,21 @@ const InstitutionalFinance = () => {
       ),
     },
     {
-      title: "Homebase Transforms Real Estate Investment",
+      title: "Franklin Templeton Brings Tokenized Money Market To Solana",
       description: t(
         "solutions-institutional-finance.case-studies.cards.item-two.excerpt",
       ),
-      image: homebaseMain.src,
+      image: franklinMain.src,
       imageAlt: t(
         "solutions-institutional-finance.case-studies.cards.item-two.image-alt",
       ),
       metrics: [
-        { value: "$10M+", label: "Properties" },
-        { value: "1000+", label: "Investors" },
+        { value: "$512M", label: "Assets in Fund" },
+        { value: "4.2%", label: "Average 7-Day Yield" },
         { value: "100%", label: "Digital" },
       ],
-      readMoreUrl: "https://solana.com/news/case-study-homebase",
+      readMoreUrl:
+        "https://cointelegraph.com/news/franklin-templeton-us-govt-money-fund-solana",
       readMoreText: t(
         "solutions-institutional-finance.case-studies.cards.item-two.button",
       ),

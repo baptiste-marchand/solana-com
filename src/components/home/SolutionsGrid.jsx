@@ -43,22 +43,6 @@ const SectionSubtitle = styled.h3`
   color: var(--green);
 `;
 
-const SectionDescription = styled.p`
-  color: var(--cadet-grey);
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1;
-  max-width: none;
-  margin: 0 auto;
-  max-width: 700px;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    line-height: 1.4;
-    padding: 0 1rem;
-  }
-`;
-
 const BentoGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -410,10 +394,10 @@ const SolutionsGrid = () => {
         <TitleBlock>
           <SectionSubtitle>Solutions</SectionSubtitle>
           <SectionTitle>Ready for Business</SectionTitle>
-          <SectionDescription>
+          {/* <SectionDescription>
             Power global finance, trade real-world assets, enable instant
             borderless payments, and more.
-          </SectionDescription>
+          </SectionDescription> */}
         </TitleBlock>
         <BentoGrid>
           <BentoCard
@@ -431,7 +415,7 @@ const SolutionsGrid = () => {
           <BentoCard
             className="large"
             title="DeFi"
-            description="Unmatched capital efficiency with infinite composability."
+            description="Unmatched capital efficiency on a global scale."
             image={DeFiImg}
             imageStyle={{
               maxWidth: "100%",
@@ -442,8 +426,8 @@ const SolutionsGrid = () => {
           />
           <BentoCard
             className="large"
-            title="Gaming"
-            description="Create next-level gaming experiences with instant, cheap micro transactions."
+            title="Games"
+            description="Turn your games into economies."
             image={GamingImg}
             imageStyle={{
               maxWidth: "70%",
@@ -452,8 +436,8 @@ const SolutionsGrid = () => {
             href="/solutions/gaming"
           />
           <BentoCard
-            title="Creative"
-            description="Create, share, and earn using scalable and low-cost Solana network."
+            title="Creators"
+            description="Turn your audience into an engaged community."
             image={CreativeImg}
             imageStyle={{
               maxWidth: "180px",
@@ -471,7 +455,7 @@ const SolutionsGrid = () => {
           />
           <BentoCard
             title="Loyalty"
-            description="Turn every user interaction into a personalized, long-term connection."
+            description="Turn every user interaction into a connection."
             image={LoyaltyImg}
             imageStyle={{
               maxWidth: "180px",

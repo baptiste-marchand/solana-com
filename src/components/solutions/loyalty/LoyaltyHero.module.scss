@@ -9,7 +9,9 @@
     line-height: 1.14;
     letter-spacing: -0.01em;
     text-align: center;
-    text-wrap: initial;
+    text-wrap: balance;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   .HeroSubtitle {
@@ -75,6 +77,8 @@
     .HeroTitle {
       font-size: 64px;
       text-align: left;
+      margin: 0;
+      max-width: 500px;
     }
 
     .HeroSubtitle {
@@ -94,7 +98,7 @@
       line-height: 1.04;
       letter-spacing: -0.02em;
       text-align: left;
-      max-width: 400px;
+      max-width: 500px;
     }
 
     .HeroSubtitle {
