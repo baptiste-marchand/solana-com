@@ -5,7 +5,7 @@ import Layout from "@/components/solutions/layout";
 import HTMLHead from "@/components/HTMLHead";
 import Image from "next/image";
 import FooterCallout from "@/components/solutions/FooterCallout";
-import DePINHero from "@/components/solutions/depin/DePINHero";
+import DePINHero from "@/components/solutions/depin/DePinHero";
 import WhyBuildSection from "@/components/solutions/depin/WhyBuildSection";
 import YDeveloperResources, {
   YDeveloperResourcesLink,
