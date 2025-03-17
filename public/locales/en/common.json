@@ -2016,11 +2016,11 @@
       },
       {
         "title": "Deploy Rewards at Scale",
-        "text": "Use state compression to launch thousands of assets without breaking the bank."
+        "text": "Use <nextLink>state compression</nextLink> to launch thousands of assets without breaking the bank."
       },
       {
         "title": "Simple for Users",
-        "text": "Turn onchain actions into one-click links or QR codes. Use Solana Actions to create smooth customer experiences."
+        "text": "Turn onchain actions into one-click links or QR codes. Use <nextLink>Solana Actions</nextLink> to create smooth customer experiences."
       },
       {
         "title": "Reward Your Loyal Fans",
@@ -2209,7 +2209,7 @@
     },
     "compliance-in-a-box": {
       "title": "Compliance- in-a-Box",
-      "subtitle": "Token extensions on Solana can help teams build for regulatory compliance.",
+      "subtitle": "<nextLink>Token extensions</nextLink> on Solana can help teams build for regulatory compliance.",
       "see-more": {
         "title": "See more",
         "transfer-hooks": "<strong>Transfer Hooks</strong> let you enforce custom rules whenever a token moves between wallets.",
@@ -2219,7 +2219,7 @@
     },
     "one-click-commerce": {
       "title": "One-Click Commerce",
-      "subtitle": "Accept crypto payments anywhere with QR codes, URLs, and one-click blinks using Solana Actions.",
+      "subtitle": "Accept crypto payments anywhere with QR codes, URLs, and one-click <nextLink>blinks</nextLink> using Solana Actions.",
       "see-more": {
         "title": "See more",
         "blockchain-links": "<nextLink>Blockchain Links on Solana</nextLink> turn any Solana transaction into a one-click CTA, shareable anywhere online.",

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useTranslation, Trans } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import dynamic from "next/dynamic";
@@ -62,16 +63,34 @@ const Loyalty = () => {
     },
     {
       title: t("solutions-loyalty.longform.1.title", "State Compression"),
-      text: t(
-        "solutions-loyalty.longform.1.text",
-        "Scale your program to millions of users",
+      text: (
+        <Trans
+          i18nKey="solutions-loyalty.longform.1.text"
+          components={{
+            nextLink: (
+              <Link
+                href="/developers/guides/advanced/state-compression"
+                key="0"
+                target="_blank"
+              />
+            ),
+          }}
+          defaultValue="Scale your program to millions of users"
+        />
       ),
     },
     {
       title: t("solutions-loyalty.longform.2.title", "Solana Pay"),
-      text: t(
-        "solutions-loyalty.longform.2.text",
-        "Enable seamless payments and rewards",
+      text: (
+        <Trans
+          i18nKey="solutions-loyalty.longform.2.text"
+          components={{
+            nextLink: (
+              <Link href="/solutions/blinks-and-actions" target="_blank" />
+            ),
+          }}
+          defaultValue="Enable seamless payments and rewards"
+        />
       ),
     },
     {
@@ -83,11 +102,8 @@ const Loyalty = () => {
     },
   ];
 
-  // Get content with fallback to default values
-  const longformContent = defaultLongform.map((item, index) => ({
-    title: t(`solutions-loyalty.longform.${index}.title`, item.title),
-    text: t(`solutions-loyalty.longform.${index}.text`, item.text),
-  }));
+  // Remove the mapping and use defaultLongform directly
+  const longformContent = defaultLongform;
 
   const caseStudyCards = [
     {

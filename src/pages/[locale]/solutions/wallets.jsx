@@ -73,7 +73,13 @@ const Wallets = () => {
       <Trans
         i18nKey="solutions-wallets.one-click-commerce.see-more.blockchain-links"
         components={{
-          nextLink: <Link href="/solutions/token-extensions" target="_blank" />,
+          nextLink: (
+            <Link
+              href="/solutions/blinks-and-actions"
+              key="0"
+              target="_blank"
+            />
+          ),
         }}
       />
     </LongformSeeMoreItem>,
@@ -309,7 +315,17 @@ const Wallets = () => {
                 </Link>
               }
               subtitleComponent={
-                <Trans i18nKey="solutions-wallets.one-click-commerce.subtitle" />
+                <Trans
+                  i18nKey="solutions-wallets.one-click-commerce.subtitle"
+                  components={{
+                    nextLink: (
+                      <Link
+                        href="/solutions/blinks-and-actions"
+                        target="_blank"
+                      />
+                    ),
+                  }}
+                />
               }
               seeMoreTitle={t(
                 "solutions-wallets.one-click-commerce.see-more.title",
