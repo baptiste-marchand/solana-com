@@ -6,13 +6,13 @@ import {
   SAMPLE_HISTORY_HOURS,
 } from "@/hooks/useTransactionStats";
 
-import WalletsImg from "../../../public/src/img/home/solutions/wallets.png";
 import CreativeImg from "../../../public/src/img/home/solutions/creative.png";
 import FinanceImg from "../../../public/src/img/home/solutions/finance.png";
 import PaymentsImg from "../../../public/src/img/home/solutions/payments.png";
 import DeFiImg from "../../../public/src/img/home/solutions/defi.png";
 import GamingImg from "../../../public/src/img/home/solutions/gaming.png";
 import LoyaltyImg from "../../../public/src/img/home/solutions/loyalty.png";
+import DepinImg from "../../../public/src/img/home/solutions/depin.png";
 import Image from "next/image";
 
 const TitleBlock = styled.div`
@@ -152,6 +152,16 @@ const BentoCardStyle = styled.a`
     justify-content: center;
     align-items: center;
     margin-top: auto;
+    overflow: hidden;
+    position: relative;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: auto;
+    }
   }
 
   &.large {
@@ -189,6 +199,17 @@ const BentoCardStyle = styled.a`
       max-width: 100%;
       height: auto;
       object-fit: contain;
+    }
+  }
+
+  &.depin-card {
+    .image-container {
+      display: flex;
+      align-items: flex-end;
+
+      @media (max-width: 768px) {
+        height: auto;
+      }
     }
   }
 `;
@@ -463,13 +484,15 @@ const SolutionsGrid = () => {
             href="/solutions/loyalty"
           />
           <BentoCard
-            title="Wallets"
-            description="Send, save and access web3 in convenient, customizable ways."
-            image={WalletsImg}
+            title="DePIN"
+            description="Build Decentralized Physical Infrastructure."
+            image={DepinImg}
             imageStyle={{
               maxWidth: "180px",
+              marginTop: "0",
             }}
-            href="/solutions/wallets"
+            className="depin-card"
+            href="/solutions/depin"
           />
           <div className="bg-shape"></div>
         </BentoGrid>
