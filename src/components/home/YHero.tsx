@@ -133,7 +133,7 @@ const YHero = () => {
               <div className={styles.hero__cta_group}>
                 <Button
                   text="Start Building"
-                  url="/ar/docs/intro/quick-start"
+                  url="/docs/intro/quick-start"
                   target="_blank"
                 />
 

@@ -68,7 +68,7 @@ const Gaming = () => {
   const developerResourcesLinks = [
     <YDeveloperResourcesLink
       title={t("solutions-gaming.developer-resources.links.guide.title")}
-      link="/ar/docs/intro/quick-start"
+      link="/docs/intro/quick-start"
       key="guide"
     />,
     <YDeveloperResourcesLink
