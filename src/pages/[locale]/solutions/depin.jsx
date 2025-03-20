@@ -272,7 +272,7 @@ const DePINPage = () => {
             <>
               <YDeveloperResourcesLink
                 title="DePIN Quickstart Guide"
-                link="https://solana.com/developers/guides/depin/getting-started"
+                link="/developers/guides/depin/getting-started"
               />
               <YDeveloperResourcesLink
                 title="Solana DePIN Examples"
@@ -301,10 +301,7 @@ const DePINPage = () => {
                 <h3 className={styles.resourceColumnTitle}>Dev Tools</h3>
                 <div className={styles.resourceContent}>
                   <p className={styles.resourceText}>
-                    <a
-                      href="https://solana.com"
-                      className={styles.resourceLink}
-                    >
+                    <a href="/" className={styles.resourceLink}>
                       The DePIN Quickstart guide
                     </a>
                     , along with examples from dozens of other teams who have

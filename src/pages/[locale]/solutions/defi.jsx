@@ -203,7 +203,7 @@ const DeFi = () => {
         { value: "1", label: "Peso Lowest Offering" },
         { value: "24/7", label: "Access" },
       ],
-      readMoreUrl: "https://solana.com/news/case-study-etherfuse",
+      readMoreUrl: "/news/case-study-etherfuse",
       readMoreText: t("solutions-defi.case-studies.cards.item-two.button"),
     },
   ];
@@ -212,17 +212,17 @@ const DeFi = () => {
     <YDeveloperResourcesLink
       key="quick-start"
       title={t("solutions-defi.developer-resources.links.quick-start.title")}
-      link="https://solana.com/docs/intro/wallets"
+      link="/docs/intro/wallets"
     />,
     <YDeveloperResourcesLink
       key="solana-pay"
       title={t("solutions-defi.developer-resources.links.solana-pay.title")}
-      link="https://solana.com/docs/advanced/actions"
+      link="/docs/advanced/actions"
     />,
     <YDeveloperResourcesLink
       key="helio"
       title={t("solutions-defi.developer-resources.links.helio.title")}
-      link="https://solana.com/developers/guides/token-extensions/getting-started"
+      link="/developers/guides/token-extensions/getting-started"
     />,
   ];
 

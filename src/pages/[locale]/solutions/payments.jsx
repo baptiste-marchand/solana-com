@@ -254,7 +254,7 @@ export default function Payments() {
       title={t(
         "solutions-payments.developer-resources.links.quick-start.title",
       )}
-      link="https://solana.com/docs/intro/quick-start"
+      link="/docs/intro/quick-start"
       key="quick-start"
     />,
     <YDeveloperResourcesLink

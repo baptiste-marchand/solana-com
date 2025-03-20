@@ -120,7 +120,7 @@ const Loyalty = () => {
         { value: "800%", label: "ROI" },
         { value: "65%", label: "Increase in Spend" },
       ],
-      readMoreUrl: "https://solana.com/news/case-study-boba-guys",
+      readMoreUrl: "/news/case-study-boba-guys",
       readMoreText: t(
         "solutions-loyalty.case-study-cards.cards.boba-guys.button-text",
       ),
@@ -181,17 +181,17 @@ const Loyalty = () => {
   const developerResourcesLinks = [
     <YDeveloperResourcesLink
       title={t("solutions-loyalty.developerResources.link-one")}
-      link="https://solana.com/docs/intro/quick-start"
+      link="/docs/intro/quick-start"
       key="quick-start"
     />,
     <YDeveloperResourcesLink
       title={t("solutions-loyalty.developerResources.link-two")}
-      link="https://solana.com/docs/advanced/state-compression"
+      link="/docs/advanced/state-compression"
       key="state-compression"
     />,
     <YDeveloperResourcesLink
       title={t("solutions-loyalty.developerResources.link-three")}
-      link="https://solana.com/docs/advanced/actions"
+      link="/docs/advanced/actions"
       key="actions"
     />,
     <YDeveloperResourcesLink
@@ -224,7 +224,7 @@ const Loyalty = () => {
           }
           subtitleKey={statsContent.subtitle}
           kickerKey={statsContent.finePrint}
-          kickerUrl="https://solana.com/news/case-study-boba-guys"
+          kickerUrl="/news/case-study-boba-guys"
           stats={statsContent.stats}
           className={styles.Stats}
           statsClassName={styles.StatsContent}

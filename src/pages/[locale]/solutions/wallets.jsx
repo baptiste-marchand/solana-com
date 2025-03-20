@@ -126,7 +126,7 @@ const Wallets = () => {
   const developerResourcesLinks = [
     <YDeveloperResourcesLink
       title={t("solutions-wallets.developer-resources.links.guide.title")}
-      link="https://solana.com/docs/intro/wallets"
+      link="/docs/intro/wallets"
       key="guide"
     />,
     <YDeveloperResourcesLink
@@ -307,10 +307,7 @@ const Wallets = () => {
               }
               mediaDesktopPlacement="left"
               titleComponent={
-                <Link
-                  href="https://solana.com/solutions/token-extensions"
-                  target="_blank"
-                >
+                <Link href="/solutions/token-extensions" target="_blank">
                   {t("solutions-wallets.one-click-commerce.title")}
                 </Link>
               }

@@ -106,7 +106,7 @@ const BlinksAndActions = () => {
       title={t(
         "solutions-blinks-and-actions.developer-resources.links.dev-doc.title",
       )}
-      link="https://solana.com/docs/advanced/actions"
+      link="/docs/advanced/actions"
       key="dev-doc"
     />,
   ];

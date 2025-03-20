@@ -60,7 +60,7 @@ const Gaming = () => {
         { value: "$12M", label: "Race Fees" },
         { value: "24/7", label: "Access" },
       ],
-      readMoreUrl: "https://solana.com/news/case-study-photo-finish-live",
+      readMoreUrl: "/news/case-study-photo-finish-live",
       readMoreText: t("solutions-gaming.spotlight.button"),
     },
   ];
@@ -68,28 +68,28 @@ const Gaming = () => {
   const developerResourcesLinks = [
     <YDeveloperResourcesLink
       title={t("solutions-gaming.developer-resources.links.guide.title")}
-      link="https://solana.com/ar/docs/intro/quick-start"
+      link="/ar/docs/intro/quick-start"
       key="guide"
     />,
     <YDeveloperResourcesLink
       title={t(
         "solutions-gaming.developer-resources.links.state-compression.title",
       )}
-      link="https://solana.com/docs/advanced/state-compression"
+      link="/docs/advanced/state-compression"
       key="state-compression"
     />,
     <YDeveloperResourcesLink
       title={t(
         "solutions-gaming.developer-resources.links.token-extensions.title",
       )}
-      link="https://solana.com/developers/guides/token-extensions/getting-started"
+      link="/developers/guides/token-extensions/getting-started"
       key="token-extensions"
     />,
     <YDeveloperResourcesLink
       title={t(
         "solutions-gaming.developer-resources.links.blinks-actions.title",
       )}
-      link="https://solana.com/docs/advanced/actions#blinks"
+      link="/docs/advanced/actions#blinks"
       key="blinks-actions"
     />,
   ];

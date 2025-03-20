@@ -345,7 +345,7 @@ const InstitutionalFinance = () => {
         { value: "200+", label: "Publishers" },
         { value: "24/7", label: "Data Feed" },
       ],
-      readMoreUrl: "https://solana.com/news/case-study-pyth",
+      readMoreUrl: "/news/case-study-pyth",
       readMoreText: t(
         "solutions-institutional-finance.case-studies.cards.item-one.button",
       ),
@@ -378,7 +378,7 @@ const InstitutionalFinance = () => {
       title={t(
         "solutions-institutional-finance.developer-resources.links.quick-start.title",
       )}
-      link="https://solana.com/docs/intro/quick-start"
+      link="/docs/intro/quick-start"
     />,
     <YDeveloperResourcesLink
       key="solana-pay"
@@ -392,7 +392,7 @@ const InstitutionalFinance = () => {
       title={t(
         "solutions-institutional-finance.developer-resources.links.helio.title",
       )}
-      link="https://solana.com/docs/advanced/actions"
+      link="/docs/advanced/actions"
     />,
   ];
 
@@ -434,7 +434,7 @@ const InstitutionalFinance = () => {
           }
           subtitleKey={statsContent.subtitle}
           kickerKey={statsContent.finePrint}
-          kickerUrl="https://solana.com/news/case-study-boba-guys"
+          kickerUrl="/news/case-study-boba-guys"
           stats={statsContent.stats}
           className={styles.Stats}
           statsClassName={styles.StatsContent}
@@ -497,7 +497,7 @@ const InstitutionalFinance = () => {
                   i18nKey="solutions-institutional-finance.longform-three.subtitle"
                   components={[
                     <Link
-                      href="https://solana.com/solutions/real-world-assets"
+                      href="/solutions/real-world-assets"
                       key="0"
                       target="_blank"
                       rel="noopener noreferrer"

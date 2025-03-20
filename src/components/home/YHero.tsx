@@ -133,12 +133,12 @@ const YHero = () => {
               <div className={styles.hero__cta_group}>
                 <Button
                   text="Start Building"
-                  url="https://solana.com/ar/docs/intro/quick-start"
+                  url="/ar/docs/intro/quick-start"
                   target="_blank"
                 />
 
                 <a
-                  href="https://solana.com/developers"
+                  href="/developers"
                   target="_blank"
                   className={styles.hero__cta_btn_secondary}
                 >

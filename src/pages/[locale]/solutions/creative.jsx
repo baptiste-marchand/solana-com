@@ -162,8 +162,7 @@ const Creative = () => {
         { value: "400ms", label: "Confirmation Time" },
         { value: "0%", label: "Environmental Impact" },
       ],
-      readMoreUrl:
-        "https://solana.com/news/case-study-culturehacker-where-theres-smoke",
+      readMoreUrl: "/news/case-study-culturehacker-where-theres-smoke",
       readMoreText: t(
         "solutions-creative.case-studies.cards.culture-hacker.button",
       ),

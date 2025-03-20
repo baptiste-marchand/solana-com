@@ -188,7 +188,7 @@ const TokenExtensions = () => {
               text={t(
                 "solutions-token-extensions.ecosystem.reference-implementation-btn",
               )}
-              url="https://solana.com/developers/guides/token-extensions/interest-bearing-tokens"
+              url="/developers/guides/token-extensions/interest-bearing-tokens"
               target="_blank"
             />
           </div>
@@ -216,7 +216,7 @@ const TokenExtensions = () => {
               text={t(
                 "solutions-token-extensions.ecosystem.reference-implementation-btn",
               )}
-              url="https://solana.com/developers/guides/token-extensions/non-transferable"
+              url="/developers/guides/token-extensions/non-transferable"
               target="_blank"
             />
           </div>
@@ -372,7 +372,7 @@ const TokenExtensions = () => {
               text={t(
                 "solutions-token-extensions.ecosystem.reference-implementation-btn",
               )}
-              url="https://solana.com/developers/guides/token-extensions/transfer-hook"
+              url="/developers/guides/token-extensions/transfer-hook"
               target="_blank"
             />
           </div>
@@ -401,7 +401,7 @@ const TokenExtensions = () => {
               text={t(
                 "solutions-token-extensions.ecosystem.reference-implementation-btn",
               )}
-              url="https://solana.com/developers/guides/token-extensions/transfer-hook"
+              url="/developers/guides/token-extensions/transfer-hook"
               target="_blank"
             />
           </div>
@@ -423,7 +423,7 @@ const TokenExtensions = () => {
         { value: "$400M", label: "TVL" },
         { value: "24/7", label: "Availability" },
       ],
-      readMoreUrl: "https://solana.com/pyusd",
+      readMoreUrl: "/pyusd",
       readMoreText: t(
         "solutions-token-extensions.case-studies.cards.item-one.button",
       ),
@@ -452,7 +452,7 @@ const TokenExtensions = () => {
       title={t(
         "solutions-token-extensions.developer-resources.links.link-one.title",
       )}
-      link="https://solana.com/docs/intro/quick-start"
+      link="/docs/intro/quick-start"
       key="quick-start"
     />,
     <YDeveloperResourcesLink
@@ -466,14 +466,14 @@ const TokenExtensions = () => {
       title={t(
         "solutions-token-extensions.developer-resources.links.link-three.title",
       )}
-      link="https://solana.com/developers/guides/token-extensions/getting-started"
+      link="/developers/guides/token-extensions/getting-started"
       key="getting-started"
     />,
     <YDeveloperResourcesLink
       title={t(
         "solutions-token-extensions.developer-resources.links.link-four.title",
       )}
-      link="https://solana.com/docs/core/tokens"
+      link="/docs/core/tokens"
       key="core-tokens"
     />,
   ];

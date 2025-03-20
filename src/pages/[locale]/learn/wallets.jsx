@@ -163,10 +163,7 @@ const Wallets = () => {
               mediaComponent={<LottieCarouselItem lottie={custodexLottie} />}
               mediaDesktopPlacement="right"
               titleComponent={
-                <Link
-                  href="https://solana.com/solutions/token-extensions"
-                  target="_blank"
-                >
+                <Link href="/solutions/token-extensions" target="_blank">
                   {t("learn-wallets.longform.custodial.title")}
                 </Link>
               }
