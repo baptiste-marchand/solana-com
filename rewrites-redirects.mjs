@@ -763,5 +763,9 @@ export default {
       source: "/docs/advanced/:path*",
       destination: "/developers/guides/advanced/:path*",
     },
+    {
+      source: "/developers/guides/games/game-sdks",
+      destination: "/docs/clients/game-sdks",
+    },
   ],
 };
