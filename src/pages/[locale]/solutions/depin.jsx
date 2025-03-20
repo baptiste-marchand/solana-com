@@ -24,6 +24,8 @@ import rohanImg from "assets/solutions/depin/rohan.png";
 import roamLogo from "assets/solutions/depin/roam.svg";
 import ioLogo from "assets/solutions/depin/io.svg";
 import jakeImg from "assets/solutions/depin/jake.png";
+import Link from "next/link";
+
 const VideoLightbox = ({ videoId, onClose }) => {
   useEffect(() => {
     // Disable scrolling when lightbox is open
@@ -301,9 +303,9 @@ const DePINPage = () => {
                 <h3 className={styles.resourceColumnTitle}>Dev Tools</h3>
                 <div className={styles.resourceContent}>
                   <p className={styles.resourceText}>
-                    <a href="/" className={styles.resourceLink}>
+                    <Link href="/" className={styles.resourceLink}>
                       The DePIN Quickstart guide
-                    </a>
+                    </Link>
                     , along with examples from dozens of other teams who have
                     tackled the same problems you&apos;re thinking about, will
                     accelerate your journey from 0 to 1, and from 1 to 100.
@@ -320,16 +322,19 @@ const DePINPage = () => {
                   <p className={styles.resourceText}>
                     A number of projects in the Solana ecosystem help DePIN
                     builders grow and scale. Examples include{" "}
-                    <a
+                    <Link
                       href="https://metastreet.xyz/"
                       className={styles.resourceLink}
                     >
                       Metastreet
-                    </a>{" "}
+                    </Link>{" "}
                     and{" "}
-                    <a href="https://dephy.io/" className={styles.resourceLink}>
+                    <Link
+                      href="https://dephy.io/"
+                      className={styles.resourceLink}
+                    >
                       DePHY
-                    </a>
+                    </Link>
                     .
                   </p>
                 </div>
@@ -340,12 +345,12 @@ const DePINPage = () => {
                 <h3 className={styles.resourceColumnTitle}>Learn more</h3>
                 <div className={styles.resourceContent}>
                   <p className={styles.resourceText}>
-                    <a
+                    <Link
                       href="https://messari.io/report/state-of-depin-2024"
                       className={styles.resourceLink}
                     >
                       Access
-                    </a>{" "}
+                    </Link>{" "}
                     the Messari State of DePIN 2024 report and dive deeper into
                     the growing ecosystem.
                   </p>
