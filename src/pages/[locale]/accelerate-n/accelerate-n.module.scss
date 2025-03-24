@@ -1614,7 +1614,7 @@ $red: #ff0156;
 }
 
 .footerLogo {
-  width: 150px;
+  width: 120px;
   height: auto;
 }
 
@@ -1622,6 +1622,7 @@ $red: #ff0156;
   width: 100%;
   height: auto;
   display: block;
+  max-height: 24px;
 }
 
 .footerNav {
@@ -1710,5 +1711,184 @@ $red: #ff0156;
 @media (max-width: 768px) {
   .stickyBottomBar {
     display: block;
+  }
+}
+
+// Free Ticket Modal styles
+.freeTicketModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.freeTicketModalContent {
+  position: relative;
+  width: 90%;
+  max-width: 480px;
+  background-color: #272d31;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeModalButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $red;
+    transform: scale(1.1);
+  }
+}
+
+.freeTicketContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.freeTicketImageWrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #272d31;
+  padding: 2rem 0 0.5rem;
+}
+
+.freeTicketImageBackground {
+  background-color: #1e2326;
+  border-radius: 0;
+  padding: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+
+  img {
+    max-width: 65%;
+    height: auto;
+  }
+}
+
+.freeTicketText {
+  padding: 0.75rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: #272d31;
+}
+
+.freeTicketTitle {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: $red;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.freeTicketHeadline {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.freeTicketDescription {
+  font-family: "ABC Diatype", sans-serif;
+  font-size: 1rem;
+  margin: 0.25rem 0 1.25rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.freeTicketButton {
+  display: block;
+  background: linear-gradient(90deg, $red, $blue);
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  font-family: "ABC Diatype", sans-serif;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 1, 86, 0.4);
+  }
+}
+
+@media (max-width: 767px) {
+  .freeTicketModalContent {
+    width: 95%;
+    max-width: 380px;
+  }
+
+  .freeTicketImageWrapper {
+    padding: 1.5rem 0 0.5rem;
+  }
+
+  .freeTicketImageBackground {
+    padding: 1.5rem;
+  }
+
+  .freeTicketText {
+    padding: 0.5rem 1.5rem 1.5rem;
+  }
+
+  .freeTicketTitle {
+    font-size: 1rem;
+  }
+
+  .freeTicketHeadline {
+    font-size: 1.8rem;
+  }
+
+  .freeTicketDescription {
+    font-size: 0.9rem;
+    margin: 0.25rem 0 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

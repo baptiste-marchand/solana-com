@@ -15,6 +15,7 @@ import GovtImage from "../../../../assets/accelerate/govt.png";
 import ThumbnailImage from "../../../../assets/accelerate/thumbnail.png";
 import SponsorsImage from "../../../../assets/accelerate/sponsors.png";
 import LibertyDotImage from "../../../../assets/accelerate/liberty-dot.png";
+import FreeTicketImage from "../../../../assets/accelerate/free.png";
 import Speaker1 from "../../../../assets/accelerate/speakers/01.png";
 import Speaker2 from "../../../../assets/accelerate/speakers/02.png";
 import Speaker3 from "../../../../assets/accelerate/speakers/03.png";
@@ -112,6 +113,7 @@ export default function AccelerateNPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showVideoLightbox, setShowVideoLightbox] = useState(false);
   const [stickyVisible, setStickyVisible] = useState(false);
+  const [showFreeTicketModal, setShowFreeTicketModal] = useState(false);
 
   // Counter animations
   const [peopleCount, peopleCountRef] = useCounterAnimation(3000, 2000, 0);
@@ -136,11 +138,16 @@ export default function AccelerateNPage() {
     document.body.style.overflow = "";
   };
 
-  // Close lightbox on ESC key press
+  // Close lightbox and free ticket modal on ESC key press
   useEffect(() => {
     const handleEscKey = (event) => {
-      if (event.key === "Escape" && showVideoLightbox) {
-        closeVideoLightbox();
+      if (event.key === "Escape") {
+        if (showVideoLightbox) {
+          closeVideoLightbox();
+        }
+        if (showFreeTicketModal) {
+          closeFreeTicketModal();
+        }
       }
     };
 
@@ -148,7 +155,21 @@ export default function AccelerateNPage() {
     return () => {
       window.removeEventListener("keydown", handleEscKey);
     };
-  }, [showVideoLightbox]);
+  }, [showVideoLightbox, showFreeTicketModal]);
+
+  // Show free ticket modal after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowFreeTicketModal(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Close free ticket modal
+  const closeFreeTicketModal = () => {
+    setShowFreeTicketModal(false);
+  };
 
   // Add scroll event listener
   useEffect(() => {
@@ -242,12 +263,12 @@ export default function AccelerateNPage() {
             />
           </div>
           <nav className={styles.nav}>
-            <a href="#sponsors">SPONSORS</a>
-            <a href="#speakers">SPEAKERS</a>
-            <a href="#faq">FAQ</a>
-            <a href="#tickets" className={styles.ticketsButton}>
+            <Link href="#sponsors">SPONSORS</Link>
+            <Link href="#speakers">SPEAKERS</Link>
+            <Link href="#faq">FAQ</Link>
+            <Link href="/accelerate-n/tickets" className={styles.ticketsButton}>
               GET TICKETS
-            </a>
+            </Link>
           </nav>
         </header>
 
@@ -306,7 +327,10 @@ export default function AccelerateNPage() {
               next chapter of America. From AI to crypto, defense to finance—if
               you&apos;re not in the room, you&apos;re already behind.
             </p>
-            <Link href="/tickets" className={styles.getTicketsButton}>
+            <Link
+              href="/accelerate-n/tickets"
+              className={styles.getTicketsButton}
+            >
               Get Tickets →
             </Link>
 
@@ -505,8 +529,7 @@ export default function AccelerateNPage() {
                   speed.
                 </p>
                 <p>
-                  <span className={styles.highlight}>Accelerate</span> is that
-                  room.
+                  <strong>Accelerate</strong> is that room.
                 </p>
                 <p>
                   This isn&apos;t your usual panel-driven fluff fest. It&apos;s
@@ -518,10 +541,13 @@ export default function AccelerateNPage() {
                   policy-makers, where shit gets done.
                 </p>
               </div>
-              <a href="#tickets" className={styles.videoTicketsButton}>
+              <Link
+                href="/accelerate-n/tickets"
+                className={styles.videoTicketsButton}
+              >
                 {/* Get Tickets button */}
                 Get Tickets →
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -552,6 +578,55 @@ export default function AccelerateNPage() {
           </div>
         )}
 
+        {/* Free Ticket Modal */}
+        {showFreeTicketModal && (
+          <div
+            className={styles.freeTicketModal}
+            onClick={closeFreeTicketModal}
+          >
+            <div
+              className={styles.freeTicketModalContent}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className={styles.closeModalButton}
+                onClick={closeFreeTicketModal}
+              >
+                ×
+              </button>
+              <div className={styles.freeTicketImageWrapper}>
+                <div className={styles.freeTicketImageBackground}>
+                  <Image
+                    src={FreeTicketImage}
+                    alt="Free Ticket"
+                    width={500}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
+                    priority
+                  />
+                </div>
+              </div>
+              <div className={styles.freeTicketText}>
+                <h3 className={styles.freeTicketTitle}>FREE TICKET?</h3>
+                <h2 className={styles.freeTicketHeadline}>
+                  We&apos;re refunding random tickets daily
+                </h2>
+                <p className={styles.freeTicketDescription}>
+                  You could attend Accelerate for free as we&apos;re refunding
+                  random tickets every single day. To enter just purchase a
+                  ticket
+                </p>
+                <Link
+                  href="/accelerate-n/tickets"
+                  className={styles.freeTicketButton}
+                >
+                  Get Tickets
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Full-width divider */}
         <div className={styles.divider}></div>
 
@@ -560,7 +635,7 @@ export default function AccelerateNPage() {
           <div className={styles.speakersContent}>
             <div className={styles.speakersTitleRow}>
               <h2 className={styles.speakersTitle}>Operators only</h2>
-              <Link href="/tickets" className={styles.speakersCTA}>
+              <Link href="/accelerate-n/tickets" className={styles.speakersCTA}>
                 Get Tickets
                 <svg
                   width="24"
@@ -853,7 +928,7 @@ export default function AccelerateNPage() {
           <div className={styles.sponsorsContent}>
             <div className={styles.sponsorsTitleRow}>
               <h2 className={styles.sponsorsTitle}>Skin in the Game</h2>
-              <Link href="/tickets" className={styles.sponsorsCTA}>
+              <Link href="/accelerate-n/tickets" className={styles.sponsorsCTA}>
                 Get Tickets
                 <svg
                   width="24"
@@ -940,9 +1015,12 @@ export default function AccelerateNPage() {
                   Accelerate is a high-conviction summit for people building the
                   next chapter of America.
                 </p>
-                <a href="#tickets" className={styles.nycCtaButton}>
+                <Link
+                  href="/accelerate-n/tickets"
+                  className={styles.nycCtaButton}
+                >
                   Get Tickets
-                </a>
+                </Link>
               </div>
               <div className={styles.nycCtaImageWrapper}>
                 <Image
@@ -967,12 +1045,15 @@ export default function AccelerateNPage() {
                   src={accLogoPath}
                   alt="Accelerate Logo"
                   className={styles.footerLogoImg}
+                  width="120"
+                  height="30"
+                  style={{ width: "120px", height: "auto" }}
                 />
               </div>
               <nav className={styles.footerNav}>
-                <a href="#sponsors">SPONSORS</a>
-                <a href="#speakers">SPEAKERS</a>
-                <a href="#faq">FAQ</a>
+                <Link href="#sponsors">SPONSORS</Link>
+                <Link href="#speakers">SPEAKERS</Link>
+                <Link href="#faq">FAQ</Link>
               </nav>
               <p className={styles.copyright}>© Solana Foundation 2025</p>
             </div>
@@ -983,9 +1064,12 @@ export default function AccelerateNPage() {
         <div
           className={`${styles.stickyBottomBar} ${stickyVisible ? styles.visible : ""}`}
         >
-          <a href="#tickets" className={styles.stickyBottomButton}>
+          <Link
+            href="/accelerate-n/tickets"
+            className={styles.stickyBottomButton}
+          >
             Get Tickets
-          </a>
+          </Link>
         </div>
       </div>
     </>
