@@ -651,6 +651,7 @@ $red: #ff0156;
   font-weight: 700;
   margin-bottom: 2rem;
   line-height: 0.9;
+  white-space: nowrap; /* Prevent wrapping */
 }
 
 .asterisk {

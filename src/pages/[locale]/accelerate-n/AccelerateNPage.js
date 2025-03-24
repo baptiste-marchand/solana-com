@@ -323,9 +323,9 @@ export default function AccelerateNPage() {
               <br /> next builders.
             </h1>
             <p className={styles.heroDescription}>
-              Accelerate is a high-conviction summit for people building the
-              next chapter of America. From AI to crypto, defense to finance—if
-              you&apos;re not in the room, you&apos;re already behind.
+              Accelerate is a conference for builders shaping crypto&apos;s next
+              chapter in America. Crypto is transforming tech, policy, and
+              finance—join us!
             </p>
             <Link
               href="/accelerate-n/tickets"
@@ -514,31 +514,21 @@ export default function AccelerateNPage() {
               </div>
             </div>
             <div className={styles.videoTextContainer}>
-              <h2 className={styles.videoTitle}>
-                This isn&apos;t for everyone
-                <span className={styles.asterisk}>*</span>
-              </h2>
+              <h2 className={styles.videoTitle}>Scale. Ship. Accelerate.</h2>
               <div className={styles.videoDescription}>
-                <p>You know how this works.</p>
                 <p>
-                  The deals, the hires, the sparks—they don&apos;t happen on
-                  Zoom.
+                  Solana needs to keep up with the increasing global demand for
+                  blockspace. Scale or die is a developers-only conference to
+                  explore the future of Solana scaling.
                 </p>
                 <p>
-                  They happen in real rooms, with real people, colliding at full
-                  speed.
+                  Ship or die is a conference hosting leaders from tech, finance
+                  and policy to accelerate the adoption of crypto in these
+                  areas.
                 </p>
                 <p>
-                  <strong>Accelerate</strong> is that room.
-                </p>
-                <p>
-                  This isn&apos;t your usual panel-driven fluff fest. It&apos;s
-                  raw. Fast. Built for people who don&apos;t have time to
-                  pretend they care about panels.
-                </p>
-                <p>
-                  It&apos;s where founders meet investors, where builders meet
-                  policy-makers, where shit gets done.
+                  Accelerate is a week packed with two conferences, tens of side
+                  events, workshops and dinners in NYC.
                 </p>
               </div>
               <Link
@@ -631,10 +621,10 @@ export default function AccelerateNPage() {
         <div className={styles.divider}></div>
 
         {/* Speakers Section */}
-        <section className={styles.speakersSection}>
+        <section className={styles.speakersSection} id="speakers">
           <div className={styles.speakersContent}>
             <div className={styles.speakersTitleRow}>
-              <h2 className={styles.speakersTitle}>Operators only</h2>
+              <h2 className={styles.speakersTitle}>Speakers</h2>
               <Link href="/accelerate-n/tickets" className={styles.speakersCTA}>
                 Get Tickets
                 <svg
@@ -924,10 +914,10 @@ export default function AccelerateNPage() {
         <div className={styles.divider}></div>
 
         {/* Sponsors Section */}
-        <section className={styles.sponsorsSection}>
+        <section className={styles.sponsorsSection} id="sponsors">
           <div className={styles.sponsorsContent}>
             <div className={styles.sponsorsTitleRow}>
-              <h2 className={styles.sponsorsTitle}>Skin in the Game</h2>
+              <h2 className={styles.sponsorsTitle}>Sponsors</h2>
               <Link href="/accelerate-n/tickets" className={styles.sponsorsCTA}>
                 Get Tickets
                 <svg
