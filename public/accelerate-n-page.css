@@ -1,0 +1,31 @@
+/* Global styles to force hide the Solana header in the Accelerate-N page */
+header.global-header,
+header.position-sticky,
+.navbar,
+#navbarCollapse,
+.react-bootstrap-navbar,
+.sticky-top,
+header[class*="Header_header"] {
+  display: none !important;
+}
+
+.accelerate-n-page main > div:first-child {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Remove any spacing that might be caused by the hidden header */
+.accelerate-n-page {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Ensure our content takes up the full height */
+body {
+  overflow-x: hidden;
+}
+
+/* Make sure nothing else can override our header hiding */
+body.accelerate-n-page header:not([class*="accelerate-n"]) {
+  display: none !important;
+} 
