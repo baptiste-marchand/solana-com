@@ -13,17 +13,34 @@ import PeopleImage from "../../../../assets/accelerate/people.png";
 import CompaniesImage from "../../../../assets/accelerate/companies.png";
 import GovtImage from "../../../../assets/accelerate/govt.png";
 import ThumbnailImage from "../../../../assets/accelerate/thumbnail.png";
-import SponsorsImage from "../../../../assets/accelerate/sponsors.png";
 import LibertyDotImage from "../../../../assets/accelerate/liberty-dot.png";
 import FreeTicketImage from "../../../../assets/accelerate/free.png";
-import Speaker1 from "../../../../assets/accelerate/speakers/01.png";
-import Speaker2 from "../../../../assets/accelerate/speakers/02.png";
-import Speaker3 from "../../../../assets/accelerate/speakers/03.png";
-import Speaker4 from "../../../../assets/accelerate/speakers/04.png";
-import Speaker5 from "../../../../assets/accelerate/speakers/05.png";
-import Speaker6 from "../../../../assets/accelerate/speakers/06.png";
-import Speaker7 from "../../../../assets/accelerate/speakers/07.png";
-import Speaker8 from "../../../../assets/accelerate/speakers/08.png";
+
+// Import speaker images
+import EmmettImage from "../../../../assets/accelerate/speakers/emmett.png";
+import LucaImage from "../../../../assets/accelerate/speakers/luca.png";
+import AustinImage from "../../../../assets/accelerate/speakers/austin.png";
+import SummerImage from "../../../../assets/accelerate/speakers/summer.png";
+import TaylorImage from "../../../../assets/accelerate/speakers/taylor.png";
+import ArielImage from "../../../../assets/accelerate/speakers/ariel.png";
+import RobertImage from "../../../../assets/accelerate/speakers/robert.png";
+import ArmaniImage from "../../../../assets/accelerate/speakers/armani.png";
+import BrandonImage from "../../../../assets/accelerate/speakers/brandon.png";
+import SantiagoImage from "../../../../assets/accelerate/speakers/santiago.png";
+import KashImage from "../../../../assets/accelerate/speakers/kash.png";
+import DavidImage from "../../../../assets/accelerate/speakers/david.png";
+
+// Import sponsor logos
+import CubeSVG from "../../../../assets/accelerate/sponsors/cube.svg";
+import HelioSVG from "../../../../assets/accelerate/sponsors/helio.svg";
+import JitoSVG from "../../../../assets/accelerate/sponsors/Jito.svg";
+import MagnaSVG from "../../../../assets/accelerate/sponsors/magna.svg";
+import PhantomSVG from "../../../../assets/accelerate/sponsors/phantom.svg";
+import RockawaySVG from "../../../../assets/accelerate/sponsors/rockaway.svg";
+import SolanaMobileSVG from "../../../../assets/accelerate/sponsors/solanamobile.svg";
+import SolflareSVG from "../../../../assets/accelerate/sponsors/solflare.svg";
+import WormholeSVG from "../../../../assets/accelerate/sponsors/wormhole.svg";
+import ZeusSVG from "../../../../assets/accelerate/sponsors/zeus.svg";
 
 // Counter animation hook
 const useCounterAnimation = (end, duration = 2000, startDelay = 0) => {
@@ -118,12 +135,12 @@ export default function AccelerateNPage() {
   // Counter animations
   const [peopleCount, peopleCountRef] = useCounterAnimation(3000, 2000, 0);
   const [companiesCount, companiesCountRef] = useCounterAnimation(
-    250,
+    1.5,
     2000,
     200,
   );
-  const [policyCount, policyCountRef] = useCounterAnimation(5, 2000, 400);
-  const [touristsCount, touristsCountRef] = useCounterAnimation(0, 1000, 600);
+  const [policyCount, policyCountRef] = useCounterAnimation(50, 2000, 400);
+  const [touristsCount, touristsCountRef] = useCounterAnimation(250, 1000, 600);
 
   // Handle video lightbox
   const openVideoLightbox = () => {
@@ -344,7 +361,7 @@ export default function AccelerateNPage() {
                 <p>NYC</p>
               </div>
               <div className={styles.infoItem}>
-                <h3>JOIN</h3>
+                <h3>ATTENDEES</h3>
                 <div className={styles.joinInfo}>
                   <p>3,000+</p>
                   <div className={styles.facesImageContainer}>
@@ -387,7 +404,7 @@ export default function AccelerateNPage() {
                   className={styles.cardDescription}
                   style={{ textAlign: "left" }}
                 >
-                  High Energy Top 1% Builders in USA
+                  Executives from Fintech, AI and startups
                 </p>
                 <img
                   src={PeopleImage.src}
@@ -414,13 +431,13 @@ export default function AccelerateNPage() {
                   ref={companiesCountRef}
                   style={{ textAlign: "left" }}
                 >
-                  {companiesCount}+
+                  ${companiesCount}T
                 </h3>
                 <p
                   className={styles.cardDescription}
                   style={{ textAlign: "left" }}
                 >
-                  Companies that are hiring &amp; demoing
+                  Combined value of public and private companies
                 </p>
                 <img
                   src={CompaniesImage.src}
@@ -447,7 +464,7 @@ export default function AccelerateNPage() {
                   ref={policyCountRef}
                   style={{ textAlign: "left" }}
                 >
-                  {policyCount}%
+                  {policyCount}+
                 </h3>
                 <p
                   className={styles.cardDescription}
@@ -480,13 +497,13 @@ export default function AccelerateNPage() {
                   ref={touristsCountRef}
                   style={{ textAlign: "left" }}
                 >
-                  {touristsCount}
+                  {touristsCount}+
                 </h3>
                 <p
                   className={styles.cardDescription}
                   style={{ textAlign: "left" }}
                 >
-                  Tourists and lurkers and people who don&apos;t ship
+                  Crypto Projects
                 </p>
               </div>
             </div>
@@ -646,7 +663,24 @@ export default function AccelerateNPage() {
               <div className={styles.speakerCard}>
                 <div className={styles.speakerImageWrapper}>
                   <Image
-                    src={Speaker1}
+                    src={EmmettImage}
+                    alt="Emmett Hollyer"
+                    width={300}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
+                    className={styles.speakerImage}
+                  />
+                </div>
+                <h3 className={styles.speakerName}>Emmett Hollyer</h3>
+                <p className={styles.speakerCompany}>
+                  General Manager • Solana Mobile
+                </p>
+              </div>
+
+              <div className={styles.speakerCard}>
+                <div className={styles.speakerImageWrapper}>
+                  <Image
+                    src={LucaImage}
                     alt="Luca Netz"
                     width={300}
                     height={300}
@@ -655,256 +689,165 @@ export default function AccelerateNPage() {
                   />
                 </div>
                 <h3 className={styles.speakerName}>Luca Netz</h3>
-                <p className={styles.speakerRole}>CEO & Founder</p>
-                <p className={styles.speakerCompany}>Pudgy Penguins</p>
-                <a
-                  href="https://twitter.com/username"
-                  className={styles.speakerTwitter}
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
+                <p className={styles.speakerCompany}>CEO • Pudgy Penguins</p>
               </div>
 
               <div className={styles.speakerCard}>
                 <div className={styles.speakerImageWrapper}>
                   <Image
-                    src={Speaker2}
-                    alt="Guy Hawkins"
+                    src={AustinImage}
+                    alt="Austin Hurwitz"
                     width={300}
                     height={300}
                     style={{ width: "100%", height: "auto" }}
                     className={styles.speakerImage}
                   />
                 </div>
-                <h3 className={styles.speakerName}>Guy Hawkins</h3>
-                <p className={styles.speakerRole}>CEO & Founder</p>
-                <p className={styles.speakerCompany}>Pudgy Penguins</p>
-                <a
-                  href="https://twitter.com/username"
-                  className={styles.speakerTwitter}
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
+                <h3 className={styles.speakerName}>Austin Hurwitz</h3>
+                <p className={styles.speakerCompany}>Head of BD • Doodles</p>
               </div>
 
               <div className={styles.speakerCard}>
                 <div className={styles.speakerImageWrapper}>
                   <Image
-                    src={Speaker3}
-                    alt="Ralph Edwards"
+                    src={SummerImage}
+                    alt="Summer Mersinger"
                     width={300}
                     height={300}
                     style={{ width: "100%", height: "auto" }}
                     className={styles.speakerImage}
                   />
                 </div>
-                <h3 className={styles.speakerName}>Ralph Edwards</h3>
-                <p className={styles.speakerRole}>CEO & Founder</p>
-                <p className={styles.speakerCompany}>Pudgy Penguins</p>
-                <a
-                  href="https://twitter.com/username"
-                  className={styles.speakerTwitter}
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
+                <h3 className={styles.speakerName}>Summer Mersinger</h3>
+                <p className={styles.speakerCompany}>Commissioner • CFTC</p>
               </div>
 
               <div className={styles.speakerCard}>
                 <div className={styles.speakerImageWrapper}>
                   <Image
-                    src={Speaker4}
-                    alt="Wade Warren"
+                    src={TaylorImage}
+                    alt="Taylor Johnson"
                     width={300}
                     height={300}
                     style={{ width: "100%", height: "auto" }}
                     className={styles.speakerImage}
                   />
                 </div>
-                <h3 className={styles.speakerName}>Wade Warren</h3>
-                <p className={styles.speakerRole}>CEO & Founder</p>
-                <p className={styles.speakerCompany}>Pudgy Penguins</p>
-                <a
-                  href="https://twitter.com/username"
-                  className={styles.speakerTwitter}
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
+                <h3 className={styles.speakerName}>Taylor Johnson</h3>
+                <p className={styles.speakerCompany}>
+                  Founder • Exo Technologies
+                </p>
               </div>
 
               <div className={styles.speakerCard}>
                 <div className={styles.speakerImageWrapper}>
                   <Image
-                    src={Speaker5}
-                    alt="Brooklyn Simmons"
+                    src={ArielImage}
+                    alt="Ariel Seidman"
                     width={300}
                     height={300}
                     style={{ width: "100%", height: "auto" }}
                     className={styles.speakerImage}
                   />
                 </div>
-                <h3 className={styles.speakerName}>Brooklyn Simmons</h3>
-                <p className={styles.speakerRole}>CEO & Founder</p>
-                <p className={styles.speakerCompany}>Pudgy Penguins</p>
-                <a
-                  href="https://twitter.com/username"
-                  className={styles.speakerTwitter}
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
+                <h3 className={styles.speakerName}>Ariel Seidman</h3>
+                <p className={styles.speakerCompany}>
+                  CEO & Co-Founder • Hivemapper
+                </p>
               </div>
 
               <div className={styles.speakerCard}>
                 <div className={styles.speakerImageWrapper}>
                   <Image
-                    src={Speaker6}
-                    alt="Kathryn Murphy"
+                    src={RobertImage}
+                    alt="Robert Leshner"
                     width={300}
                     height={300}
                     style={{ width: "100%", height: "auto" }}
                     className={styles.speakerImage}
                   />
                 </div>
-                <h3 className={styles.speakerName}>Kathryn Murphy</h3>
-                <p className={styles.speakerRole}>CEO & Founder</p>
-                <p className={styles.speakerCompany}>Pudgy Penguins</p>
-                <a
-                  href="https://twitter.com/username"
-                  className={styles.speakerTwitter}
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
+                <h3 className={styles.speakerName}>Robert Leshner</h3>
+                <p className={styles.speakerCompany}>
+                  CEO & Co-founder • Superstate
+                </p>
               </div>
 
               <div className={styles.speakerCard}>
                 <div className={styles.speakerImageWrapper}>
                   <Image
-                    src={Speaker7}
-                    alt="Albert Flores"
+                    src={ArmaniImage}
+                    alt="Armani Ferrante"
                     width={300}
                     height={300}
                     style={{ width: "100%", height: "auto" }}
                     className={styles.speakerImage}
                   />
                 </div>
-                <h3 className={styles.speakerName}>Albert Flores</h3>
-                <p className={styles.speakerRole}>CEO & Founder</p>
-                <p className={styles.speakerCompany}>Pudgy Penguins</p>
-                <a
-                  href="https://twitter.com/username"
-                  className={styles.speakerTwitter}
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
+                <h3 className={styles.speakerName}>Armani Ferrante</h3>
+                <p className={styles.speakerCompany}>CEO • Backpack</p>
               </div>
 
               <div className={styles.speakerCard}>
                 <div className={styles.speakerImageWrapper}>
                   <Image
-                    src={Speaker8}
-                    alt="Cameron Williams"
+                    src={BrandonImage}
+                    alt="Brandon Millman"
                     width={300}
                     height={300}
                     style={{ width: "100%", height: "auto" }}
                     className={styles.speakerImage}
                   />
                 </div>
-                <h3 className={styles.speakerName}>Cameron Williams</h3>
-                <p className={styles.speakerRole}>CEO & Founder</p>
-                <p className={styles.speakerCompany}>Pudgy Penguins</p>
-                <a
-                  href="https://twitter.com/username"
-                  className={styles.speakerTwitter}
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
+                <h3 className={styles.speakerName}>Brandon Millman</h3>
+                <p className={styles.speakerCompany}>CEO • Phantom</p>
+              </div>
+
+              <div className={styles.speakerCard}>
+                <div className={styles.speakerImageWrapper}>
+                  <Image
+                    src={SantiagoImage}
+                    alt="Santiago Roel Santos"
+                    width={300}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
+                    className={styles.speakerImage}
+                  />
+                </div>
+                <h3 className={styles.speakerName}>Santiago Roel Santos</h3>
+                <p className={styles.speakerCompany}>Founder • Inversion</p>
+              </div>
+
+              <div className={styles.speakerCard}>
+                <div className={styles.speakerImageWrapper}>
+                  <Image
+                    src={KashImage}
+                    alt="Kash Dhanda"
+                    width={300}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
+                    className={styles.speakerImage}
+                  />
+                </div>
+                <h3 className={styles.speakerName}>Kash Dhanda</h3>
+                <p className={styles.speakerCompany}>Cat-Herder • Jupiter</p>
+              </div>
+
+              <div className={styles.speakerCard}>
+                <div className={styles.speakerImageWrapper}>
+                  <Image
+                    src={DavidImage}
+                    alt="David Pakman"
+                    width={300}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
+                    className={styles.speakerImage}
+                  />
+                </div>
+                <h3 className={styles.speakerName}>David Pakman</h3>
+                <p className={styles.speakerCompany}>
+                  Managing Partner • CoinFund
+                </p>
               </div>
             </div>
           </div>
@@ -937,18 +880,57 @@ export default function AccelerateNPage() {
 
             <div className={styles.sponsorsHR}></div>
 
-            <div className={styles.sponsorsImageContainer}>
-              <Image
-                src={SponsorsImage}
-                alt="Event Sponsors"
-                width={1200}
-                height={600}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "contain",
-                }}
-              />
+            <div className={styles.sponsorsGrid}>
+              <div className={styles.sponsorLogo}>
+                <Image
+                  src={WormholeSVG}
+                  alt="Wormhole"
+                  width={150}
+                  height={50}
+                />
+              </div>
+              <div className={styles.sponsorLogo}>
+                <Image src={PhantomSVG} alt="Phantom" width={150} height={50} />
+              </div>
+              <div className={styles.sponsorLogo}>
+                <Image
+                  src={SolanaMobileSVG}
+                  alt="Solana Mobile"
+                  width={150}
+                  height={50}
+                />
+              </div>
+              <div className={styles.sponsorLogo}>
+                <Image
+                  src={SolflareSVG}
+                  alt="Solflare"
+                  width={120}
+                  height={40}
+                />
+              </div>
+              <div className={styles.sponsorLogo}>
+                <Image src={ZeusSVG} alt="Zeus" width={120} height={40} />
+              </div>
+              <div className={styles.sponsorLogo}>
+                <Image src={HelioSVG} alt="Helio" width={120} height={40} />
+              </div>
+              <div className={styles.sponsorLogo}>
+                <Image src={JitoSVG} alt="Jito" width={85} height={28} />
+              </div>
+              <div className={styles.sponsorLogo}>
+                <Image src={MagnaSVG} alt="Magna" width={120} height={40} />
+              </div>
+              <div className={styles.sponsorLogo}>
+                <Image src={CubeSVG} alt="Cube" width={35} height={12} />
+              </div>
+              <div className={styles.sponsorLogo}>
+                <Image
+                  src={RockawaySVG}
+                  alt="Rockaway"
+                  width={150}
+                  height={50}
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -1002,8 +984,8 @@ export default function AccelerateNPage() {
               <div className={styles.nycCtaTextContent}>
                 <h2 className={styles.nycCtaTitle}>Come to NYC</h2>
                 <p className={styles.nycCtaDescription}>
-                  Accelerate is a high-conviction summit for people building the
-                  next chapter of America.
+                  Accelerate is for high-conviction people building the next
+                  chapter of American tech.
                 </p>
                 <Link
                   href="/accelerate-n/tickets"

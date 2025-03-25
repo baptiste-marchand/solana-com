@@ -1215,6 +1215,56 @@ $red: #ff0156;
   text-align: center;
 }
 
+// Add new sponsor grid styles
+.sponsorsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+.sponsorLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: all 0.3s ease;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.7;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+    object-fit: contain;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+
+    img {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+  }
+}
+
 // Media queries for sponsors section
 @media (max-width: 1024px) {
   .sponsorsTitle {
