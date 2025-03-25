@@ -10,7 +10,7 @@ import LibertyImage from "../../../../assets/accelerate/liberty.png";
 import CapitolImage from "../../../../assets/accelerate/capitol.png";
 import FacesImage from "../../../../assets/accelerate/faces.png";
 import PeopleImage from "../../../../assets/accelerate/people.png";
-import CompaniesImage from "../../../../assets/accelerate/companies.png";
+// import CompaniesImage from "../../../../assets/accelerate/companies.png";
 import GovtImage from "../../../../assets/accelerate/govt.png";
 import ThumbnailImage from "../../../../assets/accelerate/thumbnail.png";
 import LibertyDotImage from "../../../../assets/accelerate/liberty-dot.png";
@@ -101,9 +101,12 @@ const useCounterAnimation = (end, duration = 2000, startDelay = 0) => {
 
 const FAQs = [
   {
-    question: "Which event do I attend?",
+    question: "Which ticket do I need?",
     answer:
-      "Ship or Die is for everyone, Scale or Die is exclusively for developers.",
+      "Tickets are purchases by event, and you should get the ticket that best first your eligibility. " +
+      "Ship or Die is open to everyone. " +
+      "Scale or Die is exclusively for developers and by application only. " +
+      "For other events, it's a case by case basis — check the listing for more details.",
   },
   {
     question: "Are travel and accommodation part of my ticket?",
@@ -116,8 +119,9 @@ const FAQs = [
       'We&apos;re sorry to hear that! Tickets are non-refundable, but are transferable. Please email <a href="mailto:accelerate@solana.org" className={styles.emailLink}>accelerate@solana.org</a> to transfer your ticket. For more information on how to book, check out the travel section.',
   },
   {
-    question: "Is there parking onsite?",
-    answer: "No, we suggest using Rideshare or Taxis.",
+    question: "How do I get to the venues?",
+    answer:
+      "There's plenty of ways to get around New York! We suggest using the subway, taxis, Citibike, or rideshare apps. Please note that there is no parking onsite at any venue.",
   },
   {
     question: "Additional Questions/Enquires?",
@@ -439,7 +443,7 @@ export default function AccelerateNPage() {
                 >
                   Combined value of public and private companies
                 </p>
-                <img
+                {/* <img
                   src={CompaniesImage.src}
                   alt="Companies attending"
                   width="100"
@@ -452,7 +456,7 @@ export default function AccelerateNPage() {
                     objectFit: "contain",
                     objectPosition: "left center",
                   }}
-                />
+                /> */}
               </div>
 
               <div
@@ -937,7 +941,7 @@ export default function AccelerateNPage() {
 
         {/* FAQ Section */}
         <section className={styles.faqSection} id="faq">
-          <h2 className={styles.faqTitle}>Frequently Asked</h2>
+          <h2 className={styles.faqTitle}>FAQs</h2>
 
           <div className={styles.faqContent}>
             <div className={styles.faqList}>
