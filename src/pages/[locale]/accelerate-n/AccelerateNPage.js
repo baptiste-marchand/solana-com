@@ -111,7 +111,7 @@ const FAQs = [
   {
     question: "Are travel and accommodation part of my ticket?",
     answer:
-      "Attendees are responsible for making their own travel and accommodation — but there are plenty of hotels in New York! The Solana Foundation has worked with multiple hotels in New York to offer discounted rates on hotels during Ship or Die.",
+      'Attendees are responsible for making their own travel and accommodation — but there are plenty of hotels in New York! The Solana Foundation <a href="https://solanafoundation.notion.site/Accelerate-Travel-1c1d36dad52d801ea92ad3e495c1a36a" target="_blank" rel="noopener noreferrer">has worked with</a> multiple hotels in New York to offer discounted rates on hotels during Ship or Die.',
   },
   {
     question: "I can no longer attend. Can I get a refund?",
@@ -225,7 +225,7 @@ export default function AccelerateNPage() {
   }, [stickyVisible]);
 
   // These could be moved to translation files in a real implementation
-  const heroTitle = "A gathering of America&apos;s next builders.";
+  const heroTitle = "Tech, Finance and Policy meet crypto";
   const heroDescription =
     "Accelerate is a high-conviction summit for people building the next chapter of America. From AI to crypto, defense to finance—if you&apos;re not in the room, you&apos;re already behind.";
 
@@ -338,11 +338,7 @@ export default function AccelerateNPage() {
               />
             </div>
 
-            <h1>
-              A gathering
-              <br /> of America&apos;s
-              <br /> next builders.
-            </h1>
+            <h1>Tech, Finance and Policy meet crypto</h1>
             <p className={styles.heroDescription}>
               Accelerate is a conference for builders shaping crypto&apos;s next
               chapter in America. Crypto is transforming tech, policy, and
@@ -618,14 +614,13 @@ export default function AccelerateNPage() {
                 </div>
               </div>
               <div className={styles.freeTicketText}>
-                <h3 className={styles.freeTicketTitle}>FREE TICKET?</h3>
+                <h3 className={styles.freeTicketTitle}>BOGO</h3>
                 <h2 className={styles.freeTicketHeadline}>
-                  We&apos;re refunding random tickets daily
+                  Buy 1 Ticket, Get 1 Free
                 </h2>
                 <p className={styles.freeTicketDescription}>
-                  You could attend Accelerate for free as we&apos;re refunding
-                  random tickets every single day. To enter just purchase a
-                  ticket
+                  Purchase a ticket and receive a second, so you can bring a
+                  fellow builder, founder, or friend.
                 </p>
                 <Link
                   href="/accelerate-n/tickets"
