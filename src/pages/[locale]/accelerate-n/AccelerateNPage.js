@@ -104,7 +104,7 @@ const FAQs = [
   {
     question: "Which ticket should I get?",
     answer:
-      "Tickets are purchased by event, and you should get the ticket that best fits your eligibility. Ship or Die is open to everyone. Scale or Die is exclusively for developers and by application only. For other events, it's a case by case basis — check the listing for more details.",
+      "Tickets are event-specific; please choose the ticket that aligns with your eligibility. Ship or Die is open to everyone. Scale or Die is exclusively for developers and by application only. For other events, it's a case by case basis — check the listing for more details.",
   },
   {
     question: "Can I get a ticket to everything?",
@@ -243,7 +243,7 @@ export default function AccelerateNPage() {
   }, [stickyVisible]);
 
   // These could be moved to translation files in a real implementation
-  const heroTitle = "Tech, Policy, and Finance are Changing.";
+  const heroTitle = "Tech, Finance, and Policy are Changing.";
   const heroDescription =
     "Accelerate is a high-conviction summit for people building the next chapter of America. From AI to crypto, defense to finance—if you&apos;re not in the room, you&apos;re already behind.";
 
@@ -356,10 +356,10 @@ export default function AccelerateNPage() {
               />
             </div>
 
-            <h1>Tech, Policy, and Finance are Changing.</h1>
+            <h1>Tech, Finance, and Policy are Changing.</h1>
             <p className={styles.heroDescription}>
               Accelerate is an event where business, policy, and crypto leaders
-              where write the next chapter of blockchain in America.
+              collaborate to write the next chapter of blockchain in America.
             </p>
             <Link
               href="/accelerate-n/tickets"
@@ -557,7 +557,7 @@ export default function AccelerateNPage() {
                 </p>
                 <p>
                   Ship or Die will host leaders from tech, finance, and policy
-                  to accelerate the the future of crypto in the United States.
+                  to accelerate the future of crypto in the United States.
                 </p>
                 <p>
                   Scale or Die is a developer-only conference to dig into the
