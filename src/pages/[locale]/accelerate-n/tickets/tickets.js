@@ -9,7 +9,7 @@ import MapSVG from "../../../../../assets/accelerate/map.svg";
 import ShipTicket from "../../../../../assets/accelerate/ship.png";
 import ScaleTicket from "../../../../../assets/accelerate/scale.png";
 
-export default function TicketsPage() {
+function TicketsPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showShipModal, setShowShipModal] = useState(false);
 
@@ -271,3 +271,6 @@ export default function TicketsPage() {
     </>
   );
 }
+
+export { TicketsPage };
+export default TicketsPage;

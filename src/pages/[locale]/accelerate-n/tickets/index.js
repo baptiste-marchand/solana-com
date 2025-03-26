@@ -1,4 +1,4 @@
-import { TicketsPage } from "./tickets.js";
+import TicketsPage from "./tickets.js";
 import { withLocales } from "@/i18n/routing";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
