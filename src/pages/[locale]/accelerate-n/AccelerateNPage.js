@@ -15,6 +15,7 @@ import GovtImage from "../../../../assets/accelerate/govt.png";
 import ThumbnailImage from "../../../../assets/accelerate/thumbnail.png";
 import LibertyDotImage from "../../../../assets/accelerate/liberty-dot.png";
 import FreeTicketImage from "../../../../assets/accelerate/free.png";
+import AccLogo from "../../../../assets/accelerate/acc-logo.svg";
 
 // Import speaker images
 import AnatolyImage from "../../../../assets/accelerate/speakers/anatoly.png";
@@ -25,6 +26,10 @@ import LilyImage from "../../../../assets/accelerate/speakers/lily.png";
 import RogerImage from "../../../../assets/accelerate/speakers/roger.png";
 import DavidImage from "../../../../assets/accelerate/speakers/david.png";
 import BrandonImage from "../../../../assets/accelerate/speakers/brandon.png";
+import LucaImage from "../../../../assets/accelerate/speakers/luca.png";
+import RobertImage from "../../../../assets/accelerate/speakers/robert.png";
+import TaylorImage from "../../../../assets/accelerate/speakers/taylor.png";
+import KashImage from "../../../../assets/accelerate/speakers/kash.png";
 
 // Import sponsor logos
 import CubeSVG from "../../../../assets/accelerate/sponsors/cube.svg";
@@ -114,7 +119,7 @@ const FAQs = [
   {
     question: "How do I sponsor Accelerate?",
     answer:
-      "There are many sponsorship opportunities available for Accelerate events. Please fill out the form here.",
+      "There are many sponsorship opportunities available for Accelerate events. Please fill out the form <a href='https://solanafoundation.typeform.com/sponsorform?typeform-source=solana.com' target='_blank' rel='noopener noreferrer' className={styles.emailLink}>here</a>.",
   },
   {
     question: "Are travel and accommodation part of my ticket?",
@@ -125,11 +130,12 @@ const FAQs = [
     question: "What hotel should I stay at?",
     answer:
       "The Solana Foundation has worked with multiple hotels in New York City to set up discounted rates during Ship or Die.",
+    includedTable: true,
   },
   {
     question: "How do I get an invitation letter?",
     answer:
-      "Attendees are responsible for getting their own visas. If you need a letter of invitation for your visa, you can submit your request here. Letters should arrive within 5 business days of your request, but may take longer.",
+      "Attendees are responsible for getting their own visas. If you need a letter of invitation for your visa, you can submit your request <a href='https://solanafoundation.typeform.com/invite-letter?typeform-source=solana.com' target='_blank' rel='noopener noreferrer' className={styles.emailLink}>here</a>. Letters should arrive within 5 business days of your request, but may take longer.",
   },
   {
     question: "Are press passes available?",
@@ -161,8 +167,8 @@ export default function AccelerateNPage() {
     2000,
     200,
   );
-  const [policyCount, policyCountRef] = useCounterAnimation(50, 2000, 400);
-  const [touristsCount, touristsCountRef] = useCounterAnimation(250, 1000, 600);
+  const [policyCount, policyCountRef] = useCounterAnimation(20, 2000, 400);
+  const [touristsCount, touristsCountRef] = useCounterAnimation(50, 1000, 600);
 
   // Handle video lightbox
   const openVideoLightbox = () => {
@@ -247,9 +253,6 @@ export default function AccelerateNPage() {
   const heroDescription =
     "Accelerate is a high-conviction summit for people building the next chapter of America. From AI to crypto, defense to finance—if you&apos;re not in the room, you&apos;re already behind.";
 
-  // Define logo paths directly
-  const accLogoPath = "/assets/accelerate/acc-logo.svg";
-
   // YouTube video ID
   const youtubeVideoId = "_pF34DUWYSY";
 
@@ -260,13 +263,6 @@ export default function AccelerateNPage() {
         <meta name="description" content={heroDescription} />
         <style>
           {`
-            /* Hide global header via direct CSS */
-            header.global-header, 
-            header.position-sticky, 
-            header[class*="Header_header"] {
-              display: none !important;
-            }
-
             /* ABC Diatype font-face declaration */
             @font-face {
               font-family: 'ABC Diatype';
@@ -295,16 +291,19 @@ export default function AccelerateNPage() {
           className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}
         >
           <div className={styles.logo}>
-            <img
-              src={accLogoPath}
+            <Image
+              src={AccLogo}
               alt="Accelerate Logo"
               className={styles.logoImg}
+              width={120}
+              height={30}
+              priority
             />
           </div>
           <nav className={styles.nav}>
-            <Link href="#sponsors">SPONSORS</Link>
-            <Link href="#speakers">SPEAKERS</Link>
-            <Link href="#faq">FAQ</Link>
+            <Link href="/accelerate-n#sponsors">SPONSORS</Link>
+            <Link href="/accelerate-n#speakers">SPEAKERS</Link>
+            <Link href="/accelerate-n#faq">FAQ</Link>
             <Link href="/accelerate-n/tickets" className={styles.ticketsButton}>
               GET TICKETS
             </Link>
@@ -350,7 +349,7 @@ export default function AccelerateNPage() {
           <div className={styles.heroContent}>
             <div className={styles.heroLogo}>
               <img
-                src={accLogoPath}
+                src={AccLogo}
                 alt="Accelerate Logo"
                 className={styles.heroLogoImg}
               />
@@ -421,7 +420,7 @@ export default function AccelerateNPage() {
                   className={styles.cardDescription}
                   style={{ textAlign: "left" }}
                 >
-                  High energy executives from Tech
+                  Builders, Executives and Attendees
                 </p>
                 <img
                   src={PeopleImage.src}
@@ -454,7 +453,7 @@ export default function AccelerateNPage() {
                   className={styles.cardDescription}
                   style={{ textAlign: "left" }}
                 >
-                  Top fintech companies and founders
+                  Fintech and Tech Startups
                 </p>
                 {/* <img
                   src={CompaniesImage.src}
@@ -487,7 +486,7 @@ export default function AccelerateNPage() {
                   className={styles.cardDescription}
                   style={{ textAlign: "left" }}
                 >
-                  Policy makers from Capitol Hill
+                  Policymakers
                 </p>
                 <img
                   src={GovtImage.src}
@@ -520,7 +519,7 @@ export default function AccelerateNPage() {
                   className={styles.cardDescription}
                   style={{ textAlign: "left" }}
                 >
-                  Disruptive Crypto Companies
+                  Disruptive Crypto Startups
                 </p>
               </div>
             </div>
@@ -800,6 +799,72 @@ export default function AccelerateNPage() {
                 <h3 className={styles.speakerName}>Brandon Millman</h3>
                 <p className={styles.speakerCompany}>Phantom • Ship or Die</p>
               </div>
+
+              <div className={styles.speakerCard}>
+                <div className={styles.speakerImageWrapper}>
+                  <Image
+                    src={LucaImage}
+                    alt="Luca Netz"
+                    width={300}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
+                    className={styles.speakerImage}
+                  />
+                </div>
+                <h3 className={styles.speakerName}>Luca Netz</h3>
+                <p className={styles.speakerCompany}>
+                  Pudgy Penguins • Ship or Die
+                </p>
+              </div>
+
+              <div className={styles.speakerCard}>
+                <div className={styles.speakerImageWrapper}>
+                  <Image
+                    src={RobertImage}
+                    alt="Robert Leshner"
+                    width={300}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
+                    className={styles.speakerImage}
+                  />
+                </div>
+                <h3 className={styles.speakerName}>Robert Leshner</h3>
+                <p className={styles.speakerCompany}>
+                  Superstate • Ship or Die
+                </p>
+              </div>
+
+              <div className={styles.speakerCard}>
+                <div className={styles.speakerImageWrapper}>
+                  <Image
+                    src={TaylorImage}
+                    alt="Taylor Johnson"
+                    width={300}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
+                    className={styles.speakerImage}
+                  />
+                </div>
+                <h3 className={styles.speakerName}>Taylor Johnson</h3>
+                <p className={styles.speakerCompany}>
+                  Exo Technologies • Ship or Die
+                </p>
+              </div>
+
+              <div className={styles.speakerCard}>
+                <div className={styles.speakerImageWrapper}>
+                  <Image
+                    src={KashImage}
+                    alt="Kash Dhanda"
+                    width={300}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
+                    className={styles.speakerImage}
+                  />
+                </div>
+                <h3 className={styles.speakerName}>Kash Dhanda</h3>
+                <p className={styles.speakerCompany}>Jupiter • Ship or Die</p>
+              </div>
             </div>
           </div>
         </section>
@@ -832,55 +897,69 @@ export default function AccelerateNPage() {
             <div className={styles.sponsorsHR}></div>
 
             <div className={styles.sponsorsGrid}>
-              <div className={styles.sponsorLogo}>
-                <Image
-                  src={WormholeSVG}
-                  alt="Wormhole"
-                  width={150}
-                  height={50}
-                />
+              <div className={styles.titleSponsorSection}>
+                <p className={styles.sponsorTierLabel}>TITLE SPONSOR</p>
+                <div className={styles.titleSponsorLogo}>
+                  <Image
+                    src={WormholeSVG}
+                    alt="Wormhole"
+                    width={300}
+                    height={95}
+                  />
+                </div>
               </div>
-              <div className={styles.sponsorLogo}>
-                <Image
-                  src={SolflareSVG}
-                  alt="Solflare"
-                  width={120}
-                  height={40}
-                />
-              </div>
-              <div className={styles.sponsorLogo}>
-                <Image
-                  src={SolanaMobileSVG}
-                  alt="Solana Mobile"
-                  width={150}
-                  height={50}
-                />
-              </div>
-              <div className={styles.sponsorLogo}>
-                <Image src={JitoSVG} alt="Jito" width={85} height={28} />
-              </div>
-              <div className={styles.sponsorLogo}>
-                <Image src={PhantomSVG} alt="Phantom" width={150} height={50} />
-              </div>
-              <div className={styles.sponsorLogo}>
-                <Image src={ZeusSVG} alt="Zeus" width={120} height={40} />
-              </div>
-              <div className={styles.sponsorLogo}>
-                <Image src={HelioSVG} alt="Helio" width={120} height={40} />
-              </div>
-              <div className={styles.sponsorLogo}>
-                <Image src={MagnaSVG} alt="Magna" width={120} height={40} />
-              </div>
-              <div className={styles.sponsorLogo}>
-                <Image src={CubeSVG} alt="Cube" width={35} height={12} />
-              </div>
-              <div className={styles.sponsorLogo}>
-                <Image
-                  src={RockawaySVG}
-                  alt="Rockaway"
-                  width={150}
-                  height={50}
-                />
+
+              <div className={styles.goldSponsorsSection}>
+                <p className={styles.sponsorTierLabel}>GOLD SPONSORS</p>
+                <div className={styles.goldSponsorsGrid}>
+                  <div className={styles.sponsorLogo}>
+                    <Image
+                      src={SolflareSVG}
+                      alt="Solflare"
+                      width={120}
+                      height={40}
+                    />
+                  </div>
+                  <div className={styles.sponsorLogo}>
+                    <Image
+                      src={SolanaMobileSVG}
+                      alt="Solana Mobile"
+                      width={150}
+                      height={50}
+                    />
+                  </div>
+                  <div className={styles.sponsorLogo}>
+                    <Image src={JitoSVG} alt="Jito" width={85} height={28} />
+                  </div>
+                  <div className={styles.sponsorLogo}>
+                    <Image
+                      src={PhantomSVG}
+                      alt="Phantom"
+                      width={150}
+                      height={50}
+                    />
+                  </div>
+                  <div className={styles.sponsorLogo}>
+                    <Image src={ZeusSVG} alt="Zeus" width={120} height={40} />
+                  </div>
+                  <div className={styles.sponsorLogo}>
+                    <Image src={HelioSVG} alt="Helio" width={120} height={40} />
+                  </div>
+                  <div className={styles.sponsorLogo}>
+                    <Image src={MagnaSVG} alt="Magna" width={120} height={40} />
+                  </div>
+                  <div className={styles.sponsorLogo}>
+                    <Image src={CubeSVG} alt="Cube" width={35} height={12} />
+                  </div>
+                  <div className={styles.sponsorLogo}>
+                    <Image
+                      src={RockawaySVG}
+                      alt="Rockaway"
+                      width={150}
+                      height={50}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -915,6 +994,210 @@ export default function AccelerateNPage() {
                   </summary>
                   <div className={styles.faqAnswer}>
                     <p dangerouslySetInnerHTML={{ __html: faq.answer }}></p>
+                    {faq.includedTable && (
+                      <table
+                        style={{
+                          width: "100%",
+                          borderCollapse: "collapse",
+                          marginTop: "1rem",
+                        }}
+                      >
+                        <thead>
+                          <tr>
+                            <th
+                              style={{
+                                textAlign: "left",
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              Hotel
+                            </th>
+                            <th
+                              style={{
+                                textAlign: "left",
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              Rate (May 17-24)
+                            </th>
+                            <th
+                              style={{
+                                textAlign: "left",
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              Booking Info
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              <a
+                                href="https://www.google.com/maps/place/Hotel+Indigo+NYC+Financial+District"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.emailLink}
+                              >
+                                Hotel Indigo NYC Financial District
+                              </a>
+                            </td>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              Starting at $269
+                            </td>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              <a
+                                href="https://www.ihg.com/hotelindigo/hotels/us/en/find-hotels/select-roomrate"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.emailLink}
+                              >
+                                Book Now
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              <a
+                                href="https://www.google.com/maps/place/Moxy+NYC+Downtown"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.emailLink}
+                              >
+                                Moxy NYC Downtown
+                              </a>
+                            </td>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              Starting at $329
+                            </td>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              <a
+                                href="https://www.marriott.com/event-reservations/reservation-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.emailLink}
+                              >
+                                Book Now
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              <a
+                                href="https://www.google.com/maps/place/New+York+Marriott+Downtown"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.emailLink}
+                              >
+                                New York Marriott Downtown
+                              </a>
+                            </td>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              Starting at $399
+                            </td>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              <a
+                                href="https://book.passkey.com/gt/220513367"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.emailLink}
+                              >
+                                Book Now
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              <a
+                                href="https://www.google.com/maps/place/The+Washington+by+LuxUrban"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.emailLink}
+                              >
+                                The Washington by LuxUrban
+                              </a>
+                            </td>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              Starting at $314
+                            </td>
+                            <td
+                              style={{
+                                padding: "8px",
+                                borderBottom: "1px solid rgba(255,255,255,0.1)",
+                              }}
+                            >
+                              <a
+                                href="https://hotels.cloudbeds.com/en/reservation/pIsUES/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.emailLink}
+                              >
+                                Book Now
+                              </a>{" "}
+                              (Promo code: <code>B965776</code>)
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    )}
                   </div>
                 </details>
               ))}
@@ -964,19 +1247,19 @@ export default function AccelerateNPage() {
           <div className={styles.footerContent}>
             <div className={styles.footerRow}>
               <div className={styles.footerLogo}>
-                <img
-                  src={accLogoPath}
+                <Image
+                  src={AccLogo}
                   alt="Accelerate Logo"
                   className={styles.footerLogoImg}
-                  width="120"
-                  height="30"
-                  style={{ width: "120px", height: "auto" }}
+                  width={120}
+                  height={30}
+                  priority
                 />
               </div>
               <nav className={styles.footerNav}>
-                <Link href="#sponsors">SPONSORS</Link>
-                <Link href="#speakers">SPEAKERS</Link>
-                <Link href="#faq">FAQ</Link>
+                <Link href="/accelerate-n#sponsors">SPONSORS</Link>
+                <Link href="/accelerate-n#speakers">SPEAKERS</Link>
+                <Link href="/accelerate-n#faq">FAQ</Link>
               </nav>
               <p className={styles.copyright}>© Solana Foundation 2025</p>
             </div>
@@ -998,3 +1281,6 @@ export default function AccelerateNPage() {
     </>
   );
 }
+
+// Add layout property
+AccelerateNPage.layout = "AccelerateLayout";
