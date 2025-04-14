@@ -13,6 +13,11 @@ import YDeveloperResources, {
 import styles from "./depin.module.scss";
 import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
+import LongformItem from "@/components/solutions/LongformItem";
+import { MotionSlideIn } from "@/components/shared/Motions";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import longformTwo from "../../../../assets/solutions/depin/InstitutionalFinance_PermanentDelegate_V1.lottie";
 
 // Import video thumbnails
 import video1Img from "assets/solutions/depin/video1.png";
@@ -24,7 +29,16 @@ import rohanImg from "assets/solutions/depin/rohan.png";
 import roamLogo from "assets/solutions/depin/roam.svg";
 import ioLogo from "assets/solutions/depin/io.svg";
 import jakeImg from "assets/solutions/depin/jake.png";
-import Link from "next/link";
+
+const DotLottiePlayer = dynamic(
+  () =>
+    import("@dotlottie/player-component").then(() => {
+      return function DotLottiePlayer() {
+        return null;
+      };
+    }),
+  { ssr: false },
+);
 
 const VideoLightbox = ({ videoId, onClose }) => {
   useEffect(() => {
@@ -68,7 +82,7 @@ const DePINPage = () => {
   const testimonials = [
     {
       quote:
-        "It's a vibrant ecosystem with the most ambitious, resilient, and supportive developers. Given the scale of our vision, Solana is undoubtedly the best foundation for us to build onmoving forward.",
+        "Given the scale of our vision, Solana is undoubtedly the best foundation for us to build onmoving forward.",
       name: "Yuan",
       title: "Founder & CEO",
       companyLogo: gradientLogo,
@@ -78,13 +92,13 @@ const DePINPage = () => {
       quote:
         "Our users are pushing almost 2 million on chain transactions daily. Not a lot of blockchains can handle that volume.",
       name: "Rohan",
-      title: "Founder & CEO",
+      title: "CMO",
       companyLogo: roamLogo,
       avatar: rohanImg,
     },
     {
       quote:
-        "io.net built on Solana because its unique combination of speed, scalability, and low transaction costs aligns perfectly with our vision of creating a DePIN for GPU clusters. Solana's high throughput and fast finality ensure that our globally distributed GPU compute resources can be orchestrated with minimal latency, which is critical for powering AI/ML workloads, zero-knowledge proof generation, and other compute-intensive operations.",
+        "Solana's high throughput and fast finality ensure that our globally distributed GPU compute resources can be orchestrated with minimal latency, which is critical for powering AI/ML workloads, zero-knowledge proof generation, and other compute-intensive operations.",
       name: "Jake",
       title: "Founder & CEO",
       companyLogo: ioLogo,
@@ -190,6 +204,29 @@ const DePINPage = () => {
             </div>
           </div>
         </section>
+
+        {/* Compliance-in-a-Box Section */}
+        <MotionSlideIn from="right">
+          <LongformItem
+            mediaComponent={
+              <div className={styles.LottieWrapper}>
+                <DotLottiePlayer />
+                <dotlottie-player src={longformTwo} autoplay loop />
+              </div>
+            }
+            mediaDesktopPlacement="left"
+            titleComponent="Compliance-in-a-Box"
+            subtitleComponent={
+              <>
+                Choose from over a dozen{" "}
+                <Link href="/token-extensions">token extensions</Link> on Solana
+                to build regulatory requirements like real-time KYC and the
+                ability to freeze assets.
+              </>
+            }
+            className={styles.LongformItem1} // Reusing style, adjust if needed
+          />
+        </MotionSlideIn>
 
         {/* Testimonial Slider Section */}
         <section className={styles.testimonialSection}>

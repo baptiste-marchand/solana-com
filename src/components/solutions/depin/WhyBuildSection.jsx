@@ -14,7 +14,7 @@ const WhyBuildSection = () => {
           </div>
           <div className={styles.stat}>
             <h3 className={styles.statValue}>120k</h3>
-            <p className={styles.statLabel}>MAUs</p>
+            <p className={styles.statLabel}>Monthly Contributors</p>
           </div>
           <div className={styles.stat}>
             <h3 className={styles.statValue}>$400M</h3>
@@ -53,10 +53,10 @@ const WhyBuildSection = () => {
               </svg>
             </div>
             <div className={styles.benefitContent}>
-              <h3>High Throughput, Low Costs</h3>
+              <h3>Built To Scale</h3>
               <p>
-                The Solana network offers the speed, scalability, and security
-                needed to support the rapid growth of DePIN networks.
+                Solana supports speed, scalability, and security needed for
+                rapid growth.
               </p>
             </div>
           </div>
@@ -91,10 +91,9 @@ const WhyBuildSection = () => {
               </svg>
             </div>
             <div className={styles.benefitContent}>
-              <h3>The World&apos;s Strongest Community of DePIN founders</h3>
+              <h3>The Strongest DePIN Founders</h3>
               <p>
-                Hundreds of DePIN founders and developers are building on
-                Solana, including the most impactful DePIN projects in the
+                Solana is home to the most impactful DePIN projects in the
                 world.
               </p>
             </div>
@@ -132,7 +131,7 @@ const WhyBuildSection = () => {
               </svg>
             </div>
             <div className={styles.benefitContent}>
-              <h3>An Unstoppable, Giant Community of Developers & Fans</h3>
+              <h3>A Massive Ecosystem</h3>
               <p>
                 New developers are choosing to build on Solana more than any
                 other blockchain, and Solana products have millions of users.

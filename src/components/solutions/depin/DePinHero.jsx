@@ -246,14 +246,13 @@ const DePINHero = () => {
 
       <div className={styles.content}>
         <Text element="h1" as="heading">
-          The home of the world&apos;s biggest DePIN projects
+          Home of the world&apos;s biggest DePIN projects
         </Text>
         <Text element="p" as="paragraph">
-          Build better infrastructure. The world&apos;s most innovative
-          infrastructure projects are using the high-performance Solana
-          blockchain to create community-powered networks.
+          The next generation of infrastructure is being built on the
+          decentralized, high-performance Solana blockchain.
         </Text>
-        <Button text="Get Started" url="#developer-resources" />
+        <Button text="Start Building" url="#developer-resources" />
       </div>
 
       <div className={styles.sliderSection}>
