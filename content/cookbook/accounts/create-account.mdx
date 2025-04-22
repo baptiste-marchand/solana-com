@@ -19,16 +19,16 @@ import {
   createSolanaClient,
   signTransactionMessageWithSigners,
   getMinimumBalanceForRentExemption,
-  generateKeyPairSigner,
+  generateKeyPairSigner
 } from "gill";
 import { loadKeypairSignerFromFile } from "gill/node";
 import {
   getCreateAccountInstruction,
-  SYSTEM_PROGRAM_ADDRESS,
+  SYSTEM_PROGRAM_ADDRESS
 } from "gill/programs";
 
 const { rpc, sendAndConfirmTransaction } = createSolanaClient({
-  urlOrMoniker: "devnet",
+  urlOrMoniker: "devnet"
 });
 
 const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
@@ -52,10 +52,10 @@ const tx = createTransaction({
       payer: signer,
       space: space,
       // "wallet" accounts are owned by the system program
-      programAddress: SYSTEM_PROGRAM_ADDRESS,
-    }),
+      programAddress: SYSTEM_PROGRAM_ADDRESS
+    })
   ],
-  latestBlockhash,
+  latestBlockhash
 });
 
 const signedTransaction = await signTransactionMessageWithSigners(tx);
@@ -70,7 +70,7 @@ import {
   sendAndConfirmTransaction,
   Connection,
   clusterApiUrl,
-  LAMPORTS_PER_SOL,
+  LAMPORTS_PER_SOL
 } from "@solana/web3.js";
 
 const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
@@ -81,7 +81,7 @@ const newAccount = Keypair.generate();
 // Airdrop SOL for transferring lamports to the created account
 const airdropSignature = await connection.requestAirdrop(
   fromKeypair.publicKey,
-  LAMPORTS_PER_SOL,
+  LAMPORTS_PER_SOL
 );
 await connection.confirmTransaction(airdropSignature);
 
@@ -97,17 +97,17 @@ const createAccountTransaction = new Transaction().add(
     newAccountPubkey: newAccount.publicKey,
     lamports: rentLamports,
     space,
-    programId: SystemProgram.programId,
-  }),
+    programId: SystemProgram.programId
+  })
 );
 
 await sendAndConfirmTransaction(connection, createAccountTransaction, [
   fromKeypair,
-  newAccount,
+  newAccount
 ]);
 ```
 
-```rust  !! title="Rust"
+```rust !! title="Rust"
 
 // !collapse(1:9) collapsed
 

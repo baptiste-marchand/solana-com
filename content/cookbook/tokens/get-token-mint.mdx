@@ -8,21 +8,28 @@ description:
 In order to get the current supply, authority, or decimals a token has, you will
 need to get the account info for the token mint.
 
-<CodeTabs storage="cookbook">
+<CodeTabs >
 
 ```typescript !! title="Legacy"
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
-import { getMint } from "@solana/spl-token";
+import { getMint, TOKEN_2022_PROGRAM_ID } from "@solana/spl-token";
 
 (async () => {
-  const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
-
-  const mintAccountPublicKey = new PublicKey(
-    "8mAKLjGGmjKTnmcXeyr3pr7iX13xXVjJJiL6RujDbSPV",
+  const connection = new Connection(
+    clusterApiUrl("http://127.0.0.1:8899"),
+    "confirmed"
   );
 
-  let mintAccount = await getMint(connection, mintAccountPublicKey);
+  const mintAccountPublicKey = new PublicKey(
+    "8mAKLjGGmjKTnmcXeyr3pr7iX13xXVjJJiL6RujDbSPV"
+  );
 
+  let mintAccount = await getMint(
+    connection,
+    mintAccountPublicKey,
+    undefined,
+    TOKEN_2022_PROGRAM_ID
+  );
   console.log(mintAccount);
   /*
   {
@@ -51,7 +58,7 @@ use spl_token::state::Mint;
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     let client = RpcClient::new_with_commitment(
-        String::from("https://api.devnet.solana.com"),
+        String::from("http://127.0.0.1:8899"),
         CommitmentConfig::confirmed(),
     );
 

@@ -14,7 +14,7 @@ Every Solana account is required to maintain a minimum balance of native SOL
 import { createSolanaClient, LAMPORTS_PER_SOL, address } from "gill";
 
 const { rpc } = createSolanaClient({
-  urlOrMoniker: "devnet", // or `mainnet`, `localnet`, etc
+  urlOrMoniker: "devnet" // or `mainnet`, `localnet`, etc
 });
 
 const wallet = address("nicktrLHhYzLmoVbuZQzHUTicd2sfP571orwo9jfc8c");
@@ -27,7 +27,7 @@ import {
   clusterApiUrl,
   Connection,
   PublicKey,
-  LAMPORTS_PER_SOL,
+  LAMPORTS_PER_SOL
 } from "@solana/web3.js";
 
 const connection = new Connection(clusterApiUrl("devnet"), "confirmed");

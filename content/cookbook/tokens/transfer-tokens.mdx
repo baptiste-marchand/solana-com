@@ -16,7 +16,7 @@ Associated Token Account (ATA) address, which is derived from:
 You can both get the token account's address and send tokens to it with the
 following examples:
 
-<CodeTabs storage="cookbook">
+<CodeTabs >
 
 ```typescript !! title="gill"
 import {
@@ -26,40 +26,45 @@ import {
   getExplorerLink,
   getSignatureFromTransaction,
   signTransactionMessageWithSigners,
+  createKeyPairSignerFromBytes
 } from "gill";
 import { loadKeypairSignerFromFile } from "gill/node";
 import {
   getAssociatedTokenAccountAddress,
   getCreateAssociatedTokenIdempotentInstruction,
   getTransferInstruction,
-  TOKEN_PROGRAM_ADDRESS,
+  TOKEN_2022_PROGRAM_ADDRESS,
   getTransferTokensInstructions,
-  buildTransferTokensTransaction,
+  buildTransferTokensTransaction
 } from "gill/programs/token";
+import bs58 from "bs58";
 
-const signer = await loadKeypairSignerFromFile();
+const signer = await createKeyPairSignerFromBytes(
+  bs58.decode(
+    "588FU4PktJWfGfxtzpAAXywSNt74AvtroVzGfKkVN1LwRuvHwKGr851uH8czM5qm4iqLbs1kKoMKtMJG4ATR7Ld2"
+  )
+);
 
 const { rpc, sendAndConfirmTransaction } = createSolanaClient({
-  urlOrMoniker: "devnet",
+  urlOrMoniker: "http://127.0.0.1:8899"
 });
 
 const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
 
-const mint = address("HwxZNMkZbZMeiu9Xnmc6Rg8jYgNsJB47jwabHGUebW4F");
-const tokenProgram = TOKEN_PROGRAM_ADDRESS; // use the correct program for the `mint`
+const mint = address("8mAKLjGGmjKTnmcXeyr3pr7iX13xXVjJJiL6RujDbSPV");
+const tokenProgram = TOKEN_2022_PROGRAM_ADDRESS; // use the correct program for the `mint`
 
-const destination = address("7sZoCrE3cGgEpNgxcPnGffDeWfTewKnk6wWdLxmYA7Cy");
+const destination = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 const destinationAta = await getAssociatedTokenAccountAddress(
   mint,
   destination,
-  tokenProgram,
+  tokenProgram
 );
 
-const source = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 const sourceAta = await getAssociatedTokenAccountAddress(
   mint,
-  source,
-  tokenProgram,
+  signer.address,
+  tokenProgram
 );
 
 /**
@@ -76,19 +81,19 @@ const transaction = createTransaction({
       payer: signer,
       tokenProgram,
       owner: destination,
-      ata: destinationAta,
+      ata: destinationAta
     }),
     getTransferInstruction(
       {
         source: sourceAta,
         authority: signer,
         destination: destinationAta,
-        amount: 1_000_000,
+        amount: 1_000_000
       },
-      { programAddress: tokenProgram },
-    ),
+      { programAddress: tokenProgram }
+    )
   ],
-  latestBlockhash,
+  latestBlockhash
 });
 
 // instead of the above, you can also simplify with `buildTransferTokensTransaction()`
@@ -100,47 +105,45 @@ const transaction2 = await buildTransferTokensTransaction({
   authority: signer,
   destination: destination,
   mint,
-  tokenProgram,
+  tokenProgram
 });
 
 const signedTransaction = await signTransactionMessageWithSigners(transaction);
 
-console.log(
-  "Explorer:",
-  getExplorerLink({
-    cluster: "devnet",
-    transaction: getSignatureFromTransaction(signedTransaction),
-  }),
-);
-
 await sendAndConfirmTransaction(signedTransaction);
 ```
 
-```typescript !! title="web3.js"
+```typescript !! title="Legacy"
 import {
   Connection,
   clusterApiUrl,
   Keypair,
   LAMPORTS_PER_SOL,
   Transaction,
-  sendAndConfirmTransaction,
+  sendAndConfirmTransaction
 } from "@solana/web3.js";
 import {
   createMint,
   getOrCreateAssociatedTokenAccount,
   mintTo,
-  createTransferInstruction,
+  createTransferInstruction
 } from "@solana/spl-token";
+import bs58 from "bs58";
 
 (async () => {
   // Connect to cluster
-  const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
+  const connection = new Connection("http://127.0.0.1:8899", "confirmed");
 
   // Generate a new wallet keypair and airdrop SOL
-  const fromWallet = Keypair.generate();
+  const fromWallet = Keypair.fromSecretKey(
+    bs58.decode(
+      "588FU4PktJWfGfxtzpAAXywSNt74AvtroVzGfKkVN1LwRuvHwKGr851uH8czM5qm4iqLbs1kKoMKtMJG4ATR7Ld2"
+    )
+  );
+
   const fromAirdropSignature = await connection.requestAirdrop(
     fromWallet.publicKey,
-    LAMPORTS_PER_SOL,
+    LAMPORTS_PER_SOL
   );
   // Wait for airdrop confirmation
   await connection.confirmTransaction(fromAirdropSignature);
@@ -154,7 +157,7 @@ import {
     fromWallet,
     fromWallet.publicKey,
     null,
-    9,
+    9
   );
 
   // Get the token account of the fromWallet Solana address, if it does not exist, create it
@@ -162,7 +165,7 @@ import {
     connection,
     fromWallet,
     mint,
-    fromWallet.publicKey,
+    fromWallet.publicKey
   );
 
   //get the token account of the toWallet Solana address, if it does not exist, create it
@@ -170,7 +173,7 @@ import {
     connection,
     fromWallet,
     mint,
-    toWallet.publicKey,
+    toWallet.publicKey
   );
 
   // Minting 1 new token to the "fromTokenAccount" account we just returned/created
@@ -181,7 +184,7 @@ import {
     fromTokenAccount.address,
     fromWallet.publicKey,
     1000000000, // it's 1 token, but in lamports
-    [],
+    []
   );
 
   // Add token transfer instructions to transaction
@@ -190,8 +193,8 @@ import {
       fromTokenAccount.address,
       toTokenAccount.address,
       fromWallet.publicKey,
-      1,
-    ),
+      1
+    )
   );
 
   // Sign transaction, broadcast, and confirm

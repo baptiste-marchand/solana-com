@@ -31,11 +31,11 @@ import {
   setTransactionMessageFeePayerSigner,
   setTransactionMessageLifetimeUsingBlockhash,
   signTransactionMessageWithSigners,
-  type TransactionMessageBytesBase64,
+  type TransactionMessageBytesBase64
 } from "@solana/kit";
 import {
   getSetComputeUnitLimitInstruction,
-  getSetComputeUnitPriceInstruction,
+  getSetComputeUnitPriceInstruction
 } from "@solana-program/compute-budget";
 import { getAddMemoInstruction } from "@solana-program/memo";
 
@@ -48,7 +48,7 @@ const getComputeUnitEstimate =
   getComputeUnitEstimateForTransactionMessageFactory({ rpc });
 const sendAndConfirmTransaction = sendAndConfirmTransactionFactory({
   rpc,
-  rpcSubscriptions,
+  rpcSubscriptions
 });
 const airdrop = airdropFactory({ rpc, rpcSubscriptions });
 
@@ -57,7 +57,7 @@ const signer = await generateKeyPairSigner();
 await airdrop({
   commitment: "confirmed",
   lamports: lamports(1000_000n),
-  recipientAddress: signer.address,
+  recipientAddress: signer.address
 });
 console.log("Create and fund account with address", signer.address);
 
@@ -72,23 +72,23 @@ const transactionMessage = pipe(
     appendTransactionMessageInstructions(
       [
         getSetComputeUnitPriceInstruction({ microLamports: 5000n }),
-        getAddMemoInstruction({ memo: "Hello, world!" }),
+        getAddMemoInstruction({ memo: "Hello, world!" })
       ],
-      m,
-    ),
+      m
+    )
 );
 
 // 5. Estimate compute units
 const estimatedComputeUnits = await getComputeUnitEstimate(transactionMessage);
 // Transaction is estimated to consume 6236 compute units
 console.log(
-  `Transaction is estimated to consume ${estimatedComputeUnits} compute units`,
+  `Transaction is estimated to consume ${estimatedComputeUnits} compute units`
 );
 
 // 6. Add compute unit limit instruction to the transaction
 const budgetedTransactionMessage = prependTransactionMessageInstructions(
   [getSetComputeUnitLimitInstruction({ units: estimatedComputeUnits })],
-  transactionMessage,
+  transactionMessage
 );
 
 // 7. Calculate transaction fee
@@ -96,18 +96,18 @@ const base64EncodedMessage = pipe(
   budgetedTransactionMessage,
   compileTransactionMessage,
   getCompiledTransactionMessageEncoder().encode,
-  getBase64Decoder().decode,
+  getBase64Decoder().decode
 ) as TransactionMessageBytesBase64;
 
 const transactionCost = await rpc.getFeeForMessage(base64EncodedMessage).send();
 // Transaction is estimated to cost 5032 lamports
 console.log(
-  "Transaction is estimated to cost " + transactionCost.value + " lamports",
+  "Transaction is estimated to cost " + transactionCost.value + " lamports"
 );
 
 // 8. Sign and send the transaction
 const signedTx = await signTransactionMessageWithSigners(
-  budgetedTransactionMessage,
+  budgetedTransactionMessage
 );
 const transactionSignature = getSignatureFromTransaction(signedTx);
 console.log("Transaction Signature:", transactionSignature);
@@ -123,7 +123,7 @@ import {
   LAMPORTS_PER_SOL,
   SystemProgram,
   TransactionMessage,
-  VersionedTransaction,
+  VersionedTransaction
 } from "@solana/web3.js";
 
 // Connect to Solana network
@@ -141,31 +141,31 @@ console.log(`Created recipient account: ${recipient.publicKey.toString()}`);
 // Request and confirm airdrop
 const airdropSignature = await connection.requestAirdrop(
   sender.publicKey,
-  LAMPORTS_PER_SOL,
+  LAMPORTS_PER_SOL
 );
 
 await connection.confirmTransaction({
   signature: airdropSignature,
   blockhash,
-  lastValidBlockHeight,
+  lastValidBlockHeight
 });
 
 // Create a transfer instruction
 const transferInstruction = SystemProgram.transfer({
   fromPubkey: sender.publicKey,
   toPubkey: recipient.publicKey,
-  lamports: 1000000, // 0.001 SOL
+  lamports: 1000000 // 0.001 SOL
 });
 
 // Create simulation instructions with placeholder compute unit limit
 const simulationInstructions = [
   ComputeBudgetProgram.setComputeUnitLimit({
-    units: 1_400_000, // High value for simulation
+    units: 1_400_000 // High value for simulation
   }),
   ComputeBudgetProgram.setComputeUnitPrice({
-    microLamports: 1n,
+    microLamports: 1n
   }),
-  transferInstruction,
+  transferInstruction
 ];
 
 // Create transaction for simulation
@@ -173,13 +173,13 @@ const simulationTransaction = new VersionedTransaction(
   new TransactionMessage({
     instructions: simulationInstructions,
     payerKey: sender.publicKey,
-    recentBlockhash: blockhash,
-  }).compileToV0Message(),
+    recentBlockhash: blockhash
+  }).compileToV0Message()
 );
 
 // Simulate transaction to get compute unit estimate
 const simulationResponse = await connection.simulateTransaction(
-  simulationTransaction,
+  simulationTransaction
 );
 
 const estimatedUnits = simulationResponse.value.unitsConsumed;
@@ -187,11 +187,11 @@ console.log(`Estimated compute units: ${estimatedUnits}`);
 
 // Create final transaction with compute budget instructions
 const computeUnitLimitInstruction = ComputeBudgetProgram.setComputeUnitLimit({
-  units: estimatedUnits!,
+  units: estimatedUnits!
 });
 
 const computeUnitPriceInstruction = ComputeBudgetProgram.setComputeUnitPrice({
-  microLamports: 1n,
+  microLamports: 1n
 });
 
 // Build transaction with all instructions
@@ -201,8 +201,8 @@ const messageV0 = new TransactionMessage({
   instructions: [
     computeUnitPriceInstruction,
     computeUnitLimitInstruction,
-    transferInstruction,
-  ],
+    transferInstruction
+  ]
 }).compileToV0Message();
 
 // Calculate fee

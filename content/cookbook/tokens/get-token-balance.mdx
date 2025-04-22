@@ -1,22 +1,26 @@
 ---
-title: How to get a token account's balance
+title: How to get a Token Account's Balance
 description:
   "Learn how to quickly retrieve a Solana token account's balance with a single
   call. Includes code examples in both TypeScript and Rust."
 ---
 
-The token account holds the token balance, which can be retrieved with a single PRC call
+The token account holds the token balance, which can be retrieved with a single
+PRC call
 
-<CodeTabs storage="cookbook">
+<CodeTabs >
 
 ```typescript !! title="Legacy"
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 
 (async () => {
-  const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
+  const connection = new Connection(
+    clusterApiUrl("http://127.0.0.1:8899"),
+    "confirmed"
+  );
 
   const tokenAccount = new PublicKey(
-    "FWZedVtyKQtP4CXhT7XDnLidRADrJknmZGA2qNjpTPg8",
+    "37iT6V7Y7EtnyiNcdbGVnjPRbMdzLJayKJ197jFXwpdB"
   );
 
   let tokenAmount = await connection.getTokenAccountBalance(tokenAccount);
@@ -28,20 +32,16 @@ import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 ```rust !! title="Rust"
 use solana_client::nonblocking::rpc_client::RpcClient;
 use solana_sdk::{commitment_config::CommitmentConfig, pubkey};
-use spl_associated_token_account::get_associated_token_address;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     let client = RpcClient::new_with_commitment(
-        String::from("https://api.devnet.solana.com"),
+        String::from("http://127.0.0.1:8899"),
         CommitmentConfig::confirmed(),
     );
 
-    let mint_address = pubkey!("2SKpuBU9ksneBZD4nqbZkw75NE11HsSHsGRtW2BZh5aQ");
-    let owner_address = pubkey!("G2FAbFQPFa5qKXCetoFZQEvF9BVvCKbvUZvodpVidnoY");
-    let ata_address = get_associated_token_address(&owner_address, &mint_address);
-
-    let balance = client.get_token_account_balance(&ata_address).await?;
+    let token_account_address = pubkey!("37iT6V7Y7EtnyiNcdbGVnjPRbMdzLJayKJ197jFXwpdB");
+    let balance = client.get_token_account_balance(&token_account_address).await?;
     println!("{:#?}", balance);
 
     Ok(())
@@ -50,18 +50,18 @@ async fn main() -> anyhow::Result<()> {
 /*
 UiTokenAmount {
     ui_amount: Some(
-        99.0,
+        0.0,
     ),
-    decimals: 8,
-    amount: "9900000000",
-    ui_amount_string: "99",
+    decimals: 2,
+    amount: "0",
+    ui_amount_string: "0",
 }
 */
 ```
 
 </CodeTabs>
 
-
 <Callout type="info">
-  A token account can only hold one kind of mint. When you specify a token account, you also specific a mint too.
+  A token account can only hold one kind of mint. When you specify a token
+  account, you also specific a mint too.
 </Callout>

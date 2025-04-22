@@ -8,7 +8,7 @@ description:
 When you're working locally, you need some SOL in order to send transactions. In
 non-mainnet environments you can receive SOL by airdropping it to your address:
 
-<CodeTabs storage="cookbook">
+<CodeTabs >
 
 ```typescript !! title="gill"
 import {
@@ -16,13 +16,13 @@ import {
   lamports,
   airdropFactory,
   createSolanaClient,
-  LAMPORTS_PER_SOL,
+  LAMPORTS_PER_SOL
 } from "gill";
 
 const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient(
   {
-    urlOrMoniker: "devnet", // or `localnet`, etc
-  },
+    urlOrMoniker: "http://127.0.0.1:8899" // or `localnet`, etc
+  }
 );
 
 const wallet = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
@@ -36,8 +36,8 @@ console.log("Initial balance:", initialBalance);
  */
 await airdropFactory({ rpc, rpcSubscriptions })({
   commitment: "confirmed",
-  lamports: lamports(LAMPORTS_PER_SOL), // request 1 SOL airdrop
-  recipientAddress: wallet,
+  lamports: lamports(BigInt(LAMPORTS_PER_SOL)), // request 1 SOL airdrop
+  recipientAddress: wallet
 });
 
 const { value: newBalance } = await rpc.getBalance(wallet).send();
@@ -64,7 +64,7 @@ const { blockhash, lastValidBlockHeight } =
 await connection.confirmTransaction({
   blockhash,
   lastValidBlockHeight,
-  signature,
+  signature
 });
 ```
 
