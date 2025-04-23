@@ -16,7 +16,7 @@ import starpowerLogo from "assets/solutions/depin/starpower.png";
 import geodnetLogo from "assets/solutions/depin/geodnet.png";
 import skytradeLogo from "assets/solutions/depin/skytrade.png";
 import xnetLogo from "assets/solutions/depin/xnet.png";
-import roamLogo from "assets/solutions/depin/roam.png";
+import cudisLogo from "assets/solutions/depin/cudis.png";
 import natixLogo from "assets/solutions/depin/natix.png";
 
 // Additional logos will need to be added here
@@ -87,12 +87,12 @@ const sliderData = [
     },
   },
   {
-    logo: roamLogo,
-    name: "Roam",
-    description: "The world's largest open, global wireless network",
+    logo: cudisLogo,
+    name: "Cudis",
+    description: "The World's first rewarding Longevity protocol",
     stats: {
-      users: "2.7M",
-      label: "users in 180+ countries",
+      users: "1B+",
+      label: "steps tracked",
     },
   },
   {

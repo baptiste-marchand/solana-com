@@ -10,7 +10,7 @@ const WhyBuildSection = () => {
         <div className={styles.statsContainer}>
           <div className={styles.stat}>
             <h3 className={styles.statValue}>24M</h3>
-            <p className={styles.statLabel}>DePIN Txns / month</p>
+            <p className={styles.statLabel}>DePIN Txns / month *</p>
           </div>
           <div className={styles.stat}>
             <h3 className={styles.statValue}>120k</h3>
@@ -18,8 +18,9 @@ const WhyBuildSection = () => {
           </div>
           <div className={styles.stat}>
             <h3 className={styles.statValue}>$400M</h3>
-            <p className={styles.statLabel}>DePIN rewards distributed</p>
+            <p className={styles.statLabel}>DePIN rewards distributed *</p>
           </div>
+          <p className={styles.statNote}>*Since Jan 2024</p>
         </div>
 
         <div className={styles.benefitsContainer}>

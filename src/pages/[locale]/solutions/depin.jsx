@@ -13,11 +13,7 @@ import YDeveloperResources, {
 import styles from "./depin.module.scss";
 import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
-import LongformItem from "@/components/solutions/LongformItem";
-import { MotionSlideIn } from "@/components/shared/Motions";
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import longformTwo from "../../../../assets/solutions/depin/InstitutionalFinance_PermanentDelegate_V1.lottie";
 
 // Import video thumbnails
 import video1Img from "assets/solutions/depin/video1.png";
@@ -29,16 +25,8 @@ import rohanImg from "assets/solutions/depin/rohan.png";
 import roamLogo from "assets/solutions/depin/roam.svg";
 import ioLogo from "assets/solutions/depin/io.svg";
 import jakeImg from "assets/solutions/depin/jake.png";
-
-const DotLottiePlayer = dynamic(
-  () =>
-    import("@dotlottie/player-component").then(() => {
-      return function DotLottiePlayer() {
-        return null;
-      };
-    }),
-  { ssr: false },
-);
+import mintImg from "assets/solutions/depin/mint.png";
+import kycImg from "assets/solutions/depin/kyc.png";
 
 const VideoLightbox = ({ videoId, onClose }) => {
   useEffect(() => {
@@ -168,6 +156,51 @@ const DePINPage = () => {
         <DePINHero />
         <WhyBuildSection />
 
+        {/* Two Column Features Section */}
+        <section className={styles.featuresSection}>
+          <div className={styles.featuresContainer}>
+            <div className={styles.featuresRow}>
+              {/* Left Column - Mint at Scale */}
+              <div className={styles.featureColumn}>
+                <div className={styles.featureImageContainer}>
+                  <Image
+                    src={mintImg}
+                    alt="Mint at Scale visualization"
+                    width={500}
+                    height={300}
+                    layout="responsive"
+                  />
+                </div>
+                <h2 className={styles.featureTitle}>Mint at Scale</h2>
+                <p className={styles.featureDescription}>
+                  Use zk compression on Solana to create millions of digital
+                  assets for hundreds of dollars.
+                </p>
+              </div>
+
+              {/* Right Column - Ready-made tooling */}
+              <div className={styles.featureColumn}>
+                <div className={styles.featureImageContainer}>
+                  <Image
+                    src={kycImg}
+                    alt="Compliance tooling visualization"
+                    width={500}
+                    height={300}
+                    layout="responsive"
+                  />
+                </div>
+                <h2 className={styles.featureTitle}>
+                  Ready-made tooling for scale and compliance
+                </h2>
+                <p className={styles.featureDescription}>
+                  Token extensions on Solana can enable KYC checks, privacy,
+                  audit trails, and more.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Real Builders Section */}
         <section className={styles.buildersSection}>
           <div className={styles.buildersContainer}>
@@ -179,6 +212,17 @@ const DePINPage = () => {
               infrastructure on Solana, revolutionizing how we think about
               decentralized physical infrastructure.
             </p>
+
+            <div className={styles.buttonContainer}>
+              <a
+                href="https://www.youtube.com/@SolanaFndn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.ghostButton}
+              >
+                More Stories
+              </a>
+            </div>
 
             <div className={styles.videoGrid}>
               {videoData.map((video, index) => (
@@ -204,29 +248,6 @@ const DePINPage = () => {
             </div>
           </div>
         </section>
-
-        {/* Compliance-in-a-Box Section */}
-        <MotionSlideIn from="right">
-          <LongformItem
-            mediaComponent={
-              <div className={styles.LottieWrapper}>
-                <DotLottiePlayer />
-                <dotlottie-player src={longformTwo} autoplay loop />
-              </div>
-            }
-            mediaDesktopPlacement="left"
-            titleComponent="Compliance-in-a-Box"
-            subtitleComponent={
-              <>
-                Choose from over a dozen{" "}
-                <Link href="/token-extensions">token extensions</Link> on Solana
-                to build regulatory requirements like real-time KYC and the
-                ability to freeze assets.
-              </>
-            }
-            className={styles.LongformItem1} // Reusing style, adjust if needed
-          />
-        </MotionSlideIn>
 
         {/* Testimonial Slider Section */}
         <section className={styles.testimonialSection}>
