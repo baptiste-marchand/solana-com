@@ -9,11 +9,11 @@ const WhyBuildSection = () => {
       <div className={styles.contentWrapper}>
         <div className={styles.statsContainer}>
           <div className={styles.stat}>
-            <h3 className={styles.statValue}>24M</h3>
+            <h3 className={styles.statValue}>2M</h3>
             <p className={styles.statLabel}>DePIN Txns / month *</p>
           </div>
           <div className={styles.stat}>
-            <h3 className={styles.statValue}>120k</h3>
+            <h3 className={styles.statValue}>100k</h3>
             <p className={styles.statLabel}>Monthly Contributors</p>
           </div>
           <div className={styles.stat}>

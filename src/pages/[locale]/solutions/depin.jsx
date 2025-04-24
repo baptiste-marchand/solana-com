@@ -70,7 +70,7 @@ const DePINPage = () => {
   const testimonials = [
     {
       quote:
-        "Given the scale of our vision, Solana is undoubtedly the best foundation for us to build onmoving forward.",
+        "Given the scale of our vision, Solana is undoubtedly the best foundation for us to build on moving forward.",
       name: "Yuan",
       title: "Founder & CEO",
       companyLogo: gradientLogo,

@@ -2592,7 +2592,7 @@
   "solutions-gaming": {
     "meta": {
       "title": "Games Tooling",
-      "description": "True digital ownership is changing the dynamics of video games. Players can play and own by building their own digital assets and features. Solana’s scalability makes the massive, player-powered digital economies of future games possible, today."
+      "description": "Digital ownership is changing the dynamics of video games. Players can play and own by building their own digital assets and features. Solana’s scalability makes the massive, player-powered digital economies of future games possible, today."
     },
     "hero": {
       "kicker": "Games",
@@ -2603,7 +2603,7 @@
     },
     "stats": {
       "title": "<gradient>Turn Games Into</gradient> Economies",
-      "subtitle": "Give players true digital ownership by integrating Solana into new or existing games.",
+      "subtitle": "Give players digital ownership by integrating Solana into new or existing games.",
       "stats": [
         { "value": "779M", "label": "Users" },
         { "value": "4,120", "label": "Average TPS" },

@@ -89,7 +89,7 @@ const sliderData = [
   {
     logo: cudisLogo,
     name: "Cudis",
-    description: "The World's first rewarding Longevity protocol",
+    description: "The smart ring that rewards your wellness journey",
     stats: {
       users: "1B+",
       label: "steps tracked",
