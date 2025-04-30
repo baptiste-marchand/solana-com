@@ -347,7 +347,7 @@ const DePINPage = () => {
           btnText="Funding Opportunities"
           btnUrl="https://solana.org/grants-funding"
           btnLargeText="<strong>Still have questions?</strong> Reach out to Solana Foundation DePIN team"
-          btnLargeUrl="bd-depin@solana.org"
+          btnLargeUrl="https://solanafoundation.typeform.com/to/NFeIvWZi"
           className={styles.FooterCallout}
           topSectionClassName={styles.FooterCalloutTopSection}
           buttonLargeClassName={styles.FooterCalloutButtonLarge}
