@@ -7,6 +7,7 @@ import Dots from "../../../public/img/mobile-dots.svg";
 import Image from "next/image";
 import { ArrowUpRight, Menu, Ticket, X } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -34,9 +35,27 @@ const Header = () => {
                 className={styles.logoWord}
               />
             </a>
+
+            <div>
+              <Link href="/accelerate#speakers">
+                {t("accelerate.header.speakers")}
+              </Link>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://lu.ma/solana-accelerate?compact=true"
+              >
+                Agenda
+              </a>
+            </div>
           </div>
 
-          <a href="#">
+          <Link
+            href="/accelerate"
+            onClick={() => {
+              handleMenu();
+            }}
+          >
             <Image
               src={AccelerateLogo}
               alt="Accelerate logo"
@@ -44,17 +63,25 @@ const Header = () => {
               height={73}
               className={styles.logo}
             />
-          </a>
+          </Link>
 
           <div className={styles.col}>
-            <a href="#speakers">{t("accelerate.header.speakers")}</a>
-            <a href="#sponsors">{t("accelerate.header.sponsors")}</a>
-            <a href="#faq">{t("accelerate.header.faq")}</a>
-            <a className={styles.cta} href="#tickets">
+            <Link href="/accelerate#sponsors">
+              {t("accelerate.header.sponsors")}
+            </Link>
+            <Link href="/accelerate#faq">{t("accelerate.header.faq")}</Link>
+            <a
+              href="https://lu.ma/solana-nyc?tag=accelerate"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              side events
+            </a>
+            <Link className={styles.cta} href="/accelerate#tickets">
               <span>
                 {t("accelerate.header.get-tickets")} <ArrowUpRight />
               </span>
-            </a>
+            </Link>
             <div className={styles.menuIcon}>
               {isOpen ? (
                 <X size={32} onClick={handleMenu} />
@@ -77,57 +104,55 @@ const Header = () => {
           className={styles.mobileBackground}
         />
         <div className={styles.mobileLinks}>
-          <a
-            href="#speakers"
-            onClick={(e) => {
-              e.preventDefault();
+          <Link
+            href="/accelerate#speakers"
+            onClick={() => {
               handleMenu();
-              document
-                .getElementById("speakers")
-                ?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             {t("accelerate.header.speakers")}
-          </a>
+          </Link>
           <a
-            href="#sponsors"
-            onClick={(e) => {
-              e.preventDefault();
+            href="https://lu.ma/solana-accelerate?compact=true"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Agenda
+          </a>
+          <Link
+            href="/accelerate#sponsors"
+            onClick={() => {
               handleMenu();
-              document
-                .getElementById("sponsors")
-                ?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             {t("accelerate.header.sponsors")}
-          </a>
-          <a
-            href="#faq"
-            onClick={(e) => {
-              e.preventDefault();
+          </Link>
+          <Link
+            href="/accelerate#faq"
+            onClick={() => {
               handleMenu();
-              document
-                .getElementById("faq")
-                ?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             {t("accelerate.header.faq")}
+          </Link>
+          <a
+            href="https://lu.ma/solana-nyc?tag=accelerate"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Side Events
           </a>
         </div>
 
-        <a
-          href="#tickets"
-          onClick={(e) => {
-            e.preventDefault();
+        <Link
+          href="/accelerate#tickets"
+          onClick={() => {
             handleMenu();
-            document
-              .getElementById("tickets")
-              ?.scrollIntoView({ behavior: "smooth" });
           }}
           className={styles.mobileCta}
         >
           {t("accelerate.header.get-tickets")} <Ticket size={24} />
-        </a>
+        </Link>
       </div>
     </>
   );

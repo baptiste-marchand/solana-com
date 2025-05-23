@@ -15,7 +15,7 @@ import { wordWrap } from "./word-wrap";
 import { MultiCode } from "./code.client";
 import { tooltip } from "./tooltip";
 import { tokenTransitions } from "./token-transitions";
-import { RunableCode } from "./code.runable";
+import { RunnableLayout } from "./code.runnable";
 
 export async function Code(props: {
   codeblocks: RawCode[];
@@ -38,53 +38,51 @@ export function SingleCode({
   className?: string;
 }) {
   const { pre, title, code, icon, lang } = group.tabs[0];
+  const isRunnable = group.options.runnable;
 
-  return (
-    <>
-      <div
-        className={cn(
-          "tw-border rounded overflow-hidden my-4 relative border-ch-border flex flex-col selection:bg-ch-selection",
-          className,
-        )}
-      >
-        {title ? (
-          <div
-            className={cn(
-              "border-b-[1px] border-ch-border bg-ch-tabs-background px-3 py-0",
-              "w-full h-9 flex items-center justify-between shrink-0",
-              "text-ch-tab-inactive-foreground text-sm font-mono",
-            )}
-          >
-            <div className="flex items-center gap-2 w-full h-5">
-              <div className="size-4">{icon}</div>
-              <span className="leading-none">{title}</span>
-              <div className={cn("ml-auto mr-3 items-center flex")}>
-                {group.options.runable && (
-                  <a
-                    href="https://mirror.ad"
-                    target="_blank"
-                    className="mr-2 text-blue-500 font-mono text-sm"
-                  >
-                    Powered by Mirror
-                  </a>
-                )}
-                <CopyButton
-                  text={code}
-                  className="text-ch-tab-inactive-foreground"
-                />
-              </div>
+  const content = (
+    <div
+      className={cn(
+        "tw-border rounded overflow-hidden relative border-ch-border flex flex-col selection:bg-ch-selection",
+        isRunnable ? "h-full" : "my-4",
+        className,
+      )}
+    >
+      {title ? (
+        <div
+          className={cn(
+            "border-b-[1px] border-ch-border bg-ch-tabs-background px-3 py-0",
+            "w-full h-9 flex items-center justify-between shrink-0",
+            "text-ch-tab-inactive-foreground text-sm font-mono",
+          )}
+        >
+          <div className="flex items-center w-full h-5 gap-2">
+            <div className="size-4">{icon}</div>
+            <span className="leading-none">{title}</span>
+            <div className={cn("ml-auto mr-3 items-center flex")}>
+              <CopyButton
+                text={code}
+                className="text-ch-tab-inactive-foreground"
+              />
             </div>
           </div>
-        ) : (
-          <CopyButton
-            text={code}
-            className="absolute right-3 my-0 top-2.5 text-ch-tab-inactive-foreground bg-ch-background/90"
-          />
-        )}
-        {pre}
-      </div>
-      {group.options.runable && <RunableCode code={code} language={lang} />}
-    </>
+        </div>
+      ) : (
+        <CopyButton
+          text={code}
+          className="absolute right-3 my-0 top-2.5 text-ch-tab-inactive-foreground bg-ch-background/90"
+        />
+      )}
+      {pre}
+    </div>
+  );
+
+  return isRunnable ? (
+    <RunnableLayout code={code} language={lang} className={"my-4"}>
+      {content}
+    </RunnableLayout>
+  ) : (
+    content
   );
 }
 
@@ -122,7 +120,7 @@ export async function toCodeGroup(props: {
         pre: (
           <Pre
             code={highlighted}
-            className="overflow-auto px-0 py-3 m-0 rounded-none !bg-ch-background font-mono selection:bg-ch-selection text-sm"
+            className="overflow-auto px-0 py-3 m-0 rounded-none !bg-ch-background font-mono selection:bg-ch-selection text-sm max-h-full"
             style={highlighted.style}
             handlers={handlers}
           />

@@ -4541,10 +4541,10 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-codehike@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/codehike/-/codehike-1.0.5.tgz#b2ec8f14e97d927d85d70711898894be46e151a8"
-  integrity sha512-y3lL/3nPcvT7GNuEKw687AIip1Mg864lA/knWcCGn7Yp2FBQovsPqPTCpf/aodzWZ12HjWGfli+oxaSeuSyFXg==
+codehike@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/codehike/-/codehike-1.0.7.tgz#9fd70f84693878ee5cd2c5742c76b8e3d71d7952"
+  integrity sha512-m4YOQv1l06qoGBLCgXRNT45MKAudXjir9v+WTs7Xb0gfze6LN3ZiUp08+WRA1N/QGT1SHbzvck8txvPq+C2EPg==
   dependencies:
     "@code-hike/lighter" "1.0.1"
     diff "^5.1.0"
@@ -9384,6 +9384,11 @@ react-remove-scroll@^2.6.1, react-remove-scroll@^2.6.2, react-remove-scroll@^2.6
     tslib "^2.1.0"
     use-callback-ref "^1.3.3"
     use-sidecar "^1.1.3"
+
+react-resizable-panels@^2.1.8:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/react-resizable-panels/-/react-resizable-panels-2.1.8.tgz#4f31057854d93c30a6e221ff8c0ecb7addec55a3"
+  integrity sha512-oDvD0sw34Ecx00cQFLiRJpAE2fCgNLBr8DMrBzkrsaUiLpAycIQoY3eAWfMblDql3pTIMZ60wJ/P89RO1htM2w==
 
 react-share@^4.4.1:
   version "4.4.1"

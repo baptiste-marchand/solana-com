@@ -1,7 +1,15 @@
 export default {
-  rewrites: [
-    //
-  ],
+  rewrites: {
+    beforeFiles: [
+      {
+        source: "/breakpoint/:path*",
+        destination:
+          "https://solana-com-breakpoint.vercel.app/breakpoint/:path*",
+      },
+    ],
+    afterFiles: [],
+    fallback: [],
+  },
 
   redirects: [
     { source: "/brand", destination: "/branding" },
@@ -770,6 +778,22 @@ export default {
     {
       source: "/developers/guides/getstarted/how-to-cpi-with-signer",
       destination: "/docs/core/cpi",
+    },
+    {
+      source: "/developers/cookbook/programs/:path*",
+      destination: "/docs/programs/examples",
+    },
+    {
+      source: "/developers/cookbook/accounts/create-pda-account",
+      destination: "/docs/core/pda",
+    },
+    {
+      source: "/developers/cookbook/accounts/sign-with-pda",
+      destination: "/docs/core/cpi",
+    },
+    {
+      source: "/developers/cookbook/accounts/close-account",
+      destination: "/docs/core/accounts",
     },
   ],
 };

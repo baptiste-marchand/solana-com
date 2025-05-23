@@ -1,0 +1,204 @@
+---
+title: Skaalatun käyttöliittymäsumman integrointiopas
+description:
+  Opi integroimaan token, joka käyttää Scaled UI Amount -laajennusta
+  sovelluksessasi.
+---
+
+# Scaled UI Amount -laajennuksen tukeminen Solanassa
+
+## Tausta
+
+Skaalattu UI-määrä -laajennus (Scaled UI Amount) antaa tokenien
+liikkeeseenlaskijoille mahdollisuuden määrittää kertoimen, jota käytetään
+laskettaessa käyttäjän tokenisaldon UI-määrää. Tämä mahdollistaa
+liikkeeseenlaskijoille rebasoivien tokenien luomisen ja asioiden kuten
+osakkeiden splittauksen toteuttamisen. Tämä laajennus, kuten korkoa tuottava
+token-laajennus, tarjoaa puhtaasti kosmeettisen UI-määrän, mikä tarkoittaa, että
+tiimien on tehtävä lisätyötä hyvän käyttökokemuksen tarjoamiseksi. Taustalla
+olevat laskelmat ja siirrot tapahtuvat kaikki käyttäen ohjelman raakamääriä.
+
+### Resurssit:
+
+- [Kehittäjädokumentaatio](https://www.solana-program.com/docs/token-2022/extensions#scaled-ui-amount)
+- [Laajennuksen Rust-koodi](https://github.com/solana-program/token-2022/tree/main/program/src/extension/scaled_ui_amount)
+- [Amount to UI Amount Rust-koodi](https://github.com/solana-program/token-2022/blob/main/program/src/processor.rs#L1425)
+
+## Tiivistelmä
+
+- Loppukäyttäjien tulisi käyttää UIAmount-arvoa (raakamäärä \* kerroin) tokenin
+  hinnalle, tokenisaldolle ja tokenmäärille aina kun mahdollista
+- dApp-sovellusten ja palveluntarjoajien tulisi käyttää raakamäärää ja
+  skaalaamattomia hintoja kaikissa laskelmissa ja muuntaa ne käyttäjille vasta
+  lopussa
+- Historiallisia hintatietoja tulee tarjota sekä skaalattuina että
+  skaalaamattomina määrinä helpompaa integrointia varten
+- Historiallisten kertoimien arvojen tulee olla saatavilla tarkkoja
+  historiatietoja varten
+
+## Termien määritelmät
+
+- Kerroin: staattinen päivitettävä kerroin, jota käytetään UI-määrän laskelmissa
+- UIAmount: kerroin \* raakamäärä (eli: skaalattu määrä)
+- Raakamäärä: määrä (eli: skaalaamaton määrä)
+
+## Nykyinen saldo
+
+### Nykyinen määrä näyttöä varten
+
+- Aina kun näytät määriä loppukäyttäjille tokeneille, jotka käyttävät skaalattua
+  UI-määrä -laajennusta, sinun tulisi käyttää joko:
+  - UIAmount/UIAmountString (**_suositeltu_**)
+  - Manuaalista laskelmaa raakamäärä \* kerroin
+  - Suosittelemme katkaisemaan tämän arvon tokenin desimaalien määrän
+    perusteella.
+    - Esim: jos yUSD:llä on 6 desimaalia ja käyttäjällä on UIAmount 1.123456789,
+      sinun tulisi näyttää "1.123456"
+
+### Mistä tämä data saadaan:
+
+- Käyttäjän reaaliaikaisen saldon päivitetyt tiedot yllä mainituista määristä
+  saat kutsumalla joko getTokenAccountBalance tai getAccountInfo -toimintoa
+- Jos tarvitset tietää käyttöliittymämäärän (UI Amount) mielivaltaiselle
+  määrälle, voit saada tämän laskelman kutsumalla
+  [`amountToUiAmountForMintWithoutSimulation`](https://github.com/solana-program/token-2022/blob/main/clients/js-legacy/src/actions/amountToUiAmount.ts#L164)
+  (web3.js v1) -funktiota tai simuloimalla transaktiota käyttäen
+  amountToUiAmount-toimintoa.
+  - Huomaa: amountToUiAmount vaatii transaktiosimulaation, mikä tarkoittaa että
+    se tarvitsee myös kelvollisen maksajan, jolla on saldo. Tämän vuoksi tämän
+    ei pitäisi olla oletustapa saldon hakemiseen.
+
+### Nykyisen määrän päivittäminen
+
+Koska liikkeeseenlaskijat voivat päivittää kerrointa milloin tahansa, voit
+harkita säännöllistä kyselyä tilin saldon pitämiseksi ajan tasalla.
+Liikkeeseenlaskijat tuskin päivittävät tätä kerrointa useammin kuin kerran
+päivässä. Jos kerroin on asetettu tulevalle päivämäärälle, voit automaattisesti
+tehdä kyselyn tänä päivitysajankohtana
+
+## Token-määrät transaktioissa (siirrot / vaihdot jne.)
+
+- Käyttäjien tulisi syöttää määrät, jotka tulkitaan skaalatuksi
+  "UIAmount"-arvoksi. Sovelluksen, joka käsittelee tätä, tulisi muuntaa se
+  raakatokenmääräksi transaktiota varten.
+  - Jos pyöristysongelmia ilmenee, pyöristä alaspäin ja jätä mieluummin pieni
+    määrä "pölyä" kuin riskeeraa transaktion epäonnistuminen
+  - Tämän muunnoksen tekemiseen voit käyttää
+    [`uiAmountToAmountForMintWithoutSimulation`](https://github.com/solana-program/token-2022/blob/main/clients/js-legacy/src/actions/amountToUiAmount.ts#L312C23-L312C63)
+    (web3.js v1) -funktiota tai simuloida transaktiota käyttäen
+    amountToUiAmount-toimintoa.
+- Sovellusten tulisi käyttää kokonaisraakaarvoa, kun käyttäjä pyytää toimintoa
+  "maksimi" tai "kaikki" saldostaan. Tämä varmistaa, ettei pölyä jää jäljelle.
+  - Valinnainen: Voit harkita tilin automaattista sulkemista, kun "maksimi" on
+    käytössä, jotta käyttäjä saa tallennustalletuksensa takaisin
+
+## Tokenin hinta
+
+- Tokenin hinta tulisi aina näyttää skaalattuna hintana aina kun mahdollista.
+- Jos olet hintatietopalvelun tarjoaja, kuten oraakkeli, sinun tulisi tarjota
+  sekä skaalattu että skaalaamaton hinta.
+  - Tarjoa mahdollisuuksien mukaan SDK/API, joka abstrahoi skaalatun
+    käyttöliittymämäärän laajennuksen monimutkaisuudet pois.
+
+## Nykyinen kerroin
+
+- Nykyinen kerroin voidaan lukea token-mintistä milloin tahansa kutsumalla
+  `getAccountInfo`. Lisäksi, jos tulevaisuuden kerroin on asetettu, tämä tieto
+  on myös saatavilla token-mintistä. Suosittelemme, että tätä kerrointa ei
+  näytetä, sillä se voi sekoittaa käyttökokemusta.
+
+## Historialliset tiedot
+
+### Historialliset tiedot hintatiedoille
+
+- Palveluiden, jotka tarjoavat historiallisia tietoja, tulisi tallentaa ja
+  **tuoda esiin sekä skaalatut että skaalaamattomat hinnat skaalattua
+  käyttöliittymämäärän laajennusta varten**.
+- Odotamme, että skaalattuja määriä käytetään useimmiten, sillä tämä vastaa
+  sitä, miten perinteinen rahoitusmaailma käsittelee kaavioita, jotka liittyvät
+  tokeneihin, joilla on osakkeiden splittauksia.
+
+### Historialliset tiedot määrille
+
+- Jos haluat näyttää aiemmin siirretyn saldon, tarvitset pääsyn kertoimeen
+  kyseisessä slotissa. Voit myös tallentaa UiAmount-arvon siirroille
+  käsitellessäsi transaktioita välttääksesi tämän laskutoimituksen tekemisen
+  tulevaisuudessa.
+
+## Taaksepäin yhteensopivuus
+
+- Oletusarvoisesti lompakot ja sovellukset, jotka eivät ymmärrä skaalattua
+  käyttöliittymämäärän laajennusta, näyttävät toiminnan oikean kokonaishinnan
+  kertomalla skaalaamattoman hinnan \* raakamäärän.
+- Ne kuitenkin näyttäisivät skaalaamattoman hinnan, mikä voi aiheuttaa
+  käyttäjille hämmennystä.
+- Toivomme tämän kannustavan tiimejä päivittämään dappinsa yhteensopiviksi
+  tokenien kanssa, jotka käyttävät skaalattua käyttöliittymämäärän laajennusta,
+  ja olemme mielellämme tukena tässä prosessissa.
+
+## Suositellut integraatioprioriteetit alustoittain
+
+### **Yleiset vaatimukset**
+
+| Vaatimus                                       | Kuvaus                                                                                                                                                                                                   | Prioriteetti |
+| :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------- |
+| Käyttäjätoimintojen tukeminen UiAmount-arvolla | Kaikkien käyttäjätoimintojen tulisi käyttää UiAmount-arvoa, kun UiAmount on käytössä sovelluksessa. Jos UiAmount ei ole näkyvissä sovelluksessa, tulisi käyttää raakamääriä kunnes sovellus päivitetään. | **P0**       |
+
+---
+
+### **Lompakot**
+
+| Vaatimus                                      | Kuvaus                                                                                                           | Prioriteetti |
+| :-------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- | :----------- |
+| Skaalatun saldon näyttäminen                  | Näytä skaalattu määrä (uiAmount) ensisijaisena saldona.                                                          | **P0**       |
+| Tuki token-siirroille                         | Loppukäyttäjien tulisi syöttää siirtomäärät skaalattuina saldoina (raakamäärä \* saldo).                         | **P0**       |
+| Spot-hinnan näyttäminen                       | Näytä skaalattu spot-hinta käyttäjille                                                                           | **P0**       |
+| Tapahtumahistorian metatiedot                 | Näytä skaalattu määrä (UIAmount) jokaiselle siirrolle aina kun mahdollista.                                      | **P1**       |
+| Näytä kerroinpäivitykset tapahtumahistoriassa | Kun kerroinpäivityksiä tapahtuu, näytä tämä tapahtumana käyttäjän tapahtumahistoriassa mukaan lukien saatu määrä | **P2**       |
+| Hintahistoriakaavion näyttäminen              | Heijasta skaalatut hinnat hintakaaviossa                                                                         | **P1**       |
+| Perehdytys/Työkaluvihjeet                     | Tarjoa työkaluvihjeitä tai perehdytystä käyttäjille skaalattua ui-määrälaajennusta käyttävistä tokeneista        | **P2**       |
+
+---
+
+### **Selaimet**
+
+| Vaatimus                                                             | Kuvaus                                                                          | Prioriteetti |
+| :------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :----------- |
+| Token-tietosivun parannukset                                         | Näytä metatietoja kuten skaalattu kokonaismarkkina-arvo ja nykyinen kerroin     | **P0**       |
+| Skaalatun saldon näyttäminen saldoille                               | Näytä skaalatut saldot (UiAmount) nykyisille saldoille.                         | **P0**       |
+| Skaalatun saldon näyttäminen tapahtumille                            | Näytä skaalatut saldot (UiAmount) siirtomäärille historiallisissa tapahtumissa. | **P0**       |
+| Skaalatun hinnan näyttäminen tapahtumille                            | Näytä skaalatut hinnat aiemmille tapahtumille                                   | **P1**       |
+| Kerroinpäivitystapahtumien asianmukainen jäsentäminen ja näyttäminen | Näytä asianmukaisesti tiedot kerroinpäivityksestä                               | **P2**       |
+
+---
+
+### **Markkinadatan kokoajat (esim. CoinGecko)**
+
+| Vaatimus                                  | Kuvaus                                                                                                | Prioriteetti |
+| :---------------------------------------- | :---------------------------------------------------------------------------------------------------- | :----------- |
+| API-päivitykset skaalattuun dataan        | Laajenna API-toiminnallisuutta sisältämään kertoimien muutokset ajan myötä sekä skaalattu hintasyöte. | **P0**       |
+| Kokonaistarjonta skaalatulla korjauksella | Kokonaistarjontaa ja kokonaismarkkina-arvoa näytettäessä huomioi skaalatut saldot                     | **P0**       |
+| Historiallinen hinnan seuranta            | Tarjoa historiallinen kaavio hinnoista käyttäen skaalattua hintaa ajan myötä.                         | **P1**       |
+| Historiallinen kertoimen seuranta         | Tarjoa historialliset merkinnät kertoimen päivityksistä korkoa tuottaville tokeneille.                | **P2**       |
+| Opetussisältö tai selitykset              | Sisällytä lyhyitä kuvauksia tai työkaluvihjeitä, jotka selittävät miten skaalatut tokenit toimivat.   | **P2**       |
+
+---
+
+### **Hintasyötteiden tarjoajat**
+
+| Vaatimus                                  | Kuvaus                                                                                              | Prioriteetti |
+| :---------------------------------------- | :-------------------------------------------------------------------------------------------------- | :----------- |
+| Skaalatut & skaalaamattomat hintasyötteet | Tarjoa hintasyötteet sekä skaalattuihin että skaalaamattomiin hintoihin.                            | **P0**       |
+| Historiallinen kerroindata                | Tarjoa API:t historiallisilla kertoimen muutoksilla.                                                | **P0**       |
+| Historiallinen hintadata                  | Tarjoa API:t historiallisilla hinnoilla perustuen sekä skaalattuihin että skaalaamattomiin määriin. | **P0**       |
+
+---
+
+### **DEXit**
+
+| Vaatimus                             | Kuvaus                                                                                                                                         | Prioriteetti |
+| :----------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- |
+| Näytä uudelleenpohjatut token-saldot | Näytä skaalatut saldot kaupankäyntiä tai likviditeetin tarjoamista varten käyttöliittymässä. (taustajärjestelmä voi silti käyttää raakamääriä) | **P0**       |
+| Tuki token-toiminnoille              | Loppukäyttäjien tulisi syöttää toimintamäärät UiAmount-saldoillaan (kerroin \* raakamäärä).                                                    | **P0**       |
+| Hintasyötteen mukautus               | Kaikkialla missä hintasyötettä käytetään nykyisen hinnan näyttämiseen, tarjoa skaalattu hinta loppukäyttäjille.                                | **P1**       |
+| Näytä hinnan historiakaavio          | Heijasta skaalatut hinnat hintakaaviossa                                                                                                       | **P1**       |
