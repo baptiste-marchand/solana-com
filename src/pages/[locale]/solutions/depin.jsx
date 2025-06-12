@@ -13,7 +13,6 @@ import YDeveloperResources, {
 import styles from "./depin.module.scss";
 import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
-import Link from "next/link";
 
 // Import video thumbnails
 import video1Img from "assets/solutions/depin/video1.png";
@@ -353,65 +352,47 @@ const DePINPage = () => {
           buttonLargeClassName={styles.FooterCalloutButtonLarge}
         />
         {/* DePIN Resources Grid Section */}
-        <section className={styles.resourcesGridSection}>
-          <div className={styles.resourcesContainer}>
-            <div className={styles.resourcesColumns}>
-              {/* Dev Tools Column */}
-              <div className={styles.resourceColumn}>
-                <h3 className={styles.resourceColumnTitle}>Dev Tools</h3>
+        <section
+          className={styles.resourcesGridSection}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <div
+            className={styles.resourcesContainer}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <div
+              className={styles.resourcesColumns}
+              style={{
+                textAlign: "center",
+                justifyContent: "center",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <div
+                className={styles.resourceColumn}
+                style={{ textAlign: "center", maxWidth: "600px" }}
+              >
+                <h3 className={styles.resourceColumnTitle}>DePIN in Action</h3>
                 <div className={styles.resourceContent}>
                   <p className={styles.resourceText}>
-                    <Link href="/" className={styles.resourceLink}>
-                      The DePIN Quickstart guide
-                    </Link>
-                    , along with examples from dozens of other teams who have
-                    tackled the same problems you&apos;re thinking about, will
-                    accelerate your journey from 0 to 1, and from 1 to 100.
+                    Check out these videos of Solana DePIN founders telling
+                    their stories about what they&apos;re building.
                   </p>
-                </div>
-              </div>
-
-              {/* Wrap-around services Column */}
-              <div className={styles.resourceColumn}>
-                <h3 className={styles.resourceColumnTitle}>
-                  Wrap-around services
-                </h3>
-                <div className={styles.resourceContent}>
-                  <p className={styles.resourceText}>
-                    A number of projects in the Solana ecosystem help DePIN
-                    builders grow and scale. Examples include{" "}
-                    <Link
-                      href="https://metastreet.xyz/"
-                      className={styles.resourceLink}
+                  <div
+                    className={styles.buttonContainer}
+                    style={{ marginTop: "24px" }}
+                  >
+                    <a
+                      href="https://www.youtube.com/playlist?list=PLilwLeBwGuK5OT4zLm3-YOGnT0x5cmRsK"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.ghostButton}
                     >
-                      Metastreet
-                    </Link>{" "}
-                    and{" "}
-                    <Link
-                      href="https://dephy.io/"
-                      className={styles.resourceLink}
-                    >
-                      DePHY
-                    </Link>
-                    .
-                  </p>
-                </div>
-              </div>
-
-              {/* Learn more Column */}
-              <div className={styles.resourceColumn}>
-                <h3 className={styles.resourceColumnTitle}>Learn more</h3>
-                <div className={styles.resourceContent}>
-                  <p className={styles.resourceText}>
-                    <Link
-                      href="https://messari.io/report/state-of-depin-2024"
-                      className={styles.resourceLink}
-                    >
-                      Access
-                    </Link>{" "}
-                    the Messari State of DePIN 2024 report and dive deeper into
-                    the growing ecosystem.
-                  </p>
+                      Watch Videos
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -246,7 +246,7 @@ const DePINHero = () => {
 
       <div className={styles.content}>
         <Text element="h1" as="heading">
-          Home of the world&apos;s biggest DePIN projects
+          Home of World&apos;s Biggest DePIN projects
         </Text>
         <Text element="p" as="paragraph">
           The next generation of infrastructure is being built on the

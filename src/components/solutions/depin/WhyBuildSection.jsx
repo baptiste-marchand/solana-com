@@ -18,7 +18,9 @@ const WhyBuildSection = () => {
           </div>
           <div className={styles.stat}>
             <h3 className={styles.statValue}>$400M</h3>
-            <p className={styles.statLabel}>DePIN rewards distributed *</p>
+            <p className={styles.statLabel}>
+              DePIN rewards distributed in 2024
+            </p>
           </div>
           <p className={styles.statNote}>*Since Jan 2024</p>
         </div>
@@ -136,6 +138,45 @@ const WhyBuildSection = () => {
               <p>
                 New developers are choosing to build on Solana more than any
                 other blockchain, and Solana products have millions of users.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.benefitItem}>
+            <div className={styles.benefitIcon}>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="url(#chart-gradient)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={styles.icon}
+              >
+                <defs>
+                  <linearGradient
+                    id="chart-gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stopColor="#9945FF" />
+                    <stop offset="50%" stopColor="#EB54BC" />
+                    <stop offset="100%" stopColor="#FF754A" />
+                  </linearGradient>
+                </defs>
+                <path d="M3 3v18h18" />
+                <path d="m19 9-5 5-4-4-3 3" />
+              </svg>
+            </div>
+            <div className={styles.benefitContent}>
+              <h3>Unparalleled Access to Internet Capital Markets</h3>
+              <p>
+                Solana is the world&apos;s most dynamic and broad marketplace,
+                operating at global scale.
               </p>
             </div>
           </div>
