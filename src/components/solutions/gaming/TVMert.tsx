@@ -42,13 +42,35 @@ const TVMert = () => {
   }, [prefersReducedMotion, video1Ref]);
 
   useEffect(() => {
-    if (video1Ref.current && video2Ref.current) {
-      video1Ref.current.play();
-      video2Ref.current.play();
-      setTimeout(() => {
-        video1Ref.current?.classList.add(styles.Active);
-      }, 500);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const video = entry.target as HTMLVideoElement;
+            video.play();
+            if (video === video1Ref.current) {
+              setTimeout(() => {
+                video?.classList.add(styles.Active);
+              }, 500);
+            }
+            observer.unobserve(video);
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    if (video1Ref.current) {
+      observer.observe(video1Ref.current);
     }
+    if (video2Ref.current) {
+      observer.observe(video2Ref.current);
+    }
+
+    return () => {
+      if (video1Ref.current) observer.unobserve(video1Ref.current);
+      if (video2Ref.current) observer.unobserve(video2Ref.current);
+    };
   }, [video1Ref, video2Ref]);
 
   return (
@@ -74,6 +96,7 @@ const TVMert = () => {
           ref={video1Ref}
           className={styles.Video1}
           onEnded={handleVideoEnd}
+          preload="metadata"
         >
           <source
             src={videos[0].src_720}
@@ -90,6 +113,7 @@ const TVMert = () => {
           poster={videos[1].poster}
           ref={video2Ref}
           className={styles.Video2}
+          preload="metadata"
         >
           <source
             src={videos[1].src_720}
