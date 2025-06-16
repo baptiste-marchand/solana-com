@@ -17,10 +17,6 @@
 // Solana-lib
 @import "~@solana-foundation/solana-lib/dist/styles.css";
 
-// Algolia docsearch
-@import "~@docsearch/css";
-@import "./docsearch.scss";
-
 // Package overrides
 @import "./packages/slick-overrides.scss";
 @import "./packages/lottie.scss";
