@@ -19,7 +19,7 @@ import gemIcon from "../../../public/src/img/solana-wallets/gem.png";
 import glowIcon from "../../../public/src/img/solana-wallets/Glow.svg";
 import guardaIcon from "../../../public/src/img/solana-wallets/guarda.png";
 import heliumIcon from "../../../public/src/img/solana-wallets/Helium.svg";
-import keystoneIcon from "../../../public/src/img/solana-wallets/Keystone.svg";
+import keystoneIcon from "../../../public/src/img/solana-wallets/KeyStone.png";
 import ledgerIcon from "../../../public/src/img/solana-wallets/Ledger.svg";
 import nowwalletIcon from "../../../public/src/img/solana-wallets/nowwallet.png";
 import okxIcon from "../../../public/src/img/solana-wallets/OKX.svg";
@@ -33,8 +33,8 @@ import tiplinkIcon from "../../../public/src/img/solana-wallets/Tiplink.svg";
 import tokenPocketIcon from "../../../public/src/img/solana-wallets/tokenpocket.png";
 import trezorIcon from "../../../public/src/img/solana-wallets/Trezor.svg";
 import trustWalletCoreIcon from "../../../public/src/img/solana-wallets/Trust.svg";
-import turnkeyIcon from "../../../public/src/img/solana-wallets/Turnkey.svg";
-import web3authIcon from "../../../public/src/img/solana-wallets/Web3auth.svg";
+import turnkeyIcon from "../../../public/src/img/solana-wallets/TurnKey.svg";
+import web3authIcon from "../../../public/src/img/solana-wallets/Web3Auth.svg";
 
 export const walletData = [
   {
