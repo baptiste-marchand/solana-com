@@ -19,7 +19,7 @@ import gemIcon from "../../../public/src/img/solana-wallets/gem.png";
 import glowIcon from "../../../public/src/img/solana-wallets/Glow.svg";
 import guardaIcon from "../../../public/src/img/solana-wallets/guarda.png";
 import heliumIcon from "../../../public/src/img/solana-wallets/Helium.svg";
-import keystoneIcon from "../../../public/src/img/solana-wallets/KeyStone.png";
+import keystoneIcon from "../../../public/src/img/solana-wallets/KeyStone.svg";
 import ledgerIcon from "../../../public/src/img/solana-wallets/Ledger.svg";
 import nowwalletIcon from "../../../public/src/img/solana-wallets/nowwallet.png";
 import okxIcon from "../../../public/src/img/solana-wallets/OKX.svg";
