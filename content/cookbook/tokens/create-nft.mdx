@@ -21,7 +21,7 @@ import Arweave from "arweave";
     port: 1984,
     protocol: "http",
     timeout: 20000,
-    logging: false,
+    logging: false
   });
 
   const host = arweave.getConfig().api.host;
@@ -32,7 +32,7 @@ import Arweave from "arweave";
   const data = fs.readFileSync("./code/nfts/upload-arweave/lowres-dog.png");
 
   const transaction = await arweave.createTransaction({
-    data: data,
+    data: data
   });
 
   transaction.addTag("Content-Type", "image/png");
@@ -65,36 +65,36 @@ import Arweave from "arweave";
     attributes: [
       {
         trait_type: "NFT type",
-        value: "Custom",
-      },
+        value: "Custom"
+      }
     ],
     collection: {
       name: "Test Collection",
-      family: "Custom NFTs",
+      family: "Custom NFTs"
     },
     properties: {
       files: [
         {
           uri: imageUrl,
-          type: "image/png",
-        },
+          type: "image/png"
+        }
       ],
       category: "image",
       maxSupply: 0,
       creators: [
         {
           address: "CBBUMHRmbVUck99mTCip5sHP16kzGj3QTYB8K3XxwmQx",
-          share: 100,
-        },
-      ],
+          share: 100
+        }
+      ]
     },
-    image: imageUrl,
+    image: imageUrl
   };
 
   const metadataString = JSON.stringify(metadata);
 
   const metadataTransaction = await arweave.createTransaction({
-    data: metadataString,
+    data: metadataString
   });
 
   metadataTransaction.addTag("Content-Type", "application/json");
@@ -111,35 +111,35 @@ import Arweave from "arweave";
 
 ### Mint the NFT
 
-```typescript title="mint-nft.ts"
+<CodeTabs storage="cookbook">
+
+```typescript !! title="Legacy"
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import {
   generateSigner,
   percentAmount,
   keypairIdentity,
+  createAmount
 } from "@metaplex-foundation/umi";
-import { clusterApiUrl } from "@solana/web3.js";
 import {
   createNft,
   fetchDigitalAsset,
-  mplTokenMetadata,
+  mplTokenMetadata
 } from "@metaplex-foundation/mpl-token-metadata";
-import "dotenv/config";
+import bs58 from "bs58";
 
 (async () => {
   try {
-    console.log("Loading keypair from environment...");
-    const privateKey = JSON.parse(process.env.SOLANA_PRIVATE_KEY || "[]");
-    if (privateKey.length === 0) {
-      throw new Error("SOLANA_PRIVATE_KEY is not set in .env file");
-    }
-
     console.log("Creating Umi instance...");
-    const umi = createUmi(clusterApiUrl("devnet"));
+    const umi = createUmi("http://127.0.0.1:8899");
 
     const keypair = umi.eddsa.createKeypairFromSecretKey(
-      new Uint8Array(privateKey),
+      bs58.decode(
+        "588FU4PktJWfGfxtzpAAXywSNt74AvtroVzGfKkVN1LwRuvHwKGr851uH8czM5qm4iqLbs1kKoMKtMJG4ATR7Ld2"
+      )
     );
+
+    await umi.rpc.airdrop(keypair.publicKey, createAmount(1, "SOL", 9));
 
     // Use keypairIdentity to set the keypair as the signer
     const signer = keypairIdentity(keypair);
@@ -157,15 +157,14 @@ import "dotenv/config";
       name: "My NFT",
       // Replace this with your Arweave metadata URI
       uri: "https://ffaaqinzhkt4ukhbohixfliubnvpjgyedi3f2iccrq4efh3s.arweave.net/KUAIIbk6p8oo4XHRcq0U__C2r0mwQaNl0gQow4Qp9yk",
-      maxSupply: 1,
       sellerFeeBasisPoints: percentAmount(0),
       creators: [
         {
           address: keypair.publicKey,
           share: 100,
-          verified: true,
-        },
-      ],
+          verified: true
+        }
+      ]
     }).sendAndConfirm(umi);
 
     console.log("NFT created successfully!");
@@ -181,3 +180,75 @@ import "dotenv/config";
   }
 })();
 ```
+
+```rust !! title="Rust"
+use mpl_token_metadata::{
+    accounts::{MasterEdition, Metadata},
+    instructions::CreateV1Builder,
+    types::PrintSupply,
+};
+use solana_client::nonblocking::rpc_client::RpcClient;
+use solana_sdk::{
+    commitment_config::CommitmentConfig, native_token::LAMPORTS_PER_SOL, signature::Keypair,
+    signer::Signer, transaction::Transaction,
+};
+use spl_token::ID as TOKEN_PROGRAM_ID;
+
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+    let client = RpcClient::new_with_commitment(
+        String::from("http://127.0.0.1:8899"),
+        CommitmentConfig::confirmed(),
+    );
+
+    let authority_keypair = Keypair::new(); // will also act as tx fee payer
+    let mint_account = Keypair::new();
+
+    let metadata_address = Metadata::find_pda(&mint_account.pubkey()).0;
+    let master_edition_address = MasterEdition::find_pda(&mint_account.pubkey()).0;
+
+
+    //  https://docs.rs/mpl-token-metadata/latest/mpl_token_metadata/instructions/struct.CreateV1Builder.html
+    let create_nft_ix = CreateV1Builder::new()
+        .metadata(metadata_address)
+        .master_edition(Some(master_edition_address))
+        .mint(mint_account.pubkey(), true)
+        .authority(authority_keypair.pubkey())
+        .payer(authority_keypair.pubkey())
+        .update_authority(authority_keypair.pubkey(), true)
+        .spl_token_program(Some(TOKEN_PROGRAM_ID))
+        .name("My NFT".to_string())
+        .symbol("MN".to_string())
+        .uri("https://hsw5jls56wjyawbw6yhico4yqfvyelvtmolza25mlzsw3d3grepq.arweave.net/PK3Url31k4BYNvYOgTuYgWuCLrNjl5BrrF5lbY9miR8".to_string())
+        .seller_fee_basis_points(500) // 5%
+        .is_mutable(true)
+        .print_supply(PrintSupply::Zero)
+        .instruction();
+
+    let transaction_signature = client
+        .request_airdrop(&authority_keypair.pubkey(), 5 * LAMPORTS_PER_SOL)
+        .await?;
+    loop {
+        if client.confirm_transaction(&transaction_signature).await? {
+            break;
+        }
+    }
+
+    let mut transaction =
+        Transaction::new_with_payer(&[create_nft_ix], Some(&authority_keypair.pubkey()));
+
+    transaction.sign(
+        &[&authority_keypair, &mint_account],
+        client.get_latest_blockhash().await?,
+    );
+
+    match client.send_and_confirm_transaction(&transaction).await {
+        Ok(signature) => println!("Transaction Signature: {}", signature),
+        Err(err) => eprintln!("Error sending transaction: {}", err),
+    }
+
+    Ok(())
+}
+```
+
+</CodeTabs>

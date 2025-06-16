@@ -1,7 +1,22 @@
 export default {
-  rewrites: [
-    //
-  ],
+  rewrites: {
+    beforeFiles: [
+      {
+        source: "/breakpoint",
+        destination: "https://solana-com-breakpoint.vercel.app/breakpoint",
+        locale: false,
+      },
+      // everything underneath
+      {
+        source: "/breakpoint/:path*",
+        destination:
+          "https://solana-com-breakpoint.vercel.app/breakpoint/:path*",
+        locale: false,
+      },
+    ],
+    afterFiles: [],
+    fallback: [],
+  },
 
   redirects: [
     { source: "/brand", destination: "/branding" },
@@ -59,10 +74,6 @@ export default {
       source: "/simd",
       destination:
         "https://github.com/solana-foundation/solana-improvement-documents",
-    },
-    {
-      source: "/developers/courses/lesson",
-      destination: "/developers/courses",
     },
     { source: "/disclaimer", destination: "/tos" },
     { source: "/ecosystem(.*)", destination: "/" },
@@ -778,6 +789,98 @@ export default {
     {
       source: "/accelerate/ship-or-die",
       destination: "/accelerate",
+    },
+    {
+      source: "/accelerate/ship-or-die",
+      destination: "/accelerate",
+    },
+    {
+      source: "/docs/terminology",
+      destination: "/docs/references/terminology",
+    },
+    {
+      source: "/docs/core/tokens",
+      destination: "/docs/tokens",
+    },
+    {
+      source: "/developers/guides/getstarted/how-to-cpi",
+      destination: "/docs/core/cpi",
+    },
+    {
+      source: "/developers/guides/getstarted/how-to-cpi-with-signer",
+      destination: "/docs/core/cpi",
+    },
+    {
+      source: "/developers/cookbook/programs/:path*",
+      destination: "/docs/programs/examples",
+    },
+    {
+      source: "/developers/cookbook/accounts/create-pda-account",
+      destination: "/docs/core/pda",
+    },
+    {
+      source: "/developers/cookbook/accounts/sign-with-pda",
+      destination: "/docs/core/cpi",
+    },
+    {
+      source: "/developers/cookbook/accounts/close-account",
+      destination: "/docs/core/accounts",
+    },
+    {
+      source: "/developers/courses/:path*",
+      destination: "https://learn.blueshift.gg",
+    },
+    {
+      source: "/developers/guides/intro/wallets-explained",
+      destination: "/wallets",
+    },
+    {
+      source: "/developers/guides/javascript/get-program-accounts",
+      destination: "/docs/rpc/http/getprogramaccounts",
+    },
+    {
+      source: "/developers/guides/javascript/compressed-nfts",
+      destination: "https://www.zkcompression.com",
+    },
+    {
+      source: "/developers/guides/getstarted/evm-to-svm",
+      destination: "/developers/evm-to-svm",
+    },
+    {
+      source: "/developers/guides/getstarted/how-to-create-a-token",
+      destination: "/docs/tokens",
+    },
+    {
+      source: "/developers/guides/getstarted/local-rust-hello-world",
+      destination: "/docs/programs/rust",
+    },
+    {
+      source: "/developers/guides/getstarted/rust-to-solana",
+      destination: "/docs/intro/quick-start",
+    },
+    {
+      source: "/developers/guides/getstarted/scaffold-nextjs-anchor",
+      destination: "/docs#deploy-your-first-solana-application",
+    },
+    {
+      source: "/developers/guides/wallets/add-solana-wallet-adapter-to-nextjs",
+      destination: "/developers/cookbook/wallets/connect-wallet-react",
+    },
+    {
+      source: "/developers/guides/advanced/state-compression",
+      destination: "https://www.zkcompression.com",
+    },
+    {
+      source: "/developers/guides/advanced/testing-with-jest-and-bankrun",
+      destination: "https://www.anchor-lang.com/docs/testing/litesvm",
+    },
+    {
+      source: "/developers/guides/dapps/cash-app",
+      destination: "https://docs.solanamobile.com/developers/overview",
+    },
+    {
+      source: "/developers/guides/getstarted/full-stack-solana-development",
+      destination: "/docs#deploy-your-first-solana-application",
     },
   ],
 };

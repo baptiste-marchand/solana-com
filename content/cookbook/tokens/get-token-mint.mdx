@@ -8,35 +8,79 @@ description:
 In order to get the current supply, authority, or decimals a token has, you will
 need to get the account info for the token mint.
 
-```typescript title="get-mint-account.ts"
-import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
-import { getMint } from "@solana/spl-token";
+<CodeTabs storage="cookbook" flags="r">
 
-(async () => {
-  const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
+```ts !! title="Kit"
+import { Address, createSolanaRpc } from "@solana/kit";
+import { fetchMint } from "@solana-program/token-2022";
 
-  const mintAccountPublicKey = new PublicKey(
-    "8mAKLjGGmjKTnmcXeyr3pr7iX13xXVjJJiL6RujDbSPV",
-  );
+const rpc = createSolanaRpc("https://api.mainnet-beta.solana.com");
+const address = "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo" as Address;
 
-  let mintAccount = await getMint(connection, mintAccountPublicKey);
-
-  console.log(mintAccount);
-  /*
-  {
-    address: PublicKey {
-      _bn: <BN: 7351e5e067cc7cfefef42e78915d3c513edbb8adeeab4d9092e814fe68c39fec>
-    },
-    mintAuthority: PublicKey {
-      _bn: <BN: df30e6ca0981c1a677eed6f7cb46b2aa442ca9b7a10a10e494badea4b9b6944f>
-    },
-    supply: 0n,
-    decimals: 8,
-    isInitialized: true,
-    freezeAuthority: PublicKey {
-      _bn: <BN: df30e6ca0981c1a677eed6f7cb46b2aa442ca9b7a10a10e494badea4b9b6944f>
-    }
-  }
-  */
-})();
+// !mark
+const mint = await fetchMint(rpc, address);
+console.log(mint);
 ```
+
+```ts !! title="Legacy"
+import { Connection, PublicKey } from "@solana/web3.js";
+import { getMint, TOKEN_2022_PROGRAM_ID } from "@solana/spl-token";
+
+const connection = new Connection(
+  "https://api.mainnet-beta.solana.com",
+  "confirmed"
+);
+
+const mintAddress = new PublicKey(
+  "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo"
+);
+
+// !mark(1:6)
+let mintAccount = await getMint(
+  connection,
+  mintAddress,
+  undefined,
+  TOKEN_2022_PROGRAM_ID
+);
+
+// !collapse(1:10) collapsed
+console.log(
+  JSON.stringify(
+    {
+      ...mintAccount,
+      supply: mintAccount.supply.toString()
+    },
+    null,
+    2
+  )
+);
+```
+
+```rs !! title="Rust"
+use solana_client::nonblocking::rpc_client::RpcClient;
+use solana_sdk::{commitment_config::CommitmentConfig, pubkey};
+use spl_token_2022::{
+    extension::{BaseStateWithExtensions, StateWithExtensions},
+    state::Mint,
+};
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+    let client = RpcClient::new_with_commitment(
+        String::from("https://api.mainnet-beta.solana.com"),
+        CommitmentConfig::confirmed(),
+    );
+
+    let mint_address = pubkey!("2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo");
+    // !mark(1:3)
+    let mint_data = client.get_account_data(&mint_address).await?;
+    let mint = StateWithExtensions::<Mint>::unpack(&mint_data).unwrap();
+    let extension_types = mint.get_extension_types().unwrap();
+
+    println!("{:#?}", mint);
+    println!("{:#?}", extension_types);
+
+    Ok(())
+}
+```
+
+</CodeTabs>

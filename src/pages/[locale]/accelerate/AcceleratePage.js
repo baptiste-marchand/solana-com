@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +14,7 @@ import PeopleImage from "../../../../assets/accelerate/people.png";
 import GovtImage from "../../../../assets/accelerate/govt.png";
 import ThumbnailImage from "../../../../assets/accelerate/thumbnail.png";
 import LibertyDotImage from "../../../../assets/accelerate/liberty-dot.png";
-import FreeTicketImage from "../../../../assets/accelerate/free.png";
+// import FreeTicketImage from "../../../../assets/accelerate/free.png";
 import AccLogo from "../../../../assets/accelerate/acc-logo.svg";
 
 // Import speaker images
@@ -42,6 +42,8 @@ import SolanaMobileSVG from "../../../../assets/accelerate/sponsors/solanamobile
 import SolflareSVG from "../../../../assets/accelerate/sponsors/solflare.svg";
 import WormholeSVG from "../../../../assets/accelerate/sponsors/wormhole.svg";
 import ZeusSVG from "../../../../assets/accelerate/sponsors/zeus.svg";
+import PaxosSVG from "../../../../assets/accelerate/sponsors/paxos.svg";
+import UsdgSVG from "../../../../assets/accelerate/sponsors/usdg.svg";
 
 // Counter animation hook
 const useCounterAnimation = (end, duration = 2000, startDelay = 0) => {
@@ -374,9 +376,14 @@ const FAQAnswers = {
   arePressPassesAvailable: () => (
     <p>
       Press passes are only available for Ship or Die, and by application only.
-      Please contact{" "}
-      <a href="mailto:press@solana.org" className={styles.emailLink}>
-        press@solana.org
+      Please apply{" "}
+      <a
+        href="https://solanafoundation.typeform.com/pressform"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.emailLink}
+      >
+        here
       </a>
       .
     </p>
@@ -446,7 +453,6 @@ export default function AcceleratePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showVideoLightbox, setShowVideoLightbox] = useState(false);
   const [stickyVisible, setStickyVisible] = useState(false);
-  const [showFreeTicketModal, setShowFreeTicketModal] = useState(false);
 
   // Counter animations
   const [peopleCount, peopleCountRef] = useCounterAnimation(3000, 2000, 0);
@@ -459,27 +465,24 @@ export default function AcceleratePage() {
   const [touristsCount, touristsCountRef] = useCounterAnimation(50, 1000, 600);
 
   // Handle video lightbox
-  const openVideoLightbox = () => {
+  const openVideoLightbox = useCallback(() => {
     setShowVideoLightbox(true);
     // Prevent scrolling when lightbox is open
     document.body.style.overflow = "hidden";
-  };
+  }, [setShowVideoLightbox]);
 
-  const closeVideoLightbox = () => {
+  const closeVideoLightbox = useCallback(() => {
     setShowVideoLightbox(false);
     // Re-enable scrolling
     document.body.style.overflow = "";
-  };
+  }, [setShowVideoLightbox]);
 
-  // Close lightbox and free ticket modal on ESC key press
+  // Close lightbox on ESC key press
   useEffect(() => {
     const handleEscKey = (event) => {
       if (event.key === "Escape") {
         if (showVideoLightbox) {
           closeVideoLightbox();
-        }
-        if (showFreeTicketModal) {
-          closeFreeTicketModal();
         }
       }
     };
@@ -488,21 +491,7 @@ export default function AcceleratePage() {
     return () => {
       window.removeEventListener("keydown", handleEscKey);
     };
-  }, [showVideoLightbox, showFreeTicketModal]);
-
-  // Show free ticket modal after 5 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowFreeTicketModal(true);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Close free ticket modal
-  const closeFreeTicketModal = () => {
-    setShowFreeTicketModal(false);
-  };
+  }, [showVideoLightbox, closeVideoLightbox]);
 
   // Add scroll event listener
   useEffect(() => {
@@ -547,7 +536,7 @@ export default function AcceleratePage() {
   return (
     <>
       <Head>
-        <title>Accelerate - {heroTitle}</title>
+        <title>Accelerate | Solana</title>
         <meta name="description" content={heroDescription} />
 
         {/* Open Graph / Social Media Meta Tags */}
@@ -665,7 +654,7 @@ export default function AcceleratePage() {
               />
             </div>
 
-            <h1>Tech, Finance, and Policy are Changing.</h1>
+            <h1>Tech, Finance, and Policy are Changing</h1>
             <p className={styles.heroDescription}>
               Accelerate is an event where business, policy, and crypto leaders
               collaborate to write the next chapter of blockchain in America.
@@ -905,54 +894,6 @@ export default function AcceleratePage() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Free Ticket Modal */}
-        {showFreeTicketModal && (
-          <div
-            className={styles.freeTicketModal}
-            onClick={closeFreeTicketModal}
-          >
-            <div
-              className={styles.freeTicketModalContent}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className={styles.closeModalButton}
-                onClick={closeFreeTicketModal}
-              >
-                ×
-              </button>
-              <div className={styles.freeTicketImageWrapper}>
-                <div className={styles.freeTicketImageBackground}>
-                  <Image
-                    src={FreeTicketImage}
-                    alt="Free Ticket"
-                    width={500}
-                    height={300}
-                    style={{ width: "100%", height: "auto" }}
-                    priority
-                  />
-                </div>
-              </div>
-              <div className={styles.freeTicketText}>
-                <h3 className={styles.freeTicketTitle}>BOGO</h3>
-                <h2 className={styles.freeTicketHeadline}>
-                  Buy 1 Ticket, Get 1 Free
-                </h2>
-                <p className={styles.freeTicketDescription}>
-                  From now till March 31, get a second ticket with your purchase
-                  to bring a fellow builder, founder, or friend.
-                </p>
-                <Link
-                  href="/accelerate/tickets"
-                  className={styles.freeTicketButton}
-                >
-                  Get Tickets
-                </Link>
               </div>
             </div>
           </div>
@@ -1236,6 +1177,12 @@ export default function AcceleratePage() {
                   </div>
                   <div className={styles.titleSponsorLogo}>
                     <Image src={JitoSVG} alt="Jito" width={120} height={40} />
+                  </div>
+                  <div className={styles.titleSponsorLogo}>
+                    <Image src={PaxosSVG} alt="Paxos" width={180} height={60} />
+                  </div>
+                  <div className={styles.titleSponsorLogo}>
+                    <Image src={UsdgSVG} alt="USDG" width={180} height={60} />
                   </div>
                 </div>
               </div>

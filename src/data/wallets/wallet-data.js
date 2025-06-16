@@ -1,38 +1,36 @@
-import backpackIcon from "../../../public/src/img/solana-wallets/Backpack.svg";
-import binanceIcon from "../../../public/src/img/solana-wallets/Binance.svg";
-import gemIcon from "../../../public/src/img/solana-wallets/gem.png";
-import bitGetIcon from "../../../public/src/img/solana-wallets/Bitget.svg";
-import braveIcon from "../../../public/src/img/solana-wallets/Brave.svg";
-import capsuleIcon from "../../../public/src/img/solana-wallets/Capsule.svg";
-import circleIcon from "../../../public/src/img/solana-wallets/Circle.svg";
-import coinbaseIcon from "../../../public/src/img/solana-wallets/Coinbase.svg";
-import crossmintCustodialIcon from "../../../public/src/img/solana-wallets/CrossmintCustodial.svg";
-import crossmintNoncustodialIcon from "../../../public/src/img/solana-wallets/CorssmintNoncustodial.svg";
-import decafIcon from "../../../public/src/img/solana-wallets/Decaf.svg";
-import dynamicIcon from "../../../public/src/img/solana-wallets/Dynamic.svg";
-import exodusIcon from "../../../public/src/img/solana-wallets/Exodus.svg";
-import fuseIcon from "../../../public/src/img/solana-wallets/Fuse.svg";
-import glowIcon from "../../../public/src/img/solana-wallets/Glow.svg";
-import heliumIcon from "../../../public/src/img/solana-wallets/Helium.svg";
-import keystoneIcon from "../../../public/src/img/solana-wallets/KeyStone.svg";
-import ledgerIcon from "../../../public/src/img/solana-wallets/Ledger.svg";
-import okxIcon from "../../../public/src/img/solana-wallets/OKX.svg";
-import passkeysIcon from "../../../public/src/img/solana-wallets/Passkeys-Foundation.svg";
-import phantomIcon from "../../../public/src/img/solana-wallets/Phantom.svg";
-import privyIcon from "../../../public/src/img/solana-wallets/Privy.svg";
-import robinhoodIcon from "../../../public/src/img/solana-wallets/Robinhood.svg";
-import solflareIcon from "../../../public/src/img/solana-wallets/Solflare.svg";
-import tiplinkIcon from "../../../public/src/img/solana-wallets/Tiplink.svg";
-import trezorIcon from "../../../public/src/img/solana-wallets/Trezor.svg";
-import trustWalletCoreIcon from "../../../public/src/img/solana-wallets/Trust.svg";
-import turnkeyIcon from "../../../public/src/img/solana-wallets/TurnKey.svg";
-import web3authIcon from "../../../public/src/img/solana-wallets/Web3Auth.svg";
-import enkryptIcon from "../../../public/src/img/solana-wallets/enkrypt.png";
-import nowwalletIcon from "../../../public/src/img/solana-wallets/nowwallet.png";
-import coinwalletIcon from "../../../public/src/img/solana-wallets/coinwallet.png";
-import guardaIcon from "../../../public/src/img/solana-wallets/guarda.png";
-import cakewalletIcon from "../../../public/src/img/solana-wallets/cakewallet.png";
-import tokenPocketIcon from "../../../public/src/img/solana-wallets/tokenpocket.png";
+import defaultIcon from "../../../assets/wallets/wallet-placeholder-icon.png";
+import phantomIcon from "../../../assets/wallets/icons/phantom.png";
+import backpackIcon from "../../../assets/wallets/icons/backpack.png";
+import solflareIcon from "../../../assets/wallets/icons/solflare.png";
+import fuseIcon from "../../../assets/wallets/icons/fuse.png";
+import paraIcon from "../../../assets/wallets/icons/para.png";
+import okxIcon from "../../../assets/wallets/icons/okx.png";
+import circleIcon from "../../../assets/wallets/icons/circle.png";
+import robinhoodIcon from "../../../assets/wallets/icons/robinhood.png";
+import heliumIcon from "../../../assets/wallets/icons/helium.png";
+import privyIcon from "../../../assets/wallets/icons/privy.png";
+import walletConnectIcon from "../../../assets/wallets/icons/walletconnect.png";
+import bitGetIcon from "../../../assets/wallets/icons/bitget.png";
+import braveIcon from "../../../assets/wallets/icons/brave.png";
+import crossmintIcon from "../../../assets/wallets/icons/crossmint.png";
+import decafIcon from "../../../assets/wallets/icons/decaf.png";
+import ledgerIcon from "../../../assets/wallets/icons/ledger.png";
+import tiplinkIcon from "../../../assets/wallets/icons/tiplink.png";
+import trustWalletCoreIcon from "../../../assets/wallets/icons/trustwalletcore.png";
+import web3authIcon from "../../../assets/wallets/icons/web3auth.png";
+import binanceIcon from "../../../assets/wallets/icons/binance.png";
+import exodusIcon from "../../../assets/wallets/icons/exodus.png";
+import keystoneIcon from "../../../assets/wallets/icons/keystone.png";
+import turnkeyIcon from "../../../assets/wallets/icons/turnkey.png";
+import gemIcon from "../../../assets/wallets/icons/gem.png";
+import dynamicIcon from "../../../assets/wallets/icons/dynamic.png";
+import enkryptIcon from "../../../assets/wallets/icons/enkrypt.png";
+import nowwalletIcon from "../../../assets/wallets/icons/nowwallet.png";
+import coinwalletIcon from "../../../assets/wallets/icons/coinwallet.png";
+import guardaIcon from "../../../assets/wallets/icons/guarda.png";
+import cakewalletIcon from "../../../assets/wallets/icons/cakewallet.png";
+import tokenPocketIcon from "../../../assets/wallets/icons/tokenpocket.png";
+import cdpIcon from "../../../assets/wallets/icons/cdp.png";
 
 export const walletData = [
   {
@@ -192,15 +190,15 @@ export const walletData = [
     private_key_infrastructure: false,
   },
   {
-    name: "Capsule",
-    body: "Capsule’s goal is simple: make transacting onchain easier. Capsule handles the hard stuff for you, so you can get back to perfecting your product.",
-    website: "https://usecapsule.com/",
+    name: "Para",
+    body: "The most comprehensive wallet and authentication suite for crypto applications.",
+    website: "https://www.getpara.com/",
     additionalInfo:
       "Non-Custodial/Self Custodial • Token Extensions • Buy Crypto • Sell Crytpo • Hold NFTs • MPC • Gas Abstraction • Social recovery • Staking • Spending Limits • Open Source",
-    icon: capsuleIcon,
     new_to_crypto: false,
     developer: true,
     hardware: false,
+    icon: paraIcon,
     custodial: false,
     non_custodial: true,
     te: true,
@@ -931,4 +929,51 @@ export const walletData = [
     hardware: true,
     private_key_infrastructure: false,
   },
+  {
+    name: "CDP Wallets",
+    body: "Coinbase Developer Platform's API-based developer wallet that gives builders control without touching private keys.",
+    website: "https://www.coinbase.com/developer-platform/products/wallets",
+    additionalInfo:
+      "Non-Custodial/Self Custodial • Holds NFTs • Open Source • Private Key Infrastructure",
+    icon: cdpIcon,
+    custodial: false,
+    non_custodial: true,
+    te: false,
+    blinks_and_actions: false,
+    solana_pay: false,
+    buy_crypto: false,
+    sell_crypto: false,
+    hold_nfts: true,
+    mpc: false,
+    gas_abstraction: false,
+    social_recovery: false,
+    staking: false,
+    spending_limits: false,
+    open_source: true,
+    hardware: false,
+    private_key_infrastructure: true,
+  },
+  // {
+  //   name: "Passkeys.Foundation",
+  //   body: "Binance Web3 wallet is a keyless, seedless, multi-chain, semi-custody wallet designed for DeFi.",
+  //   website: "https://www.binance.com/en/web3wallet",
+  //   additionalInfo: "Non-Custodial/Self Custodial • Actions & Blinks • MPC • Gas Abstraction",
+  //   icon: defaultIcon,
+  //   custodial: false,
+  //   non_custodial: true,
+  //   te: false,
+  //   blinks_and_actions: true,
+  //   solana_pay: false,
+  //   buy_crypto: false,
+  //   sell_crypto: false,
+  //   hold_nfts: false,
+  //   mpc: true,
+  //   gas_abstraction: true,
+  //   social_recovery: false,
+  //   staking: false,
+  //   spending_limits: false,
+  //   open_source: false,
+  //   hardware: false,
+  //   private_key_infrastructure: false
+  // }
 ];

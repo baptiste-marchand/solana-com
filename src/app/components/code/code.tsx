@@ -15,6 +15,7 @@ import { wordWrap } from "./word-wrap";
 import { MultiCode } from "./code.client";
 import { tooltip } from "./tooltip";
 import { tokenTransitions } from "./token-transitions";
+import { RunnableLayout } from "./code.runnable";
 
 export async function Code(props: {
   codeblocks: RawCode[];
@@ -36,12 +37,14 @@ export function SingleCode({
   group: CodeGroup;
   className?: string;
 }) {
-  const { pre, title, code, icon } = group.tabs[0];
+  const { pre, title, code, icon, lang } = group.tabs[0];
+  const isRunnable = group.options.runnable;
 
-  return (
+  const content = (
     <div
       className={cn(
-        "tw-border rounded overflow-hidden my-4 relative border-ch-border flex flex-col",
+        "tw-border rounded overflow-hidden relative border-ch-border flex flex-col selection:bg-ch-selection",
+        isRunnable ? "h-full" : "my-4",
         className,
       )}
     >
@@ -53,10 +56,10 @@ export function SingleCode({
             "text-ch-tab-inactive-foreground text-sm font-mono",
           )}
         >
-          <div className="flex items-center gap-2 w-full h-5">
+          <div className="flex items-center w-full h-5 gap-2">
             <div className="size-4">{icon}</div>
             <span className="leading-none">{title}</span>
-            <div className="ml-auto mr-1 items-center">
+            <div className={cn("ml-auto mr-3 items-center flex")}>
               <CopyButton
                 text={code}
                 className="text-ch-tab-inactive-foreground"
@@ -72,6 +75,14 @@ export function SingleCode({
       )}
       {pre}
     </div>
+  );
+
+  return isRunnable ? (
+    <RunnableLayout code={code} language={lang} className={"my-4"}>
+      {content}
+    </RunnableLayout>
+  ) : (
+    content
   );
 }
 
@@ -89,6 +100,8 @@ export async function toCodeGroup(props: {
       const { flags, title } = extractFlags(tab);
       const tabOptions = flagsToOptions(flags);
       const options = { ...groupOptions, ...tabOptions };
+      // get the user_id from the users cookies
+
       const highlighted = await highlight(
         { ...tab, lang: tab.lang || "txt" },
         theme,
@@ -103,10 +116,11 @@ export async function toCodeGroup(props: {
         style: highlighted.style,
         code: highlighted.code,
         icon: <CodeIcon title={title} lang={tab.lang} />,
+        lang: tab.lang,
         pre: (
           <Pre
             code={highlighted}
-            className="overflow-auto px-0 py-3 m-0 rounded-none !bg-ch-background font-mono"
+            className="overflow-auto px-0 py-3 m-0 rounded-none !bg-ch-background font-mono selection:bg-ch-selection text-sm max-h-full"
             style={highlighted.style}
             handlers={handlers}
           />

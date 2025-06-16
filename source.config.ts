@@ -1,6 +1,7 @@
 import { defineConfig, defineDocs } from "fs-mdx/config";
+import { recmaCodeHike, remarkCodeHike } from "codehike/mdx";
+
 import { z } from "zod";
-import { remarkCodeHike, recmaCodeHike } from "codehike/mdx";
 
 const schema = z.custom<{
   title: string;
@@ -18,6 +19,7 @@ const schema = z.custom<{
 
 const docsData = defineDocs({
   dir: "content/docs",
+  localized: true,
   docs: { schema, async: true },
   output: "docs",
 });
@@ -33,15 +35,6 @@ const cookbookData = defineDocs({
 
 export const cookbook = cookbookData.docs;
 export const cookbookMeta = cookbookData.meta;
-
-const coursesData = defineDocs({
-  dir: "content/courses",
-  docs: { schema, async: true },
-  output: "courses",
-});
-
-export const courses = coursesData.docs;
-export const coursesMeta = coursesData.meta;
 
 const guidesData = defineDocs({
   dir: "content/guides",

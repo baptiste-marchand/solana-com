@@ -11,6 +11,7 @@ import { CopyButton } from "@/app/components/code/copy-button";
 import React from "react";
 import { useStateOrLocalStorage } from "@/hooks/useLocalStorage";
 import { CodeGroup } from "@/app/components/code/code-group";
+import { RunnableLayout } from "./code.runnable";
 
 export function MultiCode({
   group,
@@ -19,21 +20,24 @@ export function MultiCode({
   group: CodeGroup;
   className?: string;
 }) {
-  const [currentTitle, setCurrentTitle] = useStateOrLocalStorage(
+  const [storedTitle, setCurrentTitle] = useStateOrLocalStorage(
     group.storage,
     group.tabs[0].title,
   );
   const current =
-    group.tabs.find((tab) => tab.title === currentTitle) || group.tabs[0];
+    group.tabs.find((tab) => tab.title === storedTitle) || group.tabs[0];
 
   const { code } = current;
+  const currentTitle = current?.title;
+  const runnable = group.options.runnable;
 
-  return (
+  const tabs = (
     <Tabs
       value={currentTitle}
       onValueChange={setCurrentTitle}
       className={cn(
-        "border rounded selection:bg-ch-selection border-ch-border overflow-hidden my-4 relative flex flex-col",
+        "border rounded selection:bg-ch-selection border-ch-border overflow-hidden relative flex flex-col max-h-full min-h-0",
+        runnable ? "h-full" : "my-4",
         className,
       )}
     >
@@ -62,18 +66,27 @@ export function MultiCode({
           </TabsTrigger>
         ))}
         {group.options.copyButton && (
-          <div className={cn("ml-auto mr-3 items-center flex")}>
+          <div className={cn("ml-auto mr-3 items-center flex shrink-0")}>
             <CopyButton text={code} />
           </div>
         )}
       </TabsList>
-      <TabsContent
-        // key={meta}
-        value={current.title}
-        className="mt-0 contents min-h-0"
-      >
+      <TabsContent value={current.title} className="min-h-0 mt-0 flex flex-col">
         {current.pre}
       </TabsContent>
     </Tabs>
+  );
+
+  return runnable ? (
+    <RunnableLayout
+      code={current.code}
+      language={current.lang}
+      key={current.title}
+      className={"my-4"}
+    >
+      {tabs}
+    </RunnableLayout>
+  ) : (
+    tabs
   );
 }
