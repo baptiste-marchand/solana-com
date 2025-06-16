@@ -85,9 +85,7 @@ export default function Home() {
     },
   ];
 
-  const cards = cardsData.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
+  const cards = cardsData.map((card) => <Card key={card.src} card={card} />);
 
   return (
     <Layout>
@@ -103,6 +101,7 @@ export default function Home() {
         <Carousel titleKey="home.new.title" items={cards} />
 
         <YDeveloperResources
+          id="developer-resources"
           title={t("home.developer-resources.title")}
           subtitle={t("home.developer-resources.subtitle")}
           primaryButtonText={t("home.developer-resources.btn")}

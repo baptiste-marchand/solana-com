@@ -34,7 +34,7 @@ interface YDeveloperResourcesProps {
   id: string;
   title: string;
   subtitle?: string;
-  links: React.ReactNode;
+  links?: React.ReactNode;
   primaryButtonText?: string;
   primaryButtonUrl?: string;
   secButtonText?: string;
