@@ -827,10 +827,6 @@ export default {
       destination: "/docs/core/accounts",
     },
     {
-      source: "/developers/courses/:path*",
-      destination: "https://learn.blueshift.gg",
-    },
-    {
       source: "/developers/guides/intro/wallets-explained",
       destination: "/wallets",
     },
