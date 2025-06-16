@@ -60,16 +60,19 @@ const TVMert = () => {
       { threshold: 0.5 },
     );
 
-    if (video1Ref.current) {
-      observer.observe(video1Ref.current);
+    const video1 = video1Ref.current;
+    const video2 = video2Ref.current;
+
+    if (video1) {
+      observer.observe(video1);
     }
-    if (video2Ref.current) {
-      observer.observe(video2Ref.current);
+    if (video2) {
+      observer.observe(video2);
     }
 
     return () => {
-      if (video1Ref.current) observer.unobserve(video1Ref.current);
-      if (video2Ref.current) observer.unobserve(video2Ref.current);
+      if (video1) observer.unobserve(video1);
+      if (video2) observer.unobserve(video2);
     };
   }, [video1Ref, video2Ref]);
 
